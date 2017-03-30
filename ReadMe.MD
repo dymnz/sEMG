@@ -37,9 +37,7 @@
     - Woah
 
 ### Readings 
-[sEMG signal property](https://docs.google.com/presentation/d/1j7N44gfdRZYDZp8JlrIv_mfGXxhfv925Nk_ETe5trDQ/edit?usp=sharing)
-
-[Active electrode design](https://docs.google.com/presentation/d/1o4o_Otk5q0jGyL7rctB4WYEOh_Rm1VMepdIzW7R5j3A/edit?usp=sharing)
-
-[Additional circuit design](https://docs.google.com/presentation/d/1GJvZu7B9UVg2i4G1NfTHZUsHolxvhOIAVFU5KP-jUp8/edit?usp=sharing)
+* [sEMG signal property](https://docs.google.com/presentation/d/1j7N44gfdRZYDZp8JlrIv_mfGXxhfv925Nk_ETe5trDQ/edit?usp=sharing)
+* [Active electrode design](https://docs.google.com/presentation/d/1o4o_Otk5q0jGyL7rctB4WYEOh_Rm1VMepdIzW7R5j3A/edit?usp=sharing)
+* [Additional circuit design](https://docs.google.com/presentation/d/1GJvZu7B9UVg2i4G1NfTHZUsHolxvhOIAVFU5KP-jUp8/edit?usp=sharing)
 
