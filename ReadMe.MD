@@ -1,7 +1,6 @@
 ## sEMG Force/Gesture Detection & Application
 
-## Links
-[TODO list](https://github.com/dymnz/sEMG/issues)
+### [TODO list](https://github.com/dymnz/sEMG/issues)
 
 #### Feature
 * Forearm band with sEMG active electrode(s)
