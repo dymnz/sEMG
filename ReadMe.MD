@@ -12,15 +12,15 @@
 * Electrodes are fixed in place by hot melting glue
 
 ### Active Electrode
-* Follow previous design
+* Follow previous design:
 [Active electrode design](https://docs.google.com/presentation/d/1o4o_Otk5q0jGyL7rctB4WYEOh_Rm1VMepdIzW7R5j3A/edit?usp=sharing)
 
 ### Additional Circuit (LPF+HPF, Amp, Level-Shifter)
-* Follow previous design
+* Follow previous design:
 [Additional circuit design](https://docs.google.com/presentation/d/1GJvZu7B9UVg2i4G1NfTHZUsHolxvhOIAVFU5KP-jUp8/edit?usp=sharing)
  
 ### Work for 彭/陳
- 1. Repeat previous work: [single-channel sEMG acquisition circuit](https://docs.google.com/presentation/d/11IYvfBDf9Gm5g4vkAGl6tNFws104Yh6MHr-Pdmbg2KI/edit?usp=sharing)
+ 1. Repeat previous work: [Single-channel sEMG acquisition circuit](https://docs.google.com/presentation/d/11IYvfBDf9Gm5g4vkAGl6tNFws104Yh6MHr-Pdmbg2KI/edit?usp=sharing)
  2. Arduino ADC usage
     1. Sample rate?    
  2. Arduino <--> PC communication
@@ -38,6 +38,8 @@
 
 ### Readings 
 [sEMG signal property](https://docs.google.com/presentation/d/1j7N44gfdRZYDZp8JlrIv_mfGXxhfv925Nk_ETe5trDQ/edit?usp=sharing)
+
 [Active electrode design](https://docs.google.com/presentation/d/1o4o_Otk5q0jGyL7rctB4WYEOh_Rm1VMepdIzW7R5j3A/edit?usp=sharing)
+
 [Additional circuit design](https://docs.google.com/presentation/d/1GJvZu7B9UVg2i4G1NfTHZUsHolxvhOIAVFU5KP-jUp8/edit?usp=sharing)
 
