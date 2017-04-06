@@ -11,7 +11,7 @@ end
 
 %% Init all variables
 SerialPort='/dev/cu.usbmodem1411'; %serial port
-SampleSize = 3000;
+SampleSize = 10000;
 N = SampleSize;
 fs = 10000;         % Arduino sampling rate
 

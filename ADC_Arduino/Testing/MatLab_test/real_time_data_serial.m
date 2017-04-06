@@ -28,4 +28,6 @@ fclose(s);
 delete(s);
 clear s;
 
-scatter(1:1:SampleSize, storage);
+%% Plot
+% scatter(1:1:SampleSize, storage);
+plot([1:SampleSize], storage, '-o');
