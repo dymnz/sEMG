@@ -1,28 +1,31 @@
+% Read samples from serial port and plot the samples
+% Modified from code by Moidu thavot.
+
+
+%% Clear serial port connection
 clear all;   
 snew = instrfind;
-fclose(snew);
+if ~isempty(snew)
+    fclose(snew);
+end
 
-%%Variables (Edit yourself)
-
+%% Init all variables
 SerialPort='/dev/cu.usbmodem1411'; %serial port
-SampleSize = 10000;
-fs = 10000;
+SampleSize = 3000;
+N = SampleSize;
 
+%% Start reading
 s = serial(SerialPort, 'BaudRate', 115200);
 fopen(s);
-
 
 storage = zeros(SampleSize, 1);
 for i = 1 : SampleSize
     storage(i) = fscanf(s, '%d');
 end
-tElapsed = SampleSize/fs;
 
 %% Clean up the serial port
 fclose(s);
 delete(s);
 clear s;
-
-SPS = round(SampleSize/tElapsed);
 
 scatter(1:1:SampleSize, storage);
