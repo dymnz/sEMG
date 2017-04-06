@@ -6,20 +6,19 @@
 % serialPort variable. 
 % Author: Moidu thavot.
 
-%%Clear all variables
+%% Init all variables
 
 clear all;   
 snew = instrfind;
 fclose(snew);
-%%Variables (Edit yourself)
 
-SerialPort='/dev/cu.usbmodem1421'; %serial port
-SampleSize = 3000;
+SerialPort='/dev/cu.usbmodem1411'; %serial port
+SampleSize = 10000;
 
 s = serial(SerialPort, 'BaudRate', 115200);
 fopen(s);
 
-
+%% Start reading
 storage = zeros(SampleSize, 1);
 tStart = tic;
 for i = 1 : SampleSize
@@ -34,18 +33,21 @@ delete(s);
 clear s;
 
 
-   %% Time specifications:
-   StopTime = tElapsed*1000; 
-   Fs = SampleSize/StopTime;                      % samples per msecond
-   dt = 1/Fs;                     % mseconds per sample
-                    % seconds
-   t = (0:dt:StopTime-dt)';
-   N = size(t,1);
-   %% Fourier Transform:
-   X = fftshift(fft(storage));
-   %% Frequency specifications:
-   dF = Fs/N;                      % hertz
-   f = -Fs/2:dF:Fs/2-dF;           % hertz
-   %% Plot the spectrum:
-   figure;
-   plot(f,abs(X)/N);
+%% Time specifications:
+StopTime = tElapsed; 
+N = SampleSize;
+fs = 10000;      % samples per second
+
+%% Fourier Transform:
+% X = fftshift(fft(storage));
+X = fft(storage);
+f = (0:N-1)*(fs/N);     %frequency range
+power = abs(X).^2/N;    %power
+plot(f,power)
+
+
+% 
+% fshift = (-N/2:N/2-1)*(fs/N); % zero-centered frequency range
+% powershift = abs(X);     % zero-centered power
+% figure;
+% plot(fshift, powershift)

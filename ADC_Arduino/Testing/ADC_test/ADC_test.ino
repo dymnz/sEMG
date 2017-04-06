@@ -1,7 +1,8 @@
-int sampleCount = 0;
-int currentTime = 0;
-int lastTime = 0;
+#include <stdint.h>
+
+const int MaxSampleCount = 10000;
 char buffer[50];
+uint16_t samples[MaxSampleCount];
 
 void setup() {
   AdcBooster();
@@ -11,10 +12,11 @@ void setup() {
 }
 
 void loop() {
-  ReadSendMatlab();  // For testing using MatLab
+  //ReadSendMatlab();  // For testing using MatLab
   //ReadSend1();    // Test read 1-channel
   //ReadSend4();    // Test read 4-channel
   //ReadTimeTest(); // Test samples per second
+  ReadSendBatch(MaxSampleCount); // Batch send
 }
 
 void ReadSendMatlab()
@@ -22,6 +24,20 @@ void ReadSendMatlab()
   int sensorValue = analogRead(A0);  
   sprintf(buffer, "%d\r\n", sensorValue);
   SerialUSB.print(buffer);
+}
+  
+void ReadSendBatch(int MaxSampleCount)
+{
+  static int sampleCount = 0;
+  while (sampleCount < MaxSampleCount)
+    samples[sampleCount++] = analogRead(A0);
+    
+  
+  for (int i = 0 ; i < MaxSampleCount ; i++) {
+    sprintf(buffer, "%d\r\n", samples[i]);
+    SerialUSB.print(buffer);
+  }
+  
 }
   
 void ReadSend1()
@@ -43,6 +59,9 @@ void ReadSend4()
 
 void ReadTimeTest()
 {
+  static int currentTime = 0;
+  static int lastTime = 0;
+  static int sampleCount = 0;
   int sensorValue = analogRead(A0);
   
   sampleCount++;
@@ -62,7 +81,7 @@ void AdcBooster()
 {
   ADC->CTRLA.bit.ENABLE = 0;                     // Disable ADC
   while( ADC->STATUS.bit.SYNCBUSY == 1 );        // Wait for synchronization
-  ADC->CTRLB.reg = ADC_CTRLB_PRESCALER_DIV128 |   // Divide Clock by 64.
+  ADC->CTRLB.reg = ADC_CTRLB_PRESCALER_DIV512 |   // Divide Clock by 64.
                    ADC_CTRLB_RESSEL_12BIT;       // Result on 12 bits
   ADC->AVGCTRL.reg = ADC_AVGCTRL_SAMPLENUM_1 |   // 1 sample
                      ADC_AVGCTRL_ADJRES(0x00ul); // Adjusting result by 0
