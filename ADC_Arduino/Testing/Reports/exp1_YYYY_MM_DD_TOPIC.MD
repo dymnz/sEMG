@@ -1,0 +1,52 @@
+## Experiment N - YYYY/MM/DD
+
+### Result
+* #### Arduino <--> MatLab communication
+    * Communication via serial port with batch reading
+    * MatLab FFT checked
+    * Current sampling rate ~10KHz
+
+### Notes
+
+* #### Sampling rate change
+```   
+    ADC->CTRLB.reg = ADC_CTRLB_PRESCALER_DIV128 |   // Divide Clock by 64.
+                        ADC_CTRLB_RESSEL_12BIT;       // Result on 12 bits
+```
+
+Settings:
+```
+ADC_CTRLB_PRESCALER_DIV512  ~10k s/sec
+ADC_CTRLB_PRESCALER_DIV256  ~20k s/sec
+ADC_CTRLB_PRESCALER_DIV128  ~33k s/sec
+ADC_CTRLB_PRESCALER_DIV64   ~50k s/sec
+ADC_CTRLB_PRESCALER_DIV16   ~80k s/sec
+```
+*Why though?*
+
+* #### Sending Data
+Serial.print is very slow, largely affects sampling rate.
+The proper usage is to read a lot of samples and send them at once.
+`BatchSend(MaxSampleCount)`
+
+* #### Outputs are stable with sampling rate upto 10kHz(other sampling rate not tested)
+
+* #### AREF should be connected to onboard 5V 
+
+### Issue
+
+* #### Need to align `BatchSend()` with MatLab, so that the data isn't cut off.
+Send a character to Arduino to start gathering samples.
+
+* #### Dynamic memory
+Aruino M0 PRO has 32KB SRAM
+```
+-> 2B per sample 
+-> 16K samples at most
+@10KHz sampling rate, 1.6s of sample time
+```
+Needs delay between samples to drive the sampling rate down.
+
+### Next
+* Gather output from sEMG
+   * Levelshifter required
