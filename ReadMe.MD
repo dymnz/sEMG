@@ -10,10 +10,6 @@
 ## Plan
 #### Work for 彭/陳
  1. Repeat previous work: [Single-channel sEMG acquisition circuit](https://docs.google.com/presentation/d/11IYvfBDf9Gm5g4vkAGl6tNFws104Yh6MHr-Pdmbg2KI/edit?usp=sharing)
- 2. Arduino ADC usage
-    1. Sample rate?    
- 2. Arduino <--> PC communication
-    1. Serial port communication (Easy) or Bluetooth (Hard)
 
 #### Work for 王
 1. Armband/dry electrode test
