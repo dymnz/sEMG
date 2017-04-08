@@ -1,8 +1,9 @@
 #include <stdint.h>
 
-const int MaxSampleCount = 10000;
+const int MaxSampleCount = 3000;
 char buffer[50];
 uint16_t samples[MaxSampleCount];
+uint32_t interval[MaxSampleCount];
 
 void setup() {
   AdcBooster();
@@ -16,7 +17,24 @@ void loop() {
   //ReadSend1();    // Test read 1-channel
   //ReadSend4();    // Test read 4-channel
   //ReadTimeTest(); // Test samples per second
-  ReadSendBatch(MaxSampleCount); // Batch send
+  //ReadSendBatch(MaxSampleCount); // Batch send
+  ReadIntervalTest(MaxSampleCount);
+}
+
+void ReadIntervalTest(int MaxSampleCount)
+{
+  static int sampleCount = 1;
+  int current, last = 0;
+  while (sampleCount < MaxSampleCount){
+    current = micros();
+    interval[sampleCount++] = current - last;
+    last = current;
+  }
+  
+  for (int i = 3 ; i < MaxSampleCount ; i++) {
+    sprintf(buffer, "%d\r\n", interval[i]);
+    SerialUSB.print(buffer);
+  }
 }
 
 void ReadSendMatlab()

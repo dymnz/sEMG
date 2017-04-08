@@ -11,7 +11,7 @@ end
 
 %% Init all variables
 SerialPort='/dev/cu.usbmodem1411'; %serial port
-SampleSize = 3000;
+SampleSize = 1000;
 N = SampleSize;
 
 %% Start reading
