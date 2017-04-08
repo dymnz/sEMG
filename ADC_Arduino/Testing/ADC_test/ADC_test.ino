@@ -26,6 +26,7 @@ void ReadIntervalTest(int MaxSampleCount)
   static int sampleCount = 1;
   int current, last = 0;
   while (sampleCount < MaxSampleCount){
+    analogRead(A0);
     current = micros();
     interval[sampleCount++] = current - last;
     last = current;
