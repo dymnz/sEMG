@@ -2,6 +2,7 @@
 
 const int MaxSampleCount = 3000;
 char buffer[50];
+// TODO: Use define-option instead of function-option to reduce redundant memory
 uint16_t samples[MaxSampleCount];
 uint32_t interval[MaxSampleCount];
 
