@@ -17,9 +17,10 @@ void loop() {
   //ReadSendMatlab();  // For testing using MatLab
   //ReadSend1();    // Test read 1-channel
   //ReadSend4();    // Test read 4-channel
-  //ReadTimeTest(); // Test samples per second
+  ReadTimeTest1(); // Test samples per second (function call)
+  //ReadTimeTest2(); // Test samples per second (while loop)
   //ReadSendBatch(MaxSampleCount); // Batch send
-  ReadIntervalTest(MaxSampleCount);
+  //ReadIntervalTest(MaxSampleCount);
 }
 
 void ReadIntervalTest(int MaxSampleCount)
@@ -77,7 +78,7 @@ void ReadSend4()
   SerialUSB.print(buffer);
 }
 
-void ReadTimeTest()
+void ReadTimeTest1()
 {
   static int currentTime = 0;
   static int lastTime = 0;
@@ -94,6 +95,21 @@ void ReadTimeTest()
     SerialUSB.print("\t\r\n");
     sampleCount = 0;
   }
+}
+
+void ReadTimeTest2()
+{
+  int sampleCount = 0;
+  int sensorValue;
+  int startTime = millis();
+  
+  while(millis() - startTime < 1000) 
+  {
+    sensorValue = analogRead(A0);
+    sampleCount++;
+  }
+  
+  SerialUSB.println(sampleCount);
 }
 
 //https://forum.arduino.cc/index.php?topic=443173.0
