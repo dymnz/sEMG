@@ -17,8 +17,8 @@ void loop() {
   //ReadSendMatlab();  // For testing using MatLab
   //ReadSend1();    // Test read 1-channel
   //ReadSend4();    // Test read 4-channel
-  ReadTimeTest1(); // Test samples per second (function call)
-  //ReadTimeTest2(); // Test samples per second (while loop)
+  SamplingRateTest1(); // Test samples per second (function call)
+  //SamplingRateTest2(); // Test samples per second (while loop)
   //ReadSendBatch(MaxSampleCount); // Batch send
   //ReadIntervalTest(MaxSampleCount);
 }
@@ -78,7 +78,7 @@ void ReadSend4()
   SerialUSB.print(buffer);
 }
 
-void ReadTimeTest1()
+void SamplingRateTest1()
 {
   static int currentTime = 0;
   static int lastTime = 0;
@@ -97,7 +97,7 @@ void ReadTimeTest1()
   }
 }
 
-void ReadTimeTest2()
+void SamplingRateTest2()
 {
   int sampleCount = 0;
   int sensorValue;
