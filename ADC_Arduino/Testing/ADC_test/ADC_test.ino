@@ -121,7 +121,7 @@ void AdcBooster()
 {
   ADC->CTRLA.bit.ENABLE = 0;                     // Disable ADC
   while( ADC->STATUS.bit.SYNCBUSY == 1 );        // Wait for synchronization
-  ADC->CTRLB.reg = ADC_CTRLB_PRESCALER_DIV512 |   // Divide Clock by 64.
+  ADC->CTRLB.reg = ADC_CTRLB_PRESCALER_DIV512 |   // Divide Clock by N.
                    ADC_CTRLB_RESSEL_12BIT;       // Result on 12 bits
   ADC->AVGCTRL.reg = ADC_AVGCTRL_SAMPLENUM_1 |   // 1 sample
                      ADC_AVGCTRL_ADJRES(0x00ul); // Adjusting result by 0
