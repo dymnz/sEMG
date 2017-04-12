@@ -14,13 +14,14 @@ SerialPort='/dev/cu.usbmodem1411'; %serial port
 SampleSize = 10000;
 N = SampleSize;
 fs = 10000;         % Arduino sampling rate
-
 storage = zeros(SampleSize, 1);
+
 
 %% Start reading
 s = serial(SerialPort, 'BaudRate', 115200);
 fopen(s);
 
+fprintf(s,'g'); % Signal Arduino to start
 for i = 1 : SampleSize
       
     storage(i) = fscanf(s, '%d');

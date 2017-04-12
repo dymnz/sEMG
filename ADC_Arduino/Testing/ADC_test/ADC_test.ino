@@ -1,10 +1,7 @@
 #include <stdint.h>
 
-const int MaxSampleCount = 3000;
+const int MaxSampleCount = 10000;
 char buffer[50];
-// TODO: Use define-option instead of function-option to reduce redundant memory
-uint16_t samples[MaxSampleCount];
-uint32_t interval[MaxSampleCount];
 
 void setup() {
   AdcBooster();
@@ -14,21 +11,26 @@ void setup() {
 }
 
 void loop() {
+  // Wait until Matlab signals start
+  while(SerialUSB.read() == -1);
+  
   //ReadSendMatlab();  // For testing using MatLab
   //ReadSend1();    // Test read 1-channel
   //ReadSend4();    // Test read 4-channel
-  SamplingRateTest1(); // Test samples per second (function call)
+  //SamplingRateTest1(); // Test samples per second (function call)
   //SamplingRateTest2(); // Test samples per second (while loop)
-  //ReadSendBatch(MaxSampleCount); // Batch send
-  //ReadIntervalTest(MaxSampleCount);
+  ReadSendBatch(); // Batch send
+  //ReadIntervalTest();
 }
 
-void ReadIntervalTest(int MaxSampleCount)
+void ReadIntervalTest()
 {
+  static uint8_t interval[MaxSampleCount];
   static int sampleCount = 1;
+  
   int current, last = 0;
   while (sampleCount < MaxSampleCount){
-    analogRead(A0);
+    //analogRead(A0);
     current = micros();
     interval[sampleCount++] = current - last;
     last = current;
@@ -47,12 +49,14 @@ void ReadSendMatlab()
   SerialUSB.print(buffer);
 }
   
-void ReadSendBatch(int MaxSampleCount)
+void ReadSendBatch()
 {
+  static uint16_t samples[MaxSampleCount];
   static int sampleCount = 0;
-  while (sampleCount < MaxSampleCount)
+  while (sampleCount < MaxSampleCount) {
     samples[sampleCount++] = analogRead(A0);
-    
+    delay(1);
+  }
   
   for (int i = 0 ; i < MaxSampleCount ; i++) {
     sprintf(buffer, "%d\r\n", samples[i]);
