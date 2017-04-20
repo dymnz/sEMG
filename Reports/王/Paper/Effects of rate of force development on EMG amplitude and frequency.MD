@@ -2,6 +2,16 @@
 
 #### To compare the median frequency and amplitude of Ramp/Ballistic contraction sEMG
 
+
+### Keypoint
+* Onset
+    - Ballistic: High amplitude and frequency (ie. median frequency)
+    - Ramp: Low amplitude and low frequency
+* Trend
+    - Ramp: Amplitude increase linearly with isometric force. Frequency seems to increase
+    - Ballistic: Amplitude seems to decrease over time. Frequency remains the same
+* Many results are statistically insignificant
+
 ### Word
 
 * Gastrocnemius muscle: Meaning "stomach of leg"
@@ -16,8 +26,7 @@
 
 ### General
 * Different muscle activation pattern between Ramp and Ballistic
-
-* Ballistic RFD >
+* Ballistic RFD > Ramp RFD
 
 ### Ramp contraction
 * Asynchronized MU recruitment
