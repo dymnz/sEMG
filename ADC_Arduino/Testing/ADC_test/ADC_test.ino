@@ -30,7 +30,7 @@ void ReadIntervalTest()
   
   int current, last = 0;
   while (sampleCount < MaxSampleCount){
-    //analogRead(A0);
+    analogRead(A0);
     current = micros();
     interval[sampleCount++] = current - last;
     last = current;
@@ -55,7 +55,6 @@ void ReadSendBatch()
   static int sampleCount = 0;
   while (sampleCount < MaxSampleCount) {
     samples[sampleCount++] = analogRead(A0);
-    delay(1);
   }
   
   for (int i = 0 ; i < MaxSampleCount ; i++) {
@@ -88,7 +87,6 @@ void SamplingRateTest1()
   static int lastTime = 0;
   static int sampleCount = 0;
   int sensorValue = analogRead(A0);
-  
   sampleCount++;
   currentTime = millis();
   
