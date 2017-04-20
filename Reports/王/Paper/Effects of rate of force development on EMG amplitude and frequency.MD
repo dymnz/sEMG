@@ -11,7 +11,8 @@
 * Isotonic contractions: Generate force by changing the length of the muscle and can be concentric contractions or eccentric contractions.
 * Isometric contractions: Generate force without changing the length of the muscle.
 * Median frequency: Frequency that splits the power spectrum into two equal parts
-* MVC? CNS?
+* MVC: Maximum voluntary contraction
+* CNS: Central nervous system
 
 ### General
 * Different muscle activation pattern between Ramp and Ballistic
