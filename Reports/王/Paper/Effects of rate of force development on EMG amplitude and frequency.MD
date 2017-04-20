@@ -10,7 +10,7 @@
 * Trend
     - Ramp: Amplitude increase linearly with isometric force. Frequency seems to increase
     - Ballistic: Amplitude seems to decrease over time. Frequency remains the same
-* Many results are statistically insignificant
+* Many results are statistically insignificant, where *seems* is used
 
 ### Word
 
