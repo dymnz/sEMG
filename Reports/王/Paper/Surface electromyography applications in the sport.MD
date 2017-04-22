@@ -13,7 +13,7 @@
 * A change in the relative position of the muscle in relation to the electrode means that the same spatial relationship is not maintained between them, which affects the intensity of the signal that is recorded. **Because of this, the best conditions for carrying out an SEMG, depending on the use and application required, are those that are similar to those needed for an isometric type of study**
 
 ### Word
-sEMG: AKA kinesiological electromyography
+* sEMG: AKA kinesiological electromyography
 
 
 ### General
