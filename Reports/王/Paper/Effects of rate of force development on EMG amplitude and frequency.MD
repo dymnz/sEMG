@@ -5,11 +5,12 @@
 
 ### Keypoint
 * Onset
-    - Ballistic: High amplitude and frequency (ie. median frequency)
+    - Ballistic: High amplitude and frequency (i.e. median frequency)
     - Ramp: Low amplitude and low frequency
 * Trend
-    - Ramp: Amplitude increase linearly with isometric force. Frequency seems to increase
     - Ballistic: Amplitude seems to decrease over time. Frequency remains the same
+    - Ramp: Amplitude increase linearly with isometric force(torque). Frequency seems to increase
+    
 * Many results are statistically insignificant, where *seems* is used
 
 ### Word
@@ -34,12 +35,10 @@
 * Size principle
 * Amplitude and frequency increase linearly with isometric force
 
-
 ### Ballistic contraction
 * Synchronized MU recruitment
 * Synchronization increase frequency, decrease amplitude on sEMG
 * Higher max amplitude
-* 
 
 ### Note
 * Gain=1000, -3dB: 16~500, 1kHz ADC
