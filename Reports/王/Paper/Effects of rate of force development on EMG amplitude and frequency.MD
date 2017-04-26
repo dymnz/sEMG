@@ -2,6 +2,7 @@
 
 #### To compare the median frequency and amplitude of Ramp/Ballistic contraction sEMG
 
+#### 5/10
 
 ### Keypoint
 * Onset

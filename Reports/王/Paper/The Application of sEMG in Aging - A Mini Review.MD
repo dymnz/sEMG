@@ -1,6 +1,8 @@
 ### The Application of sEMG in Aging : A Mini Review
 
-#### "This short review aims to briefly inform the reader of the latest developments in this field and to provide possible applications of interest in aging"
+#### "This short review aims to briefly inform the reader of the latest developments in this field and to provide possible applications of interest in aging". Packed with information. 
+
+#### 9/10
 
 
 ### Keypoint        

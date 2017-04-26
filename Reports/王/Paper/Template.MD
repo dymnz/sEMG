@@ -1,6 +1,8 @@
 ### Title of the paper
 
-#### What the paper is about
+#### What the paper is about; thoughts
+
+#### Score, ?/10
 
 ### Keypoint, quotes and points   
 
