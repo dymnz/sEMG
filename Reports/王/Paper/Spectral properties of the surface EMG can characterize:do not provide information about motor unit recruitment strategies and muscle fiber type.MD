@@ -30,11 +30,11 @@
 6. The pulse train, whether repetitive or random, adds noise to the MUAP’s power spectrum.
     * Of course
 7. The filtered power spectrum represents a weighted overlay of the power spectra of the selected MUs (11).
-    * 
+    * Of course
 8. Synchronization downshifts the power spectrum.
-    *
+    * Frequency downshifts, makes sense
 9. Time resolution limits frequency resolution (6).
-    *
+    * Phyiscs
 
 
 ### Word
