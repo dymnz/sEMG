@@ -13,6 +13,7 @@
   - ... a **reference electrode has to be positioned far from the recording area and on electrically neutral tissue.** For this, areas close to a bone plane(?) are usually chosen, such as for example the tibial diaphysis or the cubital styloids in the wrist.
 * sEMG signal processing
   - Pope et al carried out a study of the extensor musculature of the vertebral column at level L3,  finding that the **wavelet detects the variations in muscular activity over time better than FFT**.
+* Fatigue
   - ... in situations of **fatigue through prolonged effort, where the spectrum tends to be displaced towards the left on the graph, to lower frequency** values.
 * sEMG in general
   - A change in the relative position of the muscle in relation to the electrode means that the same spatial relationship is not maintained between them, which affects the intensity of the signal that is recorded. **Because of this, the best conditions for carrying out an SEMG, depending on the use and application required, are those that are similar to those needed for an isometric type of study**
