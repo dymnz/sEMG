@@ -12,7 +12,7 @@
     - Ballistic: Amplitude *seems* to decrease over time. Frequency remains the same
     - Ramp: Amplitude increase linearly with isometric force(torque). Frequency *seems* to increase
     
-* Many results are statistically insignificant, where *seems* is used
+* Many results are Non-statistically significant, where *seems* is used
 
 ### Word
 
