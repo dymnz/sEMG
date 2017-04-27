@@ -9,8 +9,8 @@
     - Ballistic: High amplitude and frequency (i.e. median frequency)
     - Ramp: Low amplitude and low frequency
 * Trend
-    - Ballistic: Amplitude seems to decrease over time. Frequency remains the same
-    - Ramp: Amplitude increase linearly with isometric force(torque). Frequency seems to increase
+    - Ballistic: Amplitude *seems* to decrease over time. Frequency remains the same
+    - Ramp: Amplitude increase linearly with isometric force(torque). Frequency *seems* to increase
     
 * Many results are statistically insignificant, where *seems* is used
 
