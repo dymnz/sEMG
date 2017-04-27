@@ -24,6 +24,7 @@
 * Fatigue
     - During sustained fatiguing con- tractions the **power spectrum changes as a sign of myoelectric manifestations of muscle fatigue**.
     - ...**when only bipolar configuration is available, spectral variables can be used to provide an overall index of muscle fatigue**. When **multichannel sEMG** is available, **muscle fiber CV should be preferred to spectral variables**. 
+    - ... **mean/median frequency time course during fatiguing contractions should show a steeper decrease if the muscle is characterized by a higher proportion of fast fibers (type II)** than slow fibers (type I). 
     - The **rate of decrease of power spectrum parameters has been observed to be greater in young people than in elderly people during submaximal isometric contractions** in many experimental setups [19].  
 * Aging
     - The **decrease of neuromuscular power and rate of force development with age** have been shown to have severe consequences, such as **increasing the risk of fall and disability, and decreasing autonomy maintenance** [13].
