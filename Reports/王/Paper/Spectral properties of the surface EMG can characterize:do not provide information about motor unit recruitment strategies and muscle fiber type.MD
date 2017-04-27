@@ -38,7 +38,7 @@
 
 
 ### Word
-* Fiber type, type I/II muscle: Fast/slow twitch muscle, classified based on the rate of myofibrilar ATPase reaction
+* Fiber type, type II/I muscle: Fast/slow twitch muscle, classified based on the rate of myofibrilar ATPase reaction (The paper is misleading)
 * **[Rate coding pattern](https://en.wikipedia.org/wiki/Neural_coding#Rate_coding)**: The rate coding model of neuronal firing communication states that as the intensity of a stimulus increases, the frequency or rate of action potentials, or "spike firing", increases. Rate coding is sometimes called frequency coding. **Rate coding is a traditional coding scheme, assuming that most, if not all, information about the stimulus is contained in the firing rate of the neuron.**
 
 
