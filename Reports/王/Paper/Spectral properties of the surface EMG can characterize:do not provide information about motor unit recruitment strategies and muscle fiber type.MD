@@ -1,8 +1,8 @@
 ### Spectral properties of the surface EMG can characterize/do not provide information about motor unit recruitment strategies and muscle fiber type
 
-#### Nice opening with definitions.
+#### Nice opening with definitions. Insights on sEMG muscle recruitment and spectral proprety.
 
-#### ?/10
+#### 9/10
 
 ### Conclusion (quotes)
 The major statements of this publication are that 
