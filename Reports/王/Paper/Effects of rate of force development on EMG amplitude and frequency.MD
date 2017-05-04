@@ -38,7 +38,7 @@
 
 ### Ballistic contraction
 * Synchronized MU recruitment
-* Synchronization increase frequency, decrease amplitude on sEMG
+* Synchronization increase amplitude, decrease frequency on sEMG
 * Higher max amplitude
 
 ### Note
