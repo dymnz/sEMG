@@ -12,7 +12,7 @@ end
 
 %% Init all variables
 SerialPort='/dev/cu.usbmodem1411'; %serial port
-SampleSize = 10000;
+SampleSize = 1000;
 N = SampleSize;
 storage = zeros(SampleSize, 1);
 
@@ -32,4 +32,6 @@ clear s;
 
 %% Plot
 plot([1:SampleSize], storage, '-o');
+ax = gca;
+ax.YLim = [0 4096];
 

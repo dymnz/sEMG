@@ -1,6 +1,6 @@
 #include <stdint.h>
 
-const int MaxSampleCount = 10000;
+const int MaxSampleCount = 1000;
 char buffer[50];
 
 void setup() {
@@ -19,18 +19,27 @@ void loop() {
   //ReadSend4();    // Test read 4-channel
   //SamplingRateTest1(); // Test samples per second (function call)
   //SamplingRateTest2(); // Test samples per second (while loop)
-  ReadSendBatch(); // Batch send
-  //ReadIntervalTest();
+  //ReadSendBatch(); // Batch send
+  ReadIntervalTest();
+}
+
+void delaymicros(unsigned long us)
+{
+     unsigned long start = micros();
+     
+     while (micros() - start < us)
+           ;
 }
 
 void ReadIntervalTest()
 {
-  static uint8_t interval[MaxSampleCount];
+  static uint16_t interval[MaxSampleCount];
   static int sampleCount = 1;
   
   int current, last = 0;
   while (sampleCount < MaxSampleCount){
     analogRead(A0);
+    delaymicros(400);
     current = micros();
     interval[sampleCount++] = current - last;
     last = current;
@@ -55,6 +64,7 @@ void ReadSendBatch()
   static int sampleCount = 0;
   while (sampleCount < MaxSampleCount) {
     samples[sampleCount++] = analogRead(A0);
+    delayMicroseconds(500);
   }
   
   for (int i = 0 ; i < MaxSampleCount ; i++) {

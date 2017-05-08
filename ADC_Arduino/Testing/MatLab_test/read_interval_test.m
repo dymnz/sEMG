@@ -11,7 +11,7 @@ end
 
 %% Init all variables
 SerialPort='/dev/cu.usbmodem1411'; %serial port
-SampleSize = 3000;
+SampleSize = 1000;
 N = SampleSize;
 storage = zeros(SampleSize, 1);
 
@@ -44,7 +44,7 @@ plot(linspace(minV,maxV, maxV-minV+1), a, '-o');
 ylim([0 1]);
 
 
-title('micros() call interval prob.', 'FontSize', 20)
+title('analogRead() interval prob.', 'FontSize', 20)
 xlabel('microseconds', 'FontSize', 20)
 ylabel('prob', 'FontSize', 20)
 
