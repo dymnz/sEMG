@@ -38,8 +38,8 @@ void ReadIntervalTest()
   
   int current, last = 0;
   while (sampleCount < MaxSampleCount){
-    analogRead(A0);
-    delaymicros(400);
+    //analogRead(A0);
+    delayMicroseconds(400);
     current = micros();
     interval[sampleCount++] = current - last;
     last = current;

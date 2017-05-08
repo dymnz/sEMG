@@ -44,7 +44,7 @@ plot(linspace(minV,maxV, maxV-minV+1), a, '-o');
 ylim([0 1]);
 
 
-title('analogRead() interval prob.', 'FontSize', 20)
+title('micros() call prob.', 'FontSize', 20)
 xlabel('microseconds', 'FontSize', 20)
 ylabel('prob', 'FontSize', 20)
 
