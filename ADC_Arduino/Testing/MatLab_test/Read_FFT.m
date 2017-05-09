@@ -13,7 +13,7 @@ end
 SerialPort='/dev/cu.usbmodem1411'; %serial port
 SampleSize = 1000;
 N = SampleSize;
-fs = 1000;         % Arduino sampling rate
+fs = 2000;         % Arduino sampling rate
 storage = zeros(SampleSize, 1);
 
 

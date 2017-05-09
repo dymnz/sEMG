@@ -19,8 +19,8 @@ void loop() {
   //ReadSend4();    // Test read 4-channel
   //SamplingRateTest1(); // Test samples per second (function call)
   //SamplingRateTest2(); // Test samples per second (while loop)
-  //ReadSendBatch(); // Batch send
-  ReadIntervalTest();
+  ReadSendBatch(); // Batch send
+  //ReadIntervalTest();
 }
 
 void delaymicros(unsigned long us)
@@ -39,7 +39,7 @@ void ReadIntervalTest()
   int current, last = 0;
   while (sampleCount < MaxSampleCount){
     //analogRead(A0);
-    delayMicroseconds(400);
+    delaymicros(400);
     current = micros();
     interval[sampleCount++] = current - last;
     last = current;
@@ -64,7 +64,7 @@ void ReadSendBatch()
   static int sampleCount = 0;
   while (sampleCount < MaxSampleCount) {
     samples[sampleCount++] = analogRead(A0);
-    delayMicroseconds(500);
+    delaymicros(400);
   }
   
   for (int i = 0 ; i < MaxSampleCount ; i++) {
