@@ -1,9 +1,12 @@
-
 ### Note
 * The signals are captured w/ 5kHz sampling rate
     - Can be reduce to 2kHz
 * The voltage source provided is +-10V
 * The voltage range of NI DAQ is +-10V
+
+### Usage
+Please refer to [Signal plotting example](https://github.com/dymnz/sEMG/tree/master/ADC_NI_DAQ/Signal%20plotting%20example) for Matlab
+
 
 ### List
 1. Still - Full Force - Full Force - Full Force Short
