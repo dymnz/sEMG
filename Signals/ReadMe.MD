@@ -11,15 +11,15 @@ Please refer to [Signal plotting example](https://github.com/dymnz/sEMG/tree/mas
 ### List
 1. Still - Full Force - Full Force - Full Force Short
 
-<p align="center"><img src="https://raw.githubusercontent.com/dymnz/sEMG/master/Signals/1.png" alt="request_status"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/dymnz/sEMG/master/Signals/pics/1.png" alt="request_status"></p>
 
 2. Still - Ramp - Ramp - Ramp
 
-<p align="center"><img src="https://raw.githubusercontent.com/dymnz/sEMG/master/Signals/2.png" alt="request_status"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/dymnz/sEMG/master/Signals/pics/2.png" alt="request_status"></p>
 
 3. Hang and roll - Hang and roll - 50% force - Full force
 
-<p align="center"><img src="https://raw.githubusercontent.com/dymnz/sEMG/master/Signals/3.png" alt="request_status"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/dymnz/sEMG/master/Signals/pics/3.png" alt="request_status"></p>
 
 
 
