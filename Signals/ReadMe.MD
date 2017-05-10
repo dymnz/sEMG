@@ -21,5 +21,12 @@ Please refer to [Signal plotting example](https://github.com/dymnz/sEMG/tree/mas
 
 <p align="center"><img src="https://raw.githubusercontent.com/dymnz/sEMG/master/Signals/pics/3.png" alt="request_status"></p>
 
+4. [Dry electrode w/ elastic band] Still til 3 second - Hang and roll til 10 second - full force
+
+<p align="center"><img src="https://raw.githubusercontent.com/dymnz/sEMG/master/Signals/pics/4.png" alt="request_status"></p> 
+
+5. [The usual foam electrode] Still til 3 second - Hang and roll til 10 second - full force
+
+<p align="center"><img src="https://raw.githubusercontent.com/dymnz/sEMG/master/Signals/pics/5.png" alt="request_status"></p> 
 
 

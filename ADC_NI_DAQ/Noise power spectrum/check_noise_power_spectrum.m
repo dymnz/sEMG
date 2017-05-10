@@ -9,8 +9,8 @@ Length = length(NoiseRange);
 datamat = lvmread(strcat(file_path, filename));
 noise = datamat(NoiseRange, 2);
 
-% Plot
-%plot(noise);
+% Plot the original signal
+plot(noise);
 
 title(sprintf('sEMG singal: %s', filename), 'FontSize', 20);
 xlabel('samples', 'FontSize', 20); ylabel('voltage (V)', 'FontSize', 20)
