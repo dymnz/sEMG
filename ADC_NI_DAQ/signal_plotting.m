@@ -1,7 +1,7 @@
 
 file_path = '/Users/wangshunxing/Work/PortableSEMG/Signals/';
 
-filename = '1.lvm';
+filename = '3.lvm';
 
 % [num,txt,raw] = xlsread(strcat(file_path, filename));
 datamat = lvmread(strcat(file_path, filename));
