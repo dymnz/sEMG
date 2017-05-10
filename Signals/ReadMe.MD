@@ -7,11 +7,16 @@
 
 ### List
 1. Still - Full Force - Full Force - Full Force Short
-![](https://raw.githubusercontent.com/dymnz/sEMG/master/Signals/1.png)
+
+<p align="center"><img src="https://raw.githubusercontent.com/dymnz/sEMG/master/Signals/1.png" alt="request_status"></p>
+
 2. Still - Ramp - Ramp - Ramp
-![](https://raw.githubusercontent.com/dymnz/sEMG/master/Signals/2.png)
+
+<p align="center"><img src="https://raw.githubusercontent.com/dymnz/sEMG/master/Signals/2.png" alt="request_status"></p>
+
 3. Hang and roll - Hang and roll - 50% force - Full force
-![](https://raw.githubusercontent.com/dymnz/sEMG/master/Signals/3.png)
+
+<p align="center"><img src="https://raw.githubusercontent.com/dymnz/sEMG/master/Signals/3.png" alt="request_status"></p>
 
 
 
