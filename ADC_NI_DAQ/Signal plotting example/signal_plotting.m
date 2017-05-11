@@ -1,6 +1,6 @@
 % Constant
 file_path = '/Users/wangshunxing/Work/PortableSEMG/Signals/';
-filename = '5.lvm';
+filename = '1.lvm';
 SamplingRate = 5000; % 5kHz Sampling rate
 
 % Read data from .lvm

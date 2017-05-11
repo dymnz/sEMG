@@ -2,7 +2,8 @@
 file_path = '/Users/wangshunxing/Work/PortableSEMG/Signals/';
 filename = '1.lvm';
 fs = 5000; % 5kHz Sampling rate
-NoiseRange = [1:10000];
+StartT = 3; EndT = 6;
+NoiseRange = [StartT*fs:1:EndT*fsg];
 Length = length(NoiseRange);
 
 % Read data from .lvm
