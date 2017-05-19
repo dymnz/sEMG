@@ -8,7 +8,7 @@
     * Added two KK connector
    
 ### Notes
-* #### None
+* #### AED casing design #12
 
 ### Issue
 * #### None
@@ -17,4 +17,5 @@
 * #### Fri 7pm, 2017/05/26
     * DAQ test
     * Arduino test
+    * Update on AED casing design
     * Check my own DC level
