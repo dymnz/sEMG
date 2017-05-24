@@ -1,13 +1,13 @@
-### Title of the paper
+### Title
 
-#### What the paper is about; thoughts
+#### thoughts
 
-#### Score, ?/10
+#### ?/10
 
-### Keypoint, quotes and points   
+### Keypoint 
 
-### Word, AKA vocabulary
+### Word
 
-### General, misc
+### General
 
-### Spinoff, interesting referenced papers
+### Spinoff
