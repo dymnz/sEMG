@@ -7,7 +7,13 @@
 1. Gather 20 demix matrices with different initial condition
 2. Calculate the mutual correlation of estimated sources to form similarity matrix
 3. Clustering of estimated sources with similarity
-4. Reduce the number of sensor required by choosing a prototype in each cluster
+4. Reduce the number of sensor required by choosing a prototype in each cluster ???
+
+
+A natural measure of similarity between the estimated independent components is the absolute value of their mutual correlation coefficients rij, i, j = 1,...,K. Straightforward calculations show that they can be efficiently computed by simple matrix multipli- cation. In fact, each correlation is given by one element of the matrix **R = WC(WˆT)** where C is the covariance matrix of the original data X (this is exactly true in the case of different initial points;
+
+
+
  
 * R-index automatically determine the optimal cluster
 
