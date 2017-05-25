@@ -6,8 +6,8 @@
 #### My understanding of Icasso
 1. Gather 20 demix matrices with different initial condition
 2. Calculate the mutual correlation of estimated sources to form similarity matrix
-3. Clustering of demix matrices with similarity
-4. Reduce the number of sensor required by eliminating closely related sensor cluster
+3. Clustering of estimated sources with similarity
+4. Reduce the number of sensor required by choosing a prototype in each cluster
  
 * R-index automatically determine the optimal cluster
 
