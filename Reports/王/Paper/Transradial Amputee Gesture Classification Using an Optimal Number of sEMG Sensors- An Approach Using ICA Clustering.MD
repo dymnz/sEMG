@@ -1,6 +1,6 @@
 ### Transradial Amputee Gesture Classification Using an Optimal Number of sEMG Sensors: An Approach Using ICA Clustering
 
-#### thoughts
+#### Sensor reduction using ICA Clustering (Icasso package): "The main aim of this study is to propose a novel myoelec- tric classification scheme using a minimum number of EMG sensors."
 
 
 #### My understanding of Icasso
@@ -11,18 +11,37 @@
  
 * R-index automatically determine the optimal cluster
 
+#### Two strategies are used in this study: 
+1) usage of Icasso [24] to cluster the number of similar muscle activities (sensors) as groups and 2) a maximum number of times the sensors appeared in the cluster. The features extracted from the reduced sEMG sensors are then classified using **linear discriminant analysis (LDA)** to identify movements associated with the different finger gestures for five transradial amputees.
+
+
 #### ?/10
 
 ### Keypoint 
 * Sensor reduction
     * ... **sequential forward selec- tion (SFS)** method [16]. The method selects the best single sensor for classification and then adds one sensor at a time that can maximize classification performance in combination with the selected sensors.
     * **SFS** algorithm cannot remove the already selected features that may become obsolete after the addition of other candidate features (or sensors). 
+    * **Multiclass common spatial pattern (MCCSP)**
+    * **Fisher-Markov selector (FMS)**
+* ICA
+    * Extracting most reliable information from the ICA algorithms is always a challenging task, because they (most algorithms) have random (stochastic) elements [23]. 
+    * ICA Clustering: t a tight cluster of estimates is considered to be a candidate for including a “good” estimate. A centroid of such a cluster is considered a more reliable estimate than any estimate from an arbitrary run [24].
+    * Icasso is being used to find the underlying sEMG sources and to find a subset of useful elec- trodes contributing to those sources.
+
+* Icasso
+    * Icasso algorithm was utilized to select the best four EMG sensors responsible for amputee finger gestures.
+    * Each estimated IC is one point in the space. If an IC is reliable, (almost) every run of the algorithm should produce a point that is very close to the ideal component corresponding to the cluster center. Thus, reli- able independent components correspond to tight clusters, and unreliable ones correspond to points which do not belong to any cluster. 
+    * Icasso collects the ICs estimated from all runs and then **matches components across runs by clustering components based on the absolute value of the correlation between squared source estimates**. 
+    *  The number of clusters in the data was automatically selected with the **R-index [24]**.
+    *  Each cluster was uniquely represented by a single centrotype ICA-estimate, which is just **an estimate in the cluster that has the maximum sum of similarities to other points in the cluster**.
+
+* Gesture
+    *  Thumb adduction was discarded in the data recording, because the muscles responsible for thumb adduction lie in the hand itself and it cannot be decoded from the upper forearm.
 
 
 ### Word
 * Hierarchical clustering: 
     * Agglomerative: This is a "bottom up" approach: each observation starts in its own cluster, and pairs of clusters are merged as one moves up the hierarchy.
-
     * Divisive: This is a "top down" approach: all observations start in one cluster, and splits are performed recursively as one moves down the hierarchy.
 
 
