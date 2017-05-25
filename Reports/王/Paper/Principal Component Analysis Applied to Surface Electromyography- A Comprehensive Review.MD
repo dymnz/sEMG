@@ -8,7 +8,12 @@
 * Factor analysis 
     * principal component analysis (PCA), independent component analysis (ICA), singular value decomposition (SVD), and non-negative matrix factorization (NMF) 
 
+
+* Motor Unit
+    * **A muscle consists of a large number of muscle fibers, which are grouped into several motor units (MUs).** An MU is regarded as the basic level of the neuro motor system of a muscle. All the muscle fibers that belong to an MU are controlled by a single motor neuron as shown in Fig. 1
+
 * Signal
+    * **A motor neuron stimulates the muscle fibers by sending out the nerve action potential,** which travels along the axon towards the muscle fibers. Notwithstanding the fact that the same action potential triggers a set of muscle fibers, their stimulation varies in time, since the **axon branch to individual muscle fibers differs in length. This time difference between the activation of muscle fibers is known as jitter.** 
     * ...the body tissues jointly act as an imperfect insulator with low- pass filter characteristics, and therefore tend to attenuate the high frequency components of the acquired signal 
     * ...the amplitude of the sEMG signal turns out to be pseudo-random, and its probability distribution function resembles a Gaussian function [15], [39], [40].
     * An important sEMG processing is the extraction of multiple muscle activities called *synergy features* that would reveal coordination patterns in the myoelectric signals. These features are proven useful when dealing with multiple DoF as they could explain the coordination among various muscles.
