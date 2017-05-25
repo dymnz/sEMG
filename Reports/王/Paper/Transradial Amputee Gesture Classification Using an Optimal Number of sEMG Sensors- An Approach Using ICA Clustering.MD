@@ -19,7 +19,7 @@
 
 ### Keypoint 
 * Sensor reduction
-    * ... **sequential forward selec- tion (SFS)** method [16]. The method selects the best single sensor for classification and then adds one sensor at a time that can maximize classification performance in combination with the selected sensors.
+    * ... **sequential forward selection (SFS)** method [16]. The method selects the best single sensor for classification and then adds one sensor at a time that can maximize classification performance in combination with the selected sensors.
     * **SFS** algorithm cannot remove the already selected features that may become obsolete after the addition of other candidate features (or sensors). 
     * **Multiclass common spatial pattern (MCCSP)**
     * **Fisher-Markov selector (FMS)**
