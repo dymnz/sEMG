@@ -15,14 +15,14 @@
     
 
 * Force
-    * As exemplified in [15] and [40], the ampli- tude and spectral information of sEMG provide cues to esti- mate the muscle force and muscle voluntary contractions.
+    * As exemplified in [15] and [40], the amplitude and spectral information of sEMG provide cues to esti- mate the muscle force and muscle voluntary contractions.
 
 * Fatigue
     *  In a contraction that generates a constant force, namely, the isotonic contraction, the activation pattern switches from one MU to another so that the MU can evade from growing fatigue [37], [38].
 
 * PCA
     *  PCA has been employed to determine the most important factors that contribute to the sources of variation in movement patterns [5], [25].
-    *  The PCs account- ing for a large amount of total variance are presumably related to the control signal outputs of spinal pattern generators, which trigger the corresponding muscles to generate move- ment under the influence of commands that are sent to the MUs through the descending pathway [46]. 
+    *  The PCs accounting for a large amount of total variance are presumably related to the control signal outputs of spinal pattern generators, which trigger the corresponding muscles to generate move- ment under the influence of commands that are sent to the MUs through the descending pathway [46]. 
     *  the components that explain only a small amount of the total variance are generally deemed as random noise within the system [42]. 
     *   Many studies have successfully demonstrated that the application of PCA to kinematic, kinetic or sEMG data can unveil the underlying coordinative structures in the correlated patterns of variation among joints or body segments [47], [48].
 
