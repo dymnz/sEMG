@@ -16,6 +16,7 @@
 
 * Force
     * As exemplified in [15] and [40], the amplitude and spectral information of sEMG provide cues to esti- mate the muscle force and muscle voluntary contractions.
+    * The manner in which the MUs are selected to participate in a muscle contraction is called the recruitment process, and it relies on the **‘‘size principle’’**. This means that for a small degree of contraction, the MUs composed of a small number of muscle fibers are engaged; alternatively, larger levels of contraction necessitates the involvement of MUs compris- ing ample number of muscle fibers.
 
 * Fatigue
     *  In a contraction that generates a constant force, namely, the isotonic contraction, the activation pattern switches from one MU to another so that the MU can evade from growing fatigue [37], [38].
@@ -28,7 +29,7 @@
 
 * PCA implementation
     * retain the PCs with the eigenvalues greater than one; however, as cautioned in [54], this naive strategy may lead to loss of valuable information.
-    * Traditionally, one can plot the eigen- values in decreasing order, and the resulting plot known as the scree-plot may be visually inspected to track the elbow point, where the slope of the scree-plot undergoes an abrupt transition. 
+    * Traditionally, one can plot the eigenvalues in decreasing order, and the resulting plot known as the scree-plot may be visually inspected to track the elbow point, where the slope of the scree-plot undergoes an abrupt transition. 
     * Another popular method is to retain the smallest number of components that capture an appreciable percentage γ of the total variance; in practice, γ is determined to be 80% or 90%.
     * 
 
