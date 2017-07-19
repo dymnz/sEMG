@@ -25,7 +25,7 @@
     * **Fisher-Markov selector (FMS)**
 * ICA
     * Extracting most reliable information from the ICA algorithms is always a challenging task, because they (most algorithms) have random (stochastic) elements [23]. 
-    * ICA Clustering: t a tight cluster of estimates is considered to be a candidate for including a “good” estimate. A centroid of such a cluster is considered a more reliable estimate than any estimate from an arbitrary run [24].
+    * ICA Clustering: t a tight cluster of estimates is considered to be a candidate for including a “good” estimate. A centroid of such a cluster is considered a more reliable estimate than any estimate from an arbitrary run [24].w
     * Icasso is being used to find the underlying sEMG sources and to find a subset of useful elec- trodes contributing to those sources.
 
 * Icasso
