@@ -22,7 +22,7 @@ A natural measure of similarity between the estimated independent components is 
 1) usage of Icasso [24] to cluster the number of similar muscle activities (sensors) as groups and 2) a maximum number of times the sensors appeared in the cluster. The features extracted from the reduced sEMG sensors are then classified using **linear discriminant analysis (LDA)** to identify movements associated with the different finger gestures for five transradial amputees.
 
 
-#### ?/10
+#### 4/10
 
 ### Keypoint 
 * Sensor reduction
