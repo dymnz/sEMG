@@ -2,6 +2,7 @@
 
 #### Sensor reduction using ICA Clustering (Icasso package): "The main aim of this study is to propose a novel myoelec- tric classification scheme using a minimum number of EMG sensors."
 
+### !!Sensor reduction is not achieved, the paper use the top four significant ICA source estimate as the classification source. No electrode is removed, nor can any of them be removed without the sacrifice in performance. Data dimension indeed is reduced, but not sensor count!!
 
 #### My understanding of Icasso
 1. Gather 20 demix matrices with different initial condition
