@@ -3,7 +3,7 @@
 #### sEMG force esitmation: "In this work, a sub-maximal calibration procedure is developed to compensate for changes in joint angle – which in turn cause changes in muscle length, muscle moment arm and IZ shift - thereby achieving an improved SEMG–force model for flexion–extension contractions of the elbow over a range of elbow joint angles."
 
 * Only 1~3 electrodes required
-* Calibrated vs. Un-calibrated RMSE% = 5% vs. 10%
+* Calibrated vs. Un-calibrated RMSE% = 4% vs. 11%
 * Also investigates inter-session performance of calibration model (alpha), and operation model (beta)
 
 ### Keypoint 
