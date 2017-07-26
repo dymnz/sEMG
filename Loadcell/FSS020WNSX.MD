@@ -11,7 +11,8 @@
 * Input range: ±20, ±10 V, ±5 V, ±4 V, ±2.5 V, ±2 V, ±1.25 V, ±1 V
 * Absolute accuracy: 14.7mV, ..., 1.53mV
 
--> <0.1N error
+-> Error @ +-1V = 20N/360mV*1.53mV = 0.085N = 0.0087kg = 8.7g
+-> Error @ +-1V = 20N/360mV*1.53mV = 0.085N = 0.0087kg = 8.7g
 
 --- 
 
