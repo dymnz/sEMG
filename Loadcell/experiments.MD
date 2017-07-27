@@ -44,3 +44,8 @@ Recreate "Surface EMG force modeling with joint angle based calibration"
 
 Parameter
 * 1~3 electrodes
+
+
+### Conclusion
+
+Dumbbell: 1~10kg
