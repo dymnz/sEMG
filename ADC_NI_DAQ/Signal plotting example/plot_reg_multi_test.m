@@ -67,11 +67,12 @@ legend('session1', 'session2');
 
 %% Find weight constant
 figure;
-plot(norm_mean_amps1./norm_mean_amps2);
+plot(norm_mean_amps1./norm_mean_amps2, '-o');
 ylim([0 1]);
 xlim([1 length(filenames)]);
 title("The weight constant accross tests");
-
+xlabel('weight (kg)');
+ylabel('ratio (AU)');
 weight = mean(norm_mean_amps1./norm_mean_amps2);
 norm_mean_amps2 = norm_mean_amps2 * weight;
 
