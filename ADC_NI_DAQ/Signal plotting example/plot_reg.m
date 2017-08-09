@@ -1,7 +1,7 @@
 clear; close all;
 
-file_path = '/home/dymnz/Documents/sEMG/Signals/';
-filenames = {'1kg_2.lvm', '2kg_2.lvm', '3kg_2.lvm', '4kg_2.lvm'};
+file_path = '/home/dymnz/Documents/sEMG/Signals/2017_8_9/';
+filenames = {'1kg.lvm', '2kg.lvm', '3kg.lvm', '4kg.lvm'};
 
 mean_amps = zeros(length(filenames), 1);
 for i =  1:length(filenames)
@@ -15,8 +15,6 @@ mean_amp = mean(abs(datamat(:, 2)));
 
 disp(mean_amp);
 mean_amps(i) = mean_amp;
-plot(i, mean_amp, '-x');
-
 end
 
 
