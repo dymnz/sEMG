@@ -1,7 +1,8 @@
 clear; close all;
 
-file_path = '/home/dymnz/Documents/sEMG/Signals/2017_8_9/';
-filenames = {'1kg.lvm', '2kg.lvm', '3kg_2.lvm', '4kg.lvm'};
+%% Part 1
+file_path = '/home/dymnz/Documents/sEMG/Signals/2017_8_8/';
+filenames = {'1kg_2.lvm', '2kg_2.lvm', '3kg_2.lvm', '4kg_2.lvm'};
 
 MVC = lvmread(strcat(file_path, 'MVC.lvm'));
 MVC(:, 2) = MVC(:, 2) - mean(MVC(:, 2));
@@ -32,12 +33,12 @@ title("Normalized Weight - sEMG relationship");
 xlabel('weight (kg)');
 ylabel('avg. amplitude (AU)');
 
-
-
 hold on;
 
-file_path = '/home/dymnz/Documents/sEMG/Signals/2017_8_8/';
-filenames = {'1kg_2.lvm', '2kg_2.lvm', '3kg_2.lvm', '4kg_2.lvm'};
+%% Part 2
+file_path = '/home/dymnz/Documents/sEMG/Signals/2017_8_9/';
+filenames = {'1kg.lvm', '2kg.lvm', '3kg.lvm', '4kg.lvm'};
+
 
 MVC = lvmread(strcat(file_path, 'MVC.lvm'));
 MVC(:, 2) = MVC(:, 2) - mean(MVC(:, 2));

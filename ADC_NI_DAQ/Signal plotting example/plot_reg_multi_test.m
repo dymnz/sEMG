@@ -10,6 +10,7 @@ filenames = {'1kg_2.lvm', '2kg_2.lvm', '3kg_2.lvm', '4kg_2.lvm'};
 MVC = lvmread(strcat(file_path, 'MVC.lvm'));
 MVC(:, 2) = MVC(:, 2) - mean(MVC(:, 2));
 MVC_mean_amp = mean(abs(MVC(:, 2)));
+disp(MVC_mean_amp);
 
 norm_mean_amps1 = zeros(length(filenames), 1);
 for i =  1:length(filenames)
@@ -44,6 +45,7 @@ filenames = {'1kg.lvm', '2kg.lvm', '3kg_2.lvm', '4kg.lvm'};
 MVC = lvmread(strcat(file_path, 'MVC.lvm'));
 MVC(:, 2) = MVC(:, 2) - mean(MVC(:, 2));
 MVC_mean_amp = mean(abs(MVC(:, 2)));
+disp(MVC_mean_amp);
 
 norm_mean_amps2 = zeros(length(filenames), 1);
 for i =  1:length(filenames)
@@ -67,13 +69,14 @@ legend('session1', 'session2');
 
 %% Find weight constant
 figure;
-plot(norm_mean_amps2./norm_mean_amps1, '-o');
+ratios = norm_mean_amps2./norm_mean_amps1;
+plot(ratios, '-o');
 ylim([0 1]);
 xlim([1 length(filenames)]);
 title("Normalized Ratio accross tests");
 xlabel('weight (kg)');
 ylabel('ratio (AU)');
-weight = mean(norm_mean_amps2./norm_mean_amps1);
+r = mean(ratios);
 norm_mean_amps1 = norm_mean_amps1 * weight;
 
 %% Plot adjusted compare
