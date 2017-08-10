@@ -4,8 +4,8 @@ clear; close all;
 
 
 %% Part 1
-file_path = '/home/dymnz/Documents/sEMG/Signals/2017_8_9/';
-filenames = {'1kg.lvm', '2kg.lvm', '3kg_2.lvm', '4kg.lvm'};
+file_path = '/home/dymnz/Documents/sEMG/Signals/2017_8_8/';
+filenames = {'1kg_2.lvm', '2kg_2.lvm', '3kg_2.lvm', '4kg_2.lvm'};
 
 MVC = lvmread(strcat(file_path, 'MVC.lvm'));
 MVC(:, 2) = MVC(:, 2) - mean(MVC(:, 2));
@@ -38,8 +38,9 @@ ylabel('avg. amplitude (AU)');
 hold on;
 
 %% Part 2
-file_path = '/home/dymnz/Documents/sEMG/Signals/2017_8_8/';
-filenames = {'1kg_2.lvm', '2kg_2.lvm', '3kg_2.lvm', '4kg_2.lvm'};
+file_path = '/home/dymnz/Documents/sEMG/Signals/2017_8_9/';
+filenames = {'1kg.lvm', '2kg.lvm', '3kg_2.lvm', '4kg.lvm'};
+
 
 MVC = lvmread(strcat(file_path, 'MVC.lvm'));
 MVC(:, 2) = MVC(:, 2) - mean(MVC(:, 2));
@@ -67,14 +68,14 @@ legend('session1', 'session2');
 
 %% Find weight constant
 figure;
-plot(norm_mean_amps1./norm_mean_amps2, '-o');
+plot(norm_mean_amps2./norm_mean_amps1, '-o');
 ylim([0 1]);
 xlim([1 length(filenames)]);
-title("The raio accross tests");
+title("Raw Ratio accross tests");
 xlabel('weight (kg)');
 ylabel('ratio (AU)');
-weight = mean(norm_mean_amps1./norm_mean_amps2);
-norm_mean_amps2 = norm_mean_amps2 * weight;
+weight = mean(norm_mean_amps2./norm_mean_amps1);
+norm_mean_amps1 = norm_mean_amps1 * weight;
 
 %% Plot adjusted compare
 figure; hold on;
