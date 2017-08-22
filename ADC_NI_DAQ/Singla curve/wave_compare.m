@@ -1,7 +1,7 @@
 % Constant
 file_path = '/home/dymnz/Documents/sEMG/Signals/';
 filename = '4kg_2.lvm';
-SamplingRate = 1000; % 5kHz Sampling rate
+SamplingRate = 1000; % 1kHz Sampling rate
 
 % Read data from .lvm
 datamat = lvmread(strcat(file_path, filename));

@@ -29,7 +29,7 @@ figure;
 plot([1: length(filenames)], norm_mean_amps, '-o');
 ylim([0 1]);
 xlim([1 length(filenames)]);
-title("Normalized Weight - sEMG relationship");
+title('Normalized Weight - sEMG relationship');
 xlabel('weight (kg)');
 ylabel('avg. amplitude (AU)');
 
