@@ -12,6 +12,5 @@
     - Supply voltage: +-10V
     - Sampling rate: 1kHz
     - 90d 1~4kg, ignore MVC
-
-* 2017_8_22:
+* 2017_8_23:
     - 
