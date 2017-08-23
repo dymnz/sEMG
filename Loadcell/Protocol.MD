@@ -2,8 +2,8 @@
 
 
 #### Placement
-1. Palm down, extension of middle finger, beside the bump on the wrist
-2. Palm down, extension of middle finger, bicep
+1. On forearm: Palm up, extension of middle finger, 7cm to elbow
+2. On Bicep: Palm up, extension of middle finger, line up with former, 3 cm to elbow
 
 #### Trial
 1. 90d zero-load
@@ -11,5 +11,5 @@
 
 #### Observe
 1. 90d zero-load normalization
-2. Angle's effect on Weight-sEMG curve
-3. 
+2. Angle's effect on Weight-sEMG curve, angle-sEMG curve
+    * Angle's effect on sEMG should be a constant multiplier
