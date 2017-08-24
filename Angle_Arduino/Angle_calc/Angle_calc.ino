@@ -82,7 +82,7 @@ void loop() {
     calculateOrientation(&mpu_2);
     
     if (mpu_1.pointer == 0) {
-      int elbow_angle = 360 - (180 + mpu_1.roll_pitch[0] - mpu_2.roll_pitch[0]);
+      int elbow_angle = 180 + mpu_2.roll_pitch[0] - mpu_1.roll_pitch[0];
       //sprintf(buffer, "%6d %6d\n", (int)mpu_1.roll_pitch[0], (int)mpu_1.roll_pitch[1]);      
       //sprintf(buffer,
       //  "%6d %6d %6d %6d %6d\n", 
@@ -93,6 +93,7 @@ void loop() {
       //  (int)mpu_2.roll_pitch[1]);      
       //Serial.print(buffer);      
       Serial.println(elbow_angle);
+      //Serial.println(mpu_1.roll_pitch[0]);
     }
     delay(DELAY_MS);             
   }   
