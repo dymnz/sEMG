@@ -12,4 +12,4 @@
 #### Observe
 1. 90d zero-load normalization
 2. Angle's effect on Weight-sEMG curve, angle-sEMG curve
-    * Angle's effect on sEMG should be a constant multiplier
+    * Angle's effect on sEMG should be a constant multiplier. see [Surface EMG force modeling with joint angle based calibration](https://github.com/dymnz/sEMG/blob/master/Reports/wang/Paper/Surface%20EMG%20force%20modeling%20with%20joint%20angle%20based%20calibration.MD)
