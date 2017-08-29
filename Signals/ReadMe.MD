@@ -15,4 +15,4 @@
 * 2017_8_29:
     - Supply voltage: +-10V
     - Sampling rate: 1kHz
-    - 90d/135d 0~1~4kg
+    - 90d/135d 0+1~4kg
