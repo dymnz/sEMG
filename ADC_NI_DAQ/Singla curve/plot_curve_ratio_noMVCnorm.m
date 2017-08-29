@@ -4,13 +4,8 @@ clear; close all;
 
 
 %% Part 1
-file_path = '/home/dymnz/Documents/sEMG/Signals/2017_8_8/';
-filenames = {'1kg_2.lvm', '2kg_2.lvm', '3kg_2.lvm', '4kg_2.lvm'};
-
-MVC = lvmread(strcat(file_path, 'MVC.lvm'));
-MVC(:, 2) = MVC(:, 2) - mean(MVC(:, 2));
-MVC_mean_amp = mean(abs(MVC(:, 2)));
-
+file_path = 'C:\Users\Dymnz\Desktop\sEMG\Signals\2017_8_29\1\';
+filenames = {'1kg_90d.lvm', '2kg_90d.lvm', '3kg_90d.lvm', '4kg_90d.lvm'};
 norm_mean_amps1 = zeros(length(filenames), 1);
 for i =  1:length(filenames)
 
@@ -38,13 +33,9 @@ ylabel('avg. amplitude (AU)');
 hold on;
 
 %% Part 2
-file_path = '/home/dymnz/Documents/sEMG/Signals/2017_8_9/';
-filenames = {'1kg.lvm', '2kg.lvm', '3kg_2.lvm', '4kg.lvm'};
+file_path = 'C:\Users\Dymnz\Desktop\sEMG\Signals\2017_8_29\2\';
+filenames = {'1kg_135d.lvm', '2kg_135d.lvm', '3kg_135d.lvm', '4kg_135d.lvm'};
 
-
-MVC = lvmread(strcat(file_path, 'MVC.lvm'));
-MVC(:, 2) = MVC(:, 2) - mean(MVC(:, 2));
-MVC_mean_amp = mean(abs(MVC(:, 2)));
 
 norm_mean_amps2 = zeros(length(filenames), 1);
 for i =  1:length(filenames)
@@ -69,7 +60,7 @@ legend('session1', 'session2');
 %% Find weight constant
 figure;
 plot(norm_mean_amps2./norm_mean_amps1, '-o');
-ylim([0 1]);
+ylim([0 ceil(max(norm_mean_amps2./norm_mean_amps1))]);
 xlim([1 length(filenames)]);
 title('Raw Ratio accross tests');
 xlabel('weight (kg)');
@@ -81,7 +72,7 @@ norm_mean_amps1 = norm_mean_amps1 * weight;
 figure; hold on;
 plot([1: length(filenames)], norm_mean_amps1, '-o');
 plot([1: length(filenames)], norm_mean_amps2, '-o');
-ylim([0 1]);
+ylim([0 ceil(max(max(norm_mean_amps2, norm_mean_amps1)))]);
 xlim([1 length(filenames)]);
 title('Adjusted Raw Weight - sEMG relationship');
 xlabel('weight (kg)');

@@ -1,6 +1,6 @@
 % Constant
-file_path = '/home/dymnz/Documents/sEMG/Signals/';
-filename = '1kg.lvm';
+file_path = 'C:\Users\Dymnz\Desktop\sEMG\Signals\2017_8_29\';
+filename = '1kg_90d.lvm';
 SamplingRate = 1000; % 5kHz Sampling rate
 
 % Read data from .lvm
