@@ -1,4 +1,4 @@
-function mean_amp = mean_amplitude(file): 
+function mean_amp = mean_amplitude(file)
 
 % Read data from .lvm
 datamat = lvmread(file);
