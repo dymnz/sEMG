@@ -21,7 +21,7 @@ ylim([-10 10])
 hold on;
 
 
-file_path = 'C:\Users\Dymnz\Desktop\sEMG\Signals\2017_8_29\2\';
+file_path = 'C:\Users\Dymnz\Desktop\sEMG\Signals\2017_8_30\';
 filename = '0kg_90d.lvm';
 SamplingRate = 1000; % 5kHz Sampling rate
 

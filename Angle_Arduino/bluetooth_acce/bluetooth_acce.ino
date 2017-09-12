@@ -1,4 +1,4 @@
-// screen /dev/tty.HC-06-DevB
+        // screen /dev/tty.HC-06-DevB
 
 // Modified from the following:
 // MPU-6050 Short Example Sketch
