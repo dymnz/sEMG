@@ -17,6 +17,13 @@
     - Sampling rate: 1kHz
     - 90d/135d 0+1~4kg
 * 2017_8_30:
+    - Same gain as above
     - Supply voltage: +-10V
     - Sampling rate: 1kHz
     - 105d 0+1~4kg, 90d 0kg
+* 2017_9_12:
+    - Gain adjusted
+    - Supply voltage: +-10V
+    - Sampling rate: 1kHz
+    - 120d 0+1~4kg, 90d 0kg
+    - 1kg 90:15:135d
