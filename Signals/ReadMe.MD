@@ -26,4 +26,10 @@
     - Supply voltage: +-10V
     - Sampling rate: 1kHz
     - 120d 0+1~4kg, 90d 0kg
-    - 1kg 90:15:135d
+    - 2kg 90:15:135d, the result does not make sense
+* 2017_9_15:
+    - Gain adjusted
+    - Front acce moved
+    - Supply voltage: +-10V
+    - Sampling rate: 1kHz
+    - 90d 0+1~4kg
