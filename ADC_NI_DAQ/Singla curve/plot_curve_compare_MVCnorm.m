@@ -1,8 +1,11 @@
 clear; close all;
 
 %% Part 1
-file_path = '/home/dymnz/Documents/sEMG/Signals/2017_8_8/';
-filenames = {'1kg_2.lvm', '2kg_2.lvm', '3kg_2.lvm', '4kg_2.lvm'};
+file_path = '../../Signals/2017_09_15/';
+filenames = {'1kg_90d.lvm', 
+    '2kg_90d.lvm', 
+    '3kg_90d.lvm', 
+    '4kg_90d.lvm'};
 
 MVC = lvmread(strcat(file_path, 'MVC.lvm'));
 MVC(:, 2) = MVC(:, 2) - mean(MVC(:, 2));
@@ -36,9 +39,11 @@ ylabel('avg. amplitude (AU)');
 hold on;
 
 %% Part 2
-file_path = '/home/dymnz/Documents/sEMG/Signals/2017_8_9/';
-filenames = {'1kg.lvm', '2kg.lvm', '3kg.lvm', '4kg.lvm'};
-
+file_path = '../../Signals/2017_09_15/';
+filenames = {'1kg_105d.lvm', 
+    '2kg_105d.lvm', 
+    '3kg_105d.lvm', 
+    '4kg_105d.lvm'};
 
 MVC = lvmread(strcat(file_path, 'MVC.lvm'));
 MVC(:, 2) = MVC(:, 2) - mean(MVC(:, 2));

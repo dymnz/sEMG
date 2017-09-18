@@ -4,8 +4,12 @@ clear; close all;
 
 
 %% Part 1
-file_path = 'C:\Users\Dymnz\Desktop\sEMG\Signals\2017_8_29\1\';
-filenames = {'1kg_90d.lvm', '2kg_90d.lvm', '3kg_90d.lvm', '4kg_90d.lvm'};
+file_path = '../../Signals/2017_09_15/';
+filenames = {'1kg_90d.lvm', 
+    '2kg_90d.lvm', 
+    '3kg_90d.lvm', 
+    '4kg_90d.lvm'};
+
 norm_mean_amps1 = zeros(length(filenames), 1);
 for i =  1:length(filenames)
 
@@ -33,10 +37,11 @@ ylabel('avg. amplitude (AU)');
 hold on;
 
 %% Part 2
-file_path = 'C:\Users\Dymnz\Desktop\sEMG\Signals\2017_8_29\2\';
-filenames = {'1kg_135d.lvm', '2kg_135d.lvm', '3kg_135d.lvm', '4kg_135d.lvm'};
-
-
+file_path = '../../Signals/2017_09_15/';
+filenames = {'1kg_105d.lvm', 
+    '2kg_105d.lvm', 
+    '3kg_105d.lvm', 
+    '4kg_105d.lvm'};
 norm_mean_amps2 = zeros(length(filenames), 1);
 for i =  1:length(filenames)
 

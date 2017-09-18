@@ -1,5 +1,5 @@
 % Constant
-file_path = 'C:\Users\Dymnz\Desktop\sEMG\Signals\2017_8_29\1\';
+file_path = '../../Signals/2017_09_16/1/';
 filename = '0kg_90d.lvm';
 SamplingRate = 1000; % 1kHz Sampling rate
 
@@ -21,7 +21,7 @@ ylim([-10 10])
 hold on;
 
 
-file_path = 'C:\Users\Dymnz\Desktop\sEMG\Signals\2017_8_30\';
+file_path = '../../Signals/2017_09_16/2/';
 filename = '0kg_90d.lvm';
 SamplingRate = 1000; % 5kHz Sampling rate
 
