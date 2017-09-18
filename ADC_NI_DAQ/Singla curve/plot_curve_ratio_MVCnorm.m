@@ -4,8 +4,8 @@ clear; close all;
 
 
 %% Part 1
-file_path = '/home/dymnz/Documents/sEMG/Signals/2017_8_8/';
-filenames = {'1kg_2.lvm', '2kg_2.lvm', '3kg_2.lvm', '4kg_2.lvm'};
+file_path = '../../Signals/2017_8_8/';
+filenames = {'1kg.lvm', '2kg.lvm', '3kg.lvm', '4kg.lvm'};
 
 MVC = lvmread(strcat(file_path, 'MVC.lvm'));
 MVC(:, 2) = MVC(:, 2) - mean(MVC(:, 2));
@@ -39,8 +39,8 @@ ylabel('avg. amplitude (AU)');
 hold on;
 
 %% Part 2
-file_path = '/home/dymnz/Documents/sEMG/Signals/2017_8_9/';
-filenames = {'1kg.lvm', '2kg.lvm', '3kg_2.lvm', '4kg.lvm'};
+file_path = '../../Signals/2017_8_9/';
+filenames = {'1kg.lvm', '2kg.lvm', '3kg.lvm', '4kg.lvm'};
 
 MVC = lvmread(strcat(file_path, 'MVC.lvm'));
 MVC(:, 2) = MVC(:, 2) - mean(MVC(:, 2));
@@ -77,7 +77,7 @@ title('Normalized Ratio accross tests');
 xlabel('weight (kg)');
 ylabel('ratio (AU)');
 r = mean(ratios);
-norm_mean_amps1 = norm_mean_amps1 * weight;
+norm_mean_amps1 = norm_mean_amps1 * r;
 
 %% Plot adjusted compare
 figure; hold on;
@@ -85,7 +85,7 @@ plot([1: length(filenames)], norm_mean_amps1, '-o');
 plot([1: length(filenames)], norm_mean_amps2, '-o');
 ylim([0 1]);
 xlim([1 length(filenames)]);
-title('Adjusted Normalized Weight - sEMG relationship');
-xlabel('weight (kg)');
-ylabel('avg. amplitude (AU)');
+title('Adjusted Normalized Weight - sEMG relationship', 'FontSize', 22);
+xlabel('weight (kg)', 'FontSize', 22);
+ylabel('avg. amplitude (AU)', 'FontSize', 22);
 legend('session1', 'session2');

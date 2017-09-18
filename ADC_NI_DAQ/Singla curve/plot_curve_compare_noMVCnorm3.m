@@ -63,7 +63,7 @@ plot([1: length(filenames)], mean_amps, '-o');
 
 ylim([0 2]);
 xlim([1 length(filenames)]);
-title('90d vs 105d vs 135d raw');
-xlabel('weight (kg)');
-ylabel('avg. amplitude (AU)');
+title('90d vs 105d vs 135d raw', 'FontSize', 22);
+xlabel('weight (kg)', 'FontSize', 22);
+ylabel('avg. amplitude (AU)', 'FontSize', 22);
 legend('90d', '105d', '135d');
