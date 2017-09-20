@@ -7,14 +7,14 @@
 * sEMG - RMS - BP-NN - Angle est.
 * Quite accurate
 
-#### Elbow Joint Angle Estimation by Using Integrated Surface Electromyograph
+#### Elbow Joint Angle Estimation by Using Integrated Surface Electromyograph (2016)
 * Dynamic
 * 14-ch sEMG
 * Elbow angle est.
 * Auto-Regressive Integrated Moving Average with Exogenous Input (ARIMAX)
 * Accuracy: ~90%
 
-#### sEMG feature evaluation for identification of elbow angle resolution in graded arm movement
+#### sEMG feature evaluation for identification of elbow angle resolution in graded arm movement (2014)
 * Static
 * 2-ch sEMG
 * Elbow angle **Location**: 0/45/90 degree
@@ -26,7 +26,7 @@
 
 #### Static: Trivial
 
-#### Shoulder and Elbow Joint Angle Tracking With Inertial Sensors
+#### Shoulder and Elbow Joint Angle Tracking With Inertial Sensors (2011)
 * Dynamic
 * Kinetic model
 * Error ~= 9 degree
