@@ -17,7 +17,7 @@
   * Arm, 2 joint (elbow/wrist), 3 class (rest/extension/flexion)
   * Isometric & Isokinetic
   
-* [The eWrist — A wearable wrist exoskeleton with sEMG-based force control for stroke rehabilitation] (http://ieeexplore.ieee.org/document/8009334/)
+* [The eWrist — A wearable wrist exoskeleton with sEMG-based force control for stroke rehabilitation](http://ieeexplore.ieee.org/document/8009334/)
   * 2017
   * Rehabilitation: Wrist assist-as-needed exo
   * Weak force + sEMG -> Motion prediction -> Exo execution
@@ -27,4 +27,5 @@
   
  * [An EMG-controlled exoskeleton for hand rehabilitation](http://ieeexplore.ieee.org/document/1501122/)
   * 2005
+  * 
   
