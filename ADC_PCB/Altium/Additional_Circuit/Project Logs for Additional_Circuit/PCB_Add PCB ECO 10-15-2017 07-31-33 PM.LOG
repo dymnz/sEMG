@@ -1,0 +1,48 @@
+Added Component: Designator=C1(C0805)
+Added Component: Designator=C2(C0805)
+Added Component: Designator=C3(C0805)
+Added Component: Designator=C4(C0805)
+Added Component: Designator=R1(J1-0603)
+Added Component: Designator=R2(J1-0603)
+Added Component: Designator=R3(J1-0603)
+Added Component: Designator=R4(J1-0603)
+Added Component: Designator=R5(J1-0603)
+Added Component: Designator=R6(3362P)
+Added Component: Designator=R7(J1-0603)
+Added Pin To Net: NetName=AED_IN Pin=R2-1
+Added Net: Name=AED_IN
+Added Pin To Net: NetName=GND Pin=C4-2
+Added Pin To Net: NetName=GND Pin=R4-2
+Added Net: Name=GND
+Added Pin To Net: NetName=NetC1_1 Pin=C1-1
+Added Pin To Net: NetName=NetC1_1 Pin=C2-1
+Added Net: Name=NetC1_1
+Added Pin To Net: NetName=NetC1_2 Pin=C1-2
+Added Pin To Net: NetName=NetC1_2 Pin=C3-1
+Added Pin To Net: NetName=NetC1_2 Pin=R1-1
+Added Net: Name=NetC1_2
+Added Pin To Net: NetName=NetC2_2 Pin=C2-2
+Added Pin To Net: NetName=NetC2_2 Pin=R2-2
+Added Pin To Net: NetName=NetC2_2 Pin=R3-2
+Added Net: Name=NetC2_2
+Added Pin To Net: NetName=NetC3_2 Pin=C3-2
+Added Pin To Net: NetName=NetC3_2 Pin=R4-1
+Added Net: Name=NetC3_2
+Added Pin To Net: NetName=NetC4_1 Pin=C4-1
+Added Pin To Net: NetName=NetC4_1 Pin=R3-1
+Added Net: Name=NetC4_1
+Added Pin To Net: NetName=NetR1_2 Pin=R1-2
+Added Pin To Net: NetName=NetR1_2 Pin=R7-1
+Added Net: Name=NetR1_2
+Added Member To Class: ClassName=Sch_Add Member=Component C1 Cap Pol3
+Added Member To Class: ClassName=Sch_Add Member=Component C2 Cap Pol3
+Added Member To Class: ClassName=Sch_Add Member=Component C3 Cap Pol3
+Added Member To Class: ClassName=Sch_Add Member=Component C4 Cap Pol3
+Added Member To Class: ClassName=Sch_Add Member=Component R1 Res3
+Added Member To Class: ClassName=Sch_Add Member=Component R2 Res3
+Added Member To Class: ClassName=Sch_Add Member=Component R3 Res3
+Added Member To Class: ClassName=Sch_Add Member=Component R4 Res3
+Added Member To Class: ClassName=Sch_Add Member=Component R5 Res3
+Added Member To Class: ClassName=Sch_Add Member=Component R6 3362P
+Added Member To Class: ClassName=Sch_Add Member=Component R7 Res3
+Added Room: Name=Sch_Add

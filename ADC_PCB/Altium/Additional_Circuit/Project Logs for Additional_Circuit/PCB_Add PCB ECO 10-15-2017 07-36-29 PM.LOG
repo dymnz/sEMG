@@ -1,0 +1,4 @@
+Added Component: Designator=INV_AMP(SOIC127P600X175-8N)
+Added Component: Designator=LPF_HPF(SOIC127P600X175-8N)
+Added Member To Class: ClassName=Sch_Add Member=Component INV_AMP TLV3542
+Added Member To Class: ClassName=Sch_Add Member=Component LPF_HPF TLV3542
