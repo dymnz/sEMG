@@ -20,6 +20,7 @@
 * [The eWrist — A wearable wrist exoskeleton with sEMG-based force control for stroke rehabilitation](http://ieeexplore.ieee.org/document/8009334/)
   * 2017
   * Rehabilitation: Wrist assist-as-needed exo
+  * MYO + Load cell (Input) / Motor (Output)
   * Weak force + sEMG -> Motion prediction -> Exo execution
   * Controller loop
   * IMU gravity cancelation for future
