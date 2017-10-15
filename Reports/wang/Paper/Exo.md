@@ -26,7 +26,7 @@
   * IMU gravity cancelation for future
   
   
- * [An EMG-controlled exoskeleton for hand rehabilitation](http://ieeexplore.ieee.org/document/1501122/)
+* [An EMG-controlled exoskeleton for hand rehabilitation](http://ieeexplore.ieee.org/document/1501122/)
   * 2005
   * 2-ch sEMG
   * Predict movement initiation
