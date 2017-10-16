@@ -73,40 +73,6 @@ GenerateClassCluster=0
 DocumentUniqueId=TRNYWSRY
 
 [Document3]
-DocumentPath=..\tlv3542\Project Outputs for tlv3542\tlv3542.IntLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document4]
-DocumentPath=..\3362P\Project Outputs for 3362P\3362P.IntLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document5]
 DocumentPath=Additional_Circuit.Annotation
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -123,6 +89,10 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
+[GeneratedDocument1]
+DocumentPath=Project Outputs for Additional_Circuit\Sch_Add.NET
+DItemRevisionGUID=
+
 [Configuration1]
 Name=Default Configuration
 ParameterCount=0
@@ -138,33 +108,33 @@ Name=Netlist Outputs
 Description=
 TargetPrinter=Microsoft Print to PDF
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
-OutputType1=PCADNetlist
-OutputName1=PCAD Netlist
+OutputType1=SIMetrixNetlist
+OutputName1=SIMetrix
 OutputDocumentPath1=
 OutputVariantName1=
 OutputDefault1=0
-OutputType2=Verilog
-OutputName2=Verilog File
+OutputType2=SIMPLISNetlist
+OutputName2=SIMPLIS
 OutputDocumentPath2=
 OutputVariantName2=
 OutputDefault2=0
-OutputType3=VHDL
-OutputName3=VHDL File
+OutputType3=XSpiceNetlist
+OutputName3=XSpice Netlist
 OutputDocumentPath3=
 OutputVariantName3=
 OutputDefault3=0
-OutputType4=SIMetrixNetlist
-OutputName4=SIMetrix
+OutputType4=PCADNetlist
+OutputName4=PCAD Netlist
 OutputDocumentPath4=
 OutputVariantName4=
 OutputDefault4=0
-OutputType5=SIMPLISNetlist
-OutputName5=SIMPLIS
+OutputType5=Verilog
+OutputName5=Verilog File
 OutputDocumentPath5=
 OutputVariantName5=
 OutputDefault5=0
-OutputType6=XSpiceNetlist
-OutputName6=XSpice Netlist
+OutputType6=VHDL
+OutputName6=VHDL File
 OutputDocumentPath6=
 OutputVariantName6=
 OutputDefault6=0

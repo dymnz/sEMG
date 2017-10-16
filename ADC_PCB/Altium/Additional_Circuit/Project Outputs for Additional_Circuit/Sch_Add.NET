@@ -1,0 +1,155 @@
+{COMPONENT PROTEL.PCB
+  {ENVIRONMENT PROTEL.SCH}
+  {DETAIL
+    {SUBCOMP
+      {I C0805.PRT C1
+        {CN
+        1 NetC1_1
+        2 NetC1_2
+        }
+      }
+      {I C0805.PRT C2
+        {CN
+        1 NetC1_1
+        2 NetC2_2
+        }
+      }
+      {I C0805.PRT C3
+        {CN
+        1 NetC1_2
+        2 NetC3_2
+        }
+      }
+      {I C0805.PRT C4
+        {CN
+        1 NetC4_1
+        2 GND
+        }
+      }
+      {I SOIC127P600X175-8N.PRT INV_ADD1
+        {CN
+        1 NetINV_ADD1_1
+        2 NetINV_ADD1_2
+        3 GND
+        4 GND
+        5 NetINV_ADD1_5
+        6 NetINV_ADD1_6
+        7 +5V
+        8 NetINV_ADD1_8
+        }
+      }
+      {I .PRT INV_AMP1
+        {CN
+        1 NetINV_AMP1_1
+        2 NetINV_AMP1_2
+        3 GND
+        4 -2.5V
+        5 NetINV_AMP1_5
+        6 NetINV_AMP1_6
+        7 NetINV_AMP1_7
+        8 +2.5V
+        }
+      }
+      {I .PRT LPF_HPF1
+        {CN
+        1 NetC1_1
+        2 NetC1_1
+        3 NetC4_1
+        4 -2.5V
+        5 NetC3_2
+        6 NetLPF_HPF1_6
+        7 NetLPF_HPF1_6
+        8 +2.5V
+        }
+      }
+      {I HDR1X4H.PRT P1
+        {CN
+        1 +5V
+        2 +2.5V
+        3 GND
+        4 -2.5V
+        }
+      }
+      {I HDR1X2H.PRT P2
+        {CN
+        1 NetP2_1
+        2 NetP2_1
+        }
+      }
+      {I HDR1X2H.PRT P3
+        {CN
+        1 NetINV_ADD1_6
+        2 NetINV_ADD1_6
+        }
+      }
+      {I J1-0603.PRT R1
+        {CN
+        1 NetC1_2
+        2 NetLPF_HPF1_6
+        }
+      }
+      {I J1-0603.PRT R2
+        {CN
+        1 NetP2_1
+        2 NetC2_2
+        }
+      }
+      {I J1-0603.PRT R3
+        {CN
+        1 NetC4_1
+        2 NetC2_2
+        }
+      }
+      {I J1-0603.PRT R4
+        {CN
+        1 NetC3_2
+        2 GND
+        }
+      }
+      {I J1-0603.PRT R5
+        {CN
+        1 NetINV_AMP1_2
+        2 NetR5_2
+        }
+      }
+      {I 3362P.PRT R6
+        {CN
+        1 NetR5_2
+        2 NetR6_2
+        3 NetINV_AMP1_1
+        }
+      }
+      {I J1-0603.PRT R7
+        {CN
+        1 -2.5V
+        2 NetR7_2
+        }
+      }
+      {I 3362P.PRT R8
+        {CN
+        1 NetR7_2
+        2 NetR8_2
+        3 NetINV_ADD1_2
+        }
+      }
+      {I J1-0603.PRT R9
+        {CN
+        1 NetINV_AMP1_1
+        2 NetINV_ADD1_2
+        }
+      }
+      {I J1-0603.PRT R10
+        {CN
+        1 NetLPF_HPF1_6
+        2 NetINV_AMP1_2
+        }
+      }
+      {I J1-0603.PRT R11
+        {CN
+        1 NetINV_ADD1_2
+        2 NetINV_ADD1_6
+        }
+      }
+    }
+  }
+}

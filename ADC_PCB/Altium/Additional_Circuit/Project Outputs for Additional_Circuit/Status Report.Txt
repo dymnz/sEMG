@@ -1,0 +1,10 @@
+Output: PCAD Netlist
+Type  : PCADNetlist
+From  : Project [Additional_Circuit.PrjPcb]
+   Generated File[Sch_Add.NET]
+
+
+Files Generated   : 1
+Documents Printed : 0
+
+Finished Output Generation At 11:02:36 PM On 10/16/2017

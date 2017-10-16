@@ -1,0 +1,116 @@
+Added Component: Designator=C1(C0805)
+Added Component: Designator=C2(C0805)
+Added Component: Designator=C3(C0805)
+Added Component: Designator=C4(C0805)
+Added Component: Designator=OP1(SOIC127P600X175-8N)
+Added Component: Designator=OP2(SOIC127P600X175-8N)
+Added Component: Designator=OP3(SOIC127P600X175-8N)
+Added Component: Designator=P1(HDR1X4H)
+Added Component: Designator=P2(HDR1X2H)
+Added Component: Designator=P3(HDR1X2H)
+Added Component: Designator=R1(J1-0603)
+Added Component: Designator=R2(J1-0603)
+Added Component: Designator=R3(J1-0603)
+Added Component: Designator=R4(J1-0603)
+Added Component: Designator=R5(J1-0603)
+Added Component: Designator=R6(3362P)
+Added Component: Designator=R7(J1-0603)
+Added Component: Designator=R8(3362P)
+Added Component: Designator=R9(J1-0603)
+Added Component: Designator=R10(J1-0603)
+Added Component: Designator=R11(J1-0603)
+Added Pin To Net: NetName=+2.5V Pin=OP1-8
+Added Pin To Net: NetName=+2.5V Pin=OP2-8
+Added Pin To Net: NetName=+2.5V Pin=P1-2
+Added Net: Name=+2.5V
+Added Pin To Net: NetName=+5V Pin=OP3-7
+Added Pin To Net: NetName=+5V Pin=P1-1
+Added Net: Name=+5V
+Added Pin To Net: NetName=-2.5V Pin=OP1-4
+Added Pin To Net: NetName=-2.5V Pin=OP2-4
+Added Pin To Net: NetName=-2.5V Pin=P1-4
+Added Pin To Net: NetName=-2.5V Pin=R7-1
+Added Net: Name=-2.5V
+Added Pin To Net: NetName=GND Pin=C4-2
+Added Pin To Net: NetName=GND Pin=OP2-3
+Added Pin To Net: NetName=GND Pin=OP3-3
+Added Pin To Net: NetName=GND Pin=OP3-4
+Added Pin To Net: NetName=GND Pin=P1-3
+Added Pin To Net: NetName=GND Pin=R4-2
+Added Net: Name=GND
+Added Pin To Net: NetName=NetC1_1 Pin=C1-1
+Added Pin To Net: NetName=NetC1_1 Pin=C2-1
+Added Pin To Net: NetName=NetC1_1 Pin=OP1-1
+Added Pin To Net: NetName=NetC1_1 Pin=OP1-2
+Added Net: Name=NetC1_1
+Added Pin To Net: NetName=NetC1_2 Pin=C1-2
+Added Pin To Net: NetName=NetC1_2 Pin=C3-1
+Added Pin To Net: NetName=NetC1_2 Pin=R1-1
+Added Net: Name=NetC1_2
+Added Pin To Net: NetName=NetC2_2 Pin=C2-2
+Added Pin To Net: NetName=NetC2_2 Pin=R2-2
+Added Pin To Net: NetName=NetC2_2 Pin=R3-2
+Added Net: Name=NetC2_2
+Added Pin To Net: NetName=NetC3_2 Pin=C3-2
+Added Pin To Net: NetName=NetC3_2 Pin=OP1-5
+Added Pin To Net: NetName=NetC3_2 Pin=R4-1
+Added Net: Name=NetC3_2
+Added Pin To Net: NetName=NetC4_1 Pin=C4-1
+Added Pin To Net: NetName=NetC4_1 Pin=OP1-3
+Added Pin To Net: NetName=NetC4_1 Pin=R3-1
+Added Net: Name=NetC4_1
+Added Pin To Net: NetName=NetOP1_6 Pin=OP1-6
+Added Pin To Net: NetName=NetOP1_6 Pin=OP1-7
+Added Pin To Net: NetName=NetOP1_6 Pin=R1-2
+Added Pin To Net: NetName=NetOP1_6 Pin=R10-1
+Added Net: Name=NetOP1_6
+Added Pin To Net: NetName=NetOP2_1 Pin=OP2-1
+Added Pin To Net: NetName=NetOP2_1 Pin=R6-3
+Added Pin To Net: NetName=NetOP2_1 Pin=R9-1
+Added Net: Name=NetOP2_1
+Added Pin To Net: NetName=NetOP2_2 Pin=OP2-2
+Added Pin To Net: NetName=NetOP2_2 Pin=R5-1
+Added Pin To Net: NetName=NetOP2_2 Pin=R10-2
+Added Net: Name=NetOP2_2
+Added Pin To Net: NetName=NetOP3_2 Pin=OP3-2
+Added Pin To Net: NetName=NetOP3_2 Pin=R8-3
+Added Pin To Net: NetName=NetOP3_2 Pin=R9-2
+Added Pin To Net: NetName=NetOP3_2 Pin=R11-1
+Added Net: Name=NetOP3_2
+Added Pin To Net: NetName=NetOP3_6 Pin=OP3-6
+Added Pin To Net: NetName=NetOP3_6 Pin=P3-1
+Added Pin To Net: NetName=NetOP3_6 Pin=P3-2
+Added Pin To Net: NetName=NetOP3_6 Pin=R11-2
+Added Net: Name=NetOP3_6
+Added Pin To Net: NetName=NetP2_1 Pin=P2-1
+Added Pin To Net: NetName=NetP2_1 Pin=P2-2
+Added Pin To Net: NetName=NetP2_1 Pin=R2-1
+Added Net: Name=NetP2_1
+Added Pin To Net: NetName=NetR5_2 Pin=R5-2
+Added Pin To Net: NetName=NetR5_2 Pin=R6-1
+Added Net: Name=NetR5_2
+Added Pin To Net: NetName=NetR7_2 Pin=R7-2
+Added Pin To Net: NetName=NetR7_2 Pin=R8-1
+Added Net: Name=NetR7_2
+Added Member To Class: ClassName=Sch_Add Member=Component C1 Cap Pol3
+Added Member To Class: ClassName=Sch_Add Member=Component C2 Cap Pol3
+Added Member To Class: ClassName=Sch_Add Member=Component C3 Cap Pol3
+Added Member To Class: ClassName=Sch_Add Member=Component C4 Cap Pol3
+Added Member To Class: ClassName=Sch_Add Member=Component OP1 TLV3542
+Added Member To Class: ClassName=Sch_Add Member=Component OP2 TLV3542
+Added Member To Class: ClassName=Sch_Add Member=Component OP3 OPA388IDR
+Added Member To Class: ClassName=Sch_Add Member=Component P1 Header 4H
+Added Member To Class: ClassName=Sch_Add Member=Component P2 Header 2H
+Added Member To Class: ClassName=Sch_Add Member=Component P3 Header 2H
+Added Member To Class: ClassName=Sch_Add Member=Component R1 Res3
+Added Member To Class: ClassName=Sch_Add Member=Component R2 Res3
+Added Member To Class: ClassName=Sch_Add Member=Component R3 Res3
+Added Member To Class: ClassName=Sch_Add Member=Component R4 Res3
+Added Member To Class: ClassName=Sch_Add Member=Component R5 Res3
+Added Member To Class: ClassName=Sch_Add Member=Component R6 Res_3362P
+Added Member To Class: ClassName=Sch_Add Member=Component R7 Res3
+Added Member To Class: ClassName=Sch_Add Member=Component R8 Res_3362P
+Added Member To Class: ClassName=Sch_Add Member=Component R9 Res3
+Added Member To Class: ClassName=Sch_Add Member=Component R10 Res3
+Added Member To Class: ClassName=Sch_Add Member=Component R11 Res3
+Added Room: Name=Sch_Add
