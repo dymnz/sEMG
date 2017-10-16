@@ -126,7 +126,7 @@ end
 plot(angles, mean_amps, '-o');
 
 ylim([0 2]);
-title("Angle - sEMG @ fixed weight");
-xlabel('Angle');
-ylabel('avg. amplitude (AU)');
+title("Angle - sEMG @ 2kg", 'FontSize', 20);
+xlabel('Angle', 'FontSize', 20);
+ylabel('avg. amplitude (AU)', 'FontSize', 20);
 legend("s-1", "s-2", "s-3", "s-4", "s-5");

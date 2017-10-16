@@ -34,6 +34,7 @@ void setup() {
   Wire.write(0);     // set to zero (wakes up the MPU-6050)
   Wire.endTransmission(true);
   Serial.begin(115200);
+
   
   Serial.println("Waiting for MPU to stablize...");
   for (uint8_t i = 0; i < WAIT_SAMPLE; i++) {
