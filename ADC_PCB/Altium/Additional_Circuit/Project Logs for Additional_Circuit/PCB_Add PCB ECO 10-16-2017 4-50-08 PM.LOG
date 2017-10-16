@@ -1,0 +1,49 @@
+Removed Pin From Net: NetName=NetR5_2 Pin=R6-1
+Removed Pin From Net: NetName=NetR1_2 Pin=R7-1
+Change Component DesignItemId : Designator=R7 Old DesignItemId=Res3 New DesignItemId=3362P
+Change Component Comment : Designator=R7 Old Comment=Res3 New Comment=3362P
+Change Component Designator: OldDesignator=INV_AMP NewDesignator=INV_AMP1
+Change Component Designator: OldDesignator=LPF_HPF NewDesignator=LPF_HPF1
+Change Component Description : Designator=R7 Old Description=Resistor New Description=
+Change Component Library : Designator=R7 Old Library=Miscellaneous Devices.IntLib New Library=tlv3542.IntLib
+Added Component: Designator=*1(SOIC127P600X175-8N)
+Added Component: Designator=P1(HDR1X4H)
+Added Component: Designator=P2(HDR1X2H)
+Added Component: Designator=P3(HDR1X2H)
+Added Component: Designator=R6(J1-0603)
+Added Component: Designator=R9(J1-0603)
+Added Component: Designator=R10(J1-0603)
+Added Component: Designator=R11(J1-0603)
+Added Pin To Net: NetName=GND Pin=P1-3
+Added Pin To Net: NetName=NetR1_2 Pin=R7-1
+Added Pin To Net: NetName=+2.5V Pin=P1-2
+Added Net: Name=+2.5V
+Added Pin To Net: NetName=+5V Pin=P1-1
+Added Net: Name=+5V
+Added Pin To Net: NetName=-2.5V Pin=P1-4
+Added Pin To Net: NetName=-2.5V Pin=R5-1
+Added Net: Name=-2.5V
+Added Pin To Net: NetName=NetP2_1 Pin=P2-1
+Added Pin To Net: NetName=NetP2_1 Pin=P2-2
+Added Pin To Net: NetName=NetP2_1 Pin=R2-1
+Added Net: Name=NetP2_1
+Added Pin To Net: NetName=NetP3_1 Pin=P3-1
+Added Pin To Net: NetName=NetP3_1 Pin=P3-2
+Added Pin To Net: NetName=NetP3_1 Pin=R11-2
+Added Net: Name=NetP3_1
+Added Pin To Net: NetName=NetR6_1 Pin=R5-1
+Added Pin To Net: NetName=NetR6_1 Pin=R7-2
+Added Net: Name=NetR6_1
+Added Pin To Net: NetName=NetR6_2 Pin=R5-2
+Added Pin To Net: NetName=NetR6_2 Pin=R7-1
+Added Net: Name=NetR6_2
+Added Pin To Net: NetName=NetR9_2 Pin=R9-2
+Added Pin To Net: NetName=NetR9_2 Pin=R11-1
+Added Net: Name=NetR9_2
+Added Member To Class: ClassName=Sch_Add Member=Component *1 OPA388IDR
+Added Member To Class: ClassName=Sch_Add Member=Component P1 Header 4H
+Added Member To Class: ClassName=Sch_Add Member=Component P2 Header 2H
+Added Member To Class: ClassName=Sch_Add Member=Component P3 Header 2H
+Added Member To Class: ClassName=Sch_Add Member=Component R9 Res3
+Added Member To Class: ClassName=Sch_Add Member=Component R10 Res3
+Added Member To Class: ClassName=Sch_Add Member=Component R11 Res3

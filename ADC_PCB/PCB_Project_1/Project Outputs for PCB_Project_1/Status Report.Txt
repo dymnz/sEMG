@@ -1,0 +1,12 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [PCB_Project_1.PrjPcb]
+   Generated File[PreAmp.TXT]
+   Generated File[PreAmp.LDP]
+   Generated File[PreAmp.DRR]
+
+
+Files Generated   : 3
+Documents Printed : 0
+
+Finished Output Generation At ¤W¤È 11:27:17 On 2016/12/7

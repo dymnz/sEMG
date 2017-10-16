@@ -1,0 +1,10 @@
+[DesignatorManager]
+
+[SheetNumberManager]
+SheetNumberOrder=Display Order
+SheetNumberMethod=Increasing
+DocumentName0=Sch_Add.SchDoc
+UniqueIDPath0=
+SheetNumber0=1
+
+
