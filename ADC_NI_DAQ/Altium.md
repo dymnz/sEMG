@@ -14,3 +14,7 @@
   
   
   
+#### Issue
+
+* Unmatched net in schematic
+  * PCB: Design -> Netlist -> Clear all Nets
