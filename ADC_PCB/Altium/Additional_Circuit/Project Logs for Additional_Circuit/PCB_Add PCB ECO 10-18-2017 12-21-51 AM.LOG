@@ -1,0 +1,5 @@
+Change Component Comment : Designator=R8 Old Comment=2 New Comment=Res_3362P
+Change Component Comment : Designator=R6 Old Comment=5 New Comment=Res_3362P
+Change Component Comment : Designator=OP3 Old Comment=O New Comment=OPA388IDR
+Change Component Designator: OldDesignator=5V NewDesignator=P5
+Added Pin To Net: NetName=PGND Pin=C6-2

@@ -90,6 +90,10 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [GeneratedDocument1]
+DocumentPath=Project Outputs for Additional_Circuit\Design Rule Check - PCB_Add.html
+DItemRevisionGUID=
+
+[GeneratedDocument2]
 DocumentPath=Project Outputs for Additional_Circuit\Sch_Add.NET
 DItemRevisionGUID=
 

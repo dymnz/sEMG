@@ -1,0 +1,65 @@
+Change Component Comment : Designator=R8 Old Comment=2 New Comment=Res_3362P
+Change Component Comment : Designator=R6 Old Comment=5 New Comment=Res_3362P
+Change Component Comment : Designator=P2 Old Comment=In New Comment=Header 2H
+Change Component Comment : Designator=OP3 Old Comment=O New Comment=OPA388IDR
+Change Component Designator: OldDesignator=Text NewDesignator=P3
+Added Component: Designator=C5(C0805)
+Added Component: Designator=C6(C0805)
+Added Component: Designator=C7(C0805)
+Added Component: Designator=C8(C0805)
+Added Component: Designator=C9(C0805)
+Added Component: Designator=C10(C0805)
+Added Component: Designator=P4(HDR1X2H)
+Added Component: Designator=P5(HDR1X4H)
+Added Component: Designator=VOL_DIV(SOIC127P600X175-8N)
+Added Component: Designator=VOL_INV(SOIC127P600X175-8N)
+Added Pin To Net: NetName=NetC6_1 Pin=C6-1
+Added Pin To Net: NetName=NetC6_1 Pin=C9-1
+Added Pin To Net: NetName=NetC6_1 Pin=P5-2
+Added Pin To Net: NetName=NetC6_1 Pin=VOL_DIV-3
+Added Pin To Net: NetName=NetC6_1 Pin=VOL_INV-1
+Added Pin To Net: NetName=NetC6_1 Pin=VOL_INV-8
+Added Net: Name=NetC6_1
+Added Pin To Net: NetName=NetC7_1 Pin=C7-1
+Added Pin To Net: NetName=NetC7_1 Pin=VOL_DIV-2
+Added Net: Name=NetC7_1
+Added Pin To Net: NetName=NetC7_2 Pin=C7-2
+Added Pin To Net: NetName=NetC7_2 Pin=VOL_DIV-4
+Added Net: Name=NetC7_2
+Added Pin To Net: NetName=NetC8_1 Pin=C8-1
+Added Pin To Net: NetName=NetC8_1 Pin=VOL_INV-2
+Added Net: Name=NetC8_1
+Added Pin To Net: NetName=NetC8_2 Pin=C8-2
+Added Pin To Net: NetName=NetC8_2 Pin=VOL_INV-4
+Added Net: Name=NetC8_2
+Added Pin To Net: NetName=NetC10_2 Pin=C10-2
+Added Pin To Net: NetName=NetC10_2 Pin=P5-4
+Added Pin To Net: NetName=NetC10_2 Pin=VOL_INV-5
+Added Net: Name=NetC10_2
+Added Pin To Net: NetName=P5V Pin=C5-1
+Added Pin To Net: NetName=P5V Pin=P4-1
+Added Pin To Net: NetName=P5V Pin=P5-1
+Added Pin To Net: NetName=P5V Pin=VOL_DIV-1
+Added Pin To Net: NetName=P5V Pin=VOL_DIV-8
+Added Net: Name=P5V
+Added Pin To Net: NetName=PGND Pin=C5-2
+Added Pin To Net: NetName=PGND Pin=C9-2
+Added Pin To Net: NetName=PGND Pin=C10-1
+Added Pin To Net: NetName=PGND Pin=P4-2
+Added Pin To Net: NetName=PGND Pin=P5-3
+Added Pin To Net: NetName=PGND Pin=VOL_DIV-5
+Added Pin To Net: NetName=PGND Pin=VOL_INV-3
+Added Pin To Net: NetName=PGND Pin=VOL_INV-6
+Added Net: Name=PGND
+Added Member To Class: ClassName=Sch_Add Member=Component C1 Cap Pol3
+Added Member To Class: ClassName=Sch_Add Member=Component C5 Cap Pol3
+Added Member To Class: ClassName=Sch_Add Member=Component C6 Cap Pol3
+Added Member To Class: ClassName=Sch_Add Member=Component C7 Cap Pol3
+Added Member To Class: ClassName=Sch_Add Member=Component C8 Cap Pol3
+Added Member To Class: ClassName=Sch_Add Member=Component C9 Cap Pol3
+Added Member To Class: ClassName=Sch_Add Member=Component C10 Cap Pol3
+Added Member To Class: ClassName=Sch_Add Member=Component P4 Header 2H
+Added Member To Class: ClassName=Sch_Add Member=Component P5 Header 4H
+Added Member To Class: ClassName=Sch_Add Member=Component R2 Res3
+Added Member To Class: ClassName=Sch_Add Member=Component VOL_DIV MAX1044
+Added Member To Class: ClassName=Sch_Add Member=Component VOL_INV MAX1044
