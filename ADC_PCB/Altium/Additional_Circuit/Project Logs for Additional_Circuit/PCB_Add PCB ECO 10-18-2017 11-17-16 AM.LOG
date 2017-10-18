@@ -1,0 +1,14 @@
+Change Component Designator: OldDesignator=5V NewDesignator=P5
+Change Component Designator: OldDesignator=G NewDesignator=P4
+Added Component: Designator=C11(C0805)
+Added Component: Designator=C12(C0805)
+Added Component: Designator=C13(C0805)
+Added Pin To Net: NetName=+2.5V Pin=C11-1
+Added Pin To Net: NetName=GND Pin=C11-2
+Added Pin To Net: NetName=+2.5V Pin=C12-1
+Added Pin To Net: NetName=GND Pin=C12-2
+Added Pin To Net: NetName=+5V Pin=C13-1
+Added Pin To Net: NetName=GND Pin=C13-2
+Added Member To Class: ClassName=Sch_Add Member=Component C11 Cap Pol3
+Added Member To Class: ClassName=Sch_Add Member=Component C12 Cap Pol3
+Added Member To Class: ClassName=Sch_Add Member=Component C13 Cap Pol3
