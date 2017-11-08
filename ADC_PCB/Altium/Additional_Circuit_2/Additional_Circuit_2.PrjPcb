@@ -39,13 +39,13 @@ PrefsVaultGUID=
 PrefsRevisionGUID=
 
 [Document1]
-DocumentPath=Sch_Add.SchDoc
+DocumentPath=Additional_Circuit_2.Annotation
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=0
+AnnotateOrder=-1
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -53,7 +53,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=ERETLOCY
+DocumentUniqueId=
 
 [Document2]
 DocumentPath=PCB_Add.PcbDoc
@@ -73,13 +73,13 @@ GenerateClassCluster=0
 DocumentUniqueId=TRNYWSRY
 
 [Document3]
-DocumentPath=Additional_Circuit.Annotation
+DocumentPath=Sch_Add.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=-1
+AnnotateOrder=0
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -87,141 +87,90 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document4]
-DocumentPath=CAMtastic1.Cam
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document5]
-DocumentPath=CAMtastic2.Cam
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document6]
-DocumentPath=CAMtastic3.Cam
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=ERETLOCY
 
 [GeneratedDocument1]
-DocumentPath=Project Outputs for Additional_Circuit\Design Rule Check - PCB_Add.html
+DocumentPath=..\Additional_Circuit\Project Outputs for Additional_Circuit\Design Rule Check - PCB_Add.html
 DItemRevisionGUID=
 
 [GeneratedDocument2]
-DocumentPath=Project Outputs for Additional_Circuit\PCB_Add.DRR
+DocumentPath=..\Additional_Circuit\Project Outputs for Additional_Circuit\PCB_Add.DRR
 DItemRevisionGUID=
 
 [GeneratedDocument3]
-DocumentPath=Project Outputs for Additional_Circuit\PCB_Add.EXTREP
+DocumentPath=..\Additional_Circuit\Project Outputs for Additional_Circuit\PCB_Add.EXTREP
 DItemRevisionGUID=
 
 [GeneratedDocument4]
-DocumentPath=Project Outputs for Additional_Circuit\PCB_Add.GBL
+DocumentPath=..\Additional_Circuit\Project Outputs for Additional_Circuit\PCB_Add.GBL
 DItemRevisionGUID=
 
 [GeneratedDocument5]
-DocumentPath=Project Outputs for Additional_Circuit\PCB_Add.GBS
+DocumentPath=..\Additional_Circuit\Project Outputs for Additional_Circuit\PCB_Add.GBS
 DItemRevisionGUID=
 
 [GeneratedDocument6]
-DocumentPath=Project Outputs for Additional_Circuit\PCB_Add.GD1
+DocumentPath=..\Additional_Circuit\Project Outputs for Additional_Circuit\PCB_Add.GD1
 DItemRevisionGUID=
 
 [GeneratedDocument7]
-DocumentPath=Project Outputs for Additional_Circuit\PCB_Add.GG1
+DocumentPath=..\Additional_Circuit\Project Outputs for Additional_Circuit\PCB_Add.GG1
 DItemRevisionGUID=
 
 [GeneratedDocument8]
-DocumentPath=Project Outputs for Additional_Circuit\PCB_Add.GKO
+DocumentPath=..\Additional_Circuit\Project Outputs for Additional_Circuit\PCB_Add.GKO
 DItemRevisionGUID=
 
 [GeneratedDocument9]
-DocumentPath=Project Outputs for Additional_Circuit\PCB_Add.GM13
+DocumentPath=..\Additional_Circuit\Project Outputs for Additional_Circuit\PCB_Add.GM13
 DItemRevisionGUID=
 
 [GeneratedDocument10]
-DocumentPath=Project Outputs for Additional_Circuit\PCB_Add.GM15
+DocumentPath=..\Additional_Circuit\Project Outputs for Additional_Circuit\PCB_Add.GM15
 DItemRevisionGUID=
 
 [GeneratedDocument11]
-DocumentPath=Project Outputs for Additional_Circuit\PCB_Add.GPB
+DocumentPath=..\Additional_Circuit\Project Outputs for Additional_Circuit\PCB_Add.GPB
 DItemRevisionGUID=
 
 [GeneratedDocument12]
-DocumentPath=Project Outputs for Additional_Circuit\PCB_Add.GPT
+DocumentPath=..\Additional_Circuit\Project Outputs for Additional_Circuit\PCB_Add.GPT
 DItemRevisionGUID=
 
 [GeneratedDocument13]
-DocumentPath=Project Outputs for Additional_Circuit\PCB_Add.GTL
+DocumentPath=..\Additional_Circuit\Project Outputs for Additional_Circuit\PCB_Add.GTL
 DItemRevisionGUID=
 
 [GeneratedDocument14]
-DocumentPath=Project Outputs for Additional_Circuit\PCB_Add.GTO
+DocumentPath=..\Additional_Circuit\Project Outputs for Additional_Circuit\PCB_Add.GTO
 DItemRevisionGUID=
 
 [GeneratedDocument15]
-DocumentPath=Project Outputs for Additional_Circuit\PCB_Add.GTP
+DocumentPath=..\Additional_Circuit\Project Outputs for Additional_Circuit\PCB_Add.GTP
 DItemRevisionGUID=
 
 [GeneratedDocument16]
-DocumentPath=Project Outputs for Additional_Circuit\PCB_Add.GTS
+DocumentPath=..\Additional_Circuit\Project Outputs for Additional_Circuit\PCB_Add.GTS
 DItemRevisionGUID=
 
 [GeneratedDocument17]
-DocumentPath=Project Outputs for Additional_Circuit\PCB_Add.LDP
+DocumentPath=..\Additional_Circuit\Project Outputs for Additional_Circuit\PCB_Add.LDP
 DItemRevisionGUID=
 
 [GeneratedDocument18]
-DocumentPath=Project Outputs for Additional_Circuit\PCB_Add.REP
+DocumentPath=..\Additional_Circuit\Project Outputs for Additional_Circuit\PCB_Add.REP
 DItemRevisionGUID=
 
 [GeneratedDocument19]
-DocumentPath=Project Outputs for Additional_Circuit\PCB_Add.RUL
+DocumentPath=..\Additional_Circuit\Project Outputs for Additional_Circuit\PCB_Add.RUL
 DItemRevisionGUID=
 
 [GeneratedDocument20]
-DocumentPath=Project Outputs for Additional_Circuit\PCB_Add.TXT
+DocumentPath=..\Additional_Circuit\Project Outputs for Additional_Circuit\PCB_Add.TXT
 DItemRevisionGUID=
 
 [GeneratedDocument21]
-DocumentPath=Project Outputs for Additional_Circuit\Sch_Add.NET
+DocumentPath=..\Additional_Circuit\Project Outputs for Additional_Circuit\Sch_Add.NET
 DItemRevisionGUID=
 
 [Configuration1]
