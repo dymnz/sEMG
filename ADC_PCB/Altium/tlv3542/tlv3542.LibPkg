@@ -72,6 +72,10 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=JNHSSXFQ
 
+[GeneratedDocument1]
+DocumentPath=Schlib1.cmp
+DItemRevisionGUID=
+
 [OutputGroup1]
 Name=Netlist Outputs
 Description=

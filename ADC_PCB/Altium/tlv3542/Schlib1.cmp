@@ -1,0 +1,20 @@
+Component Name : MAX1044
+
+Part Count : 2
+
+Part : *
+     Pins - (Normal) : 0
+          Hidden Pins : 
+
+Part : *
+     Pins - (Normal) : 8
+          BST            1              Passive
+          C+             2              Passive
+          GND            3              Passive
+          C-             4              Passive
+          Vo             5              Passive
+          LV             6              Passive
+          OSC            7              Passive
+          V+             8              Passive
+          Hidden Pins : 
+
