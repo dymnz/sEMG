@@ -1,0 +1,7 @@
+Added Component: Designator=P5(HDR1X4H)
+Added Pin To Net: NetName=P+5V Pin=P5-1
+Added Pin To Net: NetName=P+2.5V Pin=P5-2
+Added Pin To Net: NetName=PGND Pin=P5-3
+Added Pin To Net: NetName=P-2.5V Pin=P5-4
+Added Member To Class: ClassName=Sch_Add Member=Component P5 Header 4H
+Added Room: Name=Sch_Add

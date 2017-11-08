@@ -1,0 +1,3 @@
+Change Component Designator: OldDesignator=P6 NewDesignator=P9
+Added Member To Class: ClassName=Sch_Add Member=Component P9 Header 4H
+Added Room: Name=Sch_Add
