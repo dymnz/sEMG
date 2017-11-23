@@ -1,0 +1,48 @@
+Change Component Designator: OldDesignator=+ NewDesignator=P5
+Change Component Designator: OldDesignator=+ NewDesignator=P6
+Change Component Designator: OldDesignator=+ NewDesignator=P7
+Change Component Designator: OldDesignator=+ NewDesignator=P8
+Change Component Designator: OldDesignator=+ NewDesignator=P9
+Added Pin To Net: NetName=P+2.5V Pin=1-1
+Added Pin To Net: NetName=P+2.5V Pin=C5-2
+Added Pin To Net: NetName=P+2.5V Pin=C6-2
+Added Pin To Net: NetName=P+2.5V Pin=LD2-3
+Added Member To Class: ClassName=Sch_Add Member=Component 1 7805
+Added Member To Class: ClassName=Sch_Add Member=Component C1 Cap Pol3
+Added Member To Class: ClassName=Sch_Add Member=Component C2 Cap Pol3
+Added Member To Class: ClassName=Sch_Add Member=Component C3 Cap Pol3
+Added Member To Class: ClassName=Sch_Add Member=Component C4 Cap Pol3
+Added Member To Class: ClassName=Sch_Add Member=Component C5 Cap Pol3
+Added Member To Class: ClassName=Sch_Add Member=Component C6 Cap Pol3
+Added Member To Class: ClassName=Sch_Add Member=Component C7 Cap Pol3
+Added Member To Class: ClassName=Sch_Add Member=Component C8 Cap Pol3
+Added Member To Class: ClassName=Sch_Add Member=Component C9 Cap Pol3
+Added Member To Class: ClassName=Sch_Add Member=Component C11 Cap Pol3
+Added Member To Class: ClassName=Sch_Add Member=Component C12 Cap Pol3
+Added Member To Class: ClassName=Sch_Add Member=Component C13 Cap Pol3
+Added Member To Class: ClassName=Sch_Add Member=Component LD1 LD1117
+Added Member To Class: ClassName=Sch_Add Member=Component LD2 LD1117
+Added Member To Class: ClassName=Sch_Add Member=Component OP1 TLV3542
+Added Member To Class: ClassName=Sch_Add Member=Component OP2 TLV3542
+Added Member To Class: ClassName=Sch_Add Member=Component OP3 O
+Added Member To Class: ClassName=Sch_Add Member=Component P1 Header 4H
+Added Member To Class: ClassName=Sch_Add Member=Component P2 Header 2H
+Added Member To Class: ClassName=Sch_Add Member=Component P3 Header 2H
+Added Member To Class: ClassName=Sch_Add Member=Component P4 Header 2H
+Added Member To Class: ClassName=Sch_Add Member=Component P5 Header 4H
+Added Member To Class: ClassName=Sch_Add Member=Component P6 Header 3H
+Added Member To Class: ClassName=Sch_Add Member=Component P7 Header 4H
+Added Member To Class: ClassName=Sch_Add Member=Component P8 Header 4H
+Added Member To Class: ClassName=Sch_Add Member=Component P9 Header 4H
+Added Member To Class: ClassName=Sch_Add Member=Component R1 Res3
+Added Member To Class: ClassName=Sch_Add Member=Component R2 Res3
+Added Member To Class: ClassName=Sch_Add Member=Component R3 Res3
+Added Member To Class: ClassName=Sch_Add Member=Component R4 Res3
+Added Member To Class: ClassName=Sch_Add Member=Component R5 Res3
+Added Member To Class: ClassName=Sch_Add Member=Component R6 5
+Added Member To Class: ClassName=Sch_Add Member=Component R7 Res3
+Added Member To Class: ClassName=Sch_Add Member=Component R8 2
+Added Member To Class: ClassName=Sch_Add Member=Component R9 Res3
+Added Member To Class: ClassName=Sch_Add Member=Component R10 Res3
+Added Member To Class: ClassName=Sch_Add Member=Component R11 Res3
+Added Room: Name=Sch_Add
