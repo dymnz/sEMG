@@ -1,0 +1,19 @@
+Added Component: Designator=P6(HDR1X4H)
+Added Component: Designator=P7(HDR1X4H)
+Added Component: Designator=P8(HDR1X4H)
+Added Pin To Net: NetName=P+5V Pin=P6-1
+Added Pin To Net: NetName=P+2.5V Pin=P6-2
+Added Pin To Net: NetName=PGND Pin=P6-3
+Added Pin To Net: NetName=P-2.5V Pin=P6-4
+Added Pin To Net: NetName=P+5V Pin=P7-1
+Added Pin To Net: NetName=P+2.5V Pin=P7-2
+Added Pin To Net: NetName=PGND Pin=P7-3
+Added Pin To Net: NetName=P-2.5V Pin=P7-4
+Added Pin To Net: NetName=P+5V Pin=P8-1
+Added Pin To Net: NetName=P+2.5V Pin=P8-2
+Added Pin To Net: NetName=PGND Pin=P8-3
+Added Pin To Net: NetName=P-2.5V Pin=P8-4
+Added Member To Class: ClassName=Sch_Add Member=Component P6 Header 4H
+Added Member To Class: ClassName=Sch_Add Member=Component P7 Header 4H
+Added Member To Class: ClassName=Sch_Add Member=Component P8 Header 4H
+Added Room: Name=Sch_Add
