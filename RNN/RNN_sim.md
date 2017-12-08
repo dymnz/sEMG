@@ -1,10 +1,12 @@
 #### RNN sim
 
-#### Vanilla RNN      
+#### Vanilla RNN (Regression)     
 * 1 input node
 * 2/3 hidden nodes <-- magic #, faster convergence
 * 1 output node
-* BPTT truncate steps: 4  (# of steps to unroll)
+* BPTT truncate steps: 4/5  (# of steps to unroll)
+    * To avoid exploding gradient
+    * To not waste processing time for vanishing gradient
     
 #### Data Generation
 * Generate random **pulse vector** (Tx1)
@@ -28,7 +30,12 @@
     * Fixed
 * Reasonable preformace, 5~10% error
 
-
+#### Next
+* Sliding window input structure: Expend the input to a small window, see if performence is improved, as the BPTT truncation issue can be mitigated
+* Momentum input: A new set of input simulating muscle momvement, the output force vector is attenuated by the slope of the movement
+    * Does not reflect the real-world situation, but can test the performence of the RNN in differential operation
+* Angle input: A new set of input simulating the compound effect of wrist anglge(mucsle length/electrode position change)
+    * Reflects the real-world situation
 
 
 #### ?????
@@ -41,4 +48,6 @@
     * Signal power is different ??????
     
 
-
+#### Misc
+* [Implementation (regression)](https://github.com/dymnz/ParallelProgramming/tree/master/RNN)
+* [Implementation notes (regression)](https://github.com/dymnz/ParallelProgramming/blob/master/RNN/C/ReadMe.md)

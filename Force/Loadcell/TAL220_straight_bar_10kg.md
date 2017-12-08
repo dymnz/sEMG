@@ -10,7 +10,7 @@
 * black = E-
 * white = O-
 
-#### Connection to Hx711
+#### Connection on Hx711
 * To loadcell
     - red = E+
     - green = O+
