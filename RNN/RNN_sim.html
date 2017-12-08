@@ -724,12 +724,17 @@ pre {
 </style><title>RNN_sim</title></head><body><article class="markdown-body"><h4>
 <a id="user-content-rnn-sim" class="anchor" href="#rnn-sim" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>RNN sim</h4>
 <h4>
-<a id="user-content-vanilla-rnn" class="anchor" href="#vanilla-rnn" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Vanilla RNN</h4>
+<a id="user-content-vanilla-rnn-regression" class="anchor" href="#vanilla-rnn-regression" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Vanilla RNN (Regression)</h4>
 <ul>
 <li>1 input node</li>
 <li>2/3 hidden nodes &lt;-- magic #, faster convergence</li>
 <li>1 output node</li>
-<li>BPTT truncate steps: 4  (# of steps to unroll)</li>
+<li>BPTT truncate steps: 4/5  (# of steps to unroll)
+<ul>
+<li>To avoid exploding gradient</li>
+<li>To not waste processing time for vanishing gradient</li>
+</ul>
+</li>
 </ul>
 <h4>
 <a id="user-content-data-generation" class="anchor" href="#data-generation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Data Generation</h4>
@@ -771,7 +776,7 @@ the force of which a single pulse will produce
 <h4>
 <a id="user-content-next" class="anchor" href="#next" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Next</h4>
 <ul>
-<li>Sliding window input: Expend the input to a small window, see if performence is improved, as the BPTT truncation issue can be mitigated</li>
+<li>Sliding window input structure: Expend the input to a small window, see if performence is improved, as the BPTT truncation issue can be mitigated</li>
 <li>Momentum input: A new set of input simulating muscle momvement, the output force vector is attenuated by the slope of the movement
 <ul>
 <li>Does not reflect the real-world situation, but can test the performence of the RNN in differential operation</li>
@@ -805,5 +810,11 @@ the force of which a single pulse will produce
 <li>Signal power is different ??????</li>
 </ul>
 </li>
+</ul>
+<h4>
+<a id="user-content-misc" class="anchor" href="#misc" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Misc</h4>
+<ul>
+<li><a href="https://github.com/dymnz/ParallelProgramming/tree/master/RNN">Implementation (regression)</a></li>
+<li><a href="https://github.com/dymnz/ParallelProgramming/blob/master/RNN/C/ReadMe.md">Implementation notes (regression)</a></li>
 </ul>
 </article></body></html>

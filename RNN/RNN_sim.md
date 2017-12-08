@@ -2,7 +2,7 @@
 
 #### Vanilla RNN (Regression)     
 * 1 input node
-* 2/3 hidden nodes <-- magic #, faster convergence
+* 1 hidden layer, 2/3 hidden nodes <-- magic #, faster convergence
 * 1 output node
 * BPTT truncate steps: 4/5  (# of steps to unroll)
     * To avoid exploding gradient
@@ -31,6 +31,7 @@
 * Reasonable preformace, 5~10% error
 
 #### Next
+* LSTM
 * Sliding window input structure: Expend the input to a small window, see if performence is improved, as the BPTT truncation issue can be mitigated
 * Momentum input: A new set of input simulating muscle momvement, the output force vector is attenuated by the slope of the movement
     * Does not reflect the real-world situation, but can test the performence of the RNN in differential operation
