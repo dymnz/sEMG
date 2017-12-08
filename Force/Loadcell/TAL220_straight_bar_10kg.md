@@ -22,7 +22,13 @@
     - VCC = Power to loadcell (5~12 according to spec)
 
 
+#### Status
+* Loadcell + Amp working
+* To be calibrated
+
+
 #### Source
 * http://www.icshop.com.tw/product_info.php/products_id/16571
 * https://learn.sparkfun.com/tutorials/load-cell-amplifier-hx711-breakout-hookup-guide
 * https://learn.sparkfun.com/tutorials/getting-started-with-load-cells
+* [Useful codes](https://github.com/sparkfun/HX711-Load-Cell-Amplifier/tree/master/firmware)
