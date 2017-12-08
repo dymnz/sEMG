@@ -8,7 +8,19 @@
 * red = E+
 * green = O+
 * black = E-
-* white = O-.
+* white = O-
+
+#### Connection to Hx711
+* To loadcell
+    - red = E+
+    - green = O+
+    - black = E-
+    - white = O-
+    - yellow = GND, for EMI protection
+* To MCU
+    - VDD = Logic level (3.3/5V, 5V for convenience)
+    - VCC = Power to loadcell (5~12 according to spec)
+
 
 #### Source
 * http://www.icshop.com.tw/product_info.php/products_id/16571
