@@ -27,10 +27,18 @@
 * ~~Error in BPTT gradient calculation (Gradient check)~~
     * Fixed
 * Reasonable preformace, 5~10% error
+
+
+
+
+#### ?????
 * length(**twitch force prototype**)/legnth(**pulse vector**) does not reflect real-world scenario, theoratically longer length(**twitch force prototype**) leads to worse RNN perforamce
     * In test
         * T = 2: average loss: 0.057152    (prototype length = 10 samples)
+            * file_name = 'demo/res10_CT2.txt';
         * T = 5: average loss: 0.073225    (prototype length = 25 samples)
+            * file_name = 'demo/res10_t10.txt';
+    * Signal power is different ??????
     
 
 
