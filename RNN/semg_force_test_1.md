@@ -42,7 +42,7 @@
     * Trend very clear, still some low amplitude
 
 ### Best result, semgented with overlap. (e.g. 250pt w/ 50pt overlap)
-  1. segmented / full
+  1. segmented / full `./rnn train_2_ds100_lp_rec_fx_ol test_2_ds100_lp_rec_fx_ol 4 10000 0.001 10 100 1000 42`
     * Good result
 
 ### Main issue
