@@ -1,9 +1,10 @@
 #### sEMG - Froce LSTM training test
 
+
 #### Param
 * sEMG recorded @ 1000Hz
 * Force recorded @ ?Hz (<10Hz)
-* Manual align
+* Manual align (pretty bad)
 * Truncated froce - semg signal
 * Test and train are the same signal
 
@@ -39,3 +40,7 @@
     * Broken, only first segment is accurate
   3. full / full
     * Trend very clear, still some low amplitude
+
+
+### Main issue
+* Force - semg data alignment
