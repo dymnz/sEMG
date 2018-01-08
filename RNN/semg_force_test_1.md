@@ -41,6 +41,9 @@
   3. full / full
     * Trend very clear, still some low amplitude
 
+### Best result, semgented with overlap. (e.g. 250pt w/ 50pt overlap)
+  1. segmented / full
+    * Good result
 
 ### Main issue
 * Force - semg data alignment
