@@ -1,4 +1,9 @@
 #### sEMG - Froce LSTM training test
+
+#### Param
+* sEMG recorded @ 1000Hz
+* Force recorded @ ?Hz (<10Hz)
+* Manual align
 * Truncated froce - semg signal
 * Test and train are the same signal
 
@@ -24,3 +29,13 @@
   * low-pass and downsample
   * better alignment
   * **ALL output stuck at constant**
+
+
+### Further training
+* sample_rate = 100Hz, segment = 100 sample, better alginment
+  1. segmented / segmented `./rnn train_1_ds100_lp_rec_fx train_1_ds100_lp_rec_fx 4 10000 0.001 100 1000 4`
+    * Good result with more training round
+  2. segmented / full `./rnn train_1_ds100_lp_rec_fx test_1_ds100_lp_rec_fx 4 10000 0.001 100 1000 4`
+    * Broken, only first segment is accurate
+  3. full / full
+    * Trend very clear, still some low amplitude
