@@ -58,15 +58,12 @@ subplot_helper(1:length(semg_data(:, 2)), semg_data(:, 2), ...
 
 %return;
 %% Downsample
-semg_data = semg_data(:, 2);
-target_sample_rate = 100;
+target_sample_rate = 300;
 downsample_ratio = floor(sample_rate / target_sample_rate);
 
 filter_order = 6;
 [force_data, cb, ca] = butter_filter( ...
         force_data, filter_order, target_sample_rate, sample_rate);
-[semg_data, cb, ca] = butter_filter( ...
-        semg_data, filter_order, target_sample_rate, sample_rate);
 
 force_data = downsample(force_data, downsample_ratio);
 semg_data = downsample(semg_data, downsample_ratio);
@@ -79,27 +76,45 @@ subplot_helper(1:length(semg_data), semg_data, ...
                 [1 1 1], {'sample' 'amplitude' 'Downsample force and sEMG'}, '-');
 ylim([0 1]);
 
-
-%% Rectify and Normalization
+%% Normalization
 force_data = force_data / max(force_data);
-semg_data = abs(semg_data);
-semg_data = semg_data / max(semg_data);
+semg_data = semg_data(:, 2);
+semg_data = 2 * (semg_data - min(semg_data))...
+        / (max(semg_data) - min(semg_data)) - 1;
 
 figure;
 subplot_helper(1:length(force_data), force_data, ...
                 [1 1 1], {'sample' 'amplitude' 'Force (kg)'}, '-o');         
 subplot_helper(1:length(semg_data), semg_data, ...
                 [1 1 1], {'sample' 'amplitude' 'Normalized force and sEMG'}, '-');
-ylim([0 1]);
+ylim([-1 1]);
 
+%% Pulse gen
+threshold = 0.5;
+processed_semg = zeros(size(semg_data));
+for i = 2 : length(semg_data)
+    if semg_data(i) > threshold && ...
+       (semg_data(i) - semg_data(i-1)) * ...
+       (semg_data(i - 1) - semg_data(i)) < 0
+   
+        processed_semg(i) = semg_data(i);
+    end
+end
+semg_data = processed_semg;
+figure;
+subplot_helper(1:length(force_data), force_data, ...
+                [1 1 1], {'sample' 'amplitude' 'Force (kg)'}, '-o');         
+subplot_helper(1:length(semg_data), semg_data, ...
+                [1 1 1], {'sample' 'amplitude' 'Normalized force and sEMG'}, '-');
+ylim([-1 1]);
 
 
 %% Write train file
-DATA_LENGTH = 250;
-OVERLAP_LENGTH = 50;
+DATA_LENGTH = 300;
+OVERLAP_LENGTH = 100;
 num_of_sample = floor(length(force_data) / OVERLAP_LENGTH);
 
-output_filename = './data/exp_train_2_ds100_lp_rec_fx_ol.txt';
+output_filename = './data/exp_train_2_ds100_lp_rec_fx_ol_pul.txt';
 output_fileID = fopen(output_filename, 'w');
 fprintf(output_fileID, '%d\n', num_of_sample);
 
@@ -131,14 +146,14 @@ figure;
 subplot_helper(1:length(cutoff_force), cutoff_force, ...
                 [1 1 1], {'sample' 'amplitude' 'Force (kg)'}, '-o');                    
 subplot_helper(1:length(cutoff_semg), cutoff_semg, ...
-                [1 1 1], {'sample' 'amplitude' 'Interpolated force and sEMG'}, '-');                       
+                [1 1 1], {'sample' 'amplitude' 'Interpolated force and sEMG'}, '-o');                       
 ylim([-1 1]);            
 end
 
 fclose(output_fileID);
 
 %% Write test file
-output_filename = './data/exp_test_2_ds100_lp_rec_fx_ol.txt';
+output_filename = './data/exp_test_2_ds100_lp_rec_fx_ol_pul.txt';
 output_fileID = fopen(output_filename, 'w');
 
 DATA_LENGTH = length(semg_data);
