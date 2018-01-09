@@ -27,7 +27,9 @@
 * ~~To be calibrated~~
 * Hx711 report rate adjustable: 10/80 sample per second
    * PCB fixed at 10 SPS
-   * Measured @ 12 SPS
+   * Measured @ 12 SPS with 1 sec window
+   * MEASURED @ 112 SPS with 10 sec window ????
+   
 
 
 #### Source
