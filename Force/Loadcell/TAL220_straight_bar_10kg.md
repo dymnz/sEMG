@@ -24,7 +24,10 @@
 
 #### Status
 * Loadcell + Amp working
-* To be calibrated
+* ~~To be calibrated~~
+* Hx711 report rate adjustable: 10/80 sample per second
+   * PCB fixed at 10 SPS
+   * Measured @ 12 SPS
 
 
 #### Source
