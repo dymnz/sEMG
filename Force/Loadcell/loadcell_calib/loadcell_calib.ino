@@ -39,7 +39,7 @@
 HX711 scale(DOUT, CLK);
 
 float calibration_factor = -200000;
-
+long offset = scale.get_offset();
 void setup() {
   Serial.begin(9600);
   Serial.println("HX711 calibration sketch");
@@ -54,6 +54,7 @@ void setup() {
   long zero_factor = scale.read_average(); //Get a baseli ne reading
   Serial.print("Zero factor: "); //This can be used to remove the need to tare the scale. Useful in permanent scale projects.
   Serial.println(zero_factor);
+  offset = scale.get_offset();
 }
 
 void loop() {
@@ -61,19 +62,11 @@ void loop() {
   scale.set_scale(calibration_factor); //Adjust to this calibration factor
 
   //Serial.print("Reading: ");
-  Serial.print(scale.get_units(), 5);
+  Serial.println( (scale.read() - offset) / calibration_factor, 5);
   //Serial.print(" kgs"); //Change this to kg and re-adjust the calibration factor if you follow SI units like a sane person
   //Serial.print(" calibration_factor: ");
   //Serial.print(calibration_factor);
-  Serial.println();
+ // Serial.println();
 
-  if(Serial.available())
-  {
-    char temp = Serial.read();
-    if(temp == '+' || temp == 'a')
-      calibration_factor += 10;
-    else if(temp == '-' || temp == 'z')
-      calibration_factor -= 10;
-  }
 }
 
