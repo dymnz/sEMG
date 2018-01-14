@@ -1,62 +1,85 @@
 clear; close all;
 
-force_filename = './data/loadcell_1.txt';
+force_filename = './data/loadcell_2.txt';
 force_fileID = fopen(force_filename);
-force_data = textscan(force_fileID, '%f');
+force = textscan(force_fileID, '%f');
 fclose(force_fileID);
-force_data = force_data{1};
+force = force{1};
+force_sample_rate = 11.2;
 
-semg_filename = './data/semg_1.lvm';
-semg_data = lvmread(semg_filename);
-sample_rate = 1000;
+semg_filename = './data/semg_2.lvm';
+semg = lvmread(semg_filename);
+semg_sample_rate = 1000;
 
 % Remove mean
-semg_data(:, 2) = semg_data(:, 2) - mean(semg_data(:, 2));
+semg = semg(:, 2) - mean(semg(:, 2));
 
 %% Original
-figure;
-subplot_helper(1:length(force_data), force_data, ...
-                [2 1 1], {'sample' 'kg' 'Force'}, '-o');
-subplot_helper(semg_data(:, 1), semg_data(:, 2), ...
-                [2 1 2], {'sample' 'au' 'sEMG'}, '-o');
 
-                       
-%% Force data truncation
-force_data_front_truncate_samples = 49;
-force_data_back_truncate_samples = 195;
-trauncated_range = force_data_front_truncate_samples : ...
-        length(force_data) - force_data_back_truncate_samples;
-force_data = force_data(trauncated_range);
+% figure;
+% subplot_helper(1:length(force_data), force_data, ...
+%                 [2 1 1], {'sample' 'kg' 'Force'}, '-o');
+% subplot_helper(1:length(semg_data), semg_data, ...
+%                 [2 1 2], {'sample' 'au' 'sEMG'}, '-o');
 
-figure;
-subplot_helper(1:length(force_data), force_data, ...
-                [2 1 1], {'sample' 'amplitude' 'Force (kg)'}, '-o');
-xlim([1 length(force_data)]);         
-subplot_helper(semg_data(:, 1), semg_data(:, 2), ...
-                [2 1 2], {'sample' 'amplitude' 'twitch force proto'}, '-o');
-            
 %% Force data interpolation
-xq = 1 : length(force_data) / length(semg_data) : length(force_data);
-interpolated_force_data = interp1(1:length(force_data), force_data , xq);
+xq = 1 : force_sample_rate / semg_sample_rate : length(force);
+force = interp1(1:length(force), force , xq);
+
+% figure;
+% subplot_helper(1:length(force_data), force_data, ...
+%                 [1 1 1], {'sample' 'amplitude' 'Force (kg)'}, '-o');         
+% subplot_helper(1:length(semg_data), semg_data, ...
+%                 [1 1 1], {'sample' 'amplitude' 'Interpolated force and sEMG'}, '-');
+
+            
+            
+%% Force data truncation
+force_data_front_truncate_samples = 2800;
+force_data_back_truncate_samples = 6900;
+
+trauncated_range = 1+force_data_front_truncate_samples : ...
+        length(force) - force_data_back_truncate_samples;
+force = force(trauncated_range);
+
+semg_data_front_truncate_samples = 2800;
+semg_data_back_truncate_samples = 1000;
+trauncated_range = 1+semg_data_front_truncate_samples : ...
+        length(semg) - semg_data_back_truncate_samples;
+semg = semg(trauncated_range);
+
+% figure;
+% subplot_helper(1:length(force_data), force_data, ...
+%                 [2 1 1], {'sample' 'amplitude' 'Force (kg)'}, '-o');        
+% subplot_helper(1:length(semg_data), semg_data, ...
+%                 [2 1 2], {'sample' 'amplitude' 'twitch force proto'}, '-o');
+%             
+         
+
+%% Normalization
+force = force / max(force);
+semg = 2 * (semg - min(semg))...
+        / (max(semg) - min(semg)) - 1;
 
 figure;
-subplot_helper(1:length(interpolated_force_data), interpolated_force_data, ...
+subplot_helper(1:length(semg), semg, ...
+                [1 1 1], {'sample' 'amplitude' 'Normalized force and sEMG'}, '-');
+subplot_helper(1:length(force), force, ...
                 [1 1 1], {'sample' 'amplitude' 'Force (kg)'}, '-o');         
-subplot_helper(1:length(semg_data(:, 2)), semg_data(:, 2), ...
-                [1 1 1], {'sample' 'amplitude' 'Interpolated force and sEMG'}, '-');
-%return;
+
+
 %% Remove faulty data
-usable_data_range = 8000 : 32000;
-force_data = interpolated_force_data(usable_data_range);
-semg_data = semg_data(usable_data_range, :);
+usable_data_range = 1 : min(length(semg), length(force));
+force = force(usable_data_range);
+semg = semg(usable_data_range, :);
 
 figure;
-subplot_helper(1:length(force_data), force_data, ...
+subplot_helper(1:length(force), force, ...
                 [1 1 1], {'sample' 'amplitude' 'Force (kg)'}, '-o');         
-subplot_helper(1:length(semg_data(:, 2)), semg_data(:, 2), ...
+subplot_helper(1:length(semg), semg, ...
                 [1 1 1], {'sample' 'amplitude' 'Truncated force and sEMG'}, '-');
 
-%return;
+return;
 %% Downsample
 target_sample_rate = 300;
 downsample_ratio = floor(sample_rate / target_sample_rate);
@@ -76,18 +99,7 @@ subplot_helper(1:length(semg_data), semg_data, ...
                 [1 1 1], {'sample' 'amplitude' 'Downsample force and sEMG'}, '-');
 ylim([0 1]);
 
-%% Normalization
-force_data = force_data / max(force_data);
-semg_data = semg_data(:, 2);
-semg_data = 2 * (semg_data - min(semg_data))...
-        / (max(semg_data) - min(semg_data)) - 1;
 
-figure;
-subplot_helper(1:length(force_data), force_data, ...
-                [1 1 1], {'sample' 'amplitude' 'Force (kg)'}, '-o');         
-subplot_helper(1:length(semg_data), semg_data, ...
-                [1 1 1], {'sample' 'amplitude' 'Normalized force and sEMG'}, '-');
-ylim([-1 1]);
 
 %% Pulse gen
 threshold = 0.5;
@@ -114,7 +126,7 @@ DATA_LENGTH = 300;
 OVERLAP_LENGTH = 100;
 num_of_sample = floor(length(force_data) / OVERLAP_LENGTH);
 
-output_filename = './data/exp_train_2_ds100_lp_rec_fx_ol_pul.txt';
+output_filename = './data/output/exp_train_semg_2.txt';
 output_fileID = fopen(output_filename, 'w');
 fprintf(output_fileID, '%d\n', num_of_sample);
 
@@ -153,7 +165,7 @@ end
 fclose(output_fileID);
 
 %% Write test file
-output_filename = './data/exp_test_2_ds100_lp_rec_fx_ol_pul.txt';
+output_filename = './data/output/exp_test_semg_2.txt';
 output_fileID = fopen(output_filename, 'w');
 
 DATA_LENGTH = length(semg_data);
