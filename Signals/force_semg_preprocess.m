@@ -120,10 +120,11 @@ ylim([0 1]);
 %% Write train file
 DATA_LENGTH = 500;
 OVERLAP_LENGTH = 50;
-num_of_sample = floor(length(force) / OVERLAP_LENGTH);
+num_of_sample = floor(length(force) / (DATA_LENGTH - OVERLAP_LENGTH));
 
 output_fileID = fopen(train_output_filename, 'w');
 fprintf(output_fileID, '%d\n', num_of_sample);
+
 
 for i = 1 : num_of_sample
 

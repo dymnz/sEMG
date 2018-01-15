@@ -12,15 +12,22 @@
   * low-pass and downsample 300Hz
 
 ### Streaming test
-* `./rnn 2_first_half_stream 2_full_stream 8 12000 0.001 10 100 1000 42`
+* `./rnn 2_first_half_stream 2_full_stream 8 12000 10 1000 42`
   * Train: frist-half, Test: full
   * First-half: OK result for low dynamic part
   * Bottom-half: Spiky instead of smooth
 
 
 ### Chunk test
-* `./rnn 2_first_half_chunk500_overlap50 2_first_half_chunk500_overlap50 8 1000 0.001 10 100 1000 42`
-  * Train: frist-half(chunk), Test: full(stream)
-  * Chunk: length:500pt overlap:50pt
-  * First-half: 
-  * Bottom-half: 
+* `./rnn 2_first_half_chunk500_overlap50 2_first_half_chunk500_overlap50 8 1000 10 1000 42`
+  * Train: frist-half(chunk), Test: frist-half(chunk)
+  * Chunk: length:500pt overlap:50pt DS:300SPS
+  * Trend good, fast dynamic bad
+* `./rnn 2_first_half_chunk500_overlap50 2_first_half_stream 8 2000 10 1000 42`
+  * Train: frist-half(chunk), Test: frist-half(stream)
+  * Chunk: length:500pt overlap:50pt DS:300SPS
+  * Bad result, 2nd ramp mismatch, no high dynamic part
+
+
+### TODO
+* Overlap Chunk State Retention
