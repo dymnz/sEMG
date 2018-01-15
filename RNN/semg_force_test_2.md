@@ -11,12 +11,16 @@
   * recitified sEMG
   * low-pass and downsample 300Hz
 
-### Best result, semgented with overlap. (e.g. 250pt w/ 50pt overlap)
-  1. first-half / full `./rnn train_2_ds100_lp_rec_fx_ol test_2_ds100_lp_rec_fx_ol 4 10000 0.001 10 100 1000 42`
-     * Good result
+### Streaming test
+* `./rnn 2_first_half_stream 2_full_stream 8 12000 0.001 10 100 1000 42`
+  * Train: frist-half, Test: full
+  * First-half: OK result for low dynamic part
+  * Bottom-half: Spiky instead of smooth
 
-### semgented with overlap. (e.g. 250pt w/ 50pt overlap) with pulse gen
-  1. sample_rate:300Hz len:300pt overlap:100pt pul_threshold:0.3
 
-### Main issue
-* Force - semg data alignment
+### Chunk test
+* `./rnn 2_first_half_chunk500_overlap50 2_first_half_chunk500_overlap50 8 1000 0.001 10 100 1000 42`
+  * Train: frist-half(chunk), Test: full(stream)
+  * Chunk: length:500pt overlap:50pt
+  * First-half: 
+  * Bottom-half: 
