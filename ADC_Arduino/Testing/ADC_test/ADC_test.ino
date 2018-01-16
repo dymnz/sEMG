@@ -12,15 +12,16 @@ void setup() {
 
 void loop() {
   // Wait until Matlab signals start
-  while(SerialUSB.read() == -1);
+  //while(SerialUSB.read() == -1);
   
   //ReadSendMatlab();  // For testing using MatLab
   //ReadSend1();    // Test read 1-channel
   //ReadSend4();    // Test read 4-channel
   //SamplingRateTest1(); // Test samples per second (function call)
   //SamplingRateTest2(); // Test samples per second (while loop)
-  ReadSendBatch(); // Batch send
+  //ReadSendBatch(); // Batch send
   //ReadIntervalTest();
+  ReadSend1Loop();
 }
 
 void delaymicros(unsigned long us)
@@ -79,6 +80,16 @@ void ReadSend1()
   int sensorValue = analogRead(A0);  
   sprintf(buffer, "%d\r\n", sensorValue);
   SerialUSB.print(buffer);
+}
+
+void ReadSend1Loop()
+{
+  int sensorValue;
+  while (1) {
+    sensorValue = analogRead(A0);  
+    sprintf(buffer, "%d\t", sensorValue);
+    SerialUSB.print(buffer);
+  }
 }
 
 void ReadSend4()
