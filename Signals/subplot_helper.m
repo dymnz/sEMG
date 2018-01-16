@@ -17,8 +17,10 @@ if iscell(ydata)
         ymin = min(ymin, min(ydata{i, :}));
     end
 else
-    ymax = max(ydata);
+    
     ymin = min(ydata);
+    ymax = max(ymin+1, max(ydata));
 end
 
+xlim([1 length(Y)]); 
 ylim([ymin ymax]);
