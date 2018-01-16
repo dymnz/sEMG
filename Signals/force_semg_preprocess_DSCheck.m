@@ -13,7 +13,7 @@ semg_sample_rate = 1000;
 
 
 train_output_filename = './data/output/exp_2_first_half_chunk500_overlap50.txt';
-test_output_filename = './data/output/exp_2_first_half_stream_rect_DS300.txt';
+test_output_filename = './data/output/exp_2_first_half_stream_rect_DS500.txt';
 
 % Remove mean
 semg = semg(:, 2) - mean(semg(:, 2));
@@ -83,16 +83,13 @@ subplot_helper(1:length(semg), semg, ...
 
 
 %% Downsample
-target_sample_rate = 300;
+target_sample_rate = 500;
 downsample_ratio = floor(semg_sample_rate / target_sample_rate);
 
-filter_order = 2;
+filter_order = 6;
 [force, cb, ca] = butter_filter( ...
         force, filter_order, target_sample_rate, semg_sample_rate);
-[semg, cb, ca] = butter_filter( ...
-        semg, filter_order, target_sample_rate, semg_sample_rate);
-    
-    
+
 force = downsample(force, downsample_ratio);
 semg = downsample(semg, downsample_ratio);
 
@@ -101,7 +98,7 @@ figure;
 subplot_helper(1:length(force), force, ...
                 [1 1 1], {'sample' 'amplitude' 'Force (kg)'}, '-o');         
 subplot_helper(1:length(semg), semg, ...
-                [1 1 1], {'sample' 'amplitude' 'Downsample force and sEMG'}, '-x');
+                [1 1 1], {'sample' 'amplitude' 'Downsample force and sEMG'}, '-');
 ylim([0 1]);
 
 %% Rectify and Normalization
