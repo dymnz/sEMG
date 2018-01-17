@@ -6,7 +6,7 @@ char buffer[50];
 void setup() {
   AdcBooster();
   analogReadResolution(12);
-  SerialUSB.begin(0);
+  SerialUSB.begin(1843200);
   while(!SerialUSB);
 }
 
