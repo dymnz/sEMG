@@ -3,43 +3,38 @@ int xPos = 0;    // horizontal graph position
 int lastxPos = 1;
 int lastHeight = 0;
 
-
 //https://forum.processing.org/two/discussion/6738/reduce-delay-in-writing-data-to-a-graph
 void drawAxisX() {
 	// Draw a line from last inByte to new one
 	stroke(255, 255, 255);
 	strokeWeight(1);
-	int inByte = graphValue[graphValue.length - 1];
-	line(lastxPos, lastHeight, xPos, height - inByte);
-	lastxPos = xPos;
-	lastHeight = int(height - inByte);
 
-	xPos++;
-	// return to beginning of frame once boundary has been reached
-	if (xPos >= width) {
-		xPos = 0;
-		lastxPos = 0;
-		background(0);
-	}
+  while (draw_index < buffer_index) {
+  	int draw_value = value_buffer[0][draw_index];
+   	line(lastxPos, lastHeight, xPos, height - draw_value);
+  	
+    lastxPos = xPos;
+    lastHeight = int(height - draw_value);
+    
+  	++xPos;  
+    ++draw_index;
+    
+  	// return to beginning of frame once boundary has been reached
+  	if (xPos >= width) {
+  		xPos = 0;
+  		lastxPos = 0;
+  		background(0);
+  	}
+  }
+  buffer_index = 0;
+  draw_index = 0;
 }
 
-void drawAxisX_old() {
-	/* Draw gyro x-axis */
-	noFill();
-	stroke(255, 0, 0); // Red
-	// Redraw everything
-	beginShape();
-	vertex(0, graphValue[0]);
-	for (int i = 1; i < graphValue.length; i++) {
-		if ((graphValue[i] < height / 4 && graphValue[i - 1] > height / 4 * 3) || (graphValue[i] > height / 4 * 3 && graphValue[i - 1] < height / 4)) {
-			endShape();
-			beginShape();
-		}
-		vertex(i, graphValue[i]);
-	}
-	endShape();
 
-	// Put all data one array back
-	for (int i = 1; i < graphValue.length; i++)
-		graphValue[i - 1] = graphValue[i];
+final int minValue = 0;
+final int maxValue = 4096;
+
+void convert() {
+  // Convert to a float and map to the screen height, then save in buffer
+  read_values[0] = int(map(read_values[0], minValue, maxValue, 0, height));
 }

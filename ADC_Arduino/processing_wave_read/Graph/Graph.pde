@@ -2,108 +2,84 @@ import processing.serial.*;
 Serial serial;
 
 final int channel = 1;
-final int width = 800;
-final int height = 600;
+final int width = 1440;
+final int height = 900;
 
-int[] values = new int[channel];
+final int value_buffer_size = 2048;
+int buffer_index = 0, draw_index = 0;
+int[] read_values = new int[channel];
+int[] value_buffer[] = new int[channel][value_buffer_size];
 
-int currentTime = 0;
-int lastTime = 0;
-int sampleCount = 0;
+final int alignment_packet_len = 5;
+char[] alignment_packet = { '$', '@', '%', '!', '~'};
+int alignment_count = 0;
 
-int serialCount = 0;
-char[] rawPacket = new char[channel * 2];
+int serial_count = 0;
+char[] raw_packet = new char[channel * 2];
 
-boolean drawValues  = false;
+int current_time = 0;
+int last_time = 0;
+int sample_count = 0;
+
+boolean draw_values  = false;
+boolean aligned = false;
+
+void settings() {
+  size(width, height, FX2D);
+}
 
 void setup() {
-	size(800, 600);
-	background(0);
-	frameRate(1200);
-	println(Serial.list()); // Use this to print connected serial devices
-	serial = new Serial(this, Serial.list()[1], 2000000); // Set this to your serial port obtained using the line above
+  background(0);
+  frameRate(9999);
+  println(Serial.list()); // Use this to print connected serial devices
+  serial = new Serial(this, Serial.list()[1], 1843200); // Set this to your serial port obtained using the line above
+}
 
-	for (int i = 0; i < width; i++) { // center all variables
-		graphValue[i] = height / 2;
-	}
-
-	drawGraph(); // Draw graph at startup
+void serialEvent(Serial serial) {
+  // Wait for alignment
+  if (!aligned) {
+    while (serial.available() > 0) {
+      char ch = (char)serial.read();
+      if (ch == alignment_packet[alignment_count])
+        alignment_count++;
+      if (alignment_count >= alignment_packet_len)
+        aligned = true;        
+    }
+  }
+    
+  // Actual reading
+  while (serial.available() > 0) {    
+    char ch = (char)serial.read();
+    raw_packet[serial_count++] = ch;
+    
+    if (serial_count < 2)
+      continue;
+        
+    serial_count = 0;    
+    read_values[0] = (raw_packet[0] << 8) | raw_packet[1];
+    
+    convert();
+    
+    value_buffer[0][buffer_index] = read_values[0];
+    ++buffer_index;   
+    
+    /*
+    sampleCount++;
+    currentTime = millis();
+    if (currentTime - lastTime > 1000) {
+      println(sampleCount);
+      lastTime = millis();
+      sampleCount = 0;
+    }    
+    */
+    
+    draw_values = true;        
+  }
 }
 
 void draw() {
-	/* Draw Graph */
-	if (drawValues) {
-		drawValues = false;
-		drawGraph();
-	}
-}
-
-void drawGraph() {
-	//for (int i = 0; i < width; i++) {
-	//  stroke(200); // Grey
-	//  line(i*10, 0, i*10, height);
-	//  line(0, i*10, width, i*10);
-	//}
-
-	//stroke(0); // Black
-	//for (int i = 1; i <= 3; i++)
-	//  line(0, height/4*i, width, height/4*i); // Draw line, indicating -90 deg, 0 deg and 90 deg
-
-	convert();
-	drawAxisX();
-}
-
-void serialEvent () {
-	while (serial.available() > 0) {
-		int ch = serial.read();
-		rawPacket[serialCount++] = (char)ch;
-
-		if (serialCount < 2)
-			continue;
-
-		serialCount = 0;
-
-		values[0] = (rawPacket[0] << 8) | rawPacket[1];
-
-		drawValues = true; // Draw the graph
-
-		//printAxis(); // Used for debugging
-		//println(values[0]);
-
-		sampleCount++;
-		currentTime = millis();
-		if (currentTime - lastTime > 1000) {
-			println(sampleCount);
-			lastTime = millis();
-			sampleCount = 0;
-		}
-	}
-}
-
-void ReceivePrint1() {
-	while (serial.available() > 0) {
-		int ch = serial.read();
-		rawPacket[serialCount++] = (char)ch;
-
-		if (serialCount < 2)
-			continue;
-
-		serialCount = 0;
-
-		values[0] = (rawPacket[0] << 8) | rawPacket[1];
-
-		drawValues = true; // Draw the graph
-
-		//printAxis(); // Used for debugging
-		//println(values[0]);
-
-		//sampleCount++;
-		//currentTime = millis();
-		//if (currentTime - lastTime > 1000)
-		//{
-		//  println(sampleCount);
-		//  lastTime = millis();
-		//  sampleCount = 0;
-		//}
-	}
+  if (draw_values) {
+    draw_values = false;
+    drawAxisX();
+  }
 }

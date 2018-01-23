@@ -1,13 +1,19 @@
 #include <stdint.h>
 
 const int MaxSampleCount = 1000;
-char buffer[50];
+
+const int alignment_packet_len = 5;
+uint8_t alignment_packet[] = { '$', '@', '%', '!', '~'};
+
+const int data_packet_len = 2;
+uint8_t data_packet[data_packet_len] = {0};
 
 void setup() {
 	AdcBooster();
 	analogReadResolution(12);
 	SerialUSB.begin(0);
 	while (!SerialUSB);
+  SerialUSB.write(alignment_packet, alignment_packet_len);
 }
 
 void loop() {
@@ -20,7 +26,10 @@ void ReadSend1Loop()
 	int sensorValue;
 	while (1) {
 		sensorValue = analogRead(A0);
-		SerialUSB.write((uint8_t)(sensorValue >> 8)); SerialUSB.write((uint8_t)(sensorValue & 0xFF));
+    data_packet[0] = (uint8_t)(sensorValue >> 8);
+    data_packet[1] = (uint8_t)(sensorValue & 0xFF);
+    
+    SerialUSB.write(data_packet, data_packet_len);
 	}
 }
 
