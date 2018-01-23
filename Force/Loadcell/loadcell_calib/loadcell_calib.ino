@@ -41,28 +41,29 @@ HX711 scale(DOUT, CLK);
 float calibration_factor = -200000;
 long offset = scale.get_offset();
 void setup() {
-  Serial.begin(9600);
-  Serial.println("HX711 calibration sketch");
-  Serial.println("Remove all weight from scale");
-  Serial.println("After readings begin, place known weight on scale");
-  Serial.println("Press + or a to increase calibration factor");
-  Serial.println("Press - or z to decrease calibration factor");
+  SerialUSB.begin(9600);
+  SerialUSB.println("HX711 calibration sketch");
+  SerialUSB.println("Remove all weight from scale");
+  SerialUSB.println("After readings begin, place known weight on scale");
+  SerialUSB.println("Press + or a to increase calibration factor");
+  SerialUSB.println("Press - or z to decrease calibration factor");
 
   scale.set_scale();
   scale.tare(); //Reset the scale to 0
 
   long zero_factor = scale.read_average(); //Get a baseli ne reading
-  Serial.print("Zero factor: "); //This can be used to remove the need to tare the scale. Useful in permanent scale projects.
-  Serial.println(zero_factor);
+  SerialUSB.print("Zero factor: "); //This can be used to remove the need to tare the scale. Useful in permanent scale projects.
+  SerialUSB.println(zero_factor);
   offset = scale.get_offset();
+  scale.set_scale(calibration_factor); //Adjust to this calibration factor
 }
 
 void loop() {
 
-  scale.set_scale(calibration_factor); //Adjust to this calibration factor
+  
 
   //Serial.print("Reading: ");
-  Serial.println( (scale.read() - offset) / calibration_factor, 5);
+  SerialUSB.println( (scale.read() - offset) / calibration_factor, 5);
   //Serial.print(" kgs"); //Change this to kg and re-adjust the calibration factor if you follow SI units like a sane person
   //Serial.print(" calibration_factor: ");
   //Serial.print(calibration_factor);

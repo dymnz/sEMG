@@ -1,46 +1,48 @@
 int xPos = 0;    // horizontal graph position
 // variables to draw a continuous line
 int lastxPos = 1;
-int lastHeight = 0;
-
+int[] lastHeight = new int[total_channel];
 
 //https://forum.processing.org/two/discussion/6738/reduce-delay-in-writing-data-to-a-graph
 void drawAxisX() {
-  // Draw a line from last inByte to new one
-    stroke(255, 255, 255);
-    strokeWeight(1);
-    int inByte = graphValue[graphValue.length - 1];
-    line(lastxPos, lastHeight, xPos, height - inByte);
+	// Draw a line from last inByte to new one
+	stroke(255, 255, 255);
+	strokeWeight(1);
+
+  while (draw_index < buffer_index) {
+    for (int i = 0; i < total_channel; ++i) {      
+
+    	int draw_value = value_buffer[i][draw_index];
+     	line(lastxPos, lastHeight[i], xPos, height - draw_value);
+      //println(lastxPos, lastHeight[i], xPos, height - draw_value);
+      lastHeight[i] = int(height - draw_value);
+    }
     lastxPos = xPos;
-    lastHeight = int(height - inByte);
-     
-    xPos++;
+    ++xPos;  
+    ++draw_index;
+    
     // return to beginning of frame once boundary has been reached
-    if(xPos >= width)
-    {
+    if (xPos >= width) {
       xPos = 0;
       lastxPos = 0;
       background(0);
-    }
+    }    
+  }
+  buffer_index = 0;
+  draw_index = 0;
 }
 
-void drawAxisX_old() {
-  /* Draw gyro x-axis */
-  noFill();
-  stroke(255, 0, 0); // Red
-  // Redraw everything
-  beginShape();
-  vertex(0, graphValue[0]);
-  for (int i = 1; i < graphValue.length; i++) {
-    if ((graphValue[i] < height/4 && graphValue[i - 1] > height/4*3) || (graphValue[i] > height/4*3 && graphValue[i - 1] < height/4)) {
-      endShape();
-      beginShape();
-    }
-    vertex(i, graphValue[i]);
-  }
-  endShape();
 
-  // Put all data one array back
-  for (int i = 1; i < graphValue.length;i++)
-    graphValue[i-1] = graphValue[i];
+final int semg_minValue = 0;
+final int semg_maxValue = 4096;
+final int force_minValue = -5;
+final int force_maxValue = 5;
+
+void convert() {
+  // Convert to a float and map to the screen height, then save in buffer
+  
+  force_values[0] = force_values[0] / force_calibration_factor;
+  force_values[0] = map(force_values[0], force_minValue, force_maxValue, 0, height);
+  
+  semg_values[0] = int(map(semg_values[0], semg_minValue, semg_maxValue, 0, height));
 }

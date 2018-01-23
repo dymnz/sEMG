@@ -64,12 +64,12 @@ void serialEvent(Serial serial) {
     ++buffer_index;   
     
     /*
-    sampleCount++;
-    currentTime = millis();
-    if (currentTime - lastTime > 1000) {
-      println(sampleCount);
-      lastTime = millis();
-      sampleCount = 0;
+    sample_count++;
+    current_time = millis();
+    if (current_time - last_time > 1000) {
+      println(sample_count);
+      last_time = millis();
+      sample_count = 0;
     }    
     */
     

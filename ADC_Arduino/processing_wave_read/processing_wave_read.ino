@@ -17,20 +17,14 @@ void setup() {
 }
 
 void loop() {
-	ReadSend1Loop();
-}
-
-
-void ReadSend1Loop()
-{
 	int sensorValue;
-	while (1) {
-		sensorValue = analogRead(A0);
+  while (1) {
+    sensorValue = analogRead(A0);
     data_packet[0] = (uint8_t)(sensorValue >> 8);
     data_packet[1] = (uint8_t)(sensorValue & 0xFF);
     
     SerialUSB.write(data_packet, data_packet_len);
-	}
+  }
 }
 
 //https://forum.arduino.cc/index.php?topic=443173.0
