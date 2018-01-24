@@ -1,48 +1,94 @@
-float xPos = 0;    // horizontal graph position
-// variables to draw a continuous line
-float lastxPos = 1;
-int[] lastHeight = new int[total_channel];
+float x = 0;
+float semg_last_x = 1;
+float force_last_x = 1;
+
+int[] semg_last_height = new int[semg_channel];
+int[] force_last_height = new int[force_channel];
 
 //https://forum.processing.org/two/discussion/6738/reduce-delay-in-writing-data-to-a-graph
-void drawAxisX() {
-	// Draw a line from last inByte to new one
-	stroke(255, 255, 255);
-	strokeWeight(1);
+void drawAll() {
+  strokeWeight(4);
 
-  while (draw_index < buffer_index) {
-    for (int i = 0; i < total_channel; ++i) {      
-
-    	int draw_value = value_buffer[i][draw_index];
-     	line(lastxPos, lastHeight[i], xPos, height - draw_value);
-      //println(lastxPos, lastHeight[i], xPos, height - draw_value);
-      lastHeight[i] = int(height - draw_value);
+  while (semg_draw_index < semg_buffer_index) {
+    stroke(255, 0, 0);
+    for (int i = 0; i < semg_channel; ++i) {      
+      int draw_value = semg_buffer[i][semg_draw_index];
+      line(semg_last_x, semg_last_height[i], x, height - draw_value);
+      
+      semg_last_height[i] = int(height - draw_value);
     }
-    lastxPos = xPos;
-    xPos += graph_x_step;  
-    ++draw_index;
-    
-    // return to beginning of frame once boundary has been reached
-    if (xPos >= width) {
-      xPos = 0;
-      lastxPos = 0;
-      background(0);
+    ++semg_draw_index;
+        
+    if (force_draw_index < force_buffer_index) {
+      stroke(0, 0, 255);
+      for (int i = 0; i < force_channel; ++i) {        
+        int draw_value = force_buffer[i][force_draw_index];
+        line(force_last_x, force_last_height[i], x, height - draw_value);
+        
+        force_last_height[i] = int(height - draw_value);      
+      }
+      ++force_draw_index;
+      force_last_x = x;
     }    
+    
+    semg_last_x = x;
+    x += graph_x_step;   
   }
-  buffer_index = 0;
-  draw_index = 0;
+  if (force_draw_index < force_buffer_index) {    
+    println("Some force data point aren't drawn!!!!!!");
+    delay(999999);
+  }
+    
+  if (x >= width) {
+    x = 0;
+    semg_last_x = 0;
+    force_last_x = 0;
+    resetGraph();
+  }  
+    
+  force_buffer_index = 0;      
+  force_draw_index = 0;
+  semg_buffer_index = 0;      
+  semg_draw_index = 0;
+    
 }
 
+void resetGraph() {
+  background(244);  
+  strokeWeight(1);
+  /*
+  stroke(220); 
+  for (int i = 0; i < width; i += grid_size) {
+    line(i, 0, i, height);
+  }
+  for (int i = 0; i < height; i += grid_size) {
+    line(0, i, width, i);
+  }
+  */
+  
+  strokeWeight(2);
+  line(0, height / 2, width, height / 2);
+  
+  strokeWeight(1);
+  stroke(112);   
+  for (int i = 1; i < force_maxValue; ++i) {
+    int y = int(map(i, force_minValue, force_maxValue, 0, height));
+    line(0, height - y, width, height - y);
+    line(0, y, width, y);
+  }
+}
 
 final int semg_minValue = 0;
 final int semg_maxValue = 4096;
-final int force_minValue = -5;
-final int force_maxValue = 5;
-
-void convert() {
+void semg_convert() {
   // Convert to a float and map to the screen height, then save in buffer
-  
+  semg_values[0] = int(map(semg_values[0], semg_minValue, semg_maxValue, 0, height));
+}
+
+final int force_minValue = -10;
+final int force_maxValue = 10;
+void force_convert() {
+  // Convert to a float and map to the screen height, then save in buffer
   force_values[0] = force_values[0] / force_calibration_factor;
   force_values[0] = map(force_values[0], force_minValue, force_maxValue, 0, height);
-  
-  semg_values[0] = int(map(semg_values[0], semg_minValue, semg_maxValue, 0, height));
 }

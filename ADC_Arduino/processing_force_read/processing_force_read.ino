@@ -1,19 +1,28 @@
 #include <stdint.h>
 #include "HX711.h"
 
+#define DOUT  3
+#define CLK  2
+
 const int MaxSampleCount = 1000;
 
 const int alignment_packet_len = 1;
-const int data_packet_len = 6;
-uint8_t data_packet[data_packet_len + alignment_packet_len] = {'$'};
 
+const int semg_channel = 1;
+const int semg_packet_byte = 2;
+const int semg_packet_len = alignment_packet_len + semg_channel * semg_packet_byte;
 
-#define DOUT  3
-#define CLK  2
+const int force_channel = 1;
+const int force_packet_byte = 4;
+const int force_packet_len = alignment_packet_len + force_channel * force_packet_byte;
+
+uint8_t semg_packet[semg_packet_len] = {'$'};
+uint8_t force_packet[force_packet_len] = {'#'};
 
 HX711 scale(DOUT, CLK);
 
 long offset;
+int sensorValue;
 
 void setup() {
   AdcBooster();
@@ -28,21 +37,21 @@ void setup() {
   while (!SerialUSB);
 }
 
-void loop() {
-  int sensorValue;
+void loop() {  
   while (1) {        
     // scale.read() returns 32bit signed int
     // If the scale is not ready, retain the old value
+    ///*
     if (scale.is_ready()) {
-      long v = scale.read() - offset;
-      ((long *)(data_packet+1))[0] = v;     
+      ((long *)(force_packet + alignment_packet_len))[0] = scale.read() - offset;
+      SerialUSB.write(force_packet, force_packet_len);
     }
+    //*/
 
     sensorValue = analogRead(A0);
-    data_packet[5] = (uint8_t)(sensorValue >> 8);
-    data_packet[6] = (uint8_t)(sensorValue & 0xFF);
-    
-    SerialUSB.write(data_packet, data_packet_len);
+    ((uint16_t *)(semg_packet + alignment_packet_len))[0] = sensorValue;
+        
+    SerialUSB.write(semg_packet, semg_packet_len);
   }
 }
 
