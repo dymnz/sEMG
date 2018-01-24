@@ -3,6 +3,7 @@ Serial serial;
 
 final int width = 1440;
 final int height = 900;
+final float graph_x_step = 0.05;
 
 final float force_calibration_factor = -200000;
 
@@ -18,8 +19,8 @@ int[] semg_values = new int[semg_channel];
 float[] force_values = new float[force_channel];
 int[] value_buffer[] = new int[total_channel][value_buffer_size];
 
-final int alignment_packet_len = 5;
-char[] alignment_packet = { '$', '@', '%', '!', '~'};
+final int alignment_packet_len = 1;
+char[] alignment_packet = { '$'};
 int alignment_count = 0;
 
 int serial_count = 0;
@@ -48,25 +49,26 @@ void setup() {
 }
 
 void serialEvent(Serial serial) {  
-  // Wait for alignment
-  if (!aligned) {
-    println("align");
-    while (serial.available() > 0) {
-      char ch = (char)serial.read();
-      if (ch == alignment_packet[alignment_count])
-        alignment_count++;
-      else
-        alignment_count = 0;
-      if (alignment_count >= alignment_packet_len)
-        aligned = true;        
-    }    
-  }
-    
-  // Actual reading
-  // Force channel -> SEMG channel
-  while (serial.available() > 0) {   
+
+  while (serial.available() > 0) {    
     char ch = (char)serial.read();
-    raw_packet[serial_count++] = ch;
+
+    // Wait for alignment
+    if (!aligned) {
+      if (ch == alignment_packet[alignment_count]) {
+        ++alignment_count;
+        if (alignment_count >= alignment_packet_len) {
+          aligned = true;
+          alignment_count = 0;        
+        }              
+      }
+      continue;
+    }
+             
+    // Actual reading
+    // Force channel -> SEMG channel    
+    raw_packet[serial_count] = ch;
+    ++serial_count;
 
     if (serial_count < raw_packet_len)
       continue;
@@ -78,6 +80,7 @@ void serialEvent(Serial serial) {
       (raw_packet[2] << 16) | 
       (raw_packet[1] << 8) | 
       (raw_packet[0])));
+
       
     semg_values[0] = (raw_packet[4] << 8) | raw_packet[5];
     
@@ -98,8 +101,9 @@ void serialEvent(Serial serial) {
       sample_count = 0;
     }    
     */
-    
-    draw_values = true;        
+    aligned = false;
+    draw_values = true;
+
   }  
 }
 

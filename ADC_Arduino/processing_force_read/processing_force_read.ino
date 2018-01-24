@@ -3,12 +3,9 @@
 
 const int MaxSampleCount = 1000;
 
-const int alignment_packet_len = 5;
-uint8_t alignment_packet[] = { '$', '@', '%', '!', '~'};
-
+const int alignment_packet_len = 1;
 const int data_packet_len = 6;
-uint8_t data_packet[data_packet_len] = {0};
-
+uint8_t data_packet[data_packet_len + alignment_packet_len] = {'$'};
 
 
 #define DOUT  3
@@ -29,7 +26,6 @@ void setup() {
   
   SerialUSB.begin(0);
   while (!SerialUSB);
-  SerialUSB.write(alignment_packet, alignment_packet_len);
 }
 
 void loop() {
@@ -39,17 +35,14 @@ void loop() {
     // If the scale is not ready, retain the old value
     if (scale.is_ready()) {
       long v = scale.read() - offset;
-      ((long *)data_packet)[0] = v;
-      
-
+      ((long *)(data_packet+1))[0] = v;     
     }
 
     sensorValue = analogRead(A0);
-    data_packet[4] = (uint8_t)(sensorValue >> 8);
-    data_packet[5] = (uint8_t)(sensorValue & 0xFF);
+    data_packet[5] = (uint8_t)(sensorValue >> 8);
+    data_packet[6] = (uint8_t)(sensorValue & 0xFF);
     
     SerialUSB.write(data_packet, data_packet_len);
-    //SerialUSB.println( *((long*)data_packet) );
   }
 }
 

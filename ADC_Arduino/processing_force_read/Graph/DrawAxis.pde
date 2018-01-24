@@ -1,6 +1,6 @@
-int xPos = 0;    // horizontal graph position
+float xPos = 0;    // horizontal graph position
 // variables to draw a continuous line
-int lastxPos = 1;
+float lastxPos = 1;
 int[] lastHeight = new int[total_channel];
 
 //https://forum.processing.org/two/discussion/6738/reduce-delay-in-writing-data-to-a-graph
@@ -18,7 +18,7 @@ void drawAxisX() {
       lastHeight[i] = int(height - draw_value);
     }
     lastxPos = xPos;
-    ++xPos;  
+    xPos += graph_x_step;  
     ++draw_index;
     
     // return to beginning of frame once boundary has been reached
