@@ -54,7 +54,7 @@ void drawAll() {
 }
 
 void resetGraph() {
-  background(244);  
+  background(255);  
   strokeWeight(1);
   /*
   stroke(220); 
@@ -65,12 +65,12 @@ void resetGraph() {
     line(0, i, width, i);
   }
   */
-  
-  strokeWeight(2);
-  line(0, height / 2, width, height / 2);
-  
   strokeWeight(1);
-  stroke(112);   
+  
+  stroke(0); 
+  line(0, height / 2, width, height / 2);
+
+  stroke(220);   
   for (int i = 1; i < force_maxValue; ++i) {
     int y = int(map(i, force_minValue, force_maxValue, 0, height));
     line(0, height - y, width, height - y);
@@ -83,6 +83,14 @@ final int semg_maxValue = 4096;
 void semg_convert() {
   // Convert to a float and map to the screen height, then save in buffer
   semg_values[0] = int(map(semg_values[0], semg_minValue, semg_maxValue, 0, height));
+}
+
+final int semg_minValue_abs = -2048;
+final int semg_maxValue_abs = 2048;
+void semg_convert_abs() {
+  // Convert to a float and map to the screen height, then save in buffer
+  semg_values[0] = abs(semg_values[0] - 2048) + 2048;
+  semg_values[0] = int(map(semg_values[0], semg_minValue_abs, semg_maxValue_abs, 0, height));
 }
 
 final int force_minValue = -10;
