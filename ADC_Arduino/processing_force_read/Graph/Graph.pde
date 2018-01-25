@@ -1,8 +1,12 @@
 import processing.serial.*;
+
 Serial serial;
+PrintWriter file;
 
 enum State {HOLD, SEMG_ALIGN, FORCE_ALIGN, SEMG_READ, FORCE_READ, SEMG_FIN, FORCE_FIN}
 State serial_state = State.HOLD;
+
+final String filename = "test_2semg_fast.txt";
 
 final int width = 1920;
 final int height = 900;
@@ -13,7 +17,7 @@ final float graph_x_step = 0.05;
 final float force_calibration_factor = -200000;
 final int value_buffer_size = 10000;
 
-final int semg_channel = 1;
+final int semg_channel = 2;
 final int semg_packet_byte = 2;
 final int force_channel = 1;
 final int force_packet_byte = 4;
@@ -25,11 +29,11 @@ final int force_packet_len = force_channel * force_packet_byte;
 int semg_buffer_index = 0, semg_draw_index = 0;
 int force_buffer_index = 0, force_draw_index = 0;
 
-int[] semg_values = new int[semg_channel];
+float[] semg_values = new float[semg_channel];
 float[] force_values = new float[force_channel];
 
-int[] semg_buffer[] = new int[semg_channel][value_buffer_size];
-int[] force_buffer[] = new int[force_channel][value_buffer_size];
+float[] semg_buffer[] = new float[semg_channel][value_buffer_size];
+float[] force_buffer[] = new float[force_channel][value_buffer_size];
 
 final int alignment_packet_len = 1;
 final char[] semg_alignment_packet = {'$'};
@@ -56,10 +60,16 @@ void settings() {
 void setup() {
   resetGraph();
   frameRate(1000);
-  println(Serial.list()); // Use this to print connected serial devices
+  file = createWriter(filename); 
+  
+  println(Serial.list()); // Use this to print connected serial devices  
   int ind = Serial.list().length - 1;
   serial = new Serial(this, Serial.list()[ind], 1843200); // Set this to your serial port obtained using the line above
+
 }
+
+
+
 
 void serialEvent(Serial serial) {  
 
@@ -86,15 +96,19 @@ void serialEvent(Serial serial) {
       }    
     }
     
-    else if (serial_state == State.SEMG_READ) {
+    else if (serial_state == State.SEMG_READ) {      
       semg_packet[serial_count] = ch;
       
       ++serial_count;
       
       if (serial_count >= semg_packet_len) {
         semg_values[0] = (semg_packet[1] << 8) | semg_packet[0];
+        semg_values[1] = (semg_packet[3] << 8) | semg_packet[2];
+        
         semg_convert();
+        
         semg_buffer[0][semg_buffer_index] = semg_values[0];
+        semg_buffer[1][semg_buffer_index] = semg_values[1];
         
         if (++semg_buffer_index >= value_buffer_size) 
           semg_buffer_index = 0;
@@ -102,6 +116,8 @@ void serialEvent(Serial serial) {
         draw_semg = true;    
         serial_state = State.HOLD;
         serial_count = 0;
+        
+        //sampleCount();
       }        
     }
     
@@ -116,8 +132,10 @@ void serialEvent(Serial serial) {
           (force_packet[2] << 16) | 
           (force_packet[1] << 8) | 
           (force_packet[0])));
+          
         force_convert();
-        force_buffer[0][force_buffer_index] = int(force_values[0]);
+        
+        force_buffer[0][force_buffer_index] = force_values[0];
         
         if (++force_buffer_index >= value_buffer_size) 
           force_buffer_index = 0;
@@ -127,16 +145,6 @@ void serialEvent(Serial serial) {
         serial_count = 0;
       }        
     }
-  
-    /*
-    sample_count++;
-    current_time = millis();
-    if (current_time - last_time > 1000) {
-      println(sample_count);
-      last_time = millis();
-      sample_count = 0;
-    }    
-    */
   }  
 }
 
@@ -144,7 +152,18 @@ void draw() {
   // Force data is drawn along with SEMG data as the update
   // rate of force data is much slower. 
   if (draw_semg) {
-    draw_semg = false;
-    drawAll();    
+    draw_semg = false;   
+    drawAll();
+    //writeAll();
   }  
+}
+
+void sampleCount() {     
+  sample_count++;
+  current_time = millis();
+  if (current_time - last_time > 1000) {
+    println(sample_count);
+    last_time = millis();
+    sample_count = 0;
+  }        
 }

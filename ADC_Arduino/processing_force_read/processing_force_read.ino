@@ -8,7 +8,7 @@ const int MaxSampleCount = 1000;
 
 const int alignment_packet_len = 1;
 
-const int semg_channel = 1;
+const int semg_channel = 2;
 const int semg_packet_byte = 2;
 const int semg_packet_len = alignment_packet_len + semg_channel * semg_packet_byte;
 
@@ -27,6 +27,7 @@ int sensorValue;
 void setup() {
   AdcBooster();
   analogReadResolution(12);
+  analogReference(AR_EXTERNAL);
 
   scale.set_scale();
   scale.tare(); //Reset the scale to 0
@@ -50,7 +51,8 @@ void loop() {
 
     sensorValue = analogRead(A0);
     ((uint16_t *)(semg_packet + alignment_packet_len))[0] = sensorValue;
-        
+    sensorValue = analogRead(A1);
+    ((uint16_t *)(semg_packet + alignment_packet_len))[1] = sensorValue;    
     SerialUSB.write(semg_packet, semg_packet_len);
   }
 }
