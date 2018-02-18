@@ -1,11 +1,11 @@
 clear; close all;
 
-file_name = './data/test_2semg_long_hodl.txt';
+file_name = './data/test_2semg_12345.txt';
 semg_channel = 1:2;
 force_channel = 3;
 
+usable_data_range = 1 : 61400; %min(length(semg), length(force));
 
-%len = 5000:6000;
 raw_data = csvread(file_name);
 force = raw_data(:, force_channel);
 semg = raw_data(:, semg_channel);
@@ -50,34 +50,12 @@ subplot_helper(1:length(force), force, ...
                 [2 1 1], {'sample' 'amplitude' 'Force (kg)'}, '-o');         
 subplot_helper(1:length(semg), semg, ...
                 [2 1 2], {'sample' 'amplitude' 'Interpolated force and sEMG'}, '-');
-return;
-%% Normalization
-force = force / max(force);
-semg = 2 * (semg - min(semg))...
-        / (max(semg) - min(semg)) - 1;
-
-% figure;
-% subplot_helper(1:length(semg), semg, ...
-%                 [1 1 1], {'sample' 'amplitude' 'Normalized force and sEMG'}, '-');
-% subplot_helper(1:length(force), force, ...
-%                 [1 1 1], {'sample' 'amplitude' 'Force (kg)'}, '-o');         
-
-
-%% Remove faulty data
-usable_data_range = 1 : 61400; %min(length(semg), length(force));
-force = force(usable_data_range);
-semg = semg(usable_data_range);
-
-figure;
-subplot_helper(1:length(force), force, ...
-                [1 1 1], {'sample' 'amplitude' 'Force (kg)'}, '-o');         
-subplot_helper(1:length(semg), semg, ...
-                [1 1 1], {'sample' 'amplitude' 'Truncated force and sEMG'}, '-');
 
 
 %% Downsample
 target_sample_rate = 300;
-downsample_ratio = floor(semg_sample_rate / target_sample_rate);
+semg_sample_rate = 1000;
+downsample_ratio = 5; %floor(semg_sample_rate / target_sample_rate);
 
 filter_order = 2;
 [force, cb, ca] = butter_filter( ...
@@ -92,10 +70,33 @@ semg = downsample(semg, downsample_ratio);
 
 figure;
 subplot_helper(1:length(force), force, ...
+                [2 1 1], {'sample' 'amplitude' 'Force (kg)'}, '-o');         
+subplot_helper(1:length(semg), semg, ...
+                [2 1 2], {'sample' 'amplitude' 'Downsample force and sEMG'}, '-x');
+
+
+%% Normalization
+force = force / max(force);
+semg = 2 * (semg - min(semg))...
+        / (max(semg) - min(semg)) - 1;
+
+figure;
+subplot_helper(1:length(semg), semg, ...
+                [1 1 1], {'sample' 'amplitude' 'Normalized force and sEMG'}, '-');
+subplot_helper(1:length(force), force, ...
+                [1 1 1], {'sample' 'amplitude' 'Force (kg)'}, '-o');         
+
+return;
+%% Remove faulty data
+% usable_data_range = 1 : 61400; %min(length(semg), length(force));
+force = force(usable_data_range);
+semg = semg(usable_data_range);
+
+figure;
+subplot_helper(1:length(force), force, ...
                 [1 1 1], {'sample' 'amplitude' 'Force (kg)'}, '-o');         
 subplot_helper(1:length(semg), semg, ...
-                [1 1 1], {'sample' 'amplitude' 'Downsample force and sEMG'}, '-x');
-ylim([0 1]);
+                [1 1 1], {'sample' 'amplitude' 'Truncated force and sEMG'}, '-');
 
 %% Rectify and Normalization
 force = force / max(force);
