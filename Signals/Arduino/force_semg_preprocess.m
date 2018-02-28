@@ -2,24 +2,34 @@ clear; close all;
 
 file_name = './data/test_2semg_12345.txt';
 semg_channel = 1:2;
+semg_channel_count = 2;
 force_channel = 3;
 
-usable_data_range = 1 : 61400; %min(length(semg), length(force));
+semg_max_value = 2048;
+semg_min_value = -2048;
+force_max_value = 5;
+semg_sample_rate = 5100; % Approximate
+target_sample_rate = 100;
+
+test_output_filename = './data/output/exp_ard_DS100_FORCE_SEG_full_noREC.txt';
 
 raw_data = csvread(file_name);
-force = raw_data(:, force_channel);
-semg = raw_data(:, semg_channel);
+range = 1:length(raw_data);
+force = raw_data(range, force_channel);
+semg = raw_data(range, semg_channel);
 
 % Remove mean
 semg = semg - mean(semg);
 
 %% Original
+
+fprintf('original signal time: %.2f\n', length(semg)/semg_sample_rate);
+
 figure;
 subplot_helper(1:length(force), force, ...
-                [2 1 1], {'sample' 'kg' 'Force'}, '-o');
+                [2 1 1], {'sample' 'kg' 'Raw Force'}, '-o');
 subplot_helper(1:length(semg), semg, ...
-                [2 1 2], {'sample' 'au' 'sEMG'}, '-o');
-     
+                [2 1 2], {'sample' 'au' 'Raw sEMG'}, '-o');            
 %% Force data interpolation
 force(force<1e-3) = 0;
 
@@ -47,63 +57,52 @@ force(start_point:end_point) = ...
 
 figure;
 subplot_helper(1:length(force), force, ...
-                [2 1 1], {'sample' 'amplitude' 'Force (kg)'}, '-o');         
+                [2 1 1], {'sample' 'amplitude' 'Interpolated force'}, '-o');         
 subplot_helper(1:length(semg), semg, ...
-                [2 1 2], {'sample' 'amplitude' 'Interpolated force and sEMG'}, '-');
-
+                [2 1 2], {'sample' 'amplitude' 'Raw sEMG'}, '-');
 
 %% Downsample
-target_sample_rate = 300;
-semg_sample_rate = 1000;
-downsample_ratio = 5; %floor(semg_sample_rate / target_sample_rate);
+downsample_ratio = floor(semg_sample_rate / target_sample_rate);
 
-filter_order = 2;
+filter_order = 6;
 [force, cb, ca] = butter_filter( ...
         force, filter_order, target_sample_rate, semg_sample_rate);
 [semg, cb, ca] = butter_filter( ...
         semg, filter_order, target_sample_rate, semg_sample_rate);
-    
-    
+
 force = downsample(force, downsample_ratio);
 semg = downsample(semg, downsample_ratio);
 
-
 figure;
 subplot_helper(1:length(force), force, ...
-                [2 1 1], {'sample' 'amplitude' 'Force (kg)'}, '-o');         
+                [2 1 1], {'sample' 'amplitude' 'Downsample force'}, '-o');         
 subplot_helper(1:length(semg), semg, ...
-                [2 1 2], {'sample' 'amplitude' 'Downsample force and sEMG'}, '-x');
+                [2 1 2], {'sample' 'amplitude' 'Downsample sEMG'}, '-x');
+            
+%% Restrain SEMG range
+semg(semg > semg_max_value) = semg_max_value;
+semg(semg < semg_min_value) = semg_min_value;
 
 
-%% Normalization
-force = force / max(force);
-semg = 2 * (semg - min(semg))...
-        / (max(semg) - min(semg)) - 1;
-
-figure;
-subplot_helper(1:length(semg), semg, ...
-                [1 1 1], {'sample' 'amplitude' 'Normalized force and sEMG'}, '-');
-subplot_helper(1:length(force), force, ...
-                [1 1 1], {'sample' 'amplitude' 'Force (kg)'}, '-o');         
-
-return;
 %% Remove faulty data
-% usable_data_range = 1 : 61400; %min(length(semg), length(force));
+usable_data_range = 1 : min(length(semg), length(force));
 force = force(usable_data_range);
-semg = semg(usable_data_range);
+semg = semg(usable_data_range, :);
 
 figure;
 subplot_helper(1:length(force), force, ...
-                [1 1 1], {'sample' 'amplitude' 'Force (kg)'}, '-o');         
+                [1 1 1], {'sample' 'amplitude' 'Truncated force'}, '-o');         
 subplot_helper(1:length(semg), semg, ...
-                [1 1 1], {'sample' 'amplitude' 'Truncated force and sEMG'}, '-');
+                [1 1 1], {'sample' 'amplitude' 'Truncated sEMG'}, '-');
 
 %% Rectify and Normalization
-force = force / max(force);
+force = force / force_max_value;
 
 semg = semg - mean(semg);
-semg = abs(semg);
-semg = semg / max(semg);
+% semg = abs(semg);
+% semg = semg ./ max(semg);
+semg =  2.*(semg - semg_min_value)...
+        ./ (semg_max_value - semg_min_value) - 1;
 
 figure;
 subplot_helper(1:length(force), force, ...
@@ -112,59 +111,15 @@ subplot_helper(1:length(semg), semg, ...
                 [1 1 1], {'sample' 'amplitude' 'Normalized force and sEMG'}, '-');
 ylim([-1 1]);
 
-%% Write train file
-% DATA_LENGTH = 500;
-% OVERLAP_LENGTH = 50;
-% num_of_sample = floor(length(force) / (DATA_LENGTH - OVERLAP_LENGTH));
-% 
-% output_fileID = fopen(train_output_filename, 'w');
-% fprintf(output_fileID, '%d\n', num_of_sample);
-% 
-% 
-% for i = 1 : num_of_sample
-% 
-% cutoff_range = ...
-%     (i-1)*(DATA_LENGTH - OVERLAP_LENGTH) + 1 : ...
-%     (i-1)*(DATA_LENGTH - OVERLAP_LENGTH) + DATA_LENGTH;
-% if (i-1)*(DATA_LENGTH - OVERLAP_LENGTH) + DATA_LENGTH > length(force)
-% cutoff_range = ...
-%     (i-1)*(DATA_LENGTH - OVERLAP_LENGTH) + 1 : ...
-%     length(force);
-% end
-% 
-% if length(cutoff_range) <= 1
-%     break
-% end
-% 
-% cutoff_force = force(cutoff_range);
-% cutoff_semg = semg(cutoff_range);
-% fprintf(output_fileID, '%d %d\n', length(cutoff_semg), 1);
-% fprintf(output_fileID, '%f\t', cutoff_semg);
-% fprintf(output_fileID, '\n');
-% fprintf(output_fileID, '%d %d\n', length(cutoff_semg), 1);
-% fprintf(output_fileID, '%f\t', cutoff_force);
-% fprintf(output_fileID, '\n');
-% 
-% % figure;
-% % subplot_helper(1:length(cutoff_force), cutoff_force, ...
-% %                 [1 1 1], {'sample' 'amplitude' 'Force (kg)'}, '-o');                    
-% % subplot_helper(1:length(cutoff_semg), cutoff_semg, ...
-% %                 [1 1 1], {'sample' 'amplitude' 'Interpolated force and sEMG'}, '-');                       
-% % ylim([-1 1]);            
-% end
-% fclose(output_fileID);
-
 
 %% Write test file
 output_fileID = fopen(test_output_filename, 'w');
 
-DATA_LENGTH = length(semg);
-
-fprintf(output_fileID, '1\n');
-fprintf(output_fileID, '%d %d\n', DATA_LENGTH, 1);
-fprintf(output_fileID, '%f\t', semg);
+fprintf(output_fileID, '%d\n', 1);
+fprintf(output_fileID, '%d %d\n', length(semg), semg_channel_count);
+fprintf(output_fileID, '%f\t', semg');
 fprintf(output_fileID, '\n');
-fprintf(output_fileID, '%d %d\n', DATA_LENGTH, 1);
-fprintf(output_fileID, '%f\t', force);
-fprintf(output_fileID, '\n');
+fprintf(output_fileID, '%d %d\n', length(force), 1);
+fprintf(output_fileID, '%f\t', force');
+fprintf(output_fileID, '\n'); 
 fclose(output_fileID);
