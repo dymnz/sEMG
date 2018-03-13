@@ -1,2 +1,3 @@
 *.m~
 PDF
+Signals/Arduino/data/*
