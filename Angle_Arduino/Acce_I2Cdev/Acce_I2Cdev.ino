@@ -80,30 +80,30 @@ void setup() {
         Fastwire::setup(400, true);
     #endif
 
-    // initialize serial communication
+    // initialize SerialUSB communication
     // (38400 chosen because it works as well at 8MHz as it does at 16MHz, but
     // it's really up to you depending on your project)
-    Serial.begin(115200);
+    SerialUSB.begin(115200);
 
     // initialize device
-    Serial.println("Initializing I2C devices...");
+    SerialUSB.println("Initializing I2C devices...");
     accelgyro.initialize();
     accelgyro_2.initialize();
 
 
     // verify connection
-    Serial.println("Testing device connections...");
-    Serial.println(accelgyro.testConnection() ? "MPU6050 connection successful" : "MPU6050 connection failed");
-    Serial.println(accelgyro_2.testConnection() ? "MPU6050_2 connection successful" : "MPU6050_2 connection failed");
+    SerialUSB.println("Testing device connections...");
+    SerialUSB.println(accelgyro.testConnection() ? "MPU6050 connection successful" : "MPU6050 connection failed");
+    SerialUSB.println(accelgyro_2.testConnection() ? "MPU6050_2 connection successful" : "MPU6050_2 connection failed");
 
     accelgyro.setRate(4); // 200Hz
     accelgyro_2.setRate(4); // 200Hz
 
     // offset
     // perfect: 0 0 16384
-    Serial.println("Find offset:");
+    SerialUSB.println("Find offset:");
     findOffset();
-    Serial.println("Test offset:");
+    SerialUSB.println("Test offset:");
     offsetTest();
 
     while (true);
@@ -124,19 +124,19 @@ void loop() {
     #ifdef OUTPUT_READABLE_ACCELGYRO
         // display tab-separated accel/gyro x/y/z values
         sprintf(buffer, "1: %8d %8d %8d\n", ax, ay, az);
-        Serial.print(buffer);
+        SerialUSB.print(buffer);
         sprintf(buffer, "2: %8d %8d %8d\n", ax_2, ay_2, az_2);
-        Serial.print(buffer);
+        SerialUSB.print(buffer);
  
     #endif
 
     #ifdef OUTPUT_BINARY_ACCELGYRO
-        Serial.write((uint8_t)(ax >> 8)); Serial.write((uint8_t)(ax & 0xFF));
-        Serial.write((uint8_t)(ay >> 8)); Serial.write((uint8_t)(ay & 0xFF));
-        Serial.write((uint8_t)(az >> 8)); Serial.write((uint8_t)(az & 0xFF));
-        Serial.write((uint8_t)(gx >> 8)); Serial.write((uint8_t)(gx & 0xFF));
-        Serial.write((uint8_t)(gy >> 8)); Serial.write((uint8_t)(gy & 0xFF));
-        Serial.write((uint8_t)(gz >> 8)); Serial.write((uint8_t)(gz & 0xFF));
+        SerialUSB.write((uint8_t)(ax >> 8)); SerialUSB.write((uint8_t)(ax & 0xFF));
+        SerialUSB.write((uint8_t)(ay >> 8)); SerialUSB.write((uint8_t)(ay & 0xFF));
+        SerialUSB.write((uint8_t)(az >> 8)); SerialUSB.write((uint8_t)(az & 0xFF));
+        SerialUSB.write((uint8_t)(gx >> 8)); SerialUSB.write((uint8_t)(gx & 0xFF));
+        SerialUSB.write((uint8_t)(gy >> 8)); SerialUSB.write((uint8_t)(gy & 0xFF));
+        SerialUSB.write((uint8_t)(gz >> 8)); SerialUSB.write((uint8_t)(gz & 0xFF));
     #endif
 
     // blink LED to indicate activity
@@ -160,11 +160,11 @@ void findOffset() {
     oy = (sumY/1000);
     oz = (sumZ/1000) - 16384.0;
     
-    Serial.print("1:"); Serial.print("\t");
-    Serial.print(ox); Serial.print("\t");
-    Serial.print(oy); Serial.print("\t");
-    Serial.print(oz); Serial.print("\t");
-    Serial.print("\n");
+    SerialUSB.print("1:"); SerialUSB.print("\t");
+    SerialUSB.print(ox); SerialUSB.print("\t");
+    SerialUSB.print(oy); SerialUSB.print("\t");
+    SerialUSB.print(oz); SerialUSB.print("\t");
+    SerialUSB.print("\n");
 
     sumX = sumY = sumZ = 0;
     for (int i = 0; i < 1000; i++) {
@@ -179,11 +179,11 @@ void findOffset() {
     oy_2 = (int)(sumY/1000);
     oz_2 = (int)(sumZ/1000) - 16384;
     
-    Serial.print("2:"); Serial.print("\t");
-    Serial.print(ox_2); Serial.print("\t");
-    Serial.print(oy_2); Serial.print("\t");
-    Serial.print(oz_2); Serial.print("\t");
-    Serial.print("\n");
+    SerialUSB.print("2:"); SerialUSB.print("\t");
+    SerialUSB.print(ox_2); SerialUSB.print("\t");
+    SerialUSB.print(oy_2); SerialUSB.print("\t");
+    SerialUSB.print(oz_2); SerialUSB.print("\t");
+    SerialUSB.print("\n");
 }
 
 
@@ -197,11 +197,11 @@ void offsetTest() {
       sumZ += az - oz;
       delay(5);
     }
-    Serial.print("1:"); Serial.print("\t");
-    Serial.print((int)(sumX/1000)); Serial.print("\t");
-    Serial.print((int)(sumY/1000)); Serial.print("\t");
-    Serial.print((int)(sumZ/1000)); Serial.print("\t");
-    Serial.print("\n");
+    SerialUSB.print("1:"); SerialUSB.print("\t");
+    SerialUSB.print((int)(sumX/1000)); SerialUSB.print("\t");
+    SerialUSB.print((int)(sumY/1000)); SerialUSB.print("\t");
+    SerialUSB.print((int)(sumZ/1000)); SerialUSB.print("\t");
+    SerialUSB.print("\n");
 
     sumX = sumY = sumZ = 0;
     for (int i = 0; i < 1000; i++) {
@@ -211,10 +211,10 @@ void offsetTest() {
       sumZ += az - oz_2;
       delay(5);
     }
-    Serial.print("2:"); Serial.print("\t");
-    Serial.print((int)(sumX/1000)); Serial.print("\t");
-    Serial.print((int)(sumY/1000)); Serial.print("\t");
-    Serial.print((int)(sumZ/1000)); Serial.print("\t");
-    Serial.print("\n");
+    SerialUSB.print("2:"); SerialUSB.print("\t");
+    SerialUSB.print((int)(sumX/1000)); SerialUSB.print("\t");
+    SerialUSB.print((int)(sumY/1000)); SerialUSB.print("\t");
+    SerialUSB.print((int)(sumZ/1000)); SerialUSB.print("\t");
+    SerialUSB.print("\n");
 }
 
