@@ -47,7 +47,7 @@ void drawAll() {
     
     if (mpu_draw_index < mpu_buffer_index) {
       stroke(0, 0, 255);
-      for (int i = 0; i < mpu_channel; ++i) {        
+      for (int i = 0; i < mpu_channel; ++i) {    
         draw_value = int(map(mpu_buffer[i][mpu_draw_index], angle_minValue, angle_maxValue, 0, height));
         line(mpu_last_x, mpu_last_height[i], x, height - draw_value);
         
@@ -67,7 +67,7 @@ void drawAll() {
     file.println(buffer_str);
   }
   if (force_draw_index < force_buffer_index) {    
-    println("Error: Some force data point aren't drawn");
+    //println("Error: Some force data point aren't drawn");
     //exit();
   }
     
@@ -130,12 +130,24 @@ void force_convert() {
   force_values[0] = force_values[0] / force_calibration_factor;  
 }
 
-final int angle_minValue = 0;
-final int angle_maxValue = 360;
+final int angle_minValue = -180;
+final int angle_maxValue = 180;
 void angle_convert() {
 }
 
 
 void writeAll() {
   
+}
+
+int convert_to_int16(int num) {
+  boolean negative = (num & (1 << 15)) != 0;
+  int converted_int;
+  
+  if (negative)
+    converted_int = num | 0xFFFF0000;
+  else
+    converted_int = num;
+    
+  return converted_int;
 }

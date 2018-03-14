@@ -32,19 +32,19 @@
 HX711 scale(DOUT, CLK);
 
 void setup() {
-  Serial.begin(9600);
-  Serial.println("HX711 scale demo");
+  SerialUSB.begin(9600);
+  SerialUSB.println("HX711 scale demo");
 
   scale.set_scale(calibration_factor); //This value is obtained by using the SparkFun_HX711_Calibration sketch
   scale.tare(); //Assuming there is no weight on the scale at start up, reset the scale to 0
 
-  Serial.println("Readings:");
+  SerialUSB.println("Readings:");
 }
 
 void loop() {
-  Serial.print("Reading: ");
-  Serial.print(scale.get_units(), 10); //scale.get_units() returns a float
-  Serial.print(" kgs"); //You can change this to kg but you'll need to refactor the calibration_factor
-  Serial.println();
+  SerialUSB.print("Reading: ");
+  SerialUSB.print(scale.get_units(), 10); //scale.get_units() returns a float
+  SerialUSB.print(" kgs"); //You can change this to kg but you'll need to refactor the calibration_factor
+  SerialUSB.println();
 }
 

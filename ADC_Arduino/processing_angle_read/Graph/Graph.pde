@@ -6,12 +6,12 @@ PrintWriter file;
 enum State {HOLD, SEMG_ALIGN, FORCE_ALIGN, MPU_ALIGN, SEMG_READ, FORCE_READ, MPU_READ, SEMG_FIN, FORCE_FIN, MPU_FIN}
 State serial_state = State.HOLD;
 
-final String filename = "test_2semg_fast.txt";
+final String filename = "test_semg_force_angle.txt";
 
 final int width = 1920;
 final int height = 900;
 final int grid_size = 30;
-final float graph_x_step = 0.05;
+final float graph_x_step = 0.1;
 
 
 final float force_calibration_factor = -200000;
@@ -22,7 +22,7 @@ final int semg_packet_byte = 2;
 final int force_channel = 1;
 final int force_packet_byte = 4;
 final int mpu_channel = 1;
-final int mpu_packet_byte = 1;
+final int mpu_packet_byte = 2;
 
 final int total_channel = force_channel + semg_channel;
 final int semg_packet_len = semg_channel * semg_packet_byte;
@@ -128,7 +128,7 @@ void serialEvent(Serial serial) {
         serial_state = State.HOLD;
         serial_count = 0;
         
-        //sampleCount();
+        sampleCount();
       }        
     } else if (serial_state == State.FORCE_READ) {
       
@@ -155,16 +155,13 @@ void serialEvent(Serial serial) {
         serial_count = 0;
       }     
     } else if (serial_state == State.MPU_READ) {
-
       mpu_packet[serial_count] = ch;
       
       ++serial_count;
       
       if (serial_count >= mpu_packet_len) {
-        mpu_values[0] = int(mpu_packet[0]);
-        
-        
-        mpu_buffer[0][mpu_buffer_index] = mpu_values[0];
+        mpu_values[0] =  int((mpu_packet[1] << 8) | (mpu_packet[0]));
+        mpu_buffer[0][mpu_buffer_index] = convert_to_int16((int)mpu_values[0]);
         
         if (++mpu_buffer_index >= value_buffer_size) 
           mpu_buffer_index = 0;
