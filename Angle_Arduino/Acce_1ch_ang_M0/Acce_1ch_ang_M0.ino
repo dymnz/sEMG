@@ -5,10 +5,10 @@
 // Public Domain
 
 #include<Wire.h>
-#define REG_ADDR 0x3B // X: 3B Y: 3D
+#define REG_ADDR 0x3D // X: 3B Y: 3D
 #define MV_SIZE 100
 #define WAIT_SAMPLE 30
-#define DELAY_MS 10
+#define DELAY_MS 0
 #define MAX_ANGLE 180
 #define MIN_ANGLE 0
 #define ANGLE_SHIFT 180
@@ -65,7 +65,7 @@ void loop() {
 
     moving_sumX = 0;
     for (uint8_t i = 0; i < MV_SIZE; i++) {
-      moving_sumX += mv_arrayX[pointer];
+      moving_sumX += mv_arrayX[i];
     }
 
     moving_average = moving_sumX / MV_SIZE;

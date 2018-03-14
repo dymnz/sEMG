@@ -33,7 +33,7 @@ const int mpu_packet_len = alignment_packet_len + mpu_channel * mpu_packet_byte;
 
 uint8_t semg_packet[semg_packet_len] = {'$'};
 uint8_t force_packet[force_packet_len] = {'#'};
-uint8_t mpu_packet[force_packet_len] = {'!'};
+uint8_t mpu_packet[force_packet_len] = {'@'};
 
 // Loadcell
 HX711 scale(DOUT, CLK);
@@ -58,15 +58,12 @@ void setup() {
   AdcBooster();
   analogReadResolution(12);
   analogReference(AR_EXTERNAL);
-  SerialUSB.println("bbbbbbbbbb");
-  
+ 
   // Scale initialization
   Scale_init();
 
   // MPU initialization
   MPU_init();
-
-  SerialUSB.println("aaaaaaaaaaaaaaa");
 }
 
 
@@ -74,24 +71,25 @@ void loop() {
   while (1) {        
     // scale.read() returns 32bit signed int
     // If the scale is not ready, retain the old value
-    ///*
+    /*
     if (scale.is_ready()) {
       ((long *)(force_packet + alignment_packet_len))[0] = scale.read() - scale_offset;
       SerialUSB.write(force_packet, force_packet_len);
     }
-    //*/
+    */
 
     // TODO: Check for MPU data availability before reading
     estimated_angle = MPU_read();
     ((int8_t *)(mpu_packet + alignment_packet_len))[0] = estimated_angle;
     SerialUSB.write(mpu_packet, mpu_packet_len);
 
-    
+    ///*
     semg_value = analogRead(A0);
     ((uint16_t *)(semg_packet + alignment_packet_len))[0] = semg_value;
     semg_value = analogRead(A1);
     ((uint16_t *)(semg_packet + alignment_packet_len))[1] = semg_value;        
     SerialUSB.write(semg_packet, semg_packet_len);
+    //*/
   }
 }
 
@@ -131,7 +129,6 @@ void MPU_init() {
     delay(DELAY_MS);
   }
   
-  SerialUSB.println("Getting initial value...");
   for (uint8_t i = 0; i < MV_SIZE; i++) {
     mpu_buffer[i] = MPU_readX();
     mpu_moving_sum += mpu_buffer[i];
@@ -152,7 +149,7 @@ long MPU_read()
     
     mpu_moving_sum = 0;
     for (uint8_t i = 0; i < MV_SIZE; i++) {
-      mpu_moving_sum += mpu_buffer[mpu_buffer_index];
+      mpu_moving_sum += mpu_buffer[i];
     }
     
     mpu_moving_average = mpu_moving_sum / MV_SIZE;

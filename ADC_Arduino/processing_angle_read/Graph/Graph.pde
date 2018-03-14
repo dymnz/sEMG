@@ -44,7 +44,7 @@ float[] mpu_buffer[] = new float[mpu_channel][value_buffer_size];
 final int alignment_packet_len = 1;
 final char[] semg_alignment_packet = {'$'};
 final char[] force_alignment_packet = {'#'};
-final char[] mpu_alignment_packet = {'!'};
+final char[] mpu_alignment_packet = {'@'};
 
 int alignment_count = 0;
 int serial_count = 0;
@@ -76,10 +76,7 @@ void setup() {
   serial = new Serial(this, Serial.list()[ind], 1843200); // Set this to your serial port obtained using the line above
 
 }
-
-
-
-
+int c = 0;
 void serialEvent(Serial serial) {  
   
   while (serial.available() > 0) {
@@ -120,7 +117,6 @@ void serialEvent(Serial serial) {
         semg_values[0] = (semg_packet[1] << 8) | semg_packet[0];
         semg_values[1] = (semg_packet[3] << 8) | semg_packet[2];
         
-        semg_convert();
         
         semg_buffer[0][semg_buffer_index] = semg_values[0];
         semg_buffer[1][semg_buffer_index] = semg_values[1];
@@ -135,6 +131,7 @@ void serialEvent(Serial serial) {
         //sampleCount();
       }        
     } else if (serial_state == State.FORCE_READ) {
+      
       force_packet[serial_count] = ch;
       
       ++serial_count;
@@ -158,6 +155,7 @@ void serialEvent(Serial serial) {
         serial_count = 0;
       }     
     } else if (serial_state == State.MPU_READ) {
+
       mpu_packet[serial_count] = ch;
       
       ++serial_count;

@@ -1,9 +1,11 @@
 float x = 0;
 float semg_last_x = 1;
 float force_last_x = 1;
+float mpu_last_x = 1;
 
 int[] semg_last_height = new int[semg_channel];
 int[] force_last_height = new int[force_channel];
+int[] mpu_last_height = new int[mpu_channel];
 
 final int[][] semg_color_list = {{255, 120, 120}, {120, 255, 120}, {120, 120, 255}};
 
@@ -43,9 +45,25 @@ void drawAll() {
       buffer_str += 0 + ",";
     }
     
+    if (mpu_draw_index < mpu_buffer_index) {
+      stroke(0, 0, 255);
+      for (int i = 0; i < mpu_channel; ++i) {        
+        draw_value = int(map(mpu_buffer[i][mpu_draw_index], angle_minValue, angle_maxValue, 0, height));
+        line(mpu_last_x, mpu_last_height[i], x, height - draw_value);
+        
+        mpu_last_height[i] = int(height - draw_value);
+        
+        buffer_str += mpu_buffer[i][mpu_draw_index] + ",";
+      }
+      ++mpu_draw_index;
+      mpu_last_x = x;
+    } else {
+      buffer_str += 0 + ",";
+    }
+    
     semg_last_x = x;    
     x += graph_x_step;
-    println(mpu_values[0]);
+
     file.println(buffer_str);
   }
   if (force_draw_index < force_buffer_index) {    
@@ -57,6 +75,7 @@ void drawAll() {
     x = 0;
     semg_last_x = 0;
     force_last_x = 0;
+    mpu_last_x = 0;
     resetGraph();
   }  
     
@@ -64,6 +83,8 @@ void drawAll() {
   force_draw_index = 0;
   semg_buffer_index = 0;      
   semg_draw_index = 0;
+  mpu_buffer_index = 0;      
+  mpu_draw_index = 0;
     
 }
 
@@ -107,6 +128,11 @@ final int force_minValue = -5;
 final int force_maxValue = 5;
 void force_convert() {
   force_values[0] = force_values[0] / force_calibration_factor;  
+}
+
+final int angle_minValue = 0;
+final int angle_maxValue = 360;
+void angle_convert() {
 }
 
 
