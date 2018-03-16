@@ -64,14 +64,13 @@ void setup() {
   analogReadResolution(12);
   analogReference(AR_EXTERNAL);
 
-  mpu_1.addr = mpu_addr_1;
-  MPU_init(&mpu_1);
-  memcpy(mpu_1.offset_array, mpu_offset_1, sizeof mpu_offset_1);
  
   // Scale initialization
  // Scale_init();
 
   // MPU initialization
+  mpu_1.addr = mpu_addr_1;  
+  memcpy(mpu_1.offset_array, mpu_offset_1, sizeof mpu_offset_1);
   MPU_init(&mpu_1);
 }
 
