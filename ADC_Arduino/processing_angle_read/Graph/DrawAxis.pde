@@ -46,7 +46,7 @@ void drawAll() {
     }
     
     if (mpu_draw_index < mpu_buffer_index) {
-      stroke(0, 0, 255);
+      stroke(190, 190, 190);
       for (int i = 0; i < mpu_channel; ++i) {    
         draw_value = int(map(mpu_buffer[i][mpu_draw_index], angle_minValue, angle_maxValue, 0, height));
         line(mpu_last_x, mpu_last_height[i], x, height - draw_value);
@@ -105,9 +105,18 @@ void resetGraph() {
   stroke(0); 
   line(0, height / 2, width, height / 2);
 
-  stroke(220);   
+
+  /*
+  stroke(0, 0, 100);   
   for (int i = 1; i < force_maxValue; ++i) {
     int y = int(map(i, force_minValue, force_maxValue, 0, height));
+    line(0, height - y, width, height - y);
+    line(0, y, width, y);
+  }
+  */ 
+  stroke(130, 130, 130);
+  for (int i = angle_maxValue + angle_minValue; i < angle_maxValue - angle_minValue; i+=15) {
+    int y = int(map(i, angle_maxValue + angle_minValue, angle_maxValue - angle_minValue, 0, height));
     line(0, height - y, width, height - y);
     line(0, y, width, y);
   }

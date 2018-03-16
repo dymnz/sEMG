@@ -48,7 +48,7 @@ struct MPUData{
   float roll_pitch[2];
 } mpu_1;
 
-int mpu_addr_1 = 0x69;
+int mpu_addr_1 = 0x68;
 int16_t mpu_offset_1[3] = {192, 516, -1993};
 
 // Loadcell
@@ -59,19 +59,18 @@ void setup() {
   Wire.begin();
   SerialUSB.begin(0);
   while (!SerialUSB);
-  
+
   AdcBooster();
   analogReadResolution(12);
   analogReference(AR_EXTERNAL);
-
  
   // Scale initialization
  // Scale_init();
 
   // MPU initialization
-  mpu_1.addr = mpu_addr_1;  
-  memcpy(mpu_1.offset_array, mpu_offset_1, sizeof mpu_offset_1);
+  mpu_1.addr = mpu_addr_1;    
   MPU_init(&mpu_1);
+  memcpy(mpu_1.offset_array, mpu_offset_1, sizeof mpu_offset_1);
 }
 
 
@@ -81,28 +80,28 @@ void loop() {
   while (1) {        
     // scale.read() returns 32bit signed int
     // If the scale is not ready, retain the old value
-    /*
+    ///*
     if (scale.is_ready()) {
       ((long *)(force_packet + alignment_packet_len))[0] = scale.read() - scale_offset;
       SerialUSB.write(force_packet, force_packet_len);
     }
-    */
+    //*/
 
     // TODO: Check for MPU data availability before reading
     MPU_read(&mpu_1);
     MPU_calculateAverage(&mpu_1);
     MPU_calculateOrientation(&mpu_1);
     ((int16_t *)(mpu_packet + alignment_packet_len))[0] = (int16_t)mpu_1.roll_pitch[0];
-    //SerialUSB.write(mpu_packet, mpu_packet_len);
-    SerialUSB.println((int16_t)mpu_1.roll_pitch[0]);
+    SerialUSB.write(mpu_packet, mpu_packet_len);
+    //SerialUSB.println((int16_t)mpu_1.roll_pitch[0]);
 
-    /*
+    ///*
     semg_value = analogRead(A0);
     ((uint16_t *)(semg_packet + alignment_packet_len))[0] = semg_value;
     semg_value = analogRead(A1);
     ((uint16_t *)(semg_packet + alignment_packet_len))[1] = semg_value;        
     SerialUSB.write(semg_packet, semg_packet_len);
-    */
+    //*/
   }
 }
 
@@ -136,16 +135,18 @@ void MPU_init(struct MPUData *mpu) {
 
   // Read some samples
   for (indexType i = 0; i < WAIT_SAMPLE; i++) {
-    MPU_read(&mpu_1);
+    MPU_read(&mpu_1);    
     delay(DELAY_MS);
   }
 
   // Gather initial value
   for (indexType i = 0; i < MV_SIZE; i++) {
-    MPU_read(&mpu_1);    
+    MPU_read(&mpu_1); 
+    //SerialUSB.println(MPU_calculateAverage(mpu));   
     delay(DELAY_MS);
   }  
-  SerialUSB.println("MPU_init");
+  //SerialUSB.println("MPU_init");
+  //while(1);
 }
 
 
