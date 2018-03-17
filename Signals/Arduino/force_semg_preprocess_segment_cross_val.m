@@ -150,4 +150,3 @@ for i = range
 %                     [1 1 1], {'sample' 'amplitude' 'Interpolated force and sEMG'}, '-');                       
 %     ylim([-1 1]);     
 end
-
