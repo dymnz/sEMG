@@ -9,7 +9,7 @@ semg_max_value = 2048;
 semg_min_value = -2048;
 force_max_value = 5;
 semg_sample_rate = 5100; % Approximate
-target_sample_rate = 100;
+target_sample_rate = 200;
 
 train_output_filename = './data/output/exp_ard_DS100_FORCE_SEG.txt';
 test_output_filename = './data/output/exp_ard_full.txt';
@@ -99,8 +99,7 @@ subplot_helper(1:length(semg), semg, ...
 force = force / force_max_value;
 
 semg = semg - mean(semg);
-semg = abs(semg);
-% semg = semg ./ max(semg);
+% semg = abs(semg);
 semg =  2.*(semg - semg_min_value)...
         ./ (semg_max_value - semg_min_value) - 1;
 
