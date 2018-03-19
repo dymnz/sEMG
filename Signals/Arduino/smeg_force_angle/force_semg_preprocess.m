@@ -1,7 +1,7 @@
 clear; close all;
 
-file_name = './data/raw_semg_force_angle_1.txt';
-test_output_filename = './data/output/exp_SFM_DS200_FULL_1.txt';
+file_name = './data/raw_semg_force_angle_2.txt';
+test_output_filename = './data/output/exp_SFM_DS200_FULL_2.txt';
 
 semg_channel_count = 2;
 mpu_channel_count = 1;
@@ -83,14 +83,14 @@ xq = start_point : 1 : end_point;
 mpu(start_point:end_point) = ...
     interp1([start_point end_point], ...
         [mpu(start_point) mpu(end_point)], xq);        
-% figure;
-% subplot_helper(1:length(force), force, ...
-%                 [3 1 1], {'sample' 'amplitude' 'Interpolated force (kg)'}, '-');         
-% subplot_helper(1:length(semg), semg, ...
-%                 [3 1 2], {'sample' 'amplitude' 'sEMG'}, '-');
-% subplot_helper(1:length(mpu), mpu, ...
-%                 [3 1 3], {'sample' 'amplitude' 'Interpolated angle'}, '-');         
-% ylim([-90 90]);            
+figure;
+subplot_helper(1:length(force), force, ...
+                [3 1 1], {'sample' 'amplitude' 'Interpolated force (kg)'}, '-');         
+subplot_helper(1:length(semg), semg, ...
+                [3 1 2], {'sample' 'amplitude' 'sEMG'}, '-');
+subplot_helper(1:length(mpu), mpu, ...
+                [3 1 3], {'sample' 'amplitude' 'Interpolated angle'}, '-');         
+ylim([-90 90]);            
 
 %% Downsample
 downsample_ratio = floor(semg_sample_rate / target_sample_rate);

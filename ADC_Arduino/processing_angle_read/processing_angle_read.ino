@@ -7,7 +7,7 @@
 #define CLK  2
 
 #define ACCE_REG_ADDR 0x3B
-#define MV_SIZE 20
+#define MV_SIZE 10
 #define WAIT_SAMPLE 30
 #define DELAY_MS 1
 #define MAX_ANGLE 360

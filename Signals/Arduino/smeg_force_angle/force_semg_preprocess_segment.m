@@ -1,7 +1,7 @@
 clear; close all;
 
-file_name = './data/raw_semg_force_angle_1.txt';
-train_output_filename = './data/output/exp_SFM_DS200_SEG.txt';
+file_name = './data/raw_semg_force_angle_2.txt';
+train_output_filename = './data/output/exp_SFM_DS200_SEG_2.txt';
 test_output_filename = './data/output/exp_SFM_full.txt';
 
 semg_channel_count = 2;
@@ -184,9 +184,6 @@ fprintf(output_fileID, '%d\n', num_of_sample);
 for i = 2 : length(mid_segment_indices)   
     cutoff_range = mid_segment_indices(i - 1) : mid_segment_indices(i);
     
-    length(cutoff_range)
-    continue;
-    
     cutoff_force = force(cutoff_range);
     cutoff_semg = semg(cutoff_range, :);
     cutoff_mpu = mpu(cutoff_range, :);
@@ -205,15 +202,15 @@ for i = 2 : length(mid_segment_indices)
     fprintf(output_fileID, '%f\t', cutoff_force');
     fprintf(output_fileID, '\n'); 
     
-%     figure;
-%     subplot_helper(1:length(cutoff_force), cutoff_force, ...
-%                     [3 1 1], {'sample' 'amplitude' 'Force (kg)'}, '-o');                    
-%     subplot_helper(1:length(cutoff_semg), cutoff_semg, ...
-%                     [3 1 2], {'sample' 'amplitude' 'Interpolated force and sEMG'}, '-');                       
-%     ylim([-1 1]);     
-%     subplot_helper(1:length(cutoff_mpu), cutoff_mpu, ...
-%                     [3 1 3], {'sample' 'amplitude' 'Interpolated force and sEMG'}, '-');                                       
-%     ylim([-1 1]);     
+    figure;
+    subplot_helper(1:length(cutoff_force), cutoff_force, ...
+                    [3 1 1], {'sample' 'amplitude' 'Force (kg)'}, '-o');                    
+    subplot_helper(1:length(cutoff_semg), cutoff_semg, ...
+                    [3 1 2], {'sample' 'amplitude' 'Interpolated force and sEMG'}, '-');                       
+    ylim([-1 1]);     
+    subplot_helper(1:length(cutoff_mpu), cutoff_mpu, ...
+                    [3 1 3], {'sample' 'amplitude' 'Interpolated force and sEMG'}, '-');                                       
+    ylim([-1 1]);     
 end
 
 fclose(output_fileID);

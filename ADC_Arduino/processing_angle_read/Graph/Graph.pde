@@ -6,7 +6,7 @@ PrintWriter file;
 enum State {HOLD, SEMG_ALIGN, FORCE_ALIGN, MPU_ALIGN, SEMG_READ, FORCE_READ, MPU_READ, SEMG_FIN, FORCE_FIN, MPU_FIN}
 State serial_state = State.HOLD;
 
-final String filename = "../test_semg_force_angle.txt";
+final String filename = "../raw_semg_force_angle_4_move.txt";
 
 final int width = 1920;
 final int height = 900;

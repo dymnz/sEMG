@@ -46,7 +46,7 @@ void drawAll() {
     }
     
     if (mpu_draw_index < mpu_buffer_index) {
-      stroke(190, 190, 190);
+      stroke(110, 110, 110);
       for (int i = 0; i < mpu_channel; ++i) {    
         draw_value = int(map(mpu_buffer[i][mpu_draw_index], angle_minValue, angle_maxValue, 0, height));
         line(mpu_last_x, mpu_last_height[i], x, height - draw_value);
