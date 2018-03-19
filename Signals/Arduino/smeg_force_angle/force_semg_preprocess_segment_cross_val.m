@@ -196,8 +196,7 @@ for i = output_segment_indices
     % Input: sEMG + Angle
     fprintf(output_fileID, '%d %d\n', length(cutoff_semg), ...
             semg_channel_count + mpu_channel_count);
-    fprintf(output_fileID, '%f\t', cutoff_semg');
-    fprintf(output_fileID, '%f\t', cutoff_mpu');
+    fprintf(output_fileID, '%f\t', [cutoff_semg cutoff_mpu]');
     fprintf(output_fileID, '\n');
     
     % Output: Force

@@ -1,8 +1,7 @@
 clear; close all;
 
-file_name = './data/raw_semg_force_angle_2.txt';
-train_output_filename = './data/output/exp_SFM_DS200_SEG_2.txt';
-test_output_filename = './data/output/exp_SFM_full.txt';
+file_name = './data/raw_semg_force_angle_4.txt';
+train_output_filename = './data/output/exp_SFM_DS200_SEG_4.txt';
 
 semg_channel_count = 2;
 mpu_channel_count = 1;
@@ -180,6 +179,7 @@ mid_segment_indices = mid_segment_indices(1:end-1, :);
 output_fileID = fopen(train_output_filename, 'w');
 
 num_of_sample = length(mid_segment_indices) - 1;
+fprintf('# of sample: %d\n', num_of_sample);
 fprintf(output_fileID, '%d\n', num_of_sample);
 for i = 2 : length(mid_segment_indices)   
     cutoff_range = mid_segment_indices(i - 1) : mid_segment_indices(i);
@@ -193,8 +193,7 @@ for i = 2 : length(mid_segment_indices)
     % Input: sEMG + Angle
     fprintf(output_fileID, '%d %d\n', length(cutoff_semg), ...
             semg_channel_count + mpu_channel_count);
-    fprintf(output_fileID, '%f\t', cutoff_semg');
-    fprintf(output_fileID, '%f\t', cutoff_mpu');
+    fprintf(output_fileID, '%f\t', [cutoff_semg cutoff_mpu]');
     fprintf(output_fileID, '\n');
     
     % Output: Force
@@ -202,15 +201,15 @@ for i = 2 : length(mid_segment_indices)
     fprintf(output_fileID, '%f\t', cutoff_force');
     fprintf(output_fileID, '\n'); 
     
-    figure;
-    subplot_helper(1:length(cutoff_force), cutoff_force, ...
-                    [3 1 1], {'sample' 'amplitude' 'Force (kg)'}, '-o');                    
-    subplot_helper(1:length(cutoff_semg), cutoff_semg, ...
-                    [3 1 2], {'sample' 'amplitude' 'Interpolated force and sEMG'}, '-');                       
-    ylim([-1 1]);     
-    subplot_helper(1:length(cutoff_mpu), cutoff_mpu, ...
-                    [3 1 3], {'sample' 'amplitude' 'Interpolated force and sEMG'}, '-');                                       
-    ylim([-1 1]);     
+%     figure;
+%     subplot_helper(1:length(cutoff_force), cutoff_force, ...
+%                     [3 1 1], {'sample' 'amplitude' 'Force (kg)'}, '-o');                    
+%     subplot_helper(1:length(cutoff_semg), cutoff_semg, ...
+%                     [3 1 2], {'sample' 'amplitude' 'Interpolated force and sEMG'}, '-');                       
+%     ylim([-1 1]);     
+%     subplot_helper(1:length(cutoff_mpu), cutoff_mpu, ...
+%                     [3 1 3], {'sample' 'amplitude' 'Interpolated force and sEMG'}, '-');                                       
+%     ylim([-1 1]);     
 end
 
 fclose(output_fileID);

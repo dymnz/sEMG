@@ -1,7 +1,7 @@
 clear; close all;
 
-file_name = './data/raw_semg_force_angle_2.txt';
-test_output_filename = './data/output/exp_SFM_DS200_FULL_2.txt';
+file_name = './data/raw_semg_force_angle_4.txt';
+test_output_filename = './data/output/exp_SFM_DS200_FULL_4.txt';
 
 semg_channel_count = 2;
 mpu_channel_count = 1;
@@ -9,7 +9,7 @@ mpu_channel_count = 1;
 semg_channel = 1:2;
 force_channel = 3;
 mpu_channel = 4;
-
+   
 semg_max_value = 2048;
 semg_min_value = -2048;
 force_max_value = 5;
@@ -165,12 +165,10 @@ output_fileID = fopen(test_output_filename, 'w');
 
 
 fprintf(output_fileID, '%d\n', 1);
-    
 % Input
 fprintf(output_fileID, '%d %d\n', length(semg), ...
         semg_channel_count + mpu_channel_count);
-fprintf(output_fileID, '%f\t', semg');
-fprintf(output_fileID, '%f\t', mpu');
+fprintf(output_fileID, '%f\t', [semg mpu]');
 fprintf(output_fileID, '\n');
 
 % Output
