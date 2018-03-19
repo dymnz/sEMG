@@ -1,4 +1,4 @@
 *.m~
 PDF
-Signals/Arduino/smeg_force_angle/data/output/*
-Signals/Arduino/smeg_force/data/output/*
+Signals/Arduino/semg_force_angle/data/output/*
+Signals/Arduino/semg_force/data/output/*
