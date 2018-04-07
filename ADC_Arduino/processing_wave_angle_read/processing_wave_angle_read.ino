@@ -23,17 +23,12 @@ const int semg_channel = 2;
 const int semg_packet_byte = 2;
 const int semg_packet_len = alignment_packet_len + semg_channel * semg_packet_byte;
 
-const int force_channel = 1;
-const int force_packet_byte = 4;
-const int force_packet_len = alignment_packet_len + force_channel * force_packet_byte;
-
-const int mpu_channel = 1;
+const int mpu_channel = 2;
 const int mpu_packet_byte = 2;  // int8_t for +-128 degree
 const int mpu_packet_len = alignment_packet_len + mpu_channel * mpu_packet_byte;
 
 uint8_t semg_packet[semg_packet_len] = {'$'};
-uint8_t force_packet[force_packet_len] = {'#'};
-uint8_t mpu_packet[force_packet_len] = {'@'};
+uint8_t mpu_packet[mpu_packet_len] = {'@'};
 
 typedef uint8_t indexType; // !!!!!!! WORKS WHEN MV_SIZE < 255 !!!!!!!
 
@@ -51,10 +46,6 @@ struct MPUData{
 int mpu_addr_1 = 0x68;
 int16_t mpu_offset_1[3] = {192, 516, -1993};
 
-// Loadcell
-HX711 scale(DOUT, CLK);
-long scale_offset;
-
 void setup() {
   Wire.begin();
   SerialUSB.begin(0);
@@ -64,9 +55,6 @@ void setup() {
   analogReadResolution(12);
   analogReference(AR_EXTERNAL);
  
-  // Scale initialization
- // Scale_init();
-
   // MPU initialization
   mpu_1.addr = mpu_addr_1;    
   MPU_init(&mpu_1);
@@ -78,20 +66,12 @@ void loop() {
   int semg_value;
   
   while (1) {        
-    // scale.read() returns 32bit signed int
-    // If the scale is not ready, retain the old value
-    ///*
-    if (scale.is_ready()) {
-      ((long *)(force_packet + alignment_packet_len))[0] = scale.read() - scale_offset;
-      SerialUSB.write(force_packet, force_packet_len);
-    }
-    //*/
-
     // TODO: Check for MPU data availability before reading
     MPU_read(&mpu_1);
     MPU_calculateAverage(&mpu_1);
     MPU_calculateOrientation(&mpu_1);
     ((int16_t *)(mpu_packet + alignment_packet_len))[0] = (int16_t)mpu_1.roll_pitch[0];
+    ((int16_t *)(mpu_packet + alignment_packet_len))[1] = (int16_t)mpu_1.roll_pitch[1];
     SerialUSB.write(mpu_packet, mpu_packet_len);
     //SerialUSB.println((int16_t)mpu_1.roll_pitch[0]);
 
@@ -117,13 +97,6 @@ void AdcBooster()
   ADC->SAMPCTRL.reg = 0x00;                      // Sampling Time Length = 0
   ADC->CTRLA.bit.ENABLE = 1;                     // Enable ADC
   while ( ADC->STATUS.bit.SYNCBUSY == 1 );       // Wait for synchronization
-}
-
-void Scale_init() {
-  scale.set_scale();
-  scale.tare(); //Reset the scale to 0
-  long zero_factor = scale.read_average(); //Get a baseli ne reading
-  scale_offset = scale.get_offset();
 }
 
 void MPU_init(struct MPUData *mpu) {
