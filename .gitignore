@@ -1,6 +1,6 @@
 *.m~
 PDF
-Signals/Arduino/semg_angle_to_force/data/output/*
-Signals/Arduino/semg_to_force/data/output/*
-Signals/Arduino/semg_to_force_angle/data/output/*
-Signals/Arduino/semg_to_force_omit_angle/data/output/*
+Signals/Arduino/Format_semg_force_angle/semg_angle_to_force/data/output/*
+Signals/Arduino/Format_semg_force_angle/semg_to_force/data/output/*
+Signals/Arduino/Format_semg_force_angle/semg_to_force_angle/data/output/*
+Signals/Arduino/Format_semg_force_angle/semg_to_force_omit_angle/data/output/*

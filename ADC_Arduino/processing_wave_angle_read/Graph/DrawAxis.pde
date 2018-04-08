@@ -31,7 +31,7 @@ void drawAll() {
 
     if (mpu_draw_index < mpu_buffer_index) {      
       for (int i = 0; i < mpu_channel; ++i) {
-        stroke(semg_color_list[i][0], semg_color_list[i][1], semg_color_list[i][2]);
+        stroke(mpu_color_list[i][0], mpu_color_list[i][1], mpu_color_list[i][2]);
         draw_value = int(map(mpu_buffer[i][mpu_draw_index], angle_minValue, angle_maxValue, 0, height));
         line(mpu_last_x, mpu_last_height[i], x, height - draw_value);
         
@@ -69,36 +69,18 @@ void drawAll() {
 
 void resetGraph() {
   background(255);  
-  strokeWeight(1);
-  /*
-  stroke(220); 
-  for (int i = 0; i < width; i += grid_size) {
-    line(i, 0, i, height);
-  }
-  for (int i = 0; i < height; i += grid_size) {
-    line(0, i, width, i);
-  }
-  */
-  strokeWeight(1);
-  
-  stroke(0); 
-  line(0, height / 2, width, height / 2);
-
-
-  /*
-  stroke(0, 0, 100);   
-  for (int i = 1; i < force_maxValue; ++i) {
-    int y = int(map(i, force_minValue, force_maxValue, 0, height));
-    line(0, height - y, width, height - y);
-    line(0, y, width, y);
-  }
-  */ 
+  strokeWeight(2);
+ 
   stroke(130, 130, 130);
   for (int i = angle_maxValue + angle_minValue; i < angle_maxValue - angle_minValue; i+=15) {
     int y = int(map(i, angle_maxValue + angle_minValue, angle_maxValue - angle_minValue, 0, height));
     line(0, height - y, width, height - y);
     line(0, y, width, y);
   }
+  
+  
+  stroke(0); 
+  line(0, height / 2, width, height / 2);
 }
 
 final int semg_minValue = 0;
@@ -113,8 +95,8 @@ void semg_convert_abs() {
 }
 
 
-final int angle_minValue = -180;
-final int angle_maxValue = 180;
+final int angle_minValue = -90;
+final int angle_maxValue = 90;
 void angle_convert() {
 }
 
