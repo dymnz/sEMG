@@ -2,12 +2,13 @@ clear; close all;
 
 addpath('../matlab_lib');
 
-file_name = './data/raw_S2WA_EXT_1.txt';
+file_name = './data/raw_S2WA_TABLE_EXT_4.txt';
 test_output_filename = ...
-    './output/exp_S2WA_EXT_1_DS200_RMS60_SEG.txt';
+    strcat('../../../../Ethereun/RNN/LSTM/data/input/', ...
+    'exp_S2WA_TABLE_EXT_4_DS200_RMS0_SEG.txt');
 
 target_sample_rate = 200;
-RMS_window_size = 60;    % RMS window in pts
+RMS_window_size = 0;    % RMS window in pts
 
 interval_removal_threshold = target_sample_rate / 10;
 
@@ -18,7 +19,7 @@ semg_min_value = -2048;
 mpu_max_value = 90;
 mpu_min_value = -90;
 
-mpu_threshold = 0.8 / mpu_min_value; % 0.5d divided +- 90d normalization
+mpu_threshold = 15 / mpu_min_value; % 0.5d divided +- 90d normalization
 mpu_segment_index = 2; % 1: Roll / 2: Pitch
 
 semg_channel_count = 2;
@@ -36,7 +37,7 @@ mpu = raw_data(:, mpu_channel);
 % Remove mean
 semg = semg - mean(semg);
 
-%% Original
+ %% Original
 
 fprintf('original signal time: %.2f\n', length(semg)/semg_sample_rate);
 
@@ -146,8 +147,11 @@ ylim([-1 1]);
 %% Angle segmentation
 % Divide the data from the middle of each angle action
 % Force action: Angle >= angle_threshold
+
+[smoothed_mpu, cb, ca] = butter_filter( ...
+        mpu(:, mpu_segment_index), filter_order, 2, target_sample_rate);
 mpu_segments = zeros(length(mpu), 1);
-mpu_segments(mpu(:, mpu_segment_index) < mpu_threshold) = 1;
+mpu_segments(smoothed_mpu < mpu_threshold) = 1;
 
 figure;
 subplot_helper(1:length(mpu), mpu, ...
@@ -167,10 +171,9 @@ segment_indices = ...
 
 % (start_n+1 + end_n) / 2
 mid_segment_indices = ...
-    floor(([segment_indices(:, 1) ; 0] + [0 ; segment_indices(:, 2)]) / 2);
+    floor(([segment_indices(:, 1) ; segment_indices(end, 2)] + [0 ; segment_indices(:, 2)]) / 2);
 mid_segment_indices(mid_segment_indices < 1) = 1;
-mid_segment_indices = mid_segment_indices(1:end-1, :);
-
+% mid_segment_indices = mid_segment_indices(1:end-1, :);
 
 output_fileID = fopen(test_output_filename, 'w');
 
@@ -196,7 +199,7 @@ for i = 2 : length(mid_segment_indices)
     fprintf(output_fileID, '%f\t', cutoff_mpu');
     fprintf(output_fileID, '\n'); 
 
-    
+%     
 %     figure;
 %     subplot_helper(1:length(cutoff_semg), cutoff_semg, ...
 %                     [2 1 1], {'sample' 'amplitude' 'Interpolated sEMG'}, '-');                       

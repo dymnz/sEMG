@@ -2,12 +2,13 @@ clear; close all;
 
 addpath('../matlab_lib');
 
-file_name = './data/raw_S2WA_EXT_1.txt';
+file_name = './data/raw_S2WA_TABLE_EXT_4.txt';
 test_output_filename = ...
-    './output/exp_S2WA_EXT_1_DS200_RMS60_FULL.txt';
+    strcat('../../../../Ethereun/RNN/LSTM/data/input/', ...
+    'exp_S2WA_TABLE_EXT_4_DS200_RMS0_FULL.txt');
 
 target_sample_rate = 200;
-RMS_window_size = 60;
+RMS_window_size = 0;
 semg_sample_rate = 540; % Approximate
 
 semg_channel_count = 2;
