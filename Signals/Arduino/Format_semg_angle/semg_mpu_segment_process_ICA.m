@@ -1,52 +1,12 @@
-clear; close all;
-
-addpath('../matlab_lib');
-
-file_name = './data/raw_S2WA_TABLE_EXT_4.txt';
-test_output_filename = ...
-    strcat('../../../../Ethereun/RNN/LSTM/data/input/', ...
-    'exp_S2WA_TABLE_EXT_4_DS10_RMS100_SEG.txt');
-
-target_sample_rate = 10;
-RMS_window_size = 100;    % RMS window in pts
-
-interval_removal_threshold = target_sample_rate / 10;
+function [processed_segments, num_of_sample] = semg_mpu_segment_process_ICA(filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_threshold, mpu_segment_index, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, seperating_matrix)
 
 
-semg_sample_rate = 540; % Approximate
-semg_max_value = 2048;
-semg_min_value = -2048;
-mpu_max_value = 90;
-mpu_min_value = -90;
-
-mpu_threshold = -15 / mpu_max_value; % 0.5d divided +- 90d normalization
-mpu_segment_index = 2; % 1: Roll / 2: Pitch
-
-semg_channel_count = 2;
-mpu_channel_count = 2;
-
-semg_channel = 1:2;
-mpu_channel = 3:4;  % 3: Roll(Pro/Sup) / 4: Pitch(Flx/Ext)
-
-
-
-raw_data = csvread(file_name);
+raw_data = csvread(filename);
 semg = raw_data(:, semg_channel);
 mpu = raw_data(:, mpu_channel);
 
 % Remove mean
 semg = semg - mean(semg);
-
- %% Original
-
-fprintf('original signal time: %.2f\n', length(semg)/semg_sample_rate);
-
-% figure;
-% subplot_helper(1:length(semg), semg, ...
-%                 [2 1 1], {'sample' 'au' 'sEMG'}, '-o');
-% subplot_helper(1:length(mpu), mpu, ...
-%                 [2 1 1], {'sample' 'au' 'Angle'}, '-o');
-
 
 %% Angle data interpolation
 %mpu(abs(mpu)<1e-3) = 0;
@@ -83,12 +43,16 @@ end
 semg = RMS_calc(semg, RMS_window_size);
 mpu = [(mpu(1, :) .* ones(RMS_window_size, size(mpu, 2))) ; mpu];
 
-figure;
-subplot_helper(1:length(semg), semg, ...
-                [2 1 1], {'sample' 'amplitude' 'sEMG'}, '-');
-subplot_helper(1:length(mpu), mpu, ...
-                [2 1 2], {'sample' 'amplitude' 'Interpolated angle'}, '-');         
-ylim([-90 90]);
+% figure;
+% subplot_helper(1:length(semg), semg, ...
+%                 [2 1 1], {'sample' 'amplitude' 'sEMG'}, '-');
+% subplot_helper(1:length(mpu), mpu, ...
+%                 [2 1 2], {'sample' 'amplitude' 'Interpolated angle'}, '-');         
+% ylim([-90 90]);
+
+
+%% ICA demix
+semg = (seperating_matrix * semg')';
 
 %% Downsample
 downsample_ratio = floor(semg_sample_rate / target_sample_rate);
@@ -128,7 +92,10 @@ mpu = mpu(usable_data_range, :);
 % ylim([-90 90]);  
 
 %% Rectify and Normalization
-semg = semg - mean(semg);
+
+if RMS_window_size <= 0
+    semg = semg - mean(semg);
+end
 % semg = abs(semg);
 semg =  2.*(semg - semg_min_value)...
         ./ (semg_max_value - semg_min_value) - 1;
@@ -143,7 +110,7 @@ subplot_helper(1:length(semg), semg, ...
 subplot_helper(1:length(mpu), mpu, ...
                 [1 1 1], {'sample' 'amplitude' 'Normalized angle'}, '-');         
 ylim([-1 1]);
-
+legend('EMG-1', 'EMG-2', 'Angle-1', 'Angle-2');
 %% Angle segmentation
 % Divide the data from the middle of each angle action
 % Force action: Angle >= angle_threshold
@@ -158,16 +125,14 @@ else
     mpu_segments(smoothed_mpu > mpu_threshold) = 1;
 end
 
-figure;
-subplot_helper(1:length(mpu), mpu, ...
-                [1 1 1], {'sample' 'amplitude' 'Normalized angle'}, '-');         
-subplot_helper(1:length(mpu_segments), mpu_segments, ...
-                [1 1 1], {'sample' 'amplitude' 'Normalized sEMG'}, '-');                       
-subplot_helper(1:length(mpu_segments),mpu_threshold * ones(size(mpu_segments)), ...
-                [1 1 1], {'sample' 'amplitude' 'Normalized sEMG'}, '-');                                   
-ylim([-1 1]);
-
-starting_point = 1;
+% figure;
+% subplot_helper(1:length(mpu), mpu, ...
+%                 [1 1 1], {'sample' 'amplitude' 'Normalized angle'}, '-');         
+% subplot_helper(1:length(mpu_segments), mpu_segments, ...
+%                 [1 1 1], {'sample' 'amplitude' 'Normalized sEMG'}, '-');                       
+% subplot_helper(1:length(mpu_segments),mpu_threshold * ones(size(mpu_segments)), ...
+%                 [1 1 1], {'sample' 'amplitude' 'Normalized sEMG'}, '-');                                   
+% ylim([-1 1]);
 
 % [segment start , segment end]
 segment_indices = ...
@@ -180,38 +145,16 @@ mid_segment_indices = ...
 mid_segment_indices(mid_segment_indices < 1) = 1;
 % mid_segment_indices = mid_segment_indices(1:end-1, :);
 
-output_fileID = fopen(test_output_filename, 'w');
-
 num_of_sample = length(mid_segment_indices) - 1;
-fprintf('# of sample: %d\n', num_of_sample);
-fprintf(output_fileID, '%d\n', num_of_sample);
+
+processed_segments = cell(num_of_sample, 3);
 for i = 2 : length(mid_segment_indices)
     cutoff_range = mid_segment_indices(i - 1) : mid_segment_indices(i);
     
     cutoff_semg = semg(cutoff_range, :);
     cutoff_mpu = mpu(cutoff_range, :);
-   
     
-    % Input: sEMG
-    fprintf(output_fileID, '%d %d\n', length(cutoff_semg), ...
-            semg_channel_count);
-    fprintf(output_fileID, '%f\t', cutoff_semg');
-    fprintf(output_fileID, '\n');
-    
-    % Output: Force + Angle
-    fprintf(output_fileID, '%d %d\n', length(cutoff_semg), ...
-            mpu_channel_count);
-    fprintf(output_fileID, '%f\t', cutoff_mpu');
-    fprintf(output_fileID, '\n'); 
-
-%     
-%     figure;
-%     subplot_helper(1:length(cutoff_semg), cutoff_semg, ...
-%                     [2 1 1], {'sample' 'amplitude' 'Interpolated sEMG'}, '-');                       
-%     ylim([-1 1]);     
-%     subplot_helper(1:length(cutoff_mpu), cutoff_mpu, ...
-%                     [2 1 2], {'sample' 'amplitude' 'Interpolated Angle'}, '-');                                       
-%     ylim([-1 1]);     
+    processed_segments{i - 1, 1} = cutoff_semg';
+    processed_segments{i - 1, 2} = cutoff_mpu';
+    processed_segments{i - 1, 3} = length(cutoff_range);       
 end
-
-fclose(output_fileID);
