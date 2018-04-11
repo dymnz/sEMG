@@ -2,28 +2,18 @@ clear; close all;
 
 addpath('../matlab_lib');
 
-filename_list = { ...
-    './data/raw_S2WA_TABLE_EXT_1.txt', ...
-    './data/raw_S2WA_TABLE_EXT_2.txt', ...
-    './data/raw_S2WA_TABLE_EXT_3.txt', ...
-    './data/raw_S2WA_TABLE_EXT_4.txt', ...
-    './data/raw_S2WA_TABLE_FLX_1.txt', ...
-    './data/raw_S2WA_TABLE_FLX_2.txt', ...
-    './data/raw_S2WA_TABLE_FLX_3.txt', ...
-    './data/raw_S2WA_TABLE_FLX_4.txt' 
+train_filename_list = { ...
+    './data/raw_S2WA_TABLE_2_FLX_1.txt'
     };
-
-
-angle_threshold_list = [ ...
-    -15, -15, -15, -15, ...
-    15, 15, 15, 15 ...    
-    ];
-
-
-
-output_filename = ...
+train_output_filename = ...
     strcat('../../../../Ethereun/RNN/LSTM/data/input/', ...
-    'exp_S2WA_TABLE_EXT_1234_FLX_1234_DS10_RMS100_SEG.txt');
+    'exp_S2WA_TABLE_2_FLX_1_DS10_RMS100_SEG.txt');
+angle_threshold_list = [15]; % +15 for FLX / -15 for EXT
+
+test_filename = './data/raw_S2WA_TABLE_2_FLX_1.txt';
+test_output_filename = ...
+    strcat('../../../../Ethereun/RNN/LSTM/data/input/', ...
+    'exp_S2WA_TABLE_2_FLX_1_DS10_RMS100_FULL.txt');
 
 target_sample_rate = 10;
 RMS_window_size = 100;    % RMS window in pts
@@ -44,7 +34,7 @@ semg_channel = 1:2;
 mpu_channel = 3:4;  % 3: Roll(Pro/Sup) / 4: Pitch(Flx/Ext)
 
 
-num_of_file = length(filename_list);
+num_of_file = length(train_filename_list);
 
 
 %% Process
@@ -58,7 +48,7 @@ for i = 1 : num_of_file
     
     % Input/Output/Length  % num_of_segments
     [join_segment_list{i}, num_of_segment] = ...
-        semg_mpu_segment_process(filename_list{i}, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_threshold, mpu_segment_index, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel);
+        semg_mpu_segment_process(train_filename_list{i}, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_threshold, mpu_segment_index, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel);
     
     join_num_of_segment_list(i) = num_of_segment;
     fprintf('File %d has %d segments\n', i, num_of_segment);
@@ -68,7 +58,7 @@ join_num_of_segment = sum(join_num_of_segment_list);
 
 %% Output
 
-output_fileID = fopen(output_filename, 'w');
+output_fileID = fopen(train_output_filename, 'w');
 
 fprintf('# of sample: %d\n', join_num_of_segment);
 fprintf(output_fileID, '%d\n', join_num_of_segment);
@@ -102,5 +92,34 @@ for i = 1 : num_of_file
 %         ylim([-1 1]); 
     end
 end   
+
+fclose(output_fileID);
+
+%% Output full
+
+% Input/Output/Length  % num_of_segments
+full_sig = ...
+    semg_mpu_full_process(test_filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel);
+
+
+output_fileID = fopen(test_output_filename, 'w');
+
+input = full_sig{1};
+output = full_sig{2};
+        
+fprintf(output_fileID, '%d\n', 1);
+% Input: sEMG
+fprintf(output_fileID, '%d %d\n', ...
+        full_sig{3}, ...
+        semg_channel_count);
+fprintf(output_fileID, '%f\t', input);
+fprintf(output_fileID, '\n');
+
+% Output: Force + Angle
+fprintf(output_fileID, '%d %d\n', ...
+        full_sig{3}, ...
+        mpu_channel_count);
+fprintf(output_fileID, '%f\t', output);
+fprintf(output_fileID, '\n'); 
 
 fclose(output_fileID);
