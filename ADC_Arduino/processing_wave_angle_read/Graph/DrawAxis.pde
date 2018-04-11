@@ -6,7 +6,7 @@ float mpu_last_x = 1;
 int[] semg_last_height = new int[semg_channel];
 int[] mpu_last_height = new int[mpu_channel];
 
-final int[][] semg_color_list = {{255, 120, 120}, {120, 255, 120}, {120, 120, 255}};
+  final int[][] semg_color_list = {{255, 120, 120}, {120, 255, 120}, {120, 120, 255}};
 final int[][] mpu_color_list = {{30, 30, 255}, {140, 140, 255}};
 
 String buffer_str = ""; 
