@@ -50,8 +50,8 @@ ICA, Impulse extraction,
   * SVR, DWT
 * [sEMG-based approach for estimating wrist and fingers joint angles using discrete wavelet transform (2016)](https://www.researchgate.net/publication/313455445_sEMG-based_approach_for_estimating_wrist_and_fingers_joint_angles_using_discrete_wavelet_transform)
   * SVR, DWT, same author as above
-* [EMG-Based Continuous and Simultaneous Estimation of Arm Kinematics in Able-Bodied Individuals and Stroke Survivors (2017)](https://ieeexplore.ieee.org/document/7843519/)
-  * NARX model (Recurrent NN), shoulder/Elbow/Wrist(FlX/EXT), 6-ch sEMG
+* [EMG-Based Continuous and Simultaneous Estimation of Arm Kinematics in Able-Bodied Individuals and Stroke Survivors (2017)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5575159/)
+  * NARX model (Recurrent NN), 3-DOF shoulder/Elbow/Wrist(FLX/EXT), 6-ch sEMG
   * LPF @ 4Hz, 99%+ accuracy
 
 #### May Be Relevant: 
@@ -64,20 +64,20 @@ ICA, Impulse extraction,
 * Extension | *Should find which muscle other experiments are focusing on*
   * [Source](http://www.sportsinjuryclinic.net/anatomy/human-muscles/wrist-hand-joint-actions/wrist-extension) | **Highlighted** because used in [other paper](http://ieeexplore.ieee.org/document/6072755/)
     * Extensor Digitorum <- testing
-    * **Extensor Carpi Radialis Longus**
-    * **Extensor Carpi Ulnaris** 
+    * **[Extensor Carpi Radialis Longus](https://en.wikipedia.org/wiki/Extensor_carpi_radialis_longus_muscle)**
+    * **[Extensor Carpi Ulnaris](https://en.wikipedia.org/wiki/Extensor_carpi_ulnaris_muscle)** 
     * Extensor Pollicis Longus 
 
 * Flexion | *Should find which muscle other experiments are focusing on*
   * [Source](http://www.sportsinjuryclinic.net/anatomy/human-muscles/wrist-hand-joint-actions/wrist-flexion) | **Highlighted** because used in [other paper](http://ieeexplore.ieee.org/document/6072755/)
-    * **Flexor Carpi Radialis**
-    * **Flexor Carpi Ulnaris**
+    * **[Flexor Carpi Radialis](https://en.wikipedia.org/wiki/Flexor_carpi_radialis_muscle)**
+    * **[Flexor Carpi Ulnaris](https://en.wikipedia.org/wiki/Flexor_carpi_ulnaris_muscle)**
     * Flexor Digitorum Superficialis <- testing
     * Flexor Pollicis Longus (Thumb movement)
 
-* Pronation | [Source](http://www.innerbody.com/image/musc03.html)
-  * pronator teres
-  * pronator quadratus
-* Supination | [Source](http://www.innerbody.com/image/musc03.html)
-  * Supinator muscle
-  * biceps brachii 
+* Pronation | [Source](http://www.innerbody.com/image/musc03.html) | **Highlighted** = chosen
+  * **[Pronator Teres](https://en.wikipedia.org/wiki/Pronator_teres_muscle)**: Near elbow
+  * Pronator Quadratus: Near wrist (Hard to locate)
+* Supination | [Source](http://www.innerbody.com/image/musc03.html) | **Highlighted** = chosen
+  * Supinator Muscle: Near elbow (Hard to locate)
+  * **Biceps Brachii** 

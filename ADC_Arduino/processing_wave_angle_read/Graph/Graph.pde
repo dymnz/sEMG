@@ -6,7 +6,7 @@ PrintWriter file;
 enum State {HOLD, SEMG_ALIGN, MPU_ALIGN, SEMG_READ, MPU_READ, SEMG_FIN, MPU_FIN}
 State serial_state = State.HOLD;
 
-final String filename = "../../../Signals/Arduino/Format_semg_angle/data/raw_S2WA_TABLE_2_SUP_1.txt";
+final String filename = "../../../Signals/Arduino/Format_semg_angle/data/raw_S2WA_TABLE_TEST.txt";
 
 final int width = 1920;
 final int height = 900;

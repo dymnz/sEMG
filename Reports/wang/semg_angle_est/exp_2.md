@@ -162,7 +162,9 @@ Flexion/Extension, better posture for cleaner signal.
 ---
 ### 2nd Experiment - Notes
 
-* Training fitness is good (for EXT)
+* Training fitness is good (for EXT/FLX)
+* **Should find a better muscle to reflect the difference between FLX/EXT**
+  * Especially for Extensor
 * Preprocess procedure
   * Training
     * sEMG centering

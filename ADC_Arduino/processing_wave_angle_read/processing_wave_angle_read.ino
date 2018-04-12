@@ -164,7 +164,7 @@ int MPU_calculateOrientation(struct MPUData *mpu) {
     ) * 180.0 / PI;
   mpu->roll_pitch[1] = 
     atan2(
-      mpu->average_array[0], 
+      -mpu->average_array[0], 
       sqrt(
           mpu->average_array[1]*mpu->average_array[1] 
           + mpu->average_array[2]*mpu->average_array[2])
