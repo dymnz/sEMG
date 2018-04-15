@@ -86,8 +86,6 @@ for i = 1 : num_of_file
     % Input/Output/Length  % num_of_segments
     join_segment_list{i} = ...
         semg_mpu_full_process_ICA(train_filename_list{i}, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_val, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, seperating_matrix);        
-    
-    join_num_of_segment_list(i) = 1;
     fprintf('Processed File %d\n', i);
 end
 

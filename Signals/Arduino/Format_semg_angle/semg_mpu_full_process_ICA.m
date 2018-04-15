@@ -32,12 +32,30 @@ for ch = 1 : mpu_channel_count
             [mpu(start_point, ch) mpu(end_point, ch)], xq);        
 end    
 
+semg_min = min(min(semg));
+semg_max = max(max(semg));
+
 figure;
-subplot_helper(1:length(semg), semg, ...
-                [2 1 1], {'sample' 'amplitude' 'sEMG'}, '-');
+graph_count = 1 + semg_channel_count;
+for ch = 1 : mpu_channel_count
+    subplot_helper(1:length(semg), semg(:, ch), ...
+                    [graph_count 1 ch], ...
+                    {'sample' 'amplitude' 'sEMG'}, ...
+                    '-');    
+    ylim([semg_min semg_max]);
+end     
+
 subplot_helper(1:length(mpu), mpu, ...
-                [2 1 2], {'sample' 'amplitude' 'Interpolated angle'}, '-');         
-ylim([-90 90]);
+                [graph_count 1 graph_count], {'sample' 'amplitude' 'Interpolated angle'}, '-');         
+ylim([mpu_min_value mpu_max_value]);
+legend('Angle-1', 'Angle-2');
+
+% figure;
+% subplot_helper(1:length(semg), semg, ...
+%                 [2 1 1], {'sample' 'amplitude' 'sEMG'}, '-');
+% subplot_helper(1:length(mpu), mpu, ...
+%                 [2 1 2], {'sample' 'amplitude' 'Interpolated angle'}, '-');         
+% ylim([-90 90]);
 
 %% sEMG RMS & Angle delay
 semg = RMS_calc(semg, RMS_window_size);
