@@ -1,4 +1,4 @@
-function [processed_segments, num_of_sample] = semg_mpu_segment_process(filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_threshold, mpu_segment_index, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel)
+function [processed_segments, num_of_sample] = semg_mpu_segment_process(filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_value, mpu_threshold, mpu_segment_index, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel)
 
 
 raw_data = csvread(filename);
@@ -7,6 +7,7 @@ mpu = raw_data(:, mpu_channel);
 
 % Remove mean
 semg = semg - mean(semg);
+mpu = mpu - mpu_shift_value;
 
 %% Angle data interpolation
 %mpu(abs(mpu)<1e-3) = 0;
@@ -32,23 +33,23 @@ for ch = 1 : mpu_channel_count
             [mpu(start_point, ch) mpu(end_point, ch)], xq);        
 end    
 
-figure;
-subplot_helper(1:length(semg), semg, ...
-                [2 1 1], {'sample' 'amplitude' 'sEMG'}, '-');
-subplot_helper(1:length(mpu), mpu, ...
-                [2 1 2], {'sample' 'amplitude' 'Interpolated angle'}, '-');         
-ylim([-90 90]);
+% figure;
+% subplot_helper(1:length(semg), semg, ...
+%                 [2 1 1], {'sample' 'amplitude' 'sEMG'}, '-');
+% subplot_helper(1:length(mpu), mpu, ...
+%                 [2 1 2], {'sample' 'amplitude' 'Interpolated angle'}, '-');         
+% ylim([-90 90]);
 
 %% sEMG RMS & Angle delay
 semg = RMS_calc(semg, RMS_window_size);
 mpu = [(mpu(1, :) .* ones(RMS_window_size, size(mpu, 2))) ; mpu];
 
-figure;
-subplot_helper(1:length(semg), semg, ...
-                [2 1 1], {'sample' 'amplitude' 'sEMG'}, '-');
-subplot_helper(1:length(mpu), mpu, ...
-                [2 1 2], {'sample' 'amplitude' 'Interpolated angle'}, '-');         
-ylim([-90 90]);
+% figure;
+% subplot_helper(1:length(semg), semg, ...
+%                 [2 1 1], {'sample' 'amplitude' 'sEMG'}, '-');
+% subplot_helper(1:length(mpu), mpu, ...
+%                 [2 1 2], {'sample' 'amplitude' 'Interpolated angle'}, '-');         
+% ylim([-90 90]);
 
 %% Downsample
 downsample_ratio = floor(semg_sample_rate / target_sample_rate);
@@ -100,12 +101,13 @@ mpu =  2.*(mpu - mpu_min_value)...
         ./ (mpu_max_value - mpu_min_value) - 1;    
     
     
-% figure;
-% subplot_helper(1:length(semg), semg, ...
-%                 [1 1 1], {'sample' 'amplitude' 'Normalized sEMG'}, '-');           
-% subplot_helper(1:length(mpu), mpu, ...
-%                 [1 1 1], {'sample' 'amplitude' 'Normalized angle'}, '-');         
-% ylim([-1 1]);
+figure;
+subplot_helper(1:length(semg), semg, ...
+                [1 1 1], {'sample' 'amplitude' 'Normalized sEMG'}, '-');           
+ylim([-1 1]);            
+subplot_helper(1:length(mpu), mpu, ...
+                [1 1 1], {'sample' 'amplitude' 'Normalized angle'}, '-');         
+ylim([-1 1]);
 
 %% Angle segmentation
 % Divide the data from the middle of each angle action
@@ -121,14 +123,14 @@ else
     mpu_segments(smoothed_mpu > mpu_threshold) = 1;
 end
 
-% figure;
-% subplot_helper(1:length(mpu), mpu, ...
-%                 [1 1 1], {'sample' 'amplitude' 'Normalized angle'}, '-');         
-% subplot_helper(1:length(mpu_segments), mpu_segments, ...
-%                 [1 1 1], {'sample' 'amplitude' 'Normalized sEMG'}, '-');                       
-% subplot_helper(1:length(mpu_segments),mpu_threshold * ones(size(mpu_segments)), ...
-%                 [1 1 1], {'sample' 'amplitude' 'Normalized sEMG'}, '-');                                   
-% ylim([-1 1]);
+figure;
+subplot_helper(1:length(mpu), mpu, ...
+                [1 1 1], {'sample' 'amplitude' 'Normalized angle'}, '-');         
+subplot_helper(1:length(mpu_segments), mpu_segments, ...
+                [1 1 1], {'sample' 'amplitude' 'Normalized sEMG'}, '-');                       
+subplot_helper(1:length(mpu_segments),mpu_threshold * ones(size(mpu_segments)), ...
+                [1 1 1], {'sample' 'amplitude' 'Normalized sEMG'}, '-');                                   
+ylim([-1 1]);
 
 % [segment start , segment end]
 segment_indices = ...

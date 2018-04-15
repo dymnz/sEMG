@@ -3,18 +3,21 @@ clear; close all;
 addpath('../matlab_lib');
 
 train_filename_list = { ...
-    './data/raw_S2WA_TABLE_SUP_1.txt'
+    './data/raw_S2WA_5_SUP_1.txt'
     };
 train_output_filename = ...
-    strcat('../../../../Ethereun/RNN/LSTM/data/input/', ...
-    'exp_S2WA_TABLE_SUP_1_DS10_RMS100_SEG.txt');
-angle_threshold_list = [-15]; % +15 for FLX/SUP / -15 for EXT/PRO
+    strcat('../../../../RNN/LSTM/data/input/', ...
+    'exp_S2WA_5_SUP_1_DS10_RMS100_SEG.txt');
+
+mpu_segment_index = 1; % 1: Roll / 2: Pitch
+angle_threshold_list = [30 -1]; % +15 for FLX/SUP / -15 for EXT/PRO
+mpu_shift_value = [50 0]; % Roll/Pitch The bias of mpu in degree
 
 test_filename = ...
-    './data/raw_S2WA_TABLE_SUP_1.txt';
+    './data/raw_S2WA_5_SUP_2.txt';
 test_output_filename = ...
-    strcat('../../../../Ethereun/RNN/LSTM/data/input/', ...
-    'exp_S2WA_TABLE_SUP_1_DS10_RMS100_FULL.txt');
+    strcat('../../../../RNN/LSTM/data/input/', ...
+    'exp_S2WA_5_SUP_2_DS10_RMS100_FULL.txt');
 
 target_sample_rate = 10;
 RMS_window_size = 100;    % RMS window in pts
@@ -26,7 +29,7 @@ mpu_max_value = 90;
 mpu_min_value = -90;
 
 
-mpu_segment_index = 1; % 1: Roll / 2: Pitch
+
 
 semg_channel_count = 2;
 mpu_channel_count = 2;
@@ -48,13 +51,12 @@ for i = 1 : num_of_file
     mpu_threshold = angle_threshold_list(i) / mpu_max_value; 
     
     % Input/Output/Length  % num_of_segments
-    [join_segment_list{i}, num_of_segment] = ...
-        semg_mpu_segment_process(train_filename_list{i}, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_threshold, mpu_segment_index, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel);
-    
+    [join_segment_list{i}, num_of_segment] = ...        
+        semg_mpu_segment_process(train_filename_list{i}, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_value, mpu_threshold, mpu_segment_index, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel);
     join_num_of_segment_list(i) = num_of_segment;
     fprintf('File %d has %d segments\n', i, num_of_segment);
 end
-return;
+
 join_num_of_segment = sum(join_num_of_segment_list);
 
 %% Output
@@ -100,7 +102,7 @@ fclose(output_fileID);
 
 % Input/Output/Length  % num_of_segments
 full_sig = ...
-    semg_mpu_full_process(test_filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel);
+    semg_mpu_full_process(test_filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel);
 
 
 output_fileID = fopen(test_output_filename, 'w');

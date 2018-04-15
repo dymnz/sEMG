@@ -1,4 +1,4 @@
-function [processed_signal] = semg_mpu_full_process_ICA(filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value,semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, seperating_matrix)
+function [processed_signal] = semg_mpu_full_process_ICA(filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, seperating_matrix)
 
 raw_data = csvread(filename);
 semg = raw_data(:, semg_channel);
@@ -6,6 +6,7 @@ mpu = raw_data(:, mpu_channel);
 
 % Remove mean
 semg = semg - mean(semg);
+mpu = mpu - mpu_shift_value;
 
 %% Angle data interpolation
 %mpu(abs(mpu)<1e-3) = 0;
@@ -105,6 +106,7 @@ mpu =  2.*(mpu - mpu_min_value)...
 figure;
 subplot_helper(1:length(semg), semg, ...
                 [2 1 1], {'sample' 'amplitude' 'Normalized sEMG'}, '-');           
+ylim([-1 1]);            
 legend('EMG-1', 'EMG-2');
 subplot_helper(1:length(mpu), mpu, ...
                 [2 1 2], {'sample' 'amplitude' 'Normalized angle'}, '-');         

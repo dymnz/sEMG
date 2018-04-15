@@ -6,7 +6,7 @@ PrintWriter file;
 enum State {HOLD, SEMG_ALIGN, MPU_ALIGN, SEMG_READ, MPU_READ, SEMG_FIN, MPU_FIN}
 State serial_state = State.HOLD;
 
-final String filename = "../../../Signals/Arduino/Format_semg_angle/data/raw_S2WA_TABLE_TEST.txt";
+final String filename = "../../../Signals/Arduino/Format_semg_angle/data/raw_S2WA_5_PROSUP_1.txt";
 
 final int width = 1920;
 final int height = 900;
@@ -63,12 +63,11 @@ void setup() {
   
   println(Serial.list()); // Use this to print connected serial devices  
   int ind = Serial.list().length - 1;
-  serial = new Serial(this, Serial.list()[ind], 1843200); // Set this to your serial port obtained using the line above
+  serial = new Serial(this, "/dev/ttyACM0", 4000000); // Set this to your serial port obtained using the line above
 
 }
 int c = 0;
 void serialEvent(Serial serial) {  
-  
   while (serial.available() > 0) {
     char ch = (char)serial.read();
 

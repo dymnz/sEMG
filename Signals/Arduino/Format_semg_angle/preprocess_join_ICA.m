@@ -4,28 +4,26 @@ addpath('../matlab_lib');
 addpath('../matlab_lib/FastICA_21');
 
 ica_filename_list = { ...
-    './data/raw_S2WA_TABLE_SUP_1.txt', ...
-    './data/raw_S2WA_TABLE_SUP_2.txt', ... 
-    './data/raw_S2WA_TABLE_PRO_1.txt', ...
-    './data/raw_S2WA_TABLE_PRO_2.txt'    
+    './data/raw_S2WA_5_SUP_1.txt'
     };
 
 train_filename_list = { ...
-    './data/raw_S2WA_TABLE_SUP_1.txt', ...
-    './data/raw_S2WA_TABLE_SUP_2.txt', ... 
-    './data/raw_S2WA_TABLE_PRO_1.txt', ...
-    './data/raw_S2WA_TABLE_PRO_2.txt' 
+    './data/raw_S2WA_5_SUP_1.txt'
     };
 train_output_filename = ...
-    strcat('../../../../Ethereun/RNN/LSTM/data/input/', ...
-    'exp_S2WA_TABLE_SUP_12_PRO_12_ICA_DS10_RMS100_SEG.txt');
-angle_threshold_list = [15 15 -15 -15]; % +15 for FLX/SUP / -15 for EXT/PRO
+    strcat('../../../../RNN/LSTM/data/input/', ...
+    'exp_S2WA_5_SUP_1_ICA_DS10_RMS100_SEG.txt');
+
+mpu_segment_index = 1; % 1: Roll / 2: Pitch
+angle_threshold_list = [30]; % +15 for FLX/SUP / -15 for EXT/PRO
+mpu_shift_val = [50 0]; % Roll/Pitch The bias of mpu in degree
+
 
 test_filename = ...
-    './data/raw_S2WA_TABLE_FULL_1.txt';
+    './data/raw_S2WA_5_SUP_1.txt';
 test_output_filename = ...
-    strcat('../../../../Ethereun/RNN/LSTM/data/input/', ...
-    'exp_S2WA_TABLE_PROSUP_1_ICA_DS10_RMS100_FULL.txt');
+    strcat('../../../../RNN/LSTM/data/input/', ...
+    'exp_S2WA_5_SUP_1_ICA_DS10_RMS100_FULL.txt');
 
 target_sample_rate = 10;
 RMS_window_size = 100;    % RMS window in pts
@@ -37,7 +35,7 @@ mpu_max_value = 90;
 mpu_min_value = -90;
 
 
-mpu_segment_index = 1; % 1: Roll / 2: Pitch
+
 
 semg_channel_count = 2;
 mpu_channel_count = 2;
@@ -50,7 +48,6 @@ num_of_file = length(train_filename_list);
 
 
 %% ICA is processed on the concated semg
-
 concat_semg = [];
 for i = 1 : length(ica_filename_list)
     raw_data = csvread(ica_filename_list{i});
@@ -75,11 +72,11 @@ subplot_helper(1:length(concat_semg), concat_semg, ...
 subplot_helper(1:length(icasig), icasig, ...
                 [2 1 2], {'sample' 'amplitude' 'After ICA'}, '-');  
 
-% Why does the amplitude of JOINT_ICA_sig change?
+% Why does the amplitude of ICA_sig change?
 % x10 because it seems to be the min/max of JOINT_ICA_sig
 semg_max_value = 2048 * 10;
 semg_min_value = -2048 * 10;
-return;
+% return;
 %% process
 
 join_segment_list = cell(num_of_file, 1);
@@ -87,11 +84,11 @@ join_num_of_segment_list = zeros(num_of_file, 1);
 for i = 1 : num_of_file
     
     % Degree divided +- 90d normalization
-    mpu_threshold = angle_threshold_list(i) / mpu_max_value; 
+    mpu_threshold = angle_threshold_list(i) / mpu_max_value;
     
     % Input/Output/Length  % num_of_segments
     [join_segment_list{i}, num_of_segment] = ...
-        semg_mpu_segment_process_ICA(train_filename_list{i}, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_threshold, mpu_segment_index, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, seperating_matrix);
+        semg_mpu_segment_process_ICA(train_filename_list{i}, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_threshold, mpu_shift_val, mpu_segment_index, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, seperating_matrix);
     
     join_num_of_segment_list(i) = num_of_segment;
     fprintf('File %d has %d segments\n', i, num_of_segment);
@@ -141,8 +138,8 @@ fclose(output_fileID);
 %% Output full
 
 % Input/Output/Length  % num_of_segments
-full_sig = ...
-    semg_mpu_full_process_ICA(test_filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, seperating_matrix);
+full_sig = ...    
+    semg_mpu_full_process_ICA(test_filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_val, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, seperating_matrix);
 
 
 output_fileID = fopen(test_output_filename, 'w');

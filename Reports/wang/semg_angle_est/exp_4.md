@@ -14,11 +14,11 @@ Pronation/Supination. First test, try to locate optimal muscle location and chec
   * R^2 error metric should be used to avoid bias for small value estimation
 * Movement types
   * Pronation: <0 degree only. From 0d move toward -90d then pause. Start moving toward 0d then stop.
-    * S2WA_TABLE_PRO_
+    * S2WA_4_TABLE_PRO_
   * Supination: >0 degree only. From 0d move toward 90d then pause. Start moving toward 0d then stop.
-    * S2WA_TABLE_SUP_
+    * S2WA_4_TABLE_SUP_
   * Extension/Flexion: Full range. From 0d move toward 90d then pause. Start moving toward 0d then pause. From 0d move toward -90d then pause. Start moving toward 0d then stop.
-    * S2WA_TABLE_2_PROSUP_
+    * S2WA_4_TABLE_2_PROSUP_
 
 --- 
 

@@ -107,6 +107,7 @@ mpu =  2.*(mpu - mpu_min_value)...
 figure;
 subplot_helper(1:length(semg), semg, ...
                 [1 1 1], {'sample' 'amplitude' 'Normalized sEMG'}, '-');           
+ylim([-1 1]);            
 subplot_helper(1:length(mpu), mpu, ...
                 [1 1 1], {'sample' 'amplitude' 'Normalized angle'}, '-');         
 ylim([-1 1]);
@@ -134,7 +135,7 @@ end
 %                 [1 1 1], {'sample' 'amplitude' 'Normalized sEMG'}, '-');                                   
 % ylim([-1 1]);
 
-% [segment start , segment end]
+% [segment start , ylim([-1 1]);segment end]
 segment_indices = ...
     [find(([mpu_segments; 0] - [0; mpu_segments]) == 1) , ...
     find(([mpu_segments; 0] - [0; mpu_segments]) == -1)];

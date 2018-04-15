@@ -14,11 +14,11 @@ Test if the two muscle is enough for wrist angle estimation.
   * 0 degree is defined as palm facing down flat on the table, <0 degree as finger moving up
 * Movement types
   * Extension: <0 degree only. From 0d move toward 90d then pause. Start moving toward 0d then stop.
-    * S2WA_EXT1
+    * S2WA_1_EXT1
   * Flexion: >0 degree only. From 0d move toward -90d then pause. Start moving toward 0d then stop.
-    * S2WA_FLX1
+    * S2WA_1_FLX1
   * Extension/Flexion: Full range. From 0d move toward 90d then pause. Start moving toward 0d then pause. From 0d move toward -90d then pause. Start moving toward 0d then stop.
-    * S2WA_FULL1
+    * S2WA_1_FULL1
 
 ---
 ### Pre-processing

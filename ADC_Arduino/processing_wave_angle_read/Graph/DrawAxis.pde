@@ -18,7 +18,8 @@ void drawAll() {
   //println(semg_buffer_index, force_buffer_index);
   while (semg_draw_index < semg_buffer_index) {
     buffer_str = "";
-    for (int i = 0; i < semg_channel; ++i) {     
+    for (int i = 0; i < semg_channel; ++i) {
+      
       draw_value = int(map(semg_buffer[i][semg_draw_index], semg_minValue, semg_maxValue, 0, height));
       stroke(semg_color_list[i][0], semg_color_list[i][1], semg_color_list[i][2]);
       line(semg_last_x, semg_last_height[i], x, height - draw_value);
@@ -31,12 +32,13 @@ void drawAll() {
 
     if (mpu_draw_index < mpu_buffer_index) {      
       for (int i = 0; i < mpu_channel; ++i) {
+        
         stroke(mpu_color_list[i][0], mpu_color_list[i][1], mpu_color_list[i][2]);
         draw_value = int(map(mpu_buffer[i][mpu_draw_index], angle_minValue, angle_maxValue, 0, height));
         line(mpu_last_x, mpu_last_height[i], x, height - draw_value);
         
         mpu_last_height[i] = int(height - draw_value);
-        
+       
         buffer_str += mpu_buffer[i][mpu_draw_index] + ",";
       }
       ++mpu_draw_index;
@@ -95,9 +97,10 @@ void semg_convert_abs() {
 }
 
 
-final int angle_minValue = -90;
-final int angle_maxValue = 90;
+final int angle_minValue = -180;
+final int angle_maxValue = 180;
 void angle_convert() {
+  
 }
 
 

@@ -14,11 +14,11 @@ Flexion/Extension, better posture for cleaner signal.
   * R^2 error metric should be used to avoid bias for small value estimation
 * Movement types
   * Extension: <0 degree only. From 0d move toward 90d then pause. Start moving toward 0d then stop.
-    * S2WA_TABLE_EXT_
+    * S2WA_2_TABLE_EXT_
   * Flexion: >0 degree only. From 0d move toward -90d then pause. Start moving toward 0d then stop.
-    * S2WA_TABLE_FLX_
+    * S2WA_2_TABLE_FLX_
   * Extension/Flexion: Full range. From 0d move toward 90d then pause. Start moving toward 0d then pause. From 0d move toward -90d then pause. Start moving toward 0d then stop.
-    * S2WA_TABLE_FULL_
+    * S2WA_2_TABLE_FULL_
 
 ---
 ### Dataset Description
