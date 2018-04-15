@@ -308,4 +308,5 @@ Should have **no** ramp-up/ramp-down when the Pro/Sup. Use the muscle on the for
 
 
 ### TODO
-- [ ] Joint FULL-FULL 4Hz
+- [x] Joint FULL-FULL 4Hz
+  * Bad result
