@@ -9,6 +9,13 @@ mpu = raw_data(:, mpu_channel);
 semg = semg - mean(semg);
 mpu = mpu - mpu_shift_value;
 
+% figure;
+% subplot_helper(1:length(semg), semg, ...
+%                 [2 1 1], {'sample' 'amplitude' 'Raw sEMG'}, '-');
+% subplot_helper(1:length(mpu), mpu, ...
+%                 [2 1 2], {'sample' 'amplitude' 'Raw angle'}, '-');         
+% ylim([-90 90]);
+
 %% Angle data interpolation
 %mpu(abs(mpu)<1e-3) = 0;
 
@@ -17,7 +24,7 @@ for ch = 1 : mpu_channel_count
     i = 1;
     while i + 1 < length(mpu)
        i = i + 1; 
-       if abs(mpu(i, ch)) > 0
+       if abs(mpu(i, ch) + mpu_shift_value(ch)) > 0
         end_point = i;
         xq = start_point : 1 : end_point;
         mpu(start_point:end_point, ch) = ...

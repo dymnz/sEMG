@@ -58,7 +58,7 @@ for i = 1 : num_of_file
 end
 
 join_num_of_segment = sum(join_num_of_segment_list);
-
+return;
 %% Output
 
 output_fileID = fopen(train_output_filename, 'w');

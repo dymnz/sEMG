@@ -12,18 +12,22 @@ train_filename_list = { ...
     './data/raw_S2WA_5_SUP_1.txt',
     './data/raw_S2WA_5_PRO_1.txt'
     };
-train_output_filename = ...
-    strcat('../../../../RNN/LSTM/data/input/', ...
-    'exp_S2WA_5_PRO_1_SUP_1_ICA_DS4_RMS100_FULL.txt');
+
+train_output_filename = 'S2WA_5_PRO_1_SUP_1_ICA_DS4_RMS100_FULL';
+train_output_file = ...
+    strcat('../../../../RNN/LSTM/data/input/exp_', ...
+            train_output_filename, '.txt');
 
 mpu_shift_val = [50 0]; % Roll/Pitch The bias of mpu in degree
 
 
 test_filename = ...
-    './data/raw_S2WA_5_PROSUP_1.txt';
-test_output_filename = ...
-    strcat('../../../../RNN/LSTM/data/input/', ...
-    'exp_S2WA_5_PROSUP_1_ICA_DS4_RMS100_FULL.txt');
+    './data/raw_S2WA_5_PRO_2.txt';
+
+test_output_filename = 'S2WA_5_PRO_2_ICA_DS4_RMS100_FULL';
+test_output_file = ...
+    strcat('../../../../RNN/LSTM/data/input/exp_', ...
+            test_output_filename, '.txt');
 
 target_sample_rate = 4;
 RMS_window_size = 100;    % RMS window in pts
@@ -90,7 +94,7 @@ end
 
 %% Output segment
 
-output_fileID = fopen(train_output_filename, 'w');
+output_fileID = fopen(train_output_file, 'w');
 
 fprintf('# of sample: %d\n', num_of_file);
 fprintf(output_fileID, '%d\n', num_of_file);
@@ -131,7 +135,7 @@ full_sig = ...
     semg_mpu_full_process_ICA(test_filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_val, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, seperating_matrix);
 
 
-output_fileID = fopen(test_output_filename, 'w');
+output_fileID = fopen(test_output_file, 'w');
 
 input = full_sig{1};
 output = full_sig{2};
@@ -152,3 +156,6 @@ fprintf(output_fileID, '%f\t', output);
 fprintf(output_fileID, '\n'); 
 
 fclose(output_fileID);
+
+fprintf(['./rnn ', train_output_filename, ' ', ...
+    test_output_filename, ' 8 1000 10 100000 4\n']);

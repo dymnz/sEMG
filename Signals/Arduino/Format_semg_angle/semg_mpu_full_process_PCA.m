@@ -1,4 +1,4 @@
-function [processed_signal] = semg_mpu_full_process_ICA(filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value,semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, pca_coeff)
+function [processed_signal] = semg_mpu_full_process_PCA(filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value,semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, pca_coeff)
 
 raw_data = csvread(filename);
 semg = raw_data(:, semg_channel);

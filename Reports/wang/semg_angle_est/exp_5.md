@@ -275,6 +275,15 @@ Should have **no** ramp-up/ramp-down when the Pro/Sup. Use the muscle on the for
 
 * Still bad
 
+* ./rnn S2WA_5_PRO_1_SUP_1_ICA_DS4_RMS100_FULL S2WA_5_SUP_2_ICA_DS4_RMS100_FULL 8 2000 10 100000 4
+  * average loss at epoch:       1999 = 0.0024691105
+  * RMSE: 10.61834   2.74051
+* ./rnn S2WA_5_PRO_1_SUP_1_ICA_DS4_RMS100_FULL S2WA_5_PRO_2_ICA_DS4_RMS100_FULL 8 1000 10 100000 4
+  * average loss at epoch:        999 = 0.0182230789
+  * RMSE: 23.60064   4.11827
+* ./rnn S2WA_5_PRO_1_SUP_1_ICA_DS4_RMS100_FULL S2WA_5_PRO_2_ICA_DS4_RMS100_FULL 8 2000 10 100000 4
+  * average loss at epoch:       1999 = 0.0033735321
+  * RMSE: 41.48366   6.79399  * 
 ---
 
 ### 5th Experiment - LSTM, **PRO_ICA**, RMS @ 100pts, Downsampled @ 10hz - Joined dataset SUP1_PRO1 test PROSUP-1

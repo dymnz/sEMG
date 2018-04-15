@@ -17,7 +17,7 @@ for ch = 1 : mpu_channel_count
     i = 1;
     while i + 1 < length(mpu)
        i = i + 1; 
-       if abs(mpu(i, ch)) > 0
+       if abs(mpu(i, ch) + mpu_shift_value(ch)) > 0
         end_point = i;
         xq = start_point : 1 : end_point;
         mpu(start_point:end_point, ch) = ...
