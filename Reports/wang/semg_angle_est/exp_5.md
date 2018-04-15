@@ -314,7 +314,7 @@ Should have **no** ramp-up/ramp-down when the Pro/Sup. Use the muscle on the for
 * No acceptable FULL performance
   * Go ahead and make 4-ch sEMG?
 * With low sampling rate (4Hz), most sequence can be enter directly to LSTM w/o segmentation, and the result may be better
-  * Comparable or Better for seperate SUP/PRO, but still bad for FULL
+  * Comparable or Better for seperate SUP/PRO (self/cross), but still bad for FULL
 
 
 ### TODO

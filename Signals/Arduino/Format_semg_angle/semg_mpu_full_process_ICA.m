@@ -32,12 +32,12 @@ for ch = 1 : mpu_channel_count
             [mpu(start_point, ch) mpu(end_point, ch)], xq);        
 end    
 
-% figure;
-% subplot_helper(1:length(semg), semg, ...
-%                 [2 1 1], {'sample' 'amplitude' 'sEMG'}, '-');
-% subplot_helper(1:length(mpu), mpu, ...
-%                 [2 1 2], {'sample' 'amplitude' 'Interpolated angle'}, '-');         
-% ylim([-90 90]);
+figure;
+subplot_helper(1:length(semg), semg, ...
+                [2 1 1], {'sample' 'amplitude' 'sEMG'}, '-');
+subplot_helper(1:length(mpu), mpu, ...
+                [2 1 2], {'sample' 'amplitude' 'Interpolated angle'}, '-');         
+ylim([-90 90]);
 
 %% sEMG RMS & Angle delay
 semg = RMS_calc(semg, RMS_window_size);
