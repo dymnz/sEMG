@@ -6,9 +6,9 @@ PrintWriter file;
 enum State {HOLD, SEMG_ALIGN, MPU_ALIGN, SEMG_READ, MPU_READ, SEMG_FIN, MPU_FIN}
 State serial_state = State.HOLD;
 
-final String filename = "../../../Signals/Arduino/Format_semg_angle/data/raw_S2WA_5_PROSUP_1.txt";
+final String filename = "../../../Signals/Arduino/Format_semg_angle/data/raw_S2WA_6_FREE_SUP_1.txt";
 
-final int width = 1920;
+final int width = 1440;
 final int height = 900;
 final int grid_size = 30;
 final float graph_x_step = 0.1;

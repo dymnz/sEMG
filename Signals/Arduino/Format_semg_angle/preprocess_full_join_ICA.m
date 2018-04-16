@@ -3,17 +3,22 @@ clear; close all;
 addpath('../matlab_lib');
 addpath('../matlab_lib/FastICA_21');
 
+%% RNN
+hidden_node_count = '8';
+epoch = '1000';
+rand_seed = '4';
+
+
+%% File
 ica_filename_list = { ...
-    './data/raw_S2WA_5_SUP_1.txt',
-    './data/raw_S2WA_5_PRO_1.txt'
+    './data/raw_S2WA_6_SUP_3.txt'
     };
 
 train_filename_list = { ...
-    './data/raw_S2WA_5_SUP_1.txt',
-    './data/raw_S2WA_5_PRO_1.txt'
+    './data/raw_S2WA_6_SUP_3.txt'
     };
 
-train_output_filename = 'S2WA_5_PRO_1_SUP_1_ICA_DS4_RMS100_FULL';
+train_output_filename = 'S2WA_6_SUP_3_ICA_DS4_RMS100_FULL';
 train_output_file = ...
     strcat('../../../../RNN/LSTM/data/input/exp_', ...
             train_output_filename, '.txt');
@@ -22,13 +27,13 @@ mpu_shift_val = [50 0]; % Roll/Pitch The bias of mpu in degree
 
 
 test_filename = ...
-    './data/raw_S2WA_5_PRO_2.txt';
+    './data/raw_S2WA_6_SUP_3.txt';
 
-test_output_filename = 'S2WA_5_PRO_2_ICA_DS4_RMS100_FULL';
+test_output_filename = 'S2WA_6_SUP_3_ICA_DS4_RMS100_FULL';
 test_output_file = ...
     strcat('../../../../RNN/LSTM/data/input/exp_', ...
             test_output_filename, '.txt');
-
+               
 target_sample_rate = 4;
 RMS_window_size = 100;    % RMS window in pts
 
@@ -155,5 +160,23 @@ fprintf(output_fileID, '\n');
 
 fclose(output_fileID);
 
+
+%% Run
+
 fprintf(['./rnn ', train_output_filename, ' ', ...
-    test_output_filename, ' 8 1000 10 100000 4\n']);
+    test_output_filename, ...
+    ' ', hidden_node_count, ' ', epoch, ' 10 100000 ', rand_seed, '\n']);
+
+origin_dir = pwd;
+cd('../../../../RNN/LSTM/');
+[status,cmdout] = system(['./rnn ', train_output_filename, ' ', ...
+    test_output_filename, ...
+    ' ', hidden_node_count, ' ', epoch, ' 10 100000 ', rand_seed, '\n']);
+cd(origin_dir);
+
+rnn_result = regexp(cmdout, '[\f\n\r]', 'split');
+rnn_result = rnn_result(end-3:end-1);
+
+rnn_result_plaintext = [rnn_result{1} newline rnn_result{2} newline rnn_result{3} newline];
+fprintf(rnn_result_plaintext);
+clipboard('copy', rnn_result_plaintext);
