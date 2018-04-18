@@ -26,7 +26,7 @@ Supination/Pronation part 3. Free hand.
 
 ---
 
-### 6th Experiment - LSTM, RMS @ 100pts, Downsampled @ 10hz - FULL-FULL - self
+### 6-2th Experiment - LSTM, RMS @ 100pts, Downsampled @ 10hz - FULL-FULL - self
 
 * ./rnn S2WA_6_FREE_SUP_1_ICA_DS10_RMS100_FULL S2WA_6_FREE_SUP_1_ICA_DS10_RMS100_FULL 8 1000 10 100000 4
   * average loss at epoch:        999 = 0.0026806760
@@ -92,7 +92,7 @@ Supination/Pronation part 3. Free hand.
 
 ---
 
-### 6th Experiment - LSTM, ICA, RMS @ 100pts, Downsampled @ 10hz - FULL-FULL - cross
+### 6-2th Experiment - LSTM, ICA, RMS @ 100pts, Downsampled @ 10hz - FULL-FULL - cross
 
 * ./rnn S2WA_6_FREE_SUP_1_SUP_2_ICA_DS10_RMS100_FULL S2WA_6_FREE_SUP_3_ICA_DS10_RMS100_FULL 8 1000 10 100000 4
   * average loss at epoch:        999 = 0.0018362843
@@ -117,7 +117,7 @@ Supination/Pronation part 3. Free hand.
 
 ---
 
-### 6th Experiment - LSTM, JOINT_ICA, RMS @ 100pts, Downsampled @ 10hz - FULL-FULL - cross
+### 6-2th Experiment - LSTM, JOINT_ICA, RMS @ 100pts, Downsampled @ 10hz - FULL-FULL - cross
 
 
 * ./rnn S2WA_6_FREE_PRO_1_PRO_2_SUP_1_SUP_2_ICA_DS10_RMS100_FULL S2WA_6_FREE_SUP_3_ICA_DS10_RMS100_FULL 8 1000 10 100000 4
@@ -142,7 +142,7 @@ Supination/Pronation part 3. Free hand.
 
 ---
 
-### 6th Experiment - LSTM, JOINT_ICA, RMS @ 100pts, Downsampled @ 10hz - FULL-FULL - PROSUP
+### 6-2th Experiment - LSTM, JOINT_ICA, RMS @ 100pts, Downsampled @ 10hz - FULL-FULL - PROSUP
 
 From the validation above, epoch = 4000 should give the best result
 
@@ -167,13 +167,3 @@ From the validation above, epoch = 4000 should give the best result
 * ./rnn S2WA_6_FREE_PRO_1_PRO_2_PRO_3_SUP_1_SUP_2_SUP_3_ICA_DS10_RMS100_FULL S2WA_6_FREE_PROSUP_1_ICA_DS10_RMS100_FULL 8 4000 10 100000 4
   * average loss at epoch:       3999 = 0.0017752722
   * RMSE: 25.39881   1.53477  
-
-* ./rnn S2WA_6_PRO_1_PRO_2_PRO_3_SUP_1_SUP_2_SUP_3_DS10_RMS100_FULL S2WA_6_PROSUP_2_DS10_RMS100_FULL 8 1000 10 100000 4
-  * average loss at epoch:        999 = 0.0177118158
-  * RMSE: 15.50791   2.37371  
-* ./rnn S2WA_6_PRO_1_PRO_2_PRO_3_SUP_1_SUP_2_SUP_3_DS10_RMS100_FULL S2WA_6_PROSUP_2_DS10_RMS100_FULL 8 2000 10 100000 4
-  * average loss at epoch:       1999 = 0.0613867231
-  * RMSE: 10.71091   1.85864  
-* ./rnn S2WA_6_PRO_1_PRO_2_PRO_3_SUP_1_SUP_2_SUP_3_DS10_RMS100_FULL S2WA_6_PROSUP_2_DS10_RMS100_FULL 8 4000 10 100000 4
-  * average loss at epoch:       3999 = 0.0097422229
-  * RMSE: 20.94776   2.68542  

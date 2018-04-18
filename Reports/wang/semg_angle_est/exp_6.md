@@ -199,43 +199,6 @@ From the validation above, epoch = 4000 should give the best result
 
 
 * None of the testing can avoid *Torque and Gravity* issue, see below
-
-#### PROSUP_1 - Using only PRO_1 & SUP_1 to train
-
-
-* ./rnn S2WA_6_SUP_1_PRO_1_ICA_DS4_RMS100_FULL S2WA_6_PROSUP_1_ICA_DS4_RMS100_FULL 8 1000 10 100000 4
-  * average loss at epoch:        999 = 0.0077007595
-  * RMSE: 23.14714   2.79970  
-* ./rnn S2WA_6_SUP_1_PRO_1_ICA_DS4_RMS100_FULL S2WA_6_PROSUP_1_ICA_DS4_RMS100_FULL 8 2000 10 100000 4
-  * average loss at epoch:       1999 = 0.0049663982
-  * RMSE: 19.78377   1.93655    
-* ./rnn S2WA_6_SUP_1_PRO_1_ICA_DS4_RMS100_FULL S2WA_6_PROSUP_1_ICA_DS4_RMS100_FULL 8 4000 10 100000 4
-  * average loss at epoch:       3999 = 0.0010030470
-  * RMSE: 21.86667   3.57074  
-
-#### PROSUP_2
-
-* ./rnn S2WA_6_PRO_123_SUP_123_ICA_DS10_RMS100_FULL S2WA_6_PROSUP_2_ICA_DS10_RMS100_FULL 8 1000 10 100000 4
-  * average loss at epoch:        999 = 0.0049546271
-  * RMSE: 16.53662   2.07654  
-* ./rnn S2WA_6_PRO_123_SUP_123_ICA_DS10_RMS100_FULL S2WA_6_PROSUP_2_ICA_DS10_RMS100_FULL 8 2000 10 100000 4
-  * average loss at epoch:       1999 = 0.0043600111
-  * RMSE: 14.30616   1.81615  
-* ./rnn S2WA_6_PRO_123_SUP_123_ICA_DS10_RMS100_FULL S2WA_6_PROSUP_2_ICA_DS10_RMS100_FULL 8 4000 10 100000 4
-  * average loss at epoch:       3999 = 0.0028385410
-  * RMSE: 13.56423   1.69127    
-
-
-* ./rnn S2WA_6_PRO_123_SUP_123_PROSUP_1_ICA_DS10_RMS100_FULL S2WA_6_PROSUP_2_ICA_DS10_RMS100_FULL 8 1000 10 100000 4
-  * average loss at epoch:        999 = 0.0060300049
-  * RMSE:  9.96774   2.01333  
-* ./rnn S2WA_6_PRO_123_SUP_123_PROSUP_1_ICA_DS10_RMS100_FULL S2WA_6_PROSUP_2_ICA_DS10_RMS100_FULL 8 2000 10 100000 4
-  * average loss at epoch:       1999 = 0.0076904746
-  * RMSE: 11.58060   2.52277  
-* ./rnn S2WA_6_PRO_123_SUP_123_PROSUP_1_ICA_DS10_RMS100_FULL S2WA_6_PROSUP_2_ICA_DS10_RMS100_FULL 8 4000 10 100000 4
-  * average loss at epoch:       3999 = 0.0040288647
-  * RMSE: 22.87255   4.95999  
-
 ---
 
 ### 6th Experiment - Notes
@@ -273,4 +236,5 @@ From the validation above, epoch = 4000 should give the best result
         * How???
 
 ### TODO
-- [ ] 6-2 Free hand results
+- [x] 6-2 Free hand results （S2WA_6_FREE_）
+- [x] 6-3 w/o ICA

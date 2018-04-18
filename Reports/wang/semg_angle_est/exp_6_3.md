@@ -26,7 +26,7 @@ Supination/Pronation part 3. Custom device to assist rotation. NO ICA
 
 ---
 
-### 6th Experiment - LSTM, RMS @ 100pts, Downsampled @ 10hz - FULL-FULL - self
+### 6-3th Experiment - LSTM, RMS @ 100pts, Downsampled @ 10hz - FULL-FULL - self
 
 * ./rnn S2WA_6_SUP_1_DS10_RMS100_FULL S2WA_6_SUP_1_DS10_RMS100_FULL 8 1000 10 100000 4
   * average loss at epoch:        999 = 0.0120586259
@@ -92,7 +92,7 @@ Supination/Pronation part 3. Custom device to assist rotation. NO ICA
 
 ---
 
-### 6th Experiment - LSTM, ICA, RMS @ 100pts, Downsampled @ 10hz - FULL-FULL - cross
+### 6-3th Experiment - LSTM, ICA, RMS @ 100pts, Downsampled @ 10hz - FULL-FULL - cross
 
 * ./rnn S2WA_6_SUP_1_SUP_2_DS10_RMS100_FULL S2WA_6_SUP_3_DS10_RMS100_FULL 8 1000 10 100000 4
   * average loss at epoch:        999 = 0.0043998457
@@ -117,7 +117,7 @@ Supination/Pronation part 3. Custom device to assist rotation. NO ICA
 
 ---
 
-### 6th Experiment - LSTM, JOINT_ICA, RMS @ 100pts, Downsampled @ 10hz - FULL-FULL - cross
+### 6-3th Experiment - LSTM, JOINT_ICA, RMS @ 100pts, Downsampled @ 10hz - FULL-FULL - cross
 
 
 * ./rnn S2WA_6_PRO_1_PRO_2_SUP_1_SUP_2_DS10_RMS100_FULL S2WA_6_PRO_3_DS10_RMS100_FULL 8 1000 10 100000 4
@@ -149,7 +149,7 @@ Supination/Pronation part 3. Custom device to assist rotation. NO ICA
 
 ---
 
-### 6th Experiment - LSTM, JOINT_ICA, RMS @ 100pts, Downsampled @ 10hz - FULL-FULL - PROSUP
+### 6-3th Experiment - LSTM, JOINT_ICA, RMS @ 100pts, Downsampled @ 10hz - FULL-FULL - PROSUP
 
 #### PROSUP_1
 
@@ -200,42 +200,3 @@ From the validation above, epoch = 4000 should give the best result
 
 
 * None of the testing can avoid *Torque and Gravity* issue, see below 
-
----
-
-### 6th Experiment - Notes
-
-* Pronator electrode location seems to be bad (**May be caused by Torque&Gravity issues**)
-  * sEMG response:
-    * Pronation: Pro(2) + Sup(1), in equal magnitude <-
-    * Supination: Mostly Sup(1) 
-* Small amplitude in both Pro&Sup, the force required to rotate forearm is too small
-  * Torque may be needed, like in other paper
-    * Heavier forearm?
-    * Heavy load for hand?
-
-* PRO/SUP performance are better, **What improves the test result?**
-  1. Ref. electrode placement change
-  2. Fixed device to assist motion
-  3. Better muscle locating
-
----
-
-
-### 6th Experiment - Issues
-
-* *Torque and Gravity*
-  * No torque is required when Gravity is assisting the movement (i.e. No muscle activity)
-    * In the case of "0 degree is defined as palm resting on table w/ thumb pointing up", Gravity is helping the *Pronation* movement
-    * See *Meeting 2018/04/20 - SEMG_WRIST_ANGLE_2* for more explanation
-  * Possible solution
-    * Switch back to "0 degree is defined as palm facing down flat on the table"
-      * The reason to change in this experiment
-        1. The neutral position for forearm should be "0 degree is defined as palm resting on table w/ thumb pointing up", where both SUP&PRO has ~90d displacement
-        2. In "0 degree is defined as palm facing down flat on the table", SUP has a ~150d displacement, while PRO has ~60d
-    * Custom device requires torque to turn
-      * Requires a fixed torque for both clockwise & couter-clockwise rotation
-        * How???
-
-### TODO
-- [ ] 6-2 Free hand results
