@@ -10,9 +10,9 @@ file_loc_prepend = './data/raw_';
 filename_prepend = 'S2WA_6_FREE_';
 file_extension = '.txt';
 
-ica_file_label_list = {'PRO_1' 'PRO_2' 'PRO_3' 'SUP_1' 'SUP_2' 'SUP_3'};
-train_file_label_list = {'PRO_1' 'PRO_2' 'PRO_3' 'SUP_1' 'SUP_2' 'SUP_3'};
-test_file_label = 'PROSUP_1';
+train_file_label_list = {'PRO_1' 'PRO_2' 'PRO_3' 'SUP_1' 'SUP_2' 'SUP_3' 'PROSUP_1'};
+test_file_label = 'PROSUP_2';
+
 
 %% Signal Setting
 target_sample_rate = 10;
@@ -30,7 +30,7 @@ for e = 1 : length(epoch_list)
     
 epoch = epoch_list{e};
 
-%% File
+% File
 
 % Gather training filename
 train_filename_list = cell(1, length(train_file_label_list));
@@ -40,19 +40,10 @@ for i = 1 : length(train_file_label_list)
             train_file_label_list{i}, file_extension];
     
 end
-ica_filename_list = cell(1, length(ica_file_label_list));
-for i = 1 : length(train_file_label_list)
-    ica_filename_list{i} = ...
-        [file_loc_prepend, filename_prepend, ...
-            ica_file_label_list{i}, file_extension];
-    
-end
-
 
 train_output_filename = [ ...
     filename_prepend, ...
     strjoin(train_file_label_list, '_'), ...
-    '_ICA', ...
     '_DS', num2str(target_sample_rate), ...
     '_RMS', num2str(RMS_window_size), '_FULL'];
 train_output_file = ...
@@ -66,7 +57,6 @@ test_filename = [ ...
 test_output_filename = [ ...
     filename_prepend, ...
     test_file_label, ...
-    '_ICA', ...
     '_DS', num2str(target_sample_rate), ...
     '_RMS', num2str(RMS_window_size), '_FULL'];
 test_output_file = [ ...
@@ -88,37 +78,6 @@ mpu_channel = 3:4;  % 3: Roll(SUP/SUP) / 4: Pitch(Flx/Ext)
 
 num_of_file = length(train_filename_list);
 
-
-%% ICA is processed on the concated semg
-concat_semg = [];
-for i = 1 : length(ica_filename_list)
-    raw_data = csvread(ica_filename_list{i});
-    semg = raw_data(:, semg_channel);
-    semg = semg - mean(semg);
-    semg = RMS_calc(semg, RMS_window_size);
-    semg = semg ./ semg_max_value;    
-    
-    % Remove unstable value
-    semg = semg(10:end - 10, :);
-  
-    concat_semg = [concat_semg semg'];    
-end
-
-
-[icasig, mixing_matrix, seperating_matrix] = fastica(concat_semg, ...
-    'verbose', 'off', 'displayMode', 'off');
-
-figure;
-subplot_helper(1:length(concat_semg), concat_semg, ...
-                [2 1 1], {'sample' 'amplitude' 'Before ICA'}, '-');                       
-subplot_helper(1:length(icasig), icasig, ...
-                [2 1 2], {'sample' 'amplitude' 'After ICA'}, '-');  
-
-% Why does the amplitude of ICA_sig change?
-% x10 because it seems to be the min/max of JOINT_ICA_sig
-semg_max_value = 2048 * 10;
-semg_min_value = -2048 * 10;
-% return;
 %% process
 
 join_segment_list = cell(num_of_file, 1);
@@ -126,7 +85,7 @@ for i = 1 : num_of_file
     
     % Input/Output/Length  % num_of_segments
     join_segment_list{i} = ...
-        semg_mpu_full_process_ICA(train_filename_list{i}, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_val, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, seperating_matrix);        
+        semg_mpu_full_process(train_filename_list{i}, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_val, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel);        
     %fprintf('Processed File %d\n', i);
 end
 
@@ -171,7 +130,7 @@ fclose(output_fileID);
 
 % Input/Output/Length  % num_of_segments
 full_sig = ...    
-    semg_mpu_full_process_ICA(test_filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_val, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, seperating_matrix);
+    semg_mpu_full_process(test_filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_val, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel);
 
 
 output_fileID = fopen(test_output_file, 'w');
@@ -207,10 +166,7 @@ origin_dir = pwd;
 cd('../../../../RNN/LSTM/');
 [status,cmdout] = system(['./rnn ', train_output_filename, ' ', ...
     test_output_filename, ...
-    ' ', hidden_node_count, ' ', epoch, ' 10 100000 ', rand_seed, '\n']);
-cd(origin_dir);
-
-
+    ' ', hidden_node_count, ' ', epoch, ' 10 100000 ', rand_seed, '\n']);cd(origin_dir);
 
 close all;
 % Show test file result
