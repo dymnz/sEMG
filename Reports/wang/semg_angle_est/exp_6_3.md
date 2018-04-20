@@ -200,3 +200,9 @@ From the validation above, epoch = 4000 should give the best result
 
 
 * None of the testing can avoid *Torque and Gravity* issue, see below 
+
+
+### 6-3th Experiment - Notes
+
+* With ICA, performance is better when **NO** over-fitting occurs.
+  * *See exp_6_ICA_compare.xlsx and Meeting 2018/04/20 - SEMG_WRIST_ANGLE_2*

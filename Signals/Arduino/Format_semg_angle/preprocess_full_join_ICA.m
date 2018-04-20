@@ -1,6 +1,6 @@
 clear; close all;
 
-set(0,'DefaultFigureVisible','off');
+%set(0,'DefaultFigureVisible','off');
 
 addpath('../matlab_lib');
 addpath('../matlab_lib/FastICA_21');
@@ -11,7 +11,7 @@ filename_prepend = 'S2WA_6_FREE_';
 file_extension = '.txt';
 
 ica_file_label_list = {'PRO_1' 'PRO_2' 'PRO_3' 'SUP_1' 'SUP_2' 'SUP_3'};
-train_file_label_list = {'PRO_1' 'PRO_2' 'PRO_3' 'SUP_1' 'SUP_2' 'SUP_3'};
+train_file_label_list = {'PRO_1' 'PRO_2' ' PRO_3' 'SUP_1' 'SUP_2' 'SUP_3'};
 test_file_label = 'PROSUP_1';
 
 %% Signal Setting
@@ -20,7 +20,7 @@ RMS_window_size = 100;    % RMS window in pts
 
 %% RNN
 hidden_node_count = '8';
-epoch_list = {'1000' '2000' '4000'};
+epoch_list = {'1000'};
 rand_seed = '4';
 
 %% For different epoch...

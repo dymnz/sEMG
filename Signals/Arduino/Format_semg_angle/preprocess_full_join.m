@@ -7,7 +7,7 @@ addpath('../matlab_lib/FastICA_21');
 
 %% Filename Prepend
 file_loc_prepend = './data/raw_';
-filename_prepend = 'S2WA_6_FREE_';
+filename_prepend = 'S2WA_6_';
 file_extension = '.txt';
 
 train_file_label_list = {'PRO_1' 'PRO_2' 'PRO_3' 'SUP_1' 'SUP_2' 'SUP_3' 'PROSUP_1'};
@@ -20,7 +20,7 @@ RMS_window_size = 100;    % RMS window in pts
 
 %% RNN
 hidden_node_count = '8';
-epoch_list = {'1000' '2000' '4000'};
+epoch_list = {'1000'};
 rand_seed = '4';
 
 %% For different epoch...
