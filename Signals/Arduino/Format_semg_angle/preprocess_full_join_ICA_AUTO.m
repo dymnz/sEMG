@@ -107,10 +107,6 @@ mpu_channel = 3:4;  % 3: Roll(SUP/SUP) / 4: Pitch(Flx/Ext)
 
 num_of_file = length(train_filename_list);
 
-fprintf(['./rnn ', train_output_filename, ' ', ...
-    test_output_filename, ...
-    ' ', hidden_node_count, ' ', epoch, ' 10 100000 ', rand_seed, '\n']);
-continue;
 
 %% ICA is processed on the concated semg
 concat_semg = [];
