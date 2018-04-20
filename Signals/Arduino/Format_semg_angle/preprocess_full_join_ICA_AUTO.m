@@ -5,14 +5,34 @@ set(0,'DefaultFigureVisible','off');
 addpath('../matlab_lib');
 addpath('../matlab_lib/FastICA_21');
 
+file_to_test = {
+    {{'SUP_1', 'SUP_2'}, 'SUP_3'} ; 
+    {{'PRO_1', 'PRO_2'}, 'PRO_3'} ;
+    {{'SUP_1', 'SUP_2', 'SUP_3'}, 'SUP_4'} ;
+    {{'PRO_1', 'PRO_2', 'PRO_3'}, 'PRO_4'} ;
+    {{'SUP_1', 'SUP_2', 'SUP_3'}, 'SUP_5'} ;
+    {{'PRO_1', 'PRO_2', 'PRO_3'}, 'PRO_5'} ;
+    {{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4'}, 'SUP_5'} ;
+    {{'PRO_1', 'PRO_2', 'PRO_3', 'PRO_4'}, 'PRO_5'} ;
+    {{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
+        'PRO_2', 'PRO_3', 'PRO_4'}, 'SUP_5'} ;
+    {{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
+        'PRO_2', 'PRO_3', 'PRO_4'}, 'PRO_5'} ;
+    };
+
+
+rnn_result_plaintext = [];
+for f = 1 : numel(file_to_test) % For different files...
+
 %% Filename Prepend
 file_loc_prepend = './data/raw_';
 filename_prepend = 'S2WA_7_';
 file_extension = '.txt';
 
-ica_file_label_list = {'PRO_2'};
-train_file_label_list = {'PRO_2'};
-test_file_label = 'PRO_2';
+ica_file_label_list = file_to_test{f}{1};
+train_file_label_list = file_to_test{f}{1};
+test_file_label = file_to_test{f}{2};
+
 
 %% Signal Setting
 target_sample_rate = 10;
@@ -25,7 +45,6 @@ rand_seed = '4';
 
 %% For different epoch...
 
-rnn_result_plaintext = [];
 for e = 1 : length(epoch_list)
     
 epoch = epoch_list{e};
@@ -88,6 +107,10 @@ mpu_channel = 3:4;  % 3: Roll(SUP/SUP) / 4: Pitch(Flx/Ext)
 
 num_of_file = length(train_filename_list);
 
+fprintf(['./rnn ', train_output_filename, ' ', ...
+    test_output_filename, ...
+    ' ', hidden_node_count, ' ', epoch, ' 10 100000 ', rand_seed, '\n']);
+continue;
 
 %% ICA is processed on the concated semg
 concat_semg = [];
@@ -106,7 +129,7 @@ end
 
 
 [icasig, mixing_matrix, seperating_matrix] = fastica(concat_semg, ...
-    'verbose', 'off', 'displayMode', 'off');
+    'verbose', 'off', 'displayMode', 'off');   
 
 figure;
 subplot_helper(1:length(concat_semg), concat_semg, ...
@@ -221,6 +244,9 @@ rnn_result = rnn_result(end-3:end-1);
 
 rnn_result_plaintext = [rnn_result_plaintext rnn_result{1} newline rnn_result{2} newline rnn_result{3} newline];
 end
+rnn_result_plaintext = [rnn_result_plaintext newline];
+end
+
 
 clipboard('copy', rnn_result_plaintext);
 fprintf(rnn_result_plaintext);
