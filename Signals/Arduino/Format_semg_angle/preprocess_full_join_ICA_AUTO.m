@@ -5,20 +5,35 @@ set(0,'DefaultFigureVisible','off');
 addpath('../matlab_lib');
 addpath('../matlab_lib/FastICA_21');
 
-file_to_test = {
-    {{'SUP_1', 'SUP_2'}, 'SUP_3'} ; 
-    {{'PRO_1', 'PRO_2'}, 'PRO_3'} ;
-    {{'SUP_1', 'SUP_2', 'SUP_3'}, 'SUP_4'} ;
-    {{'PRO_1', 'PRO_2', 'PRO_3'}, 'PRO_4'} ;
-    {{'SUP_1', 'SUP_2', 'SUP_3'}, 'SUP_5'} ;
-    {{'PRO_1', 'PRO_2', 'PRO_3'}, 'PRO_5'} ;
-    {{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4'}, 'SUP_5'} ;
-    {{'PRO_1', 'PRO_2', 'PRO_3', 'PRO_4'}, 'PRO_5'} ;
-    {{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
-        'PRO_2', 'PRO_3', 'PRO_4'}, 'SUP_5'} ;
-    {{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
-        'PRO_2', 'PRO_3', 'PRO_4'}, 'PRO_5'} ;
-    };
+% file_to_test = {
+%     {{'SUP_1', 'SUP_2'}, 'SUP_3'} ; 
+%     {{'PRO_1', 'PRO_2'}, 'PRO_3'} ;
+%     {{'SUP_1', 'SUP_2', 'SUP_3'}, 'SUP_4'} ;
+%     {{'PRO_1', 'PRO_2', 'PRO_3'}, 'PRO_4'} ;
+%     {{'SUP_1', 'SUP_2', 'SUP_3'}, 'SUP_5'} ;
+%     {{'PRO_1', 'PRO_2', 'PRO_3'}, 'PRO_5'} ;
+%     {{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4'}, 'SUP_5'} ;
+%     {{'PRO_1', 'PRO_2', 'PRO_3', 'PRO_4'}, 'PRO_5'} ;
+%     {{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
+%         'PRO_2', 'PRO_3', 'PRO_4'}, 'SUP_5'} ;
+%     {{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
+%         'PRO_2', 'PRO_3', 'PRO_4'}, 'PRO_5'} ;
+%     };
+
+% file_to_test = { 
+%     {{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
+%         'PRO_2', 'PRO_3', 'PRO_4'}, 'PROSUP_1'} ;
+%     {{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'SUP_5', 'PRO_1', ...
+%         'PRO_2', 'PRO_3', 'PRO_4', 'PRO_5'}, 'PROSUP_1'} ;
+%     {{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
+%         'PRO_2', 'PRO_3', 'PRO_4'}, 'PROSUP_2'} ;
+%     {{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'SUP_5', 'PRO_1', ...
+%         'PRO_2', 'PRO_3', 'PRO_4', 'PRO_5'}, 'PROSUP_2'} ;
+%     {{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
+%         'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, 'PROSUP_1'} ;
+%     {{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'SUP_5', 'PRO_1', ...
+%         'PRO_2', 'PRO_3', 'PRO_4', 'PRO_5', 'PROSUP_1'}, 'PROSUP_2'} ;        
+%     };
 
 
 rnn_result_plaintext = [];

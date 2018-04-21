@@ -1,18 +1,65 @@
 clear; close all;
 
-% set(0,'DefaultFigureVisible','off');
+set(0,'DefaultFigureVisible','off');
 
 addpath('../matlab_lib');
 addpath('../matlab_lib/FastICA_21');
+
+
+file_to_test = {
+    {{'SUP_1'}, 'SUP_1'}; 
+    {{'SUP_2'}, 'SUP_2'}; 
+    {{'SUP_3'}, 'SUP_3'}; 
+    {{'SUP_4'}, 'SUP_4'}; 
+    {{'SUP_5'}, 'SUP_5'}; 
+    {{'PRO_1'}, 'PRO_1'}; 
+    {{'PRO_2'}, 'PRO_2'}; 
+    {{'PRO_3'}, 'PRO_3'}; 
+    {{'PRO_4'}, 'PRO_4'}; 
+    {{'PRO_5'}, 'PRO_5'};
+};
+
+
+% 
+% file_to_test = {
+%     {{'SUP_1', 'SUP_2'}, 'SUP_3'} ; 
+%     {{'PRO_1', 'PRO_2'}, 'PRO_3'} ;
+%     {{'SUP_1', 'SUP_2', 'SUP_3'}, 'SUP_4'} ;
+%     {{'PRO_1', 'PRO_2', 'PRO_3'}, 'PRO_4'} ;
+%     {{'SUP_1', 'SUP_2', 'SUP_3'}, 'SUP_5'} ;
+%     {{'PRO_1', 'PRO_2', 'PRO_3'}, 'PRO_5'} ;
+%     {{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4'}, 'SUP_5'} ;
+%     {{'PRO_1', 'PRO_2', 'PRO_3', 'PRO_4'}, 'PRO_5'} ;
+%     {{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
+%         'PRO_2', 'PRO_3', 'PRO_4'}, 'SUP_5'} ;
+%     {{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
+%         'PRO_2', 'PRO_3', 'PRO_4'}, 'PRO_5'} ;
+%     {{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
+%         'PRO_2', 'PRO_3', 'PRO_4'}, 'PROSUP_1'} ;
+%     {{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'SUP_5', 'PRO_1', ...
+%         'PRO_2', 'PRO_3', 'PRO_4', 'PRO_5'}, 'PROSUP_1'} ;
+%     {{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
+%         'PRO_2', 'PRO_3', 'PRO_4'}, 'PROSUP_2'} ;
+%     {{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'SUP_5', 'PRO_1', ...
+%         'PRO_2', 'PRO_3', 'PRO_4', 'PRO_5'}, 'PROSUP_2'} ;
+%     {{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
+%         'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, 'PROSUP_1'} ;
+%     {{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'SUP_5', 'PRO_1', ...
+%         'PRO_2', 'PRO_3', 'PRO_4', 'PRO_5', 'PROSUP_1'}, 'PROSUP_2'} ;        
+%     };
+
+
+rnn_result_plaintext = [];
+for f = 1 : numel(file_to_test) % For different files...
 
 %% Filename Prepend
 file_loc_prepend = './data/raw_';
 filename_prepend = 'S2WA_7_';
 file_extension = '.txt';
 
-ica_file_label_list = {'SUP_1','PRO_1'};
-train_file_label_list = {'SUP_1','PRO_1'};
-test_file_label = 'SUP_2';
+ica_file_label_list = file_to_test{f}{1};
+train_file_label_list = file_to_test{f}{1};
+test_file_label = file_to_test{f}{2};
 
 
 %% Signal Setting
@@ -21,12 +68,11 @@ RMS_window_size = 100;    % RMS window in pts
 
 %% RNN
 hidden_node_count = '8';
-epoch_list = {'1000'};
+epoch_list = {'1000' '2000' '4000'};
 rand_seed = '4';
 
 %% For different epoch...
 
-rnn_result_plaintext = [];
 for e = 1 : length(epoch_list)
     
 epoch = epoch_list{e};
@@ -53,7 +99,7 @@ end
 train_output_filename = [ ...
     filename_prepend, ...
     strjoin(train_file_label_list, '_'), ...
-    '_ICA', ...
+    '_newICA', ...
     '_DS', num2str(target_sample_rate), ...
     '_RMS', num2str(RMS_window_size), '_FULL'];
 train_output_file = ...
@@ -67,7 +113,7 @@ test_filename = [ ...
 test_output_filename = [ ...
     filename_prepend, ...
     test_file_label, ...
-    '_ICA', ...
+    '_newICA', ...
     '_DS', num2str(target_sample_rate), ...
     '_RMS', num2str(RMS_window_size), '_FULL'];
 test_output_file = [ ...
@@ -91,20 +137,6 @@ num_of_file = length(train_filename_list);
 
 
 %% ICA is processed on the concated semg
-% concat_semg = [];
-% for i = 1 : length(ica_filename_list)
-%     raw_data = csvread(ica_filename_list{i});
-%     semg = raw_data(:, semg_channel);
-%     semg = semg - mean(semg);
-%     semg = RMS_calc(semg, RMS_window_size);
-%     semg = semg ./ semg_max_value;    
-%     
-%     % Remove unstable value
-%     semg = semg(10:end - 10, :);
-%   
-%     concat_semg = [concat_semg semg'];    
-% end
-
 concat_semg = [];
 for i = 1 : length(ica_filename_list)
     raw_data = csvread(ica_filename_list{i});
@@ -116,8 +148,8 @@ for i = 1 : length(ica_filename_list)
     concat_semg = [concat_semg semg'];    
 end
 concat_semg = concat_semg - mean(concat_semg, 2) * ones(1, length(concat_semg));
-concat_semg = concat_semg ./ semg_max_value;       
-concat_semg = RMS_calc(concat_semg', RMS_window_size)';    
+concat_semg = concat_semg ./ semg_max_value;  
+concat_semg = RMS_calc(concat_semg', RMS_window_size)';         
 variance = (sqrt(var(concat_semg'))') .* ones(semg_channel_count, length(concat_semg));
 concat_semg = concat_semg ./ variance;
 
@@ -130,17 +162,15 @@ subplot_helper(1:length(concat_semg), concat_semg(2, :), ...
      
 [icasig, mixing_matrix, seperating_matrix] = fastica(concat_semg, ...
     'verbose', 'off', 'displayMode', 'off');
- 
 
 figure;
 subplot_helper(1:length(concat_semg), concat_semg(1, :), ...
-                [2 1 1], {'sample' 'amplitude' 'Before ICA'}, '-');                                                          
-subplot_helper(1:length(concat_semg), abs(icasig(1, :)), ...
-                [2 1 1], {'sample' 'amplitude' 'Before ICA'}, '-');              
-subplot_helper(1:length(icasig), concat_semg(2, :), ...    
-                [2 1 2], {'sample' 'amplitude' 'After ICA'}, '-');  
-subplot_helper(1:length(icasig), abs(icasig(2, :)), ...    
-                [2 1 2], {'sample' 'amplitude' 'After ICA'}, '-');             
+                [3 1 1], {'sample' 'amplitude' 'Before ICA'}, '-');                       
+subplot_helper(1:length(concat_semg), concat_semg(2, :), ...
+                [3 1 2], {'sample' 'amplitude' 'Before ICA'}, '-');                                   
+subplot_helper(1:length(icasig), icasig, ...
+                [3 1 3], {'sample' 'amplitude' 'After ICA'}, '-');  
+            
 % Find the max_min range of sEMG channel using mixing matrix
 max_min_matrix = ...
     [ 1  -1 ;
@@ -151,12 +181,12 @@ var_matrix = ...
 
 max_min_matrix = (seperating_matrix  * max_min_matrix) ./ var_matrix;
 
-max(max(icasig)) - min(min(icasig))
-max(max(max_min_matrix)) - min(min(max_min_matrix))
+% max(max(icasig)) - min(min(icasig))
+% max(max(max_min_matrix)) - min(min(max_min_matrix))
 
 semg_max_value = max(max(max_min_matrix)) - min(min(max_min_matrix));
 semg_min_value = -semg_max_value;
-return;
+
 %% process
 
 join_segment_list = cell(num_of_file, 1);
@@ -259,6 +289,9 @@ rnn_result = rnn_result(end-3:end-1);
 
 rnn_result_plaintext = [rnn_result_plaintext rnn_result{1} newline rnn_result{2} newline rnn_result{3} newline];
 end
+rnn_result_plaintext = [rnn_result_plaintext newline];
+end
+
 
 clipboard('copy', rnn_result_plaintext);
 fprintf(rnn_result_plaintext);

@@ -48,7 +48,7 @@ Pronation/Supination. First test, try to locate optimal muscle location and chec
   * RMSE: 10.902976 3.858131
 
 * **ICA introduce randomness**
-  - Training error is unstable throughout the training process
+  - Training error fluctuates throughout the training process
   - Some result is good, others are bad
     - W/ PCA?
 
@@ -56,7 +56,7 @@ Pronation/Supination. First test, try to locate optimal muscle location and chec
 
 ### 4th Experiment - LSTM, JOINT_ICA, RMS @ 100pts, Downsampled @ 10hz
 
-ICA info from both SUP & PRO, to address the issue of unstable ICA result
+ICA info from both SUP & PRO, to address the issue of fluctuating ICA result
 
 * ./rnn S2WA_TABLE_PRO_1_JOINT_ICA_DS10_RMS100_SEG S2WA_TABLE_PRO_1_JOINT_ICA_DS10_RMS100_FULL 8 1000 10 100000 4
   * average loss at epoch:        990 = 0.0015408543
@@ -78,7 +78,7 @@ ICA info from both SUP & PRO, to address the issue of unstable ICA result
 * ./rnn S2WA_TABLE_SUP_1_JOINT_ICA_DS10_RMS100_SEG S2WA_TABLE_SUP_1_JOINT_ICA_DS10_RMS100_FULL 8 1000 10 100000 4
   * average loss at epoch:        990 = 0.0167718437
   * RMSE: 11.127434 4.023262
-  * Unstable training error
+  * Fluctuating training error
  ./rnn S2WA_TABLE_SUP_1_JOINT_ICA_DS10_RMS100_SEG S2WA_TABLE_SUP_1_JOINT_ICA_DS10_RMS100_FULL 8 1000 10 100000 4
   * average loss at epoch:        990 = 0.0094689879
   * RMSE: 8.651187 3.104887 
@@ -90,7 +90,7 @@ ICA info from both SUP & PRO, to address the issue of unstable ICA result
 ./rnn S2WA_TABLE_SUP_1_JOINT_ICA_DS10_RMS100_SEG S2WA_TABLE_SUP_1_JOINT_ICA_DS10_RMS100_FULL 8 1000 10 100000 4
   * average loss at epoch:        990 = 0.0082307702
   * RMSE: 10.965078 4.019676
-  * Unstable training error
+  * Fluctuating training error
 ./rnn S2WA_TABLE_SUP_1_JOINT_ICA_DS10_RMS100_SEG S2WA_TABLE_SUP_1_JOINT_ICA_DS10_RMS100_FULL 8 1000 10 100000 4
   * average loss at epoch:        990 = 0.0094685223
   * RMSE: 8.651108 3.104862
@@ -293,7 +293,7 @@ ICA info from both SUP & PRO, to address the issue of unstable ICA result
 * For SUP
   - SEG testing performance is good
   - FULL testing performance sometimes bad
-  - Training error is unstable throughout the testing process
+  - Training error is Fluctuating throughout the testing process
 
 --- 
 
@@ -387,7 +387,7 @@ ICA info from both SUP & PRO, to address the issue of unstable ICA result
 * Can't tell the performance difference between PCA/ICA, varaince within NN is too large
 
 ### ISSUE
-* For *Supination*, the training error is unstable
+* For *Supination*, the training error fluctuates
   * Possible Reason
     * SUP_1 may be too complex w/ some *Pitch* movement
       * Using SUP_2 training yields some comparable result
@@ -400,7 +400,7 @@ ICA info from both SUP & PRO, to address the issue of unstable ICA result
   * Possible Reason
     * ????
   * Worst case: Short-term sEMG->Angle estimation w/ sEMG activity segmentation
-* Network can be unstable if the dataset isn't "clean"
+* Network can be Fluctuating if the dataset isn't "clean"
 * **FOR FUTURE TEST**: For *Supination*, *Pitch* channel has high value, should avoid such movement
 
 
