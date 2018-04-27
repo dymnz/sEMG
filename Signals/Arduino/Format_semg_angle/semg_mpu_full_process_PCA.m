@@ -49,9 +49,6 @@ mpu = [(mpu(1, :) .* ones(RMS_window_size, size(mpu, 2))) ; mpu];
 %                 [2 1 2], {'sample' 'amplitude' 'Interpolated angle'}, '-');         
 % ylim([-90 90]);
 
-%% PCA transform
-semg = semg * pca_coeff;
-
 %% Downsample
 downsample_ratio = floor(semg_sample_rate / target_sample_rate);
 
@@ -71,6 +68,9 @@ mpu = downsample(mpu, downsample_ratio);
 % subplot_helper(1:length(mpu), mpu, ...
 %                 [2 1 2], {'sample' 'amplitude' 'Downsampled angle'}, '-');         
 % ylim([-90 90]);    
+
+%% PCA transform
+semg = semg * pca_coeff;
 
 %% Restrain SEMG range
 semg(semg > semg_max_value) = semg_max_value;

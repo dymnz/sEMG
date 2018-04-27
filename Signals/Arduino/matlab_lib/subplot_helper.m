@@ -22,5 +22,5 @@ else
     ymax = max(ymin+1, max(ydata));
 end
 
-xlim([1 length(Y)]); 
+xlim([1 length(X)]); 
 ylim([ymin ymax]);

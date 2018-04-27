@@ -271,6 +271,7 @@ Torque & Gravity Issue, see exp_7. New ICA normalization, ICA after downsample.
   * average loss at epoch:       3999 = 0.0046745693
   * RMSE: 10.62471   1.77629  
 
+
 * ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_SUP_5_PRO_1_PRO_2_PRO_3_PRO_4_PRO_5_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_1_newICA_DS10_RMS100_FULL 8 1000 10 100000 4
   * average loss at epoch:        999 = 0.0037420461
   * RMSE: 12.56935   1.38308  

@@ -49,7 +49,7 @@ mpu_channel = 3:4;  % 3: Roll(Pro/Sup) / 4: Pitch(Flx/Ext)
 num_of_file = length(train_filename_list);
 
 
-%% ICA is processed on the concated semg
+%% PCA is processed on the concated semg
 
 concat_semg = [];
 for i = 1 : length(pca_filename_list)
