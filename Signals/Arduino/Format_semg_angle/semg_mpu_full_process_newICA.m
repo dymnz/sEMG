@@ -1,11 +1,12 @@
-function [processed_signal] = semg_mpu_full_process_newICA(filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, seperating_matrix)
+function [processed_signal] = semg_mpu_full_process_newICA(filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, semg_var_scale, mpu_max_value, mpu_min_value, mpu_shift_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, seperating_matrix)
 
 raw_data = csvread(filename);
 semg = raw_data(:, semg_channel);
 mpu = raw_data(:, mpu_channel);
 
-% Remove mean
-semg = semg - mean(semg);
+% Remove mean and normalize sEMG
+semg = (semg - mean(semg)) ./ ...
+    (semg_var_scale .* ones(semg_channel_count, length(semg)))';
 mpu = mpu - mpu_shift_value;
 
 %% Angle data interpolation
@@ -92,8 +93,18 @@ mpu = downsample(mpu, downsample_ratio);
 semg = (seperating_matrix * semg')';
 
 %% Restrain SEMG range
-semg(semg > semg_max_value) = semg_max_value;
-semg(semg < semg_min_value) = semg_min_value;
+% disp(['max: ' num2str(max(max(semg))) ' ' ...
+%     'min: ' num2str(min(min(semg))) ...
+%     ' ' num2str(semg_max_value) '~' num2str(semg_min_value)]);
+if ~isempty(find(semg > semg_max_value, 1)) | ...
+   ~isempty(find(semg < semg_min_value, 1))
+    disp('semg max/min error');
+    disp(['max: ' num2str(max(max(semg))) ' ' ...
+        'min: ' num2str(min(min(semg))) ...
+        ' ' num2str(semg_max_value) '~' num2str(semg_min_value)]);
+    disp('x');
+end
+
 
 
 %% Remove faulty data

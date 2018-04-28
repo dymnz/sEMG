@@ -15,7 +15,7 @@ mpu_min_value = -90;
 mpu_max_value = 90;
 
 
-file_name = 'S2WA_7_PROSUP_2_ICA_DS10_RMS100_FULL';
+file_name = 'S2WA_7_PROSUP_2_newICA_DS10_RMS100_FULL';
 
 
 test_file_location = '../../../../RNN/LSTM/data/output/';
@@ -45,7 +45,7 @@ for i = 1 : num_matrix
     figure;
     subplot_helper(1:DATA_LENGTH, test_semg_data, ...
                     [graph_count 1 1], {'sample' 'amplitude' 'sEMG'}, ':x');
-    
+     ylim([-1 1]);
     test_mpu_data = test_mpu_data .* mpu_max_value;
     train_mpu_data = train_mpu_data .* mpu_max_value;
                 
@@ -53,7 +53,7 @@ for i = 1 : num_matrix
 	subplot_helper(1:length(train_mpu_data), train_mpu_data(:, ch), ...
                     [graph_count 1 ch+1], ...
                     {'sample' 'amplitude' 'angle'}, ...
-                    '-');                                                         
+                    '-');         
     ylim([mpu_min_value mpu_max_value]);
 	subplot_helper(1:length(test_mpu_data), test_mpu_data(:, ch), ...
                     [graph_count 1 ch+1], ...

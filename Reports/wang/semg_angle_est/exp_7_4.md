@@ -1,0 +1,298 @@
+### 7-3th Experiment
+
+Torque & Gravity Issue, see exp_7. PCA, PCA after downsample.
+
+* Muscle:
+  * Pronator Teres (CH1, red)
+  * Supinator Muscle (CH2, green)  
+* Protocol
+  * Zero-load, palm facing down, making a fist
+  * Forearm and Wrist are on the table. Hand should always contact the table, to avoid raising forearm.
+  * Constant angular speed
+  * 0 degree is defined as palm facing down flat on the table, 
+    ~0 degree is defined as palm resting on table w/ thumb pointing up~, >0 as wrist turn right (SUP).
+  * **Resting position is palm down, all muscle relaxed, 0  degree**
+    * **The bias is removed in the preprocessing process, especially for Roll bias. (same in exp-5)**
+  * **Ref. electrode moved to wrist**, follow the placement of other paper.
+  * **Fixed custom device to assist PRO/SUP motion to avoid Flexion/Extension of wrist**
+  * **Supinator Muscle electrode is 30d to perpendicular to arm**
+  * Each dataset consists of 5~10 epoch w/ resting interval in between each epoch
+  * R^2 error metric should be used to avoid bias for small value estimation
+* Movement types
+  * Pronation: <0 degree only. From 0d move toward -90d then pause. Start moving toward 0d then stop.
+    * S2WA_7_PRO_ 
+  * Supination: >0 degree only. From 0d move toward 90d then pause. Start moving toward 0d then stop.
+    * S2WA_7_SUP_
+  * Extension/Flexion: Full range. From 0d move toward 90d then pause. Start moving toward 0d then pause. From 0d move toward -90d then pause. Start moving toward 0d then stop.
+    * S2WA_7_PROSUP_
+  * Pattern
+    * _1: Fixed_amp Fixed_interval, long pause  (train)
+    * _2: Fixed_amp Var_interval, long pause    (train)
+    * _3: Var_amp Var_interval, long pause      (train/test)
+    * _4: Var_amp Var_interval, long pause      (test)
+    * _5: Var_amp Var_interval, brief pause     (test)
+
+---  
+
+
+
+* ./rnn S2WA_7_SUP_1_PCA_DS10_RMS100_FULL S2WA_7_SUP_1_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * average loss at epoch:        999 = 0.0030847146
+  * RMSE:  4.30268	 2.36873	
+* ./rnn S2WA_7_SUP_1_PCA_DS10_RMS100_FULL S2WA_7_SUP_1_PCA_DS10_RMS100_FULL 8 2000 10 100000 4
+  * average loss at epoch:       1999 = 0.0018589960
+  * RMSE:  3.38825	 1.83416	
+* ./rnn S2WA_7_SUP_1_PCA_DS10_RMS100_FULL S2WA_7_SUP_1_PCA_DS10_RMS100_FULL 8 4000 10 100000 4
+  * average loss at epoch:       3999 = 0.0031003289
+  * RMSE:  4.77068	 1.65176	
+
+* ./rnn S2WA_7_SUP_2_PCA_DS10_RMS100_FULL S2WA_7_SUP_2_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * average loss at epoch:        999 = 0.0032505983
+  * RMSE:  4.68836	 1.86324	
+* ./rnn S2WA_7_SUP_2_PCA_DS10_RMS100_FULL S2WA_7_SUP_2_PCA_DS10_RMS100_FULL 8 2000 10 100000 4
+  * average loss at epoch:       1999 = 0.0031241840
+  * RMSE:  4.59624	 1.61049	
+* ./rnn S2WA_7_SUP_2_PCA_DS10_RMS100_FULL S2WA_7_SUP_2_PCA_DS10_RMS100_FULL 8 4000 10 100000 4
+  * average loss at epoch:       3999 = 0.0022346585
+  * RMSE:  3.99058	 1.50212	
+
+* ./rnn S2WA_7_SUP_3_PCA_DS10_RMS100_FULL S2WA_7_SUP_3_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * average loss at epoch:        999 = 0.0048898154
+  * RMSE:  5.57464	 1.90525	
+* ./rnn S2WA_7_SUP_3_PCA_DS10_RMS100_FULL S2WA_7_SUP_3_PCA_DS10_RMS100_FULL 8 2000 10 100000 4
+  * average loss at epoch:       1999 = 0.0037302147
+  * RMSE:  4.85892	 2.03625	
+* ./rnn S2WA_7_SUP_3_PCA_DS10_RMS100_FULL S2WA_7_SUP_3_PCA_DS10_RMS100_FULL 8 4000 10 100000 4
+  * average loss at epoch:       3999 = 0.0023920564
+  * RMSE:  3.56397	 1.98210	
+
+* ./rnn S2WA_7_SUP_4_PCA_DS10_RMS100_FULL S2WA_7_SUP_4_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * average loss at epoch:        999 = 0.0056718032
+  * RMSE:  6.30944	 1.64090	
+* ./rnn S2WA_7_SUP_4_PCA_DS10_RMS100_FULL S2WA_7_SUP_4_PCA_DS10_RMS100_FULL 8 2000 10 100000 4
+  * average loss at epoch:       1999 = 0.0043208635
+  * RMSE:  5.45491	 1.76016	
+* ./rnn S2WA_7_SUP_4_PCA_DS10_RMS100_FULL S2WA_7_SUP_4_PCA_DS10_RMS100_FULL 8 4000 10 100000 4
+  * average loss at epoch:       3999 = 0.0034222291
+  * RMSE:  4.90460	 2.00488	
+
+* ./rnn S2WA_7_SUP_5_PCA_DS10_RMS100_FULL S2WA_7_SUP_5_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * average loss at epoch:        999 = 0.0047815223
+  * RMSE:  5.92779	 1.73273	
+* ./rnn S2WA_7_SUP_5_PCA_DS10_RMS100_FULL S2WA_7_SUP_5_PCA_DS10_RMS100_FULL 8 2000 10 100000 4
+  * average loss at epoch:       1999 = 0.0046279186
+  * RMSE:  5.78483	 1.77497	
+* ./rnn S2WA_7_SUP_5_PCA_DS10_RMS100_FULL S2WA_7_SUP_5_PCA_DS10_RMS100_FULL 8 4000 10 100000 4
+  * average loss at epoch:       3999 = 0.0032733377
+  * RMSE:  5.07726	 0.80675	
+
+* ./rnn S2WA_7_PRO_1_PCA_DS10_RMS100_FULL S2WA_7_PRO_1_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * average loss at epoch:        999 = 0.0021643425
+  * RMSE:  3.84296	 1.52368	
+* ./rnn S2WA_7_PRO_1_PCA_DS10_RMS100_FULL S2WA_7_PRO_1_PCA_DS10_RMS100_FULL 8 2000 10 100000 4
+  * average loss at epoch:       1999 = 0.0017340081
+  * RMSE:  3.59139	 1.03510	
+* ./rnn S2WA_7_PRO_1_PCA_DS10_RMS100_FULL S2WA_7_PRO_1_PCA_DS10_RMS100_FULL 8 4000 10 100000 4
+  * average loss at epoch:       3999 = 0.0009147219
+  * RMSE:  2.32286	 1.42312	
+
+* ./rnn S2WA_7_PRO_2_PCA_DS10_RMS100_FULL S2WA_7_PRO_2_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * average loss at epoch:        999 = 0.0012681454
+  * RMSE:  2.62847	 1.72745	
+* ./rnn S2WA_7_PRO_2_PCA_DS10_RMS100_FULL S2WA_7_PRO_2_PCA_DS10_RMS100_FULL 8 2000 10 100000 4
+  * average loss at epoch:       1999 = 0.0013065434
+  * RMSE:  2.31230	 2.28219	
+* ./rnn S2WA_7_PRO_2_PCA_DS10_RMS100_FULL S2WA_7_PRO_2_PCA_DS10_RMS100_FULL 8 4000 10 100000 4
+  * average loss at epoch:       3999 = 0.0011213021
+  * RMSE:  2.13881	 2.09458	
+
+* ./rnn S2WA_7_PRO_3_PCA_DS10_RMS100_FULL S2WA_7_PRO_3_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * average loss at epoch:        999 = 0.0019284911
+  * RMSE:  3.84789	 1.09785	
+* ./rnn S2WA_7_PRO_3_PCA_DS10_RMS100_FULL S2WA_7_PRO_3_PCA_DS10_RMS100_FULL 8 2000 10 100000 4
+  * average loss at epoch:       1999 = 0.0013950749
+  * RMSE:  3.35039	 0.97371	
+* ./rnn S2WA_7_PRO_3_PCA_DS10_RMS100_FULL S2WA_7_PRO_3_PCA_DS10_RMS100_FULL 8 4000 10 100000 4
+  * average loss at epoch:       3999 = 0.0008587558
+  * RMSE:  1.99851	 1.69798	
+
+* ./rnn S2WA_7_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PRO_4_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * average loss at epoch:        999 = 0.0019318686
+  * RMSE:  3.24865	 2.30911	
+* ./rnn S2WA_7_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PRO_4_PCA_DS10_RMS100_FULL 8 2000 10 100000 4
+  * average loss at epoch:       1999 = 0.0014343571
+  * RMSE:  3.09278	 1.61566	
+* ./rnn S2WA_7_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PRO_4_PCA_DS10_RMS100_FULL 8 4000 10 100000 4
+  * average loss at epoch:       3999 = 0.0012065039
+  * RMSE:  2.35822	 2.01381	
+
+* ./rnn S2WA_7_PRO_5_PCA_DS10_RMS100_FULL S2WA_7_PRO_5_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * average loss at epoch:        999 = 0.0008441023
+  * RMSE:  2.12042	 1.58043	
+* ./rnn S2WA_7_PRO_5_PCA_DS10_RMS100_FULL S2WA_7_PRO_5_PCA_DS10_RMS100_FULL 8 2000 10 100000 4
+  * average loss at epoch:       1999 = 0.0009244232
+  * RMSE:  1.75655	 2.07898	
+* ./rnn S2WA_7_PRO_5_PCA_DS10_RMS100_FULL S2WA_7_PRO_5_PCA_DS10_RMS100_FULL 8 4000 10 100000 4
+  * average loss at epoch:       3999 = 0.0008926011
+  * RMSE:  2.19691	 1.50050	
+
+* ./rnn S2WA_7_SUP_1_SUP_2_PCA_DS10_RMS100_FULL S2WA_7_SUP_3_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * average loss at epoch:        999 = 0.0030246143
+  * RMSE:  8.89567	 1.35299	
+* ./rnn S2WA_7_SUP_1_SUP_2_PCA_DS10_RMS100_FULL S2WA_7_SUP_3_PCA_DS10_RMS100_FULL 8 2000 10 100000 4
+  * average loss at epoch:       1999 = 0.0023716934
+  * RMSE:  7.68631	 1.67961	
+* ./rnn S2WA_7_SUP_1_SUP_2_PCA_DS10_RMS100_FULL S2WA_7_SUP_3_PCA_DS10_RMS100_FULL 8 4000 10 100000 4
+  * average loss at epoch:       3999 = 0.0014902292
+  * RMSE: 10.56062	 1.67973	
+
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_PCA_DS10_RMS100_FULL S2WA_7_SUP_4_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * average loss at epoch:        999 = 0.0034860403
+  * RMSE:  6.21189	 2.06324	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_PCA_DS10_RMS100_FULL S2WA_7_SUP_4_PCA_DS10_RMS100_FULL 8 2000 10 100000 4
+  * average loss at epoch:       1999 = 0.0026924714
+  * RMSE:  8.32843	 1.39529	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_PCA_DS10_RMS100_FULL S2WA_7_SUP_4_PCA_DS10_RMS100_FULL 8 4000 10 100000 4
+  * average loss at epoch:       3999 = 0.0040105371
+  * RMSE:  7.42461	 3.56534	
+
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_PCA_DS10_RMS100_FULL S2WA_7_SUP_5_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * average loss at epoch:        999 = 0.0034860403
+  * RMSE: 10.30977	 2.35146	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_PCA_DS10_RMS100_FULL S2WA_7_SUP_5_PCA_DS10_RMS100_FULL 8 2000 10 100000 4
+  * average loss at epoch:       1999 = 0.0026924714
+  * RMSE: 12.44332	 1.45849	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_PCA_DS10_RMS100_FULL S2WA_7_SUP_5_PCA_DS10_RMS100_FULL 8 4000 10 100000 4
+  * average loss at epoch:       3999 = 0.0040105371
+  * RMSE: 10.58609	 3.61366	
+
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PCA_DS10_RMS100_FULL S2WA_7_SUP_5_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * average loss at epoch:        999 = 0.0044640671
+  * RMSE:  8.65113	 1.04121	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PCA_DS10_RMS100_FULL S2WA_7_SUP_5_PCA_DS10_RMS100_FULL 8 2000 10 100000 4
+  * average loss at epoch:       1999 = 0.0036754898
+  * RMSE:  9.09380	 2.26347	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PCA_DS10_RMS100_FULL S2WA_7_SUP_5_PCA_DS10_RMS100_FULL 8 4000 10 100000 4
+  * average loss at epoch:       3999 = 0.0023800586
+  * RMSE:  7.76795	 1.65183	
+
+* ./rnn S2WA_7_PRO_1_PRO_2_PCA_DS10_RMS100_FULL S2WA_7_PRO_3_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * average loss at epoch:        999 = 0.0014486058
+  * RMSE:  7.93790	 1.84753	
+* ./rnn S2WA_7_PRO_1_PRO_2_PCA_DS10_RMS100_FULL S2WA_7_PRO_3_PCA_DS10_RMS100_FULL 8 2000 10 100000 4
+  * average loss at epoch:       1999 = 0.0012197359
+  * RMSE:  8.04876	 2.30127	
+* ./rnn S2WA_7_PRO_1_PRO_2_PCA_DS10_RMS100_FULL S2WA_7_PRO_3_PCA_DS10_RMS100_FULL 8 4000 10 100000 4
+  * average loss at epoch:       3999 = 0.0008637061
+  * RMSE:  7.66261	 2.24295	
+
+* ./rnn S2WA_7_PRO_1_PRO_2_PRO_3_PCA_DS10_RMS100_FULL S2WA_7_PRO_4_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * average loss at epoch:        999 = 0.0018174266
+  * RMSE:  4.67420	 2.83614	
+* ./rnn S2WA_7_PRO_1_PRO_2_PRO_3_PCA_DS10_RMS100_FULL S2WA_7_PRO_4_PCA_DS10_RMS100_FULL 8 2000 10 100000 4
+  * average loss at epoch:       1999 = 0.0016441913
+  * RMSE:  4.27670	 1.95935	
+* ./rnn S2WA_7_PRO_1_PRO_2_PRO_3_PCA_DS10_RMS100_FULL S2WA_7_PRO_4_PCA_DS10_RMS100_FULL 8 4000 10 100000 4
+  * average loss at epoch:       3999 = 0.0008707299
+  * RMSE:  4.66311	 1.43291	
+
+* ./rnn S2WA_7_PRO_1_PRO_2_PRO_3_PCA_DS10_RMS100_FULL S2WA_7_PRO_5_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * average loss at epoch:        999 = 0.0018174266
+  * RMSE:  3.75454	 1.94580	
+* ./rnn S2WA_7_PRO_1_PRO_2_PRO_3_PCA_DS10_RMS100_FULL S2WA_7_PRO_5_PCA_DS10_RMS100_FULL 8 2000 10 100000 4
+  * average loss at epoch:       1999 = 0.0016441913
+  * RMSE:  4.28583	 2.25545	
+* ./rnn S2WA_7_PRO_1_PRO_2_PRO_3_PCA_DS10_RMS100_FULL S2WA_7_PRO_5_PCA_DS10_RMS100_FULL 8 4000 10 100000 4
+  * average loss at epoch:       3999 = 0.0008707299
+  * RMSE: 28.88666	39.87788	
+
+* ./rnn S2WA_7_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PRO_5_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * average loss at epoch:        999 = 0.0019465382
+  * RMSE:  3.31350	 1.89803	
+* ./rnn S2WA_7_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PRO_5_PCA_DS10_RMS100_FULL 8 2000 10 100000 4
+  * average loss at epoch:       1999 = 0.0008486096
+  * RMSE:  4.61547	 1.29149	
+* ./rnn S2WA_7_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PRO_5_PCA_DS10_RMS100_FULL 8 4000 10 100000 4
+  * average loss at epoch:       3999 = 0.0007048512
+  * RMSE:  7.41477	 1.63860	
+
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_SUP_5_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * average loss at epoch:        999 = 0.0032474018
+  * RMSE:  8.36782	 2.22089	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_SUP_5_PCA_DS10_RMS100_FULL 8 2000 10 100000 4
+  * average loss at epoch:       1999 = 0.0027077378
+  * RMSE:  8.39131	 2.14596	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_SUP_5_PCA_DS10_RMS100_FULL 8 4000 10 100000 4
+  * average loss at epoch:       3999 = 0.0501453455
+  * RMSE:  8.76526	 1.96080	
+
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PRO_5_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * average loss at epoch:        999 = 0.0032474018
+  * RMSE: 11.24141	 1.99079	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PRO_5_PCA_DS10_RMS100_FULL 8 2000 10 100000 4
+  * average loss at epoch:       1999 = 0.0027077378
+  * RMSE:  3.91763	 1.11763	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PRO_5_PCA_DS10_RMS100_FULL 8 4000 10 100000 4
+  * average loss at epoch:       3999 = 0.0501453455
+  * RMSE:  6.06167	 1.19703	
+
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * average loss at epoch:        999 = 0.0032474018
+  * RMSE: 10.92841	 1.81718	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 8 2000 10 100000 4
+  * average loss at epoch:       1999 = 0.0027077378
+  * RMSE: 10.98927	 1.68035	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 8 4000 10 100000 4
+  * average loss at epoch:       3999 = 0.0501453455
+  * RMSE: 15.13095	 1.87242	
+
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_SUP_5_PRO_1_PRO_2_PRO_3_PRO_4_PRO_5_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * average loss at epoch:        999 = 0.0052239696
+  * RMSE: 13.33095	 2.97751	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_SUP_5_PRO_1_PRO_2_PRO_3_PRO_4_PRO_5_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 8 2000 10 100000 4
+  * average loss at epoch:       1999 = 0.0034339793
+  * RMSE: 11.29603	 2.37306	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_SUP_5_PRO_1_PRO_2_PRO_3_PRO_4_PRO_5_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 8 4000 10 100000 4
+  * average loss at epoch:       3999 = 0.0024985083
+  * RMSE:  8.62919	 1.66141	
+
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * average loss at epoch:        999 = 0.0032474018
+  * RMSE: 27.69217	 3.87155	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 8 2000 10 100000 4
+  * average loss at epoch:       1999 = 0.0027077378
+  * RMSE: 24.85159	 3.60069	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 8 4000 10 100000 4
+  * average loss at epoch:       3999 = 0.0501453455
+  * RMSE: 31.20700	 2.76311	
+
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_SUP_5_PRO_1_PRO_2_PRO_3_PRO_4_PRO_5_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * average loss at epoch:        999 = 0.0052239696
+  * RMSE: 25.90619	 6.43393	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_SUP_5_PRO_1_PRO_2_PRO_3_PRO_4_PRO_5_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 8 2000 10 100000 4
+  * average loss at epoch:       1999 = 0.0034339793
+  * RMSE: 22.92892	 4.58492	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_SUP_5_PRO_1_PRO_2_PRO_3_PRO_4_PRO_5_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 8 4000 10 100000 4
+  * average loss at epoch:       3999 = 0.0024985083
+  * RMSE: 19.46074	 2.72591	
+
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PROSUP_2_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * average loss at epoch:        999 = 0.0058553792
+  * RMSE: 24.61290	 3.33655	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PROSUP_2_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 8 2000 10 100000 4
+  * average loss at epoch:       1999 = 0.0033111572
+  * RMSE: 13.36338	 1.77978	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PROSUP_2_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 8 4000 10 100000 4
+  * average loss at epoch:       3999 = 0.0038354834
+  * RMSE: 11.93483	 1.72819	
+
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_SUP_5_PRO_1_PRO_2_PRO_3_PRO_4_PRO_5_PROSUP_1_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * average loss at epoch:        999 = 0.0046330836
+  * RMSE: 13.43349	 3.12059	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_SUP_5_PRO_1_PRO_2_PRO_3_PRO_4_PRO_5_PROSUP_1_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 8 2000 10 100000 4
+  * average loss at epoch:       1999 = 0.0038192014
+  * RMSE: 15.06062	 2.74962	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_SUP_5_PRO_1_PRO_2_PRO_3_PRO_4_PRO_5_PROSUP_1_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 8 4000 10 100000 4
+  * average loss at epoch:       3999 = 0.0042946794
+  * RMSE: 10.72594	 1.77986	
+
