@@ -42,7 +42,7 @@ for i = 1 : num_matrix
     figure;
     subplot_helper(1:DATA_LENGTH, test_semg_data, ...
                     [graph_count 1 1], {'sample' 'amplitude' 'sEMG'}, ':x');
-    
+    ylim([-1 1]);
     test_mpu_data = test_mpu_data .* mpu_max_value;
     train_mpu_data = train_mpu_data .* mpu_max_value;
                 

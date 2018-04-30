@@ -1,5 +1,6 @@
 clear; close all;
 
+% set(0,'DefaultFigureVisible','on');
 set(0,'DefaultFigureVisible','off');
 
 addpath('../matlab_lib');
@@ -13,18 +14,22 @@ file_to_test = {
 
 
 %% RNN
-hidden_node_count_list = {'2' '4' '8' '10' '12' '16' '20' '27' '36'};
+hidden_node_count_list = {'8' '12' '16' '24' '32'};
 epoch = '1000';
 rand_seed = '4';
-cross_valid_patience = '10';
+cross_valid_patience_list = {'10' '20' '40' '100' '150' '200'};
 
 
 %% For different hidden node count...
 rnn_result_plaintext = [];
 
 for h = 1 : length(hidden_node_count_list)    
+for p = 1 : length(cross_valid_patience_list)
+    cross_valid_patience = cross_valid_patience_list{p};
     hidden_node_count = hidden_node_count_list{h};
-    rnn_result_plaintext = [rnn_result_plaintext 'H: ' hidden_node_count newline];
+    rnn_result_plaintext = ...
+        [rnn_result_plaintext 'H: ' hidden_node_count ' ' ...
+        'P: ' cross_valid_patience newline];
 for f = 1 : numel(file_to_test) % For different files...
 
 %% Filename Prepend
@@ -86,7 +91,7 @@ cross_output_file = ...
            cross_output_filename, file_extension];        
         
         
-mpu_shift_val = [50 0]; % Roll/Pitch The bias of mpu in degree
+mpu_shift_val = [0 0]; % Roll/Pitch The bias of mpu in degree
 
 test_filename = [ ...
     file_loc_prepend, filename_prepend, test_file_label, file_extension];
@@ -129,7 +134,7 @@ for i = 1 : length(ica_filename_list)
 end
 
 concat_semg = concat_semg - mean(concat_semg, 2) * ones(1, length(concat_semg));
-concat_semg = concat_semg ./ semg_max_value;
+% concat_semg = concat_semg ./ semg_max_value;
 
 concat_semg = RMS_calc(concat_semg', RMS_window_size)';
 
@@ -139,43 +144,34 @@ filter_order = 6;
         concat_semg', filter_order, target_sample_rate, semg_sample_rate);   
 concat_semg = downsample(concat_semg, downsample_ratio)';
 
-variance = (sqrt(var(concat_semg'))') .* ones(semg_channel_count, length(concat_semg));
-concat_semg = concat_semg ./ variance;
+% variance = (sqrt(var(concat_semg'))') .* ones(semg_channel_count, length(concat_semg));
+% concat_semg = concat_semg ./ variance;
 
-figure;
-subplot_helper(1:length(concat_semg), concat_semg(1, :), ...
-                [3 1 1], {'sample' 'amplitude' 'Before ICA'}, '-');                       
-subplot_helper(1:length(concat_semg), concat_semg(2, :), ...
-                [3 1 2], {'sample' 'amplitude' 'Before ICA'}, '-');
+% figure;
+% subplot_helper(1:length(concat_semg), concat_semg(1, :), ...
+%                 [3 1 1], {'sample' 'amplitude' 'Before ICA'}, '-');                       
+% subplot_helper(1:length(concat_semg), concat_semg(2, :), ...
+%                 [3 1 2], {'sample' 'amplitude' 'Before ICA'}, '-');
    
 pca_coeff = pca(concat_semg', 'Algorithm','eig');
 icasig = pca_coeff * concat_semg; % (mixed' * Coeff')'
-
-figure;
-subplot_helper(1:length(concat_semg), concat_semg(1, :), ...
-                [2 1 1], {'sample' 'amplitude' 'Before ICA'}, '-');                                                          
-subplot_helper(1:length(concat_semg), abs(icasig(1, :)), ...
-                [2 1 1], {'sample' 'amplitude' 'Before ICA'}, '-');              
-subplot_helper(1:length(icasig), concat_semg(2, :), ...    
-                [2 1 2], {'sample' 'amplitude' 'After ICA'}, '-');  
-subplot_helper(1:length(icasig), abs(icasig(2, :)), ...    
-                [2 1 2], {'sample' 'amplitude' 'After ICA'}, '-'); 
+% 
+% figure;
+% subplot_helper(1:length(concat_semg), concat_semg(1, :), ...
+%                 [2 1 1], {'sample' 'amplitude' 'Before ICA'}, '-');                                                          
+% subplot_helper(1:length(concat_semg), abs(icasig(1, :)), ...
+%                 [2 1 1], {'sample' 'amplitude' 'Before ICA'}, '-');              
+% subplot_helper(1:length(icasig), concat_semg(2, :), ...    
+%                 [2 1 2], {'sample' 'amplitude' 'After ICA'}, '-');  
+% subplot_helper(1:length(icasig), abs(icasig(2, :)), ...    
+%                 [2 1 2], {'sample' 'amplitude' 'After ICA'}, '-'); 
             
-% Find the max_min range of sEMG channel using mixing matrix
-max_min_matrix = ...
-    [ 1  -1 -1  1;
-      1  -1  1 -1];
-var_matrix = ...
-    [ variance(1) variance(1) variance(1) variance(1);
-      variance(2) variance(2) variance(2) variance(2)]; 
-
-max_min_matrix = (pca_coeff  * max_min_matrix) ./ var_matrix;
 
 % max(max(icasig)) - min(min(icasig))
 % max(max(max_min_matrix)) - min(min(max_min_matrix))
 
-semg_max_value = max(max(max_min_matrix)) - min(min(max_min_matrix));
-semg_min_value = -semg_max_value;
+semg_max_value = max(max(icasig)) * 1.3;
+semg_min_value = min(min(icasig)) * 1.3;
 
 
 %% Process & Output - Train
@@ -314,7 +310,7 @@ cd('../../../../RNN/LSTM/');
 cd(origin_dir);
 
 
-close all;
+% close all;
 % Show test file result
 verify_multi_semg(test_output_filename);
 
@@ -324,6 +320,7 @@ rnn_result = rnn_result(end-4:end-1);
 
 rnn_result_plaintext = [rnn_result_plaintext rnn_result{1} newline rnn_result{2} newline rnn_result{3} newline rnn_result{4} newline];
 
+end
 end
 rnn_result_plaintext = [rnn_result_plaintext newline];
 end

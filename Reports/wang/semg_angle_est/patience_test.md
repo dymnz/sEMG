@@ -1,0 +1,558 @@
+
+### ICA after downsample, norm w/ training sample, no whitening
+H: 8 P: 10
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_1_newICA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * train loss at epoch:        116 = 0.0243020140 
+  * best cross loss at epoch:        105 = 0.0285010014 
+  * RMSE: 13.41917	 3.38392	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_2_newICA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * train loss at epoch:        238 = 0.0178823001 
+  * best cross loss at epoch:        227 = 0.0227555785 
+  * RMSE: 15.34257	 4.37748	
+H: 8 P: 20
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_1_newICA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * train loss at epoch:        126 = 0.0238212536 
+  * best cross loss at epoch:        105 = 0.0285011476 
+  * RMSE: 13.41910	 3.38393	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_2_newICA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * train loss at epoch:        545 = 0.0147398474 
+  * best cross loss at epoch:        524 = 0.0154645679 
+  * RMSE: 15.68788	 3.24949	
+H: 8 P: 40
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_1_newICA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * train loss at epoch:        267 = 0.0153397320 
+  * best cross loss at epoch:        226 = 0.0269939726 
+  * RMSE: 11.76265	 3.61739	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_2_newICA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * train loss at epoch:        735 = 0.0086470920 
+  * best cross loss at epoch:        694 = 0.0134881128 
+  * RMSE: 16.77203	 3.24197	
+H: 8 P: 100
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_1_newICA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * train loss at epoch:        415 = 0.0130362271 
+  * best cross loss at epoch:        314 = 0.0257092834 
+  * RMSE: 12.19218	 2.46446	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_2_newICA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * train loss at epoch:        925 = 0.0042211354 
+  * best cross loss at epoch:        824 = 0.0108023292 
+  * RMSE: 22.30335	 8.75078	
+H: 8 P: 150
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_1_newICA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * train loss at epoch:        416 = 0.0055876584 
+  * best cross loss at epoch:        265 = 0.0150572622 
+  * RMSE: 10.31707	 1.86818	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_2_newICA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * train loss at epoch:        555 = 0.0120060520 
+  * best cross loss at epoch:        404 = 0.0179383390 
+  * RMSE: 24.49833	 3.25684	
+H: 8 P: 200
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_1_newICA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * train loss at epoch:        369 = 0.0271981525 
+  * best cross loss at epoch:        168 = 0.0259839204 
+  * RMSE: 13.49984	 2.78683	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_2_newICA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * train loss at epoch:        474 = 0.0052722557 
+  * best cross loss at epoch:        273 = 0.0113120705 
+  * RMSE: 14.94275	 2.43389	
+
+H: 12 P: 10
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_1_newICA_DS10_RMS100_FULL 12 1000 10 100000 4
+  * train loss at epoch:        208 = 0.0226169355 
+  * best cross loss at epoch:        197 = 0.0252825610 
+  * RMSE: 11.93820	 3.06453	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_2_newICA_DS10_RMS100_FULL 12 1000 10 100000 4
+  * train loss at epoch:         62 = 0.0681429186 
+  * best cross loss at epoch:         51 = 0.0405203613 
+  * RMSE: 18.00008	 5.64402	
+H: 12 P: 20
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_1_newICA_DS10_RMS100_FULL 12 1000 10 100000 4
+  * train loss at epoch:        101 = 0.0186973111 
+  * best cross loss at epoch:         80 = 0.0276756290 
+  * RMSE: 15.39333	 3.91009	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_2_newICA_DS10_RMS100_FULL 12 1000 10 100000 4
+  * train loss at epoch:        177 = 0.0209940737 
+  * best cross loss at epoch:        156 = 0.0211046819 
+  * RMSE: 12.69090	 3.45205	
+H: 12 P: 40
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_1_newICA_DS10_RMS100_FULL 12 1000 10 100000 4
+  * train loss at epoch:        149 = 0.0186529865 
+  * best cross loss at epoch:        108 = 0.0186138882 
+  * RMSE: 12.70617	 3.53483	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_2_newICA_DS10_RMS100_FULL 12 1000 10 100000 4
+  * train loss at epoch:         65 = 0.0392640079 
+  * best cross loss at epoch:         24 = 0.0991672846 
+  * RMSE: 23.16177	 8.42006	
+H: 12 P: 100
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_1_newICA_DS10_RMS100_FULL 12 1000 10 100000 4
+  * train loss at epoch:        207 = 0.0072042664 
+  * best cross loss at epoch:        106 = 0.0470499773 
+  * RMSE: 72.84301	18.57279	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_2_newICA_DS10_RMS100_FULL 12 1000 10 100000 4
+  * train loss at epoch:        854 = 0.0112869616 
+  * best cross loss at epoch:        753 = 0.0165166048 
+  * RMSE: 19.60311	 3.58404	
+H: 12 P: 150
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_1_newICA_DS10_RMS100_FULL 12 1000 10 100000 4
+  * train loss at epoch:        313 = 0.0314157434 
+  * best cross loss at epoch:        162 = 0.0329047063 
+  * RMSE: 14.83180	 4.07394	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_2_newICA_DS10_RMS100_FULL 12 1000 10 100000 4
+  * train loss at epoch:        303 = 0.0091417095 
+  * best cross loss at epoch:        152 = 0.0317199219 
+  * RMSE: 16.10025	 3.44261	
+H: 12 P: 200
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_1_newICA_DS10_RMS100_FULL 12 1000 10 100000 4
+  * train loss at epoch:        519 = 0.0093783261 
+  * best cross loss at epoch:        318 = 0.0219200723 
+  * RMSE:  8.90243	 2.48183	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_2_newICA_DS10_RMS100_FULL 12 1000 10 100000 4
+  * train loss at epoch:        952 = 0.0090324376 
+  * best cross loss at epoch:        751 = 0.0164571834 
+  * RMSE: 19.44777	 3.57771	
+
+H: 16 P: 10
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_1_newICA_DS10_RMS100_FULL 16 1000 10 100000 4
+  * train loss at epoch:        102 = 0.0249095842 
+  * best cross loss at epoch:         91 = 0.0288131478 
+  * RMSE: 13.25320	 3.15890	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_2_newICA_DS10_RMS100_FULL 16 1000 10 100000 4
+  * train loss at epoch:         64 = 0.0296094462 
+  * best cross loss at epoch:         53 = 0.0301164408 
+  * RMSE: 14.33651	 4.78874	
+H: 16 P: 20
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_1_newICA_DS10_RMS100_FULL 16 1000 10 100000 4
+  * train loss at epoch:        211 = 0.0292991264 
+  * best cross loss at epoch:        190 = 0.0317600209 
+  * RMSE: 13.53304	 3.75199	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_2_newICA_DS10_RMS100_FULL 16 1000 10 100000 4
+  * train loss at epoch:        160 = 0.0306217517 
+  * best cross loss at epoch:        139 = 0.0295154568 
+  * RMSE: 15.11385	 3.86814	
+H: 16 P: 40
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_1_newICA_DS10_RMS100_FULL 16 1000 10 100000 4
+  * train loss at epoch:        207 = 0.0284110258 
+  * best cross loss at epoch:        166 = 0.0257567932 
+  * RMSE: 12.65828	 3.95300	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_2_newICA_DS10_RMS100_FULL 16 1000 10 100000 4
+  * train loss at epoch:        176 = 0.0278744254 
+  * best cross loss at epoch:        135 = 0.0255988918 
+  * RMSE: 13.87897	 5.11841	
+H: 16 P: 100
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_1_newICA_DS10_RMS100_FULL 16 1000 10 100000 4
+  * train loss at epoch:        196 = 0.0154580655 
+  * best cross loss at epoch:         95 = 0.0287427480 
+  * RMSE: 13.08472	 3.11120	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_2_newICA_DS10_RMS100_FULL 16 1000 10 100000 4
+  * train loss at epoch:        276 = 0.0121409801 
+  * best cross loss at epoch:        175 = 0.0142898726 
+  * RMSE: 226.04257	186.24066	
+H: 16 P: 150
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_1_newICA_DS10_RMS100_FULL 16 1000 10 100000 4
+  * train loss at epoch:        644 = 0.0068190383 
+  * best cross loss at epoch:        493 = 0.0186771603 
+  * RMSE: 13.15240	 2.85353	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_2_newICA_DS10_RMS100_FULL 16 1000 10 100000 4
+  * train loss at epoch:        350 = 0.0171432507 
+  * best cross loss at epoch:        199 = 0.0131356271 
+  * RMSE: 15.88141	 6.04493	
+H: 16 P: 200
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_1_newICA_DS10_RMS100_FULL 16 1000 10 100000 4
+  * train loss at epoch:        418 = 0.0108198662 
+  * best cross loss at epoch:        217 = 0.0183076540 
+  * RMSE: 12.95928	 3.25522	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_2_newICA_DS10_RMS100_FULL 16 1000 10 100000 4
+  * train loss at epoch:        678 = 0.0040285500 
+  * best cross loss at epoch:        477 = 0.0126638214 
+  * RMSE: 17.39846	 4.01213	
+
+H: 24 P: 10
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_1_newICA_DS10_RMS100_FULL 24 1000 10 100000 4
+  * train loss at epoch:        185 = 0.0331428045 
+  * best cross loss at epoch:        174 = 0.0345047630 
+  * RMSE: 14.15402	 3.93132	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_2_newICA_DS10_RMS100_FULL 24 1000 10 100000 4
+  * train loss at epoch:         36 = 0.1245296981 
+  * best cross loss at epoch:         25 = 0.1171600508 
+  * RMSE: 30.25485	 7.07597	
+H: 24 P: 20
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_1_newICA_DS10_RMS100_FULL 24 1000 10 100000 4
+  * train loss at epoch:        118 = 0.0535305446 
+  * best cross loss at epoch:         97 = 0.0398025571 
+  * RMSE: 20.36970	 2.54834	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_2_newICA_DS10_RMS100_FULL 24 1000 10 100000 4
+  * train loss at epoch:        140 = 0.0431510676 
+  * best cross loss at epoch:        119 = 0.0401302018 
+  * RMSE: 16.86917	 4.10327	
+H: 24 P: 40
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_1_newICA_DS10_RMS100_FULL 24 1000 10 100000 4
+  * train loss at epoch:        217 = 0.0326465142 
+  * best cross loss at epoch:        176 = 0.0300825009 
+  * RMSE: 11.41699	 6.19115	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_2_newICA_DS10_RMS100_FULL 24 1000 10 100000 4
+  * train loss at epoch:        260 = 0.0235896276 
+  * best cross loss at epoch:        219 = 0.0210526068 
+  * RMSE: 12.63105	 4.77613	
+H: 24 P: 100
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_1_newICA_DS10_RMS100_FULL 24 1000 10 100000 4
+  * train loss at epoch:        277 = 0.0326085042 
+  * best cross loss at epoch:        176 = 0.0259328193 
+  * RMSE: 12.01408	 3.20122	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_2_newICA_DS10_RMS100_FULL 24 1000 10 100000 4
+  * train loss at epoch:        593 = 0.0114985464 
+  * best cross loss at epoch:        492 = 0.0170710620 
+  * RMSE: 15.28021	 2.65135	
+H: 24 P: 150
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_1_newICA_DS10_RMS100_FULL 24 1000 10 100000 4
+  * train loss at epoch:        328 = 0.0655268247 
+  * best cross loss at epoch:        177 = 0.0247353964 
+  * RMSE: 11.68097	 4.01928	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_2_newICA_DS10_RMS100_FULL 24 1000 10 100000 4
+  * train loss at epoch:        311 = 0.0303286902 
+  * best cross loss at epoch:        160 = 0.0265734040 
+  * RMSE: 13.14454	 5.10974	
+H: 24 P: 200
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_1_newICA_DS10_RMS100_FULL 24 1000 10 100000 4
+  * train loss at epoch:        897 = 0.0087716533 
+  * best cross loss at epoch:        696 = 0.0173999329 
+  * RMSE: 13.93390	 2.73748	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_2_newICA_DS10_RMS100_FULL 24 1000 10 100000 4
+  * train loss at epoch:        318 = 0.0070828554 
+  * best cross loss at epoch:        117 = 0.0365729213 
+  * RMSE: 115.77332	269.28551	
+
+H: 32 P: 10
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_1_newICA_DS10_RMS100_FULL 32 1000 10 100000 4
+  * train loss at epoch:         49 = 0.1422859337 
+  * best cross loss at epoch:         38 = 0.1228424368 
+  * RMSE: 31.58828	 6.21471	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_2_newICA_DS10_RMS100_FULL 32 1000 10 100000 4
+  * train loss at epoch:        222 = 0.0466663088 
+  * best cross loss at epoch:        211 = 0.0405316632 
+  * RMSE: 17.45491	 3.92540	
+H: 32 P: 20
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_1_newICA_DS10_RMS100_FULL 32 1000 10 100000 4
+  * train loss at epoch:         79 = 0.0488381269 
+  * best cross loss at epoch:         58 = 0.0569447570 
+  * RMSE: 18.63192	 5.62715	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_2_newICA_DS10_RMS100_FULL 32 1000 10 100000 4
+  * train loss at epoch:         75 = 0.0909226187 
+  * best cross loss at epoch:         54 = 0.0832600180 
+  * RMSE: 25.96173	 4.08010	
+H: 32 P: 40
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_1_newICA_DS10_RMS100_FULL 32 1000 10 100000 4
+  * train loss at epoch:        143 = 0.0460212580 
+  * best cross loss at epoch:        102 = 0.0390203639 
+  * RMSE: 16.13122	 4.04347	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_2_newICA_DS10_RMS100_FULL 32 1000 10 100000 4
+  * train loss at epoch:        143 = 0.0411096852 
+  * best cross loss at epoch:        102 = 0.0310932296 
+  * RMSE: 13.62728	 4.28031	
+H: 32 P: 100
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_1_newICA_DS10_RMS100_FULL 32 1000 10 100000 4
+  * train loss at epoch:        605 = 0.0125851874 
+  * best cross loss at epoch:        504 = 0.0207525989 
+  * RMSE: 11.58007	 1.91355	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_2_newICA_DS10_RMS100_FULL 32 1000 10 100000 4
+  * train loss at epoch:        463 = 0.0113179590 
+  * best cross loss at epoch:        362 = 0.0283002613 
+  * RMSE: 13.84252	 4.75797	
+H: 32 P: 150
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_1_newICA_DS10_RMS100_FULL 32 1000 10 100000 4
+  * train loss at epoch:        718 = 0.0239909596 
+  * best cross loss at epoch:        567 = 0.0280853621 
+  * RMSE: 10.99006	 4.71668	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_2_newICA_DS10_RMS100_FULL 32 1000 10 100000 4
+  * train loss at epoch:        486 = 0.0092470524 
+  * best cross loss at epoch:        335 = 0.0151411126 
+  * RMSE: 15.11377	 1.76709	
+H: 32 P: 200
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_1_newICA_DS10_RMS100_FULL 32 1000 10 100000 4
+  * train loss at epoch:        360 = 0.0443905644 
+  * best cross loss at epoch:        159 = 0.0351055302 
+  * RMSE: 14.23457	 4.69159	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_newICA_DS10_RMS100_FULL S2WA_7_PROSUP_2_newICA_DS10_RMS100_FULL 32 1000 10 100000 4
+  * train loss at epoch:        564 = 0.0103496488 
+  * best cross loss at epoch:        363 = 0.0302052861 
+  * RMSE: 13.89462	 4.96244	
+
+
+
+
+### PCA after downsample, norm w/ training sample, no whitening
+
+
+H: 8 P: 10
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * train loss at epoch:         64 = 0.1121533987 
+  * best cross loss at epoch:         53 = 0.0965746101 
+  * RMSE: 27.18688	 4.75394	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * train loss at epoch:         43 = 0.1165208221 
+  * best cross loss at epoch:         32 = 0.0993906887 
+  * RMSE: 28.27475	 6.99907	
+H: 8 P: 20
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * train loss at epoch:        180 = 0.0343800241 
+  * best cross loss at epoch:        159 = 0.0294193298 
+  * RMSE: 12.82393	 3.40231	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * train loss at epoch:        180 = 0.0343800241 
+  * best cross loss at epoch:        159 = 0.0283768519 
+  * RMSE: 13.65920	 3.84544	
+H: 8 P: 40
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * train loss at epoch:        200 = 0.0325192514 
+  * best cross loss at epoch:        159 = 0.0294193298 
+  * RMSE: 12.82393	 3.40231	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * train loss at epoch:        200 = 0.0325192514 
+  * best cross loss at epoch:        159 = 0.0283768519 
+  * RMSE: 13.65920	 3.84544	
+H: 8 P: 100
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * train loss at epoch:        260 = 0.0242103378 
+  * best cross loss at epoch:        159 = 0.0294193298 
+  * RMSE: 12.82393	 3.40231	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * train loss at epoch:        548 = 0.2780622967 
+  * best cross loss at epoch:        447 = 0.0125790464 
+  * RMSE: 18.34871	 3.09834	
+H: 8 P: 150
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * train loss at epoch:        597 = 0.1518942468 
+  * best cross loss at epoch:        446 = 0.0218470857 
+  * RMSE:  9.44093	 1.58738	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * train loss at epoch:        598 = 0.1530263933 
+  * best cross loss at epoch:        447 = 0.0125790464 
+  * RMSE: 18.34871	 3.09834	
+H: 8 P: 200
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * train loss at epoch:        647 = 0.1986029321 
+  * best cross loss at epoch:        446 = 0.0218470857 
+  * RMSE:  9.44093	 1.58738	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 8 1000 10 100000 4
+  * train loss at epoch:        648 = 0.2137500457 
+  * best cross loss at epoch:        447 = 0.0125790464 
+  * RMSE: 18.34871	 3.09834	
+
+H: 12 P: 10
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 12 1000 10 100000 4
+  * train loss at epoch:        103 = 0.0826497345 
+  * best cross loss at epoch:         92 = 0.0449349218 
+  * RMSE: 17.93281	 3.30817	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 12 1000 10 100000 4
+  * train loss at epoch:        103 = 0.0826497345 
+  * best cross loss at epoch:         92 = 0.0451862151 
+  * RMSE: 17.57365	 4.19401	
+H: 12 P: 20
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 12 1000 10 100000 4
+  * train loss at epoch:        113 = 0.0468519492 
+  * best cross loss at epoch:         92 = 0.0449349218 
+  * RMSE: 17.93281	 3.30817	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 12 1000 10 100000 4
+  * train loss at epoch:        113 = 0.0468519492 
+  * best cross loss at epoch:         92 = 0.0451862151 
+  * RMSE: 17.57365	 4.19401	
+H: 12 P: 40
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 12 1000 10 100000 4
+  * train loss at epoch:        133 = 0.0327672786 
+  * best cross loss at epoch:         92 = 0.0449349218 
+  * RMSE: 17.93281	 3.30817	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 12 1000 10 100000 4
+  * train loss at epoch:        133 = 0.0327672786 
+  * best cross loss at epoch:         92 = 0.0451862151 
+  * RMSE: 17.57365	 4.19401	
+H: 12 P: 100
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 12 1000 10 100000 4
+  * train loss at epoch:        462 = 0.0248113403 
+  * best cross loss at epoch:        361 = 0.0304080176 
+  * RMSE: 12.50322	 3.34040	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 12 1000 10 100000 4
+  * train loss at epoch:        462 = 0.0248113403 
+  * best cross loss at epoch:        361 = 0.0262121596 
+  * RMSE: 15.96009	 3.83715	
+H: 12 P: 150
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 12 1000 10 100000 4
+  * train loss at epoch:        512 = 0.0285180219 
+  * best cross loss at epoch:        361 = 0.0304080176 
+  * RMSE: 12.50322	 3.34040	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 12 1000 10 100000 4
+  * train loss at epoch:        512 = 0.0285180219 
+  * best cross loss at epoch:        361 = 0.0262121596 
+  * RMSE: 15.96009	 3.83715	
+H: 12 P: 200
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 12 1000 10 100000 4
+  * train loss at epoch:        562 = 0.0278727145 
+  * best cross loss at epoch:        361 = 0.0304080176 
+  * RMSE: 12.50322	 3.34040	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 12 1000 10 100000 4
+  * train loss at epoch:        562 = 0.0278727145 
+  * best cross loss at epoch:        361 = 0.0262121596 
+  * RMSE: 15.96009	 3.83715	
+
+H: 16 P: 10
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 16 1000 10 100000 4
+  * train loss at epoch:         37 = 0.0592913079 
+  * best cross loss at epoch:         26 = 0.0788138986 
+  * RMSE: 30.76637	 4.80096	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 16 1000 10 100000 4
+  * train loss at epoch:         44 = 0.0681226277 
+  * best cross loss at epoch:         33 = 0.0729624702 
+  * RMSE: 32.12463	 6.38828	
+H: 16 P: 20
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 16 1000 10 100000 4
+  * train loss at epoch:         97 = 0.0237964838 
+  * best cross loss at epoch:         76 = 0.0435340829 
+  * RMSE: 21.19999	 3.25786	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 16 1000 10 100000 4
+  * train loss at epoch:         97 = 0.0237964838 
+  * best cross loss at epoch:         76 = 0.0383299628 
+  * RMSE: 23.89109	 3.96598	
+H: 16 P: 40
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 16 1000 10 100000 4
+  * train loss at epoch:        117 = 0.0757876373 
+  * best cross loss at epoch:         76 = 0.0435340829 
+  * RMSE: 21.19999	 3.25786	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 16 1000 10 100000 4
+  * train loss at epoch:        117 = 0.0757876373 
+  * best cross loss at epoch:         76 = 0.0383299628 
+  * RMSE: 23.89109	 3.96598	
+H: 16 P: 100
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 16 1000 10 100000 4
+  * train loss at epoch:        177 = 0.0303388104 
+  * best cross loss at epoch:         76 = 0.0435340829 
+  * RMSE: 21.19999	 3.25786	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 16 1000 10 100000 4
+  * train loss at epoch:        360 = 0.0266130481 
+  * best cross loss at epoch:        259 = 0.0207170806 
+  * RMSE: 24.67437	 4.23123	
+H: 16 P: 150
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 16 1000 10 100000 4
+  * train loss at epoch:        227 = 0.0264143564 
+  * best cross loss at epoch:         76 = 0.0435340829 
+  * RMSE: 21.19999	 3.25786	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 16 1000 10 100000 4
+  * train loss at epoch:        410 = 0.0300890759 
+  * best cross loss at epoch:        259 = 0.0207170806 
+  * RMSE: 24.67437	 4.23123	
+H: 16 P: 200
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 16 1000 10 100000 4
+  * train loss at epoch:        796 = 0.0154521151 
+  * best cross loss at epoch:        595 = 0.0226879958 
+  * RMSE: 24.72638	 2.70189	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 16 1000 10 100000 4
+  * train loss at epoch:        640 = 0.0209290213 
+  * best cross loss at epoch:        439 = 0.0166300383 
+  * RMSE: 23.49684	 3.08075	
+
+H: 24 P: 10
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 24 1000 10 100000 4
+  * train loss at epoch:         40 = 0.1220643548 
+  * best cross loss at epoch:         29 = 0.1082059594 
+  * RMSE: 28.94169	 4.94371	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 24 1000 10 100000 4
+  * train loss at epoch:         40 = 0.1220643548 
+  * best cross loss at epoch:         29 = 0.1032086380 
+  * RMSE: 30.66381	 6.57472	
+H: 24 P: 20
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 24 1000 10 100000 4
+  * train loss at epoch:        179 = 0.0794472549 
+  * best cross loss at epoch:        158 = 0.0319791543 
+  * RMSE: 13.22908	 2.46208	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 24 1000 10 100000 4
+  * train loss at epoch:        179 = 0.0794472549 
+  * best cross loss at epoch:        158 = 0.0285012791 
+  * RMSE: 16.06064	 2.76376	
+H: 24 P: 40
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 24 1000 10 100000 4
+  * train loss at epoch:        199 = 0.0269033688 
+  * best cross loss at epoch:        158 = 0.0319791543 
+  * RMSE: 13.22908	 2.46208	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 24 1000 10 100000 4
+  * train loss at epoch:        199 = 0.0269033688 
+  * best cross loss at epoch:        158 = 0.0285012791 
+  * RMSE: 16.06064	 2.76376	
+H: 24 P: 100
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 24 1000 10 100000 4
+  * train loss at epoch:        259 = 0.0175437552 
+  * best cross loss at epoch:        158 = 0.0319791543 
+  * RMSE: 13.22908	 2.46208	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 24 1000 10 100000 4
+  * train loss at epoch:        259 = 0.0175437552 
+  * best cross loss at epoch:        158 = 0.0285012791 
+  * RMSE: 16.06064	 2.76376	
+H: 24 P: 150
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 24 1000 10 100000 4
+  * train loss at epoch:        309 = 0.0148130489 
+  * best cross loss at epoch:        158 = 0.0319791543 
+  * RMSE: 13.22908	 2.46208	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 24 1000 10 100000 4
+  * train loss at epoch:        309 = 0.0148130489 
+  * best cross loss at epoch:        158 = 0.0285012791 
+  * RMSE: 16.06064	 2.76376	
+H: 24 P: 200
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 24 1000 10 100000 4
+  * train loss at epoch:        359 = 0.0140171713 
+  * best cross loss at epoch:        158 = 0.0319791543 
+  * RMSE: 13.22908	 2.46208	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 24 1000 10 100000 4
+  * train loss at epoch:        359 = 0.0140171713 
+  * best cross loss at epoch:        158 = 0.0285012791 
+  * RMSE: 16.06064	 2.76376	
+
+H: 32 P: 10
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 32 1000 10 100000 4
+  * train loss at epoch:        112 = 0.0281427578 
+  * best cross loss at epoch:        101 = 0.0365844883 
+  * RMSE: 15.58654	 1.94223	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 32 1000 10 100000 4
+  * train loss at epoch:        114 = 0.0281028005 
+  * best cross loss at epoch:        103 = 0.0331051334 
+  * RMSE: 17.89017	 2.58948	
+H: 32 P: 20
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 32 1000 10 100000 4
+  * train loss at epoch:        122 = 0.0278294978 
+  * best cross loss at epoch:        101 = 0.0365844883 
+  * RMSE: 15.58654	 1.94223	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 32 1000 10 100000 4
+  * train loss at epoch:        124 = 0.0277220249 
+  * best cross loss at epoch:        103 = 0.0331051334 
+  * RMSE: 17.89017	 2.58948	
+H: 32 P: 40
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 32 1000 10 100000 4
+  * train loss at epoch:        142 = 0.0267458765 
+  * best cross loss at epoch:        101 = 0.0365844883 
+  * RMSE: 15.58654	 1.94223	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 32 1000 10 100000 4
+  * train loss at epoch:        294 = 0.0159192994 
+  * best cross loss at epoch:        253 = 0.0127908029 
+  * RMSE: 15.39510	 2.66104	
+H: 32 P: 100
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 32 1000 10 100000 4
+  * train loss at epoch:        354 = 0.0096274018 
+  * best cross loss at epoch:        253 = 0.0189369778 
+  * RMSE:  9.62668	 1.43706	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 32 1000 10 100000 4
+  * train loss at epoch:        354 = 0.0096274018 
+  * best cross loss at epoch:        253 = 0.0127908029 
+  * RMSE: 15.39510	 2.66104	
+H: 32 P: 150
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 32 1000 10 100000 4
+  * train loss at epoch:        404 = 0.0083568308 
+  * best cross loss at epoch:        253 = 0.0189369778 
+  * RMSE:  9.62668	 1.43706	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 32 1000 10 100000 4
+  * train loss at epoch:        404 = 0.0083568308 
+  * best cross loss at epoch:        253 = 0.0127908029 
+  * RMSE: 15.39510	 2.66104	
+H: 32 P: 200
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_1_PCA_DS10_RMS100_FULL 32 1000 10 100000 4
+  * train loss at epoch:        454 = 0.0065272250 
+  * best cross loss at epoch:        253 = 0.0189369778 
+  * RMSE:  9.62668	 1.43706	
+* ./rnn S2WA_7_SUP_1_SUP_2_SUP_3_SUP_4_PRO_1_PRO_2_PRO_3_PRO_4_PCA_DS10_RMS100_FULL S2WA_7_PROSUP_2_PCA_DS10_RMS100_FULL 32 1000 10 100000 4
+  * train loss at epoch:        724 = 0.0082160338 
+  * best cross loss at epoch:        523 = 0.0094198393 
+  * RMSE: 14.43821	 2.43435	
+

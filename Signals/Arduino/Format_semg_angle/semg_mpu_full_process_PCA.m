@@ -73,8 +73,17 @@ mpu = downsample(mpu, downsample_ratio);
 semg = semg * pca_coeff;
 
 %% Restrain SEMG range
-semg(semg > semg_max_value) = semg_max_value;
-semg(semg < semg_min_value) = semg_min_value;
+% disp(['max: ' num2str(max(max(semg))) ' ' ...
+%     'min: ' num2str(min(min(semg))) ...
+%     ' ' num2str(semg_max_value) '~' num2str(semg_min_value)]);
+if ~isempty(find(semg > semg_max_value, 1)) || ...
+   ~isempty(find(semg < semg_min_value, 1))
+    disp('semg max/min error');
+    disp(['max: ' num2str(max(max(semg))) ' ' ...
+        'min: ' num2str(min(min(semg))) ...
+        ' ' num2str(semg_max_value) '~' num2str(semg_min_value)]);
+    disp('x');
+end
 
 
 %% Remove faulty data
@@ -102,15 +111,15 @@ semg =  2.*(semg - semg_min_value)...
 mpu =  2.*(mpu - mpu_min_value)...
         ./ (mpu_max_value - mpu_min_value) - 1;    
         
-figure;
-subplot_helper(1:length(semg), semg, ...
-                [1 1 1], {'sample' 'amplitude' 'Normalized sEMG'}, '-');           
-ylim([-1 1]);            
-subplot_helper(1:length(mpu), mpu, ...
-                [1 1 1], {'sample' 'amplitude' 'Normalized angle'}, '-');         
-ylim([-1 1]);
-
-legend('EMG-1', 'EMG-2', 'Angle-1', 'Angle-2');
+% figure;
+% subplot_helper(1:length(semg), semg, ...
+%                 [1 1 1], {'sample' 'amplitude' 'Normalized sEMG'}, '-');           
+% ylim([-1 1]);            
+% subplot_helper(1:length(mpu), mpu, ...
+%                 [1 1 1], {'sample' 'amplitude' 'Normalized angle'}, '-');         
+% ylim([-1 1]);
+% 
+% legend('EMG-1', 'EMG-2', 'Angle-1', 'Angle-2');
 
 
 %%
