@@ -13,5 +13,5 @@ if window_size > 0
         result(i - window_size + 1, :) = RMS_val;
     end
 else
-   result = data;        
+   result = data;
 end

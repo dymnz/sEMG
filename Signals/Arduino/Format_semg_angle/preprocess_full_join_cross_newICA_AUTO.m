@@ -7,15 +7,15 @@ addpath('../matlab_lib');
 addpath('../matlab_lib/FastICA_21');
 
 file_to_test = {
-%     {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
-%         'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'};
     {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
-        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_1'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_2'};   
+        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'};
+%     {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
+%         'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_1'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_2'};   
 };
 
 
 %% RNN
-hidden_node_count_list = {'8' '16' '32'};
+hidden_node_count_list = {'8'};
 epoch = '1000';
 rand_seed = '4';
 cross_valid_patience_list = {'100'};
@@ -153,19 +153,19 @@ concat_semg = downsample(concat_semg, downsample_ratio)';
 %                 [3 1 1], {'sample' 'amplitude' 'Before ICA'}, '-');                       
 % subplot_helper(1:length(concat_semg), concat_semg(2, :), ...
 %                 [3 1 2], {'sample' 'amplitude' 'Before ICA'}, '-');
-   
+%    
 [icasig, mixing_matrix, seperating_matrix] = fastica(concat_semg, ...
     'verbose', 'off', 'displayMode', 'off');
 
-% figure;
-% subplot_helper(1:length(concat_semg), concat_semg(1, :), ...
-%                 [2 1 1], {'sample' 'amplitude' 'Before ICA'}, '-');                                                          
-% subplot_helper(1:length(concat_semg), abs(icasig(1, :)), ...
-%                 [2 1 1], {'sample' 'amplitude' 'Before ICA'}, '-');              
-% subplot_helper(1:length(icasig), concat_semg(2, :), ...    
-%                 [2 1 2], {'sample' 'amplitude' 'After ICA'}, '-');  
-% subplot_helper(1:length(icasig), abs(icasig(2, :)), ...    
-%                 [2 1 2], {'sample' 'amplitude' 'After ICA'}, '-');             
+figure;
+subplot_helper(1:length(concat_semg), concat_semg(1, :), ...
+                [2 1 1], {'sample' 'amplitude' 'Before ICA'}, '-');                                                          
+subplot_helper(1:length(concat_semg), concat_semg(2, :), ...
+                [2 1 1], {'sample' 'amplitude' 'Before ICA'}, '-');              
+subplot_helper(1:length(icasig), abs(icasig(1, :)), ...    
+                [2 1 2], {'sample' 'amplitude' 'After ICA'}, '-');  
+subplot_helper(1:length(icasig), abs(icasig(2, :)), ...    
+                [2 1 2], {'sample' 'amplitude' 'After ICA'}, '-');             
          
 % max(max(icasig)) - min(min(icasig))
 % max(max(max_min_matrix)) - min(min(max_min_matrix))

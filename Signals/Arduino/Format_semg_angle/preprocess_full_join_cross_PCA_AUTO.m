@@ -1,24 +1,24 @@
 clear; close all;
 
-% set(0,'DefaultFigureVisible','on');
-set(0,'DefaultFigureVisible','off');
+set(0,'DefaultFigureVisible','on');
+% set(0,'DefaultFigureVisible','off');
 
 addpath('../matlab_lib');
 
 file_to_test = {
     {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
-        'PRO_2', 'PRO_3', 'PRO_4', }, {'PROSUP_2', 'PRO_5', 'SUP_5'}}, 'PROSUP_1'};
-    {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
-        'PRO_2', 'PRO_3', 'PRO_4'}, {'PROSUP_1', 'PRO_5', 'SUP_5'}}, 'PROSUP_2'};    
+        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'};
+%     {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
+%         'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_1'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_2'};   
 };
 
 
+
 %% RNN
-hidden_node_count_list = {'8' '12' '16' '24' '32'};
+hidden_node_count_list = {'8'};
 epoch = '1000';
 rand_seed = '4';
-cross_valid_patience_list = {'10' '20' '40' '100' '150' '200'};
-
+cross_valid_patience_list = {'100'};
 
 %% For different hidden node count...
 rnn_result_plaintext = [];
@@ -154,17 +154,17 @@ concat_semg = downsample(concat_semg, downsample_ratio)';
 %                 [3 1 2], {'sample' 'amplitude' 'Before ICA'}, '-');
    
 pca_coeff = pca(concat_semg', 'Algorithm','eig');
-icasig = pca_coeff * concat_semg; % (mixed' * Coeff')'
-% 
-% figure;
-% subplot_helper(1:length(concat_semg), concat_semg(1, :), ...
-%                 [2 1 1], {'sample' 'amplitude' 'Before ICA'}, '-');                                                          
-% subplot_helper(1:length(concat_semg), abs(icasig(1, :)), ...
-%                 [2 1 1], {'sample' 'amplitude' 'Before ICA'}, '-');              
-% subplot_helper(1:length(icasig), concat_semg(2, :), ...    
-%                 [2 1 2], {'sample' 'amplitude' 'After ICA'}, '-');  
-% subplot_helper(1:length(icasig), abs(icasig(2, :)), ...    
-%                 [2 1 2], {'sample' 'amplitude' 'After ICA'}, '-'); 
+icasig = pca_coeff' * concat_semg; % (mixed' * Coeff')'
+
+figure;
+subplot_helper(1:length(concat_semg), concat_semg(1, :), ...
+                [2 1 1], {'sample' 'amplitude' 'Before PCA'}, '-');                                                          
+subplot_helper(1:length(concat_semg), concat_semg(2, :), ...
+                [2 1 1], {'sample' 'amplitude' 'Before PCA'}, '-');              
+subplot_helper(1:length(icasig), abs(icasig(1, :)), ...    
+                [2 1 2], {'sample' 'amplitude' 'After PCA'}, '-');  
+subplot_helper(1:length(icasig), abs(icasig(2, :)), ...    
+                [2 1 2], {'sample' 'amplitude' 'After PCA'}, '-'); 
             
 
 % max(max(icasig)) - min(min(icasig))
@@ -172,7 +172,6 @@ icasig = pca_coeff * concat_semg; % (mixed' * Coeff')'
 
 semg_max_value = max(max(icasig)) * 1.3;
 semg_min_value = min(min(icasig)) * 1.3;
-
 
 %% Process & Output - Train
 

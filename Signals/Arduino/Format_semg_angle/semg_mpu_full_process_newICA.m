@@ -89,7 +89,7 @@ mpu = downsample(mpu, downsample_ratio);
 % ylim([-90 90]);    
 
 %% ICA demix
-semg = (seperating_matrix * semg')';
+semg = (seperating_matrix' * semg')';
 
 %% Restrain SEMG range
 % disp(['max: ' num2str(max(max(semg))) ' ' ...

@@ -57,6 +57,10 @@ legend('Angle-1', 'Angle-2');
 %                 [2 1 2], {'sample' 'amplitude' 'Interpolated angle'}, '-');         
 % ylim([-90 90]);
 
+
+%% ICA demix
+semg = (seperating_matrix * semg')';
+
 %% sEMG RMS & Angle delay
 semg = RMS_calc(semg, RMS_window_size);
 mpu = [(mpu(1, :) .* ones(RMS_window_size, size(mpu, 2))) ; mpu];
@@ -68,8 +72,6 @@ mpu = [(mpu(1, :) .* ones(RMS_window_size, size(mpu, 2))) ; mpu];
 %                 [2 1 2], {'sample' 'amplitude' 'Interpolated angle'}, '-');         
 % ylim([-90 90]);
 
-%% ICA demix
-semg = (seperating_matrix * semg')';
 
 %% Downsample
 downsample_ratio = floor(semg_sample_rate / target_sample_rate);

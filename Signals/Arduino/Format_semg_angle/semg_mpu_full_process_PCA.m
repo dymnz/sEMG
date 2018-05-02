@@ -70,7 +70,7 @@ mpu = downsample(mpu, downsample_ratio);
 % ylim([-90 90]);    
 
 %% PCA transform
-semg = semg * pca_coeff;
+semg = (pca_coeff' * semg')';
 
 %% Restrain SEMG range
 % disp(['max: ' num2str(max(max(semg))) ' ' ...
@@ -108,6 +108,7 @@ end
 semg =  2.*(semg - semg_min_value)...
         ./ (semg_max_value - semg_min_value) - 1;
 
+    
 mpu =  2.*(mpu - mpu_min_value)...
         ./ (mpu_max_value - mpu_min_value) - 1;    
         
