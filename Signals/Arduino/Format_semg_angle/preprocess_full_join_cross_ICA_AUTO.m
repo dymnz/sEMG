@@ -1,32 +1,52 @@
 clear; close all;
 
-set(0,'DefaultFigureVisible','on');
-% set(0,'DefaultFigureVisible','off');
+% set(0,'DefaultFigureVisible','on');
+set(0,'DefaultFigureVisible','off');
 
 addpath('../matlab_lib');
 addpath('../matlab_lib/FastICA_21');
 
 file_to_test = {
     {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
-        'PRO_2', 'PRO_3', 'PRO_4', }, {'PROSUP_2', 'PRO_5', 'SUP_5'}}, 'PROSUP_1'};
+        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'};  
     {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
-        'PRO_2', 'PRO_3', 'PRO_4'}, {'PROSUP_1', 'PRO_5', 'SUP_5'}}, 'PROSUP_2'};    
+        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'}; 
+    {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
+        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'}; 
+    {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
+        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'};  
+    {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
+        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'}; 
+    {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
+        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'}; 
+    {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
+        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'};  
+    {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
+        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'}; 
+    {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
+        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'}; 
+    {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
+        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'}; 
 };
 
 
 %% RNN
-hidden_node_count_list = {'2' '4' '8' '10' '12' '16' '20' '27' '36'};
+hidden_node_count_list = {'8'};
 epoch = '1000';
 rand_seed = '4';
-cross_valid_patience = '10';
+cross_valid_patience_list = {'100'};
 
 
 %% For different hidden node count...
 rnn_result_plaintext = [];
 
 for h = 1 : length(hidden_node_count_list)    
+for p = 1 : length(cross_valid_patience_list)
+    cross_valid_patience = cross_valid_patience_list{p};
     hidden_node_count = hidden_node_count_list{h};
-    rnn_result_plaintext = [rnn_result_plaintext 'H: ' hidden_node_count newline];
+    rnn_result_plaintext = ...
+        [rnn_result_plaintext 'H: ' hidden_node_count ' ' ...
+        'P: ' cross_valid_patience newline];
 for f = 1 : numel(file_to_test) % For different files...
 
 %% Filename Prepend
@@ -124,16 +144,14 @@ concat_semg = [];
 for i = 1 : length(ica_filename_list)
     raw_data = csvread(ica_filename_list{i});
     semg = raw_data(:, semg_channel);
-    semg = semg - mean(semg);
-    semg = RMS_calc(semg, RMS_window_size);
-    semg = semg ./ semg_max_value;    
-    
+
     % Remove unstable value
     semg = semg(10:end - 10, :);
   
     concat_semg = [concat_semg semg'];    
 end
 
+concat_semg = concat_semg - mean(concat_semg, 2) * ones(1, length(concat_semg));
 [icasig, mixing_matrix, seperating_matrix] = fastica(concat_semg, ...
     'verbose', 'off', 'displayMode', 'off');   
 
@@ -149,15 +167,15 @@ concat_semg = downsample(concat_semg, downsample_ratio)';
         icasig', filter_order, target_sample_rate, semg_sample_rate);   
 icasig = downsample(icasig, downsample_ratio)';
 
-% figure;
-% subplot_helper(1:length(concat_semg), concat_semg(1, :), ...
-%                 [2 1 1], {'sample' 'amplitude' 'Before PCA'}, '-');                                                          
-% subplot_helper(1:length(concat_semg), concat_semg(2, :), ...
-%                 [2 1 1], {'sample' 'amplitude' 'Before PCA'}, '-');              
-% subplot_helper(1:length(icasig), icasig(1, :), ...    
-%                 [2 1 2], {'sample' 'amplitude' 'After PCA'}, '-');  
-% subplot_helper(1:length(icasig), icasig(2, :), ...    
-%                 [2 1 2], {'sample' 'amplitude' 'After PCA'}, '-'); 
+figure;
+subplot_helper(1:length(concat_semg), concat_semg(1, :), ...
+                [2 1 1], {'sample' 'amplitude' 'Before ICA'}, '-');                                                          
+subplot_helper(1:length(concat_semg), concat_semg(2, :), ...
+                [2 1 1], {'sample' 'amplitude' 'Before ICA'}, '-');              
+subplot_helper(1:length(icasig), icasig(1, :), ...    
+                [2 1 2], {'sample' 'amplitude' 'After ICA'}, '-');  
+subplot_helper(1:length(icasig), icasig(2, :), ...    
+                [2 1 2], {'sample' 'amplitude' 'After ICA'}, '-'); 
 
 semg_max_value = max(max(icasig)) * 1.3;
 semg_min_value = min(0, min(min(icasig)) * 1.3);
@@ -307,6 +325,8 @@ rnn_result = regexp(cmdout, '[\f\n\r]', 'split');
 rnn_result = rnn_result(end-4:end-1);
 
 rnn_result_plaintext = [rnn_result_plaintext rnn_result{1} newline rnn_result{2} newline rnn_result{3} newline rnn_result{4} newline];
+
+end
 end
 rnn_result_plaintext = [rnn_result_plaintext newline];
 end
@@ -317,4 +337,4 @@ fprintf(rnn_result_plaintext);
 
 set(0,'DefaultFigureVisible','on');
 msgbox('Ding!');
-beep2()
+beep2();

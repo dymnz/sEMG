@@ -44,7 +44,8 @@ for h = 1 : length(hidden_node_count_list)
 for p = 1 : length(cross_valid_patience_list)
     cross_valid_patience = cross_valid_patience_list{p};
     hidden_node_count = hidden_node_count_list{h};
-    rnn_result_plaintext = [rnn_result_plaintext 'H: ' hidden_node_count ' ' ...
+    rnn_result_plaintext = ...
+        [rnn_result_plaintext 'H: ' hidden_node_count ' ' ...
         'P: ' cross_valid_patience newline];
 for f = 1 : numel(file_to_test) % For different files...
 
@@ -92,7 +93,7 @@ end
 train_output_filename = [ ...
     filename_prepend, ...
     strjoin(train_file_label_list, '_'), ...
-    '_newICA', ...
+    '_DNO', ...
     '_DS', num2str(target_sample_rate), ...
     '_RMS', num2str(RMS_window_size), '_FULL'];
 train_output_file = ...
@@ -102,7 +103,7 @@ train_output_file = ...
 cross_output_filename = [ ...
     filename_prepend, ...
     strjoin(cross_file_label_list, '_'), ...
-    '_newICA', ...
+    '_DNO', ...
     '_DS', num2str(target_sample_rate), ...
     '_RMS', num2str(RMS_window_size), '_FULL'];
 cross_output_file = ...
@@ -116,7 +117,7 @@ test_filename = [ ...
 test_output_filename = [ ...
     filename_prepend, ...
     test_file_label, ...
-    '_newICA', ...
+    '_DNO', ...
     '_DS', num2str(target_sample_rate), ...
     '_RMS', num2str(RMS_window_size), '_FULL'];
 test_output_file = [ ...
@@ -143,7 +144,7 @@ concat_semg = [];
 for i = 1 : length(ica_filename_list)
     raw_data = csvread(ica_filename_list{i});
     semg = raw_data(:, semg_channel);
-     
+
     % Remove unstable value
     semg = semg(10:end - 10, :);
   
@@ -154,48 +155,22 @@ concat_semg = concat_semg - mean(concat_semg, 2) * ones(1, length(concat_semg));
 
 concat_semg = RMS_calc(concat_semg', RMS_window_size)';
 
-downsample_ratio = floor(semg_sample_rate / target_sample_rate);
 filter_order = 6;
+downsample_ratio = floor(semg_sample_rate / target_sample_rate);
 [concat_semg, cb, ca] = butter_filter( ...
         concat_semg', filter_order, target_sample_rate, semg_sample_rate);   
 concat_semg = downsample(concat_semg, downsample_ratio)';
 
-% semg_var_scale = (sqrt(var(concat_semg'))');
-% concat_semg = concat_semg ./ ...
-%     (semg_var_scale .* ones(semg_channel_count, length(concat_semg)));
-
-% figure;
-% subplot_helper(1:length(concat_semg), concat_semg(1, :), ...
-%                 [3 1 1], {'sample' 'amplitude' 'Before ICA'}, '-');                       
-% subplot_helper(1:length(concat_semg), concat_semg(2, :), ...
-%                 [3 1 2], {'sample' 'amplitude' 'Before ICA'}, '-');
-%    
-[icasig, mixing_matrix, seperating_matrix] = fastica(concat_semg, ...
-    'verbose', 'off', 'displayMode', 'off');
-
-figure;
-subplot_helper(1:length(concat_semg), concat_semg(1, :), ...
-                [2 1 1], {'sample' 'amplitude' 'Before ICA'}, '-');                                                          
-subplot_helper(1:length(concat_semg), concat_semg(2, :), ...
-                [2 1 1], {'sample' 'amplitude' 'Before ICA'}, '-');              
-subplot_helper(1:length(icasig), abs(icasig(1, :)), ...    
-                [2 1 2], {'sample' 'amplitude' 'After ICA'}, '-');  
-subplot_helper(1:length(icasig), abs(icasig(2, :)), ...    
-                [2 1 2], {'sample' 'amplitude' 'After ICA'}, '-');             
-         
-% max(max(icasig)) - min(min(icasig))
-% max(max(max_min_matrix)) - min(min(max_min_matrix))
-
-semg_max_value = max(max(icasig)) * 5;
-semg_min_value = min(min(icasig)) * 5;
-% return;
+semg_max_value = max(max(concat_semg)) * 1.3;
+semg_min_value = min(0, min(min(concat_semg)) * 1.3);
+seperating_matrix = [];
 %% Process & Output - Train
 
 join_segment_list = cell(num_of_train_file, 1);
 for i = 1 : num_of_train_file    
     % Input/Output/Length  % num_of_segments
     join_segment_list{i} = ...
-        semg_mpu_full_process_newICA(train_filename_list{i}, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_val, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, seperating_matrix);
+        semg_mpu_full_process(train_filename_list{i}, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_val, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, seperating_matrix);        
     %fprintf('Processed File %d\n', i);
 end
 
@@ -240,7 +215,7 @@ for i = 1 : num_of_cross_file
     
     % Input/Output/Length  % num_of_segments
     join_segment_list{i} = ...
-        semg_mpu_full_process_newICA(cross_filename_list{i}, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_val, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, seperating_matrix);
+        semg_mpu_full_process(cross_filename_list{i}, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_val, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, seperating_matrix);        
     %fprintf('Processed File %d\n', i);
 end
 
@@ -284,7 +259,7 @@ fclose(output_fileID);
 
 % Input/Output/Length  % num_of_segments
 full_sig = ...    
-    semg_mpu_full_process_newICA(test_filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_val, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, seperating_matrix);
+    semg_mpu_full_process(test_filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_val, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, seperating_matrix);
 
 
 output_fileID = fopen(test_output_file, 'w');
@@ -326,8 +301,7 @@ cd('../../../../RNN/LSTM/');
 cd(origin_dir);
 
 
-
-% close all;
+close all;
 % Show test file result
 verify_multi_semg(test_output_filename);
 
@@ -343,12 +317,8 @@ end
 
 
 clipboard('copy', rnn_result_plaintext);
-
-
-%% RNN
-hidden_node_count_list = {'8'}; %'12' '16' '24' '32' '40'};result_plaintext);
 fprintf(rnn_result_plaintext);
 
 set(0,'DefaultFigureVisible','on');
 msgbox('Ding!');
-beep2()
+beep2();

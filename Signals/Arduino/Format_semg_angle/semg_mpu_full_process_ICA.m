@@ -45,10 +45,10 @@ for ch = 1 : mpu_channel_count
     ylim([semg_min semg_max]);
 end     
 
-subplot_helper(1:length(mpu), mpu, ...
-                [graph_count 1 graph_count], {'sample' 'amplitude' 'Interpolated angle'}, '-');         
-ylim([mpu_min_value mpu_max_value]);
-legend('Angle-1', 'Angle-2');
+% subplot_helper(1:length(mpu), mpu, ...
+%                 [graph_count 1 graph_count], {'sample' 'amplitude' 'Interpolated angle'}, '-');         
+% ylim([mpu_min_value mpu_max_value]);
+% legend('Angle-1', 'Angle-2');
 
 % figure;
 % subplot_helper(1:length(semg), semg, ...
@@ -94,8 +94,18 @@ mpu = downsample(mpu, downsample_ratio);
 % ylim([-90 90]);    
 
 %% Restrain SEMG range
-semg(semg > semg_max_value) = semg_max_value;
-semg(semg < semg_min_value) = semg_min_value;
+% disp(['max: ' num2str(max(max(semg))) ' ' ...
+%     'min: ' num2str(min(min(semg))) ...
+%     ' ' num2str(semg_max_value) '~' num2str(semg_min_value)]);
+if ~isempty(find(semg > semg_max_value, 1)) || ...
+   ~isempty(find(semg < semg_min_value, 1))
+    disp('semg max/min error');
+    disp(['max: ' num2str(max(max(semg))) ' ' ...
+        'min: ' num2str(min(min(semg))) ...
+        ' ' num2str(semg_max_value) '~' num2str(semg_min_value)]);
+    disp('x');
+    beep2();
+end
 
 
 %% Remove faulty data
@@ -117,21 +127,24 @@ if RMS_window_size <= 0
 end
 
 % semg = abs(semg);
-semg =  2.*(semg - semg_min_value)...
-        ./ (semg_max_value - semg_min_value) - 1;
+% semg =  2.*(semg - semg_min_value)...
+%         ./ (semg_max_value - semg_min_value) - 1;
+
+semg =  semg ...
+        ./ (semg_max_value - semg_min_value);    
 
 mpu =  2.*(mpu - mpu_min_value)...
         ./ (mpu_max_value - mpu_min_value) - 1;    
         
-figure;
-subplot_helper(1:length(semg), semg, ...
-                [2 1 1], {'sample' 'amplitude' 'Normalized sEMG'}, '-');           
-ylim([-1 1]);            
-legend('EMG-1', 'EMG-2');
-subplot_helper(1:length(mpu), mpu, ...
-                [2 1 2], {'sample' 'amplitude' 'Normalized angle'}, '-');         
-ylim([-1 1]);
-legend('Angle-1', 'Angle-2');
+% figure;
+% subplot_helper(1:length(semg), semg, ...
+%                 [2 1 1], {'sample' 'amplitude' 'Normalized sEMG'}, '-');           
+% ylim([-1 1]);            
+% legend('EMG-1', 'EMG-2');
+% subplot_helper(1:length(mpu), mpu, ...
+%                 [2 1 2], {'sample' 'amplitude' 'Normalized angle'}, '-');         
+% ylim([-1 1]);
+% legend('Angle-1', 'Angle-2');
 
 
 %%

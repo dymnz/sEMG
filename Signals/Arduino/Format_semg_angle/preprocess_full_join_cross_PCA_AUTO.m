@@ -1,15 +1,31 @@
 clear; close all;
 
-set(0,'DefaultFigureVisible','on');
-% set(0,'DefaultFigureVisible','off');
+% set(0,'DefaultFigureVisible','on');
+set(0,'DefaultFigureVisible','off');
 
 addpath('../matlab_lib');
 
 file_to_test = {
     {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
-        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'};
-%     {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
-%         'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_1'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_2'};   
+        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'};  
+    {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
+        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'}; 
+    {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
+        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'}; 
+    {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
+        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'};  
+    {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
+        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'}; 
+    {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
+        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'}; 
+    {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
+        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'};  
+    {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
+        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'}; 
+    {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
+        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'}; 
+    {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
+        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'}; 
 };
 
 
