@@ -135,8 +135,14 @@ end
 
 concat_semg = concat_semg - mean(concat_semg, 2) * ones(1, length(concat_semg));
 
+figure;
+subplot_helper(1:length(concat_semg), concat_semg, ...
+                [2 1 1], {'sample' 'amplitude' 'Before RMS'}, '-');                       
 concat_semg = RMS_calc(concat_semg', RMS_window_size)';
-
+subplot_helper(1:length(concat_semg), concat_semg, ...
+                [2 1 2], {'sample' 'amplitude' 'Before RMS'}, '-');
+            
+return;           
 filter_order = 6;
 downsample_ratio = floor(semg_sample_rate / target_sample_rate);
 [concat_semg, cb, ca] = butter_filter( ...
