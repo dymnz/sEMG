@@ -153,6 +153,7 @@ void serialEvent(Serial serial) {
       
       if (serial_count >= pot_packet_len) {
         pot_values[0] =  int((pot_packet[1] << 8) | (pot_packet[0]));
+        println(pot_values[0]);
         
         pot_buffer[0][pot_buffer_index] = (int)pot_values[0];
         
