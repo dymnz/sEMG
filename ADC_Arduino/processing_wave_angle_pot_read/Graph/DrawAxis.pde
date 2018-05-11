@@ -7,7 +7,7 @@ int[] semg_last_height = new int[semg_channel];
 int[] mpu_last_height = new int[mpu_channel];
 int[] pot_last_height = new int[pot_channel];
 
-final int[][] semg_color_list = {{255, 120, 120}, {120, 255, 120}, {120, 120, 255}};
+final int[][] semg_color_list = {{255, 120, 120}, {120, 255, 120}, {120, 120, 255}, {120, 120, 120}};
 final int[][] mpu_color_list = {{30, 30, 255}};
 final int[][] pot_color_list = {{140, 140, 255}};
 
@@ -23,7 +23,7 @@ void drawAll() {
     for (int i = 0; i < semg_channel; ++i) {
       draw_value = int(map(semg_buffer[i][semg_draw_index], semg_minValue, semg_maxValue, 0, height));
       stroke(semg_color_list[i][0], semg_color_list[i][1], semg_color_list[i][2]);
-      line(semg_last_x, semg_last_height[i], x, height - draw_value);
+      //line(semg_last_x, semg_last_height[i], x, height - draw_value);
       
       semg_last_height[i] = int(height - draw_value);
       
@@ -51,7 +51,7 @@ void drawAll() {
       for (int i = 0; i < mpu_channel; ++i) {
         stroke(mpu_color_list[i][0], mpu_color_list[i][1], mpu_color_list[i][2]);
         draw_value = int(map(mpu_buffer[i][mpu_draw_index], mpu_minValue, mpu_maxValue, 0, height));
-        line(mpu_last_x, mpu_last_height[i], x, height - draw_value);
+        //line(mpu_last_x, mpu_last_height[i], x, height - draw_value);
         
         mpu_last_height[i] = int(height - draw_value);
        

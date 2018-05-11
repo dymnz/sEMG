@@ -16,7 +16,7 @@ final float graph_x_step = 0.1;
 final float force_calibration_factor = -200000;
 final int value_buffer_size = 10000;
 
-final int semg_channel = 2;
+final int semg_channel = 4;
 final int semg_packet_byte = 2;
 final int mpu_channel = 1;
 final int mpu_packet_byte = 2;
@@ -154,6 +154,11 @@ void serialEvent(Serial serial) {
       if (serial_count >= pot_packet_len) {
         pot_values[0] =  int((pot_packet[1] << 8) | (pot_packet[0]));
         println(pot_values[0]);
+        
+        if (pot_values[0] > 3865 || pot_values[0] < 1170) {
+          println("POT value out of range");
+          exit(); 
+        }
         
         pot_buffer[0][pot_buffer_index] = (int)pot_values[0];
         

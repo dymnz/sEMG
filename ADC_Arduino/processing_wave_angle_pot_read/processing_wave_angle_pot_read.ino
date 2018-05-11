@@ -6,7 +6,7 @@
 #define CLK  2
 
 #define ACCE_REG_ADDR 0x3B
-#define MV_SIZE 100
+#define MV_SIZE 20
 #define WAIT_SAMPLE 30
 #define DELAY_MS 1
 #define MAX_ANGLE 360
@@ -18,7 +18,7 @@ const int MaxSampleCount = 1000;
 
 const int alignment_packet_len = 1;
 
-const int semg_channel = 2;
+const int semg_channel = 4;
 const int semg_packet_byte = 2;
 const int semg_packet_len = alignment_packet_len + semg_channel * semg_packet_byte;
 
@@ -104,7 +104,11 @@ void loop() {
     semg_value = analogRead(A0);
     ((uint16_t *)(semg_packet + alignment_packet_len))[0] = semg_value;
     semg_value = analogRead(A1);
-    ((uint16_t *)(semg_packet + alignment_packet_len))[1] = semg_value;        
+    ((uint16_t *)(semg_packet + alignment_packet_len))[1] = semg_value;
+    semg_value = analogRead(A2);
+    ((uint16_t *)(semg_packet + alignment_packet_len))[2] = semg_value;
+    semg_value = analogRead(A3);
+    ((uint16_t *)(semg_packet + alignment_packet_len))[3] = semg_value;               
     SerialUSB.write(semg_packet, semg_packet_len);
     //*/
   }
