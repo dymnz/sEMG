@@ -93,12 +93,10 @@ void loop() {
     ((int16_t *)(mpu_packet + alignment_packet_len))[0] = (int16_t)mpu_1.roll_pitch[0];
     SerialUSB.write(mpu_packet, mpu_packet_len);
 
-
     POT_read(&pot_1);
     POT_calculateAverage(&pot_1);
     ((uint16_t *)(pot_packet + alignment_packet_len))[0] = (uint16_t)pot_1.average;
     SerialUSB.write(pot_packet, pot_packet_len);
-    //SerialUSB.println((uint16_t)pot_1.average);
     
     ///*
     semg_value = analogRead(A0);

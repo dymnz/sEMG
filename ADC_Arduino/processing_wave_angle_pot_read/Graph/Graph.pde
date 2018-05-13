@@ -75,11 +75,12 @@ void setup() {
   serial = new Serial(this, "/dev/ttyACM0", 4000000); // Set this to your serial port obtained using the line above
 
 }
+
 int c = 0;
 void serialEvent(Serial serial) {  
   while (serial.available() > 0) {
     char ch = (char)serial.read();
-
+    
     if (serial_state == State.HOLD) {
       if (ch == semg_alignment_packet[alignment_count]) {
         if (alignment_count == 0)
@@ -90,7 +91,7 @@ void serialEvent(Serial serial) {
         if (alignment_count == 0)
           serial_state = State.MPU_ALIGN;         
         ++alignment_count;
-      }      
+      }       //<>//
       else if (ch == pot_alignment_packet[alignment_count]) {
         if (alignment_count == 0)
           serial_state = State.POT_ALIGN;         
@@ -113,12 +114,11 @@ void serialEvent(Serial serial) {
       ++serial_count;
       
       if (serial_count >= semg_packet_len) {
-        semg_values[0] = (semg_packet[1] << 8) | semg_packet[0];
-        semg_values[1] = (semg_packet[3] << 8) | semg_packet[2];
-        
-        
-        semg_buffer[0][semg_buffer_index] = semg_values[0];
-        semg_buffer[1][semg_buffer_index] = semg_values[1];
+        for (int i = 0; i < semg_channel; ++i) {
+        semg_values[i] = (semg_packet[2 * i + 1] << 8) | semg_packet[2 * i];
+
+        semg_buffer[i][semg_buffer_index] = semg_values[i];
+        }
         
         if (++semg_buffer_index >= value_buffer_size) 
           semg_buffer_index = 0;
@@ -127,7 +127,7 @@ void serialEvent(Serial serial) {
         serial_state = State.HOLD;
         serial_count = 0;
         
-        //sampleCount();
+        sampleCount();
       }             
     } else if (serial_state == State.MPU_READ) {
       mpu_packet[serial_count] = ch;
@@ -136,9 +136,9 @@ void serialEvent(Serial serial) {
       
       if (serial_count >= mpu_packet_len) {
         mpu_values[0] =  int((mpu_packet[1] << 8) | (mpu_packet[0]));
-        
+
         mpu_buffer[0][mpu_buffer_index] = convert_to_int16((int)mpu_values[0]);
-        
+     
         if (++mpu_buffer_index >= value_buffer_size) 
           mpu_buffer_index = 0;
           
@@ -153,12 +153,15 @@ void serialEvent(Serial serial) {
       
       if (serial_count >= pot_packet_len) {
         pot_values[0] =  int((pot_packet[1] << 8) | (pot_packet[0]));
-        println(pot_values[0]);
         
+        // Safety range is the range where voltage-angle relationship is linear
         if (pot_values[0] > 3865 || pot_values[0] < 1170) {
           println("POT value out of range");
           exit(); 
         }
+        
+        // Convert raw voltage value to angle w/ 90d positioning
+        pot_convert();
         
         pot_buffer[0][pot_buffer_index] = (int)pot_values[0];
         
@@ -172,6 +175,14 @@ void serialEvent(Serial serial) {
     }
   }  
 }
+
+void keyPressed() {
+  if (key == '0') { // ascii for '0' 
+    pot_tare();
+    mpu_tare();
+  }
+}
+
 
 void draw() {
   // Force data is drawn along with SEMG data as the update

@@ -23,7 +23,7 @@ Torque & Gravity Issue, see exp_7. New ICA normalization, ICA after downsample.
     * S2WA_7_PRO_ 
   * Supination: >0 degree only. From 0d move toward 90d then pause. Start moving toward 0d then stop.
     * S2WA_7_SUP_
-  * Extension/Flexion: Full range. From 0d move toward 90d then pause. Start moving toward 0d then pause. From 0d move toward -90d then pause. Start moving toward 0d then stop.
+  * Pronation/Supination: Full range. From 0d move toward 90d then pause. Start moving toward 0d then pause. From 0d move toward -90d then pause. Start moving toward 0d then stop.
     * S2WA_7_PROSUP_
   * Pattern
     * _1: Fixed_amp Fixed_interval, long pause  (train)

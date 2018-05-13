@@ -7,7 +7,7 @@ int[] semg_last_height = new int[semg_channel];
 int[] mpu_last_height = new int[mpu_channel];
 int[] pot_last_height = new int[pot_channel];
 
-final int[][] semg_color_list = {{255, 120, 120}, {120, 255, 120}, {120, 120, 255}, {120, 120, 120}};
+final int[][] semg_color_list = {{120, 10, 10}, {255, 170, 170}, {10, 120, 10}, {170, 255, 170}};
 final int[][] mpu_color_list = {{30, 30, 255}};
 final int[][] pot_color_list = {{140, 140, 255}};
 
@@ -20,10 +20,10 @@ void drawAll() {
   //println(semg_buffer_index, force_buffer_index);
   while (semg_draw_index < semg_buffer_index) {
     buffer_str = "";
-    for (int i = 0; i < semg_channel; ++i) {
+    for (int i = 0; i < semg_channel; i++) {
       draw_value = int(map(semg_buffer[i][semg_draw_index], semg_minValue, semg_maxValue, 0, height));
       stroke(semg_color_list[i][0], semg_color_list[i][1], semg_color_list[i][2]);
-      //line(semg_last_x, semg_last_height[i], x, height - draw_value);
+      line(semg_last_x, semg_last_height[i], x, height - draw_value);
       
       semg_last_height[i] = int(height - draw_value);
       
@@ -34,7 +34,7 @@ void drawAll() {
     if (pot_draw_index < pot_buffer_index) {      
       for (int i = 0; i < pot_channel; ++i) {
         stroke(pot_color_list[i][0], pot_color_list[i][1], pot_color_list[i][2]);
-        draw_value = int(map(pot_buffer[i][pot_draw_index], pot_minValue, pot_maxValue, 0, height));
+        draw_value = int(map(pot_buffer[i][pot_draw_index], converted_pot_minValue, converted_pot_maxValue, 0, height));
         line(pot_last_x, pot_last_height[i], x, height - draw_value);
         
         pot_last_height[i] = int(height - draw_value);
@@ -51,7 +51,7 @@ void drawAll() {
       for (int i = 0; i < mpu_channel; ++i) {
         stroke(mpu_color_list[i][0], mpu_color_list[i][1], mpu_color_list[i][2]);
         draw_value = int(map(mpu_buffer[i][mpu_draw_index], mpu_minValue, mpu_maxValue, 0, height));
-        //line(mpu_last_x, mpu_last_height[i], x, height - draw_value);
+        line(mpu_last_x, mpu_last_height[i], x, height - draw_value);
         
         mpu_last_height[i] = int(height - draw_value);
        
@@ -124,9 +124,35 @@ void mpu_convert() {
 
 final int pot_minValue = 0;
 final int pot_maxValue = 4095;
+final int converted_pot_minValue = -90;
+final int converted_pot_maxValue = 90;
+int pot_angle_0d_diff = 0; // The diff of angle when hand resting and 0d; 
+
 void pot_convert() {
+  // Convert raw voltage value to angle w/ 90d positioning
   
+  // y = mx + b - angle_0d_diff
+  // Calculated from measurement, see 'pot_angle_data.m'
+  final float m = -0.0371;
+  final float b = 193.414;
+  
+  pot_values[0] = m * pot_values[0] + b - pot_angle_0d_diff;
 }
+
+
+// Use the last value stored in pot_buffer to tare;
+void pot_tare() {
+  println("Tared!");
+  pot_angle_0d_diff = (int) pot_buffer[0][pot_buffer_index] + pot_angle_0d_diff;
+}
+
+// Use the last value stored in pot_buffer to tare;
+int mpu_angle_0d_diff = 0; // The diff of angle when hand resting and 0d; 
+void mpu_tare() {
+  println("Tared!");
+  mpu_angle_0d_diff = (int) pot_buffer[0][pot_buffer_index] + mpu_angle_0d_diff;
+}
+
 
 void writeAll() {
   
