@@ -2,13 +2,12 @@ function verify_multi_semg(file_name)
 
 addpath('../matlab_lib');
 
-
-semg_channel_count = 2;
+semg_channel_count = 4;
 mpu_channel_count = 2;
 
 graph_count = 1 + mpu_channel_count;
 
-semg_channel_index = 1:2;
+semg_channel_index = 1:4;
 mpu_channel_index = 1:2;
 
 mpu_min_value = -90;

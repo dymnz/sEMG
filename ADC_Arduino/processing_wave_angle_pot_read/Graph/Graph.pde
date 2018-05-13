@@ -6,7 +6,7 @@ PrintWriter file;
 enum State {HOLD, SEMG_ALIGN, MPU_ALIGN, POT_ALIGN,SEMG_READ, MPU_READ, POT_READ,SEMG_FIN, MPU_FIN, POT_FIN}
 State serial_state = State.HOLD;
 
-final String filename = "../../../Signals/Arduino/Format_semg_angle/data/raw_S2WA_4ch_test.txt";
+final String filename = "../../../Signals/Arduino/Format_semg_angle/data/raw_S2WA_10_FLXEXTPRO_1.txt";
 
 final int width = 1440;
 final int height = 900;
@@ -60,6 +60,8 @@ boolean draw_semg  = false;
 boolean draw_mpu = false;
 boolean draw_pot  = false;
 boolean aligned = false;
+
+boolean tared = false; // Value is wrote to file only after tared = true
 
 void settings() {
   size(width, height, FX2D);
@@ -137,6 +139,8 @@ void serialEvent(Serial serial) {
       if (serial_count >= mpu_packet_len) {
         mpu_values[0] =  int((mpu_packet[1] << 8) | (mpu_packet[0]));
 
+        mpu_convert();
+
         mpu_buffer[0][mpu_buffer_index] = convert_to_int16((int)mpu_values[0]);
      
         if (++mpu_buffer_index >= value_buffer_size) 
@@ -155,7 +159,7 @@ void serialEvent(Serial serial) {
         pot_values[0] =  int((pot_packet[1] << 8) | (pot_packet[0]));
         
         // Safety range is the range where voltage-angle relationship is linear
-        if (pot_values[0] > 3865 || pot_values[0] < 1170) {
+        if (pot_values[0] > 3870 || pot_values[0] < 770) {
           println("POT value out of range");
           exit(); 
         }
@@ -180,6 +184,7 @@ void keyPressed() {
   if (key == '0') { // ascii for '0' 
     pot_tare();
     mpu_tare();
+    tared = true;
   }
 }
 

@@ -45,18 +45,17 @@ for ch = 1 : mpu_channel_count
     ylim([semg_min semg_max]);
 end     
 
-% subplot_helper(1:length(mpu), mpu, ...
-%                 [graph_count 1 graph_count], {'sample' 'amplitude' 'Interpolated angle'}, '-');         
-% ylim([mpu_min_value mpu_max_value]);
-% legend('Angle-1', 'Angle-2');
+subplot_helper(1:length(mpu), mpu, ...
+                [graph_count 1 graph_count], {'sample' 'amplitude' 'Interpolated angle'}, '-');         
+ylim([mpu_min_value mpu_max_value]);
+legend('Angle-1', 'Angle-2');
 
-% figure;
-% subplot_helper(1:length(semg), semg, ...
-%                 [2 1 1], {'sample' 'amplitude' 'sEMG'}, '-');
-% subplot_helper(1:length(mpu), mpu, ...
-%                 [2 1 2], {'sample' 'amplitude' 'Interpolated angle'}, '-');         
-% ylim([-90 90]);
-
+figure;
+subplot_helper(1:length(semg), semg, ...
+                [2 1 1], {'sample' 'amplitude' 'sEMG'}, '-');
+subplot_helper(1:length(mpu), mpu, ...
+                [2 1 2], {'sample' 'amplitude' 'Interpolated angle'}, '-o');         
+ylim([-90 90]);
 
 
 %% sEMG RMS & Angle delay

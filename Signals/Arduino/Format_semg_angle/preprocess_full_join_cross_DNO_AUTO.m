@@ -6,14 +6,18 @@ set(0,'DefaultFigureVisible','on');
 addpath('../matlab_lib');
 addpath('../matlab_lib/FastICA_21');
 
+%% Filename Prepend
+file_loc_prepend = './data/raw_';
+filename_prepend = 'S2WA_10_';
+file_extension = '.txt';
+
 file_to_test = {
-    {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
-        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'};   
+    {{{'PRO_1', 'PRO_2', 'PRO_5'}, {'PRO_3'}}, 'PRO_4'};   
 };
 
 
 %% RNN
-hidden_node_count_list = {'8'};
+hidden_node_count_list = {'12'};
 epoch = '1000';
 rand_seed = '4';
 cross_valid_patience_list = {'100'};
@@ -30,11 +34,6 @@ for p = 1 : length(cross_valid_patience_list)
         [rnn_result_plaintext 'H: ' hidden_node_count ' ' ...
         'P: ' cross_valid_patience newline];
 for f = 1 : numel(file_to_test) % For different files...
-
-%% Filename Prepend
-file_loc_prepend = './data/raw_';
-filename_prepend = 'S2WA_7_';
-file_extension = '.txt';
 
 ica_file_label_list = file_to_test{f}{1}{1};
 train_file_label_list = file_to_test{f}{1}{1};
@@ -106,17 +105,17 @@ test_output_file = [ ...
     '../../../../RNN/LSTM/data/input/exp_', ...
         test_output_filename, file_extension];              
 
-semg_sample_rate = 540; % Approximate
+semg_sample_rate = 460; % Approximate
 semg_max_value = 2048;
 semg_min_value = -2048;
-mpu_max_value = 90;
-mpu_min_value = -90;
+mpu_max_value = 180;
+mpu_min_value = -180;
 
-semg_channel_count = 2;
+semg_channel_count = 4;
 mpu_channel_count = 2;
 
-semg_channel = 1:2;
-mpu_channel = 3:4;  % 3: Roll(SUP/SUP) / 4: Pitch(Flx/Ext)
+semg_channel = 1:4;
+mpu_channel = 5:6;  % 3: Roll(SUP/SUP) / 4: Pitch(Flx/Ext)
 
 num_of_train_file = length(train_filename_list);
 num_of_cross_file = length(cross_filename_list);
@@ -142,15 +141,15 @@ concat_semg = RMS_calc(concat_semg', RMS_window_size)';
 subplot_helper(1:length(concat_semg), concat_semg, ...
                 [2 1 2], {'sample' 'amplitude' 'Before RMS'}, '-');
             
-return;           
+         
 filter_order = 6;
 downsample_ratio = floor(semg_sample_rate / target_sample_rate);
 [concat_semg, cb, ca] = butter_filter( ...
         concat_semg', filter_order, target_sample_rate, semg_sample_rate);   
 concat_semg = downsample(concat_semg, downsample_ratio)';
 
-semg_max_value = max(max(concat_semg)) * 1.3;
-semg_min_value = min(0, min(min(concat_semg)) * 1.3);
+semg_max_value = max(max(concat_semg)) * 2;
+semg_min_value = min(0, min(min(concat_semg)) * 2);
 seperating_matrix = [];
 %% Process & Output - Train
 
