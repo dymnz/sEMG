@@ -2,16 +2,14 @@
 
 4-ch sEMG FLX/EXT(Pot.) & PRO/SUP(Gyro).
 
-Torque & Gravity Issue, see exp_6. Switch back to "0 degree is defined as palm facing down flat on the table", **WITH** device assisted PRO/SUP.
-
 Target: RMSE < 10 degree
 
 * Muscle:
   * PRO/SUP
-    * Pronator Teres **(CH3, red)**
+    * Pronator Teres **(CH1, red)**
     * Supinator Muscle (CH2, light red)  
   * FLX/EXT
-    * Flexor Carpi Radialis **(CH1, green)**
+    * Flexor Carpi Radialis **(CH3, green)**
     * Extensor Carpi Ulnaris (CH4, light green)
 * Protocol
   * Zero-load, palm facing down, making a fist
@@ -47,6 +45,41 @@ Target: RMSE < 10 degree
     * _5: Var_amp Var_interval, brief pause     (test)
 
 
+
+
+---
+### Experiment-10 - DoNothing, RMS @ 100pts, Downsampled @ 10hz
+
+---
+
+### Experiment-10 - downICA, RMS @ 100pts, Downsampled @ 10hz
+
+
+Read more on FastICA and whitening
+
+---
+
+### Experiment-10 - downPCA, RMS @ 100pts, Downsampled @ 10hz
+
+---
+
+### Experiment-10 - ICAdown, RMS @ 100pts, Downsampled @ 10hz
+
+---
+
+### Experiment-10 - PCAdown, RMS @ 100pts, Downsampled @ 10hz
+
+
+---
+
+### Notes
+
+* Ch-1 for EXT_1~5 SUP_1~5 PROSUP_1~3 FLXEXT_12 'FLXEXTPROSUP_1', 'FLXEXTPROSUP_2', 'FLXEXTPROSUP_3', 'FLXEXTPROSUP_4',...
+    'FLXEXTPRO_1', 'FLXEXTSUP_1' have nothing but noise, need to retest
+  * Check signal error w/ 'plot_multi_semg.m' in the future
+  * Remeasured
+
+---
 
 ### TODO
 - [x] 4-ch sEMG hardware

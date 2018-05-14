@@ -6,22 +6,76 @@ set(0,'DefaultFigureVisible','on');
 addpath('../matlab_lib');
 addpath('../matlab_lib/FastICA_21');
 
-%% Filename Prepend
+%% Setting
 file_loc_prepend = './data/raw_';
-filename_prepend = 'S2WA_10_';
 file_extension = '.txt';
 
+filename_prepend = 'S2WA_10_';
 file_to_test = {
-    {{{'PRO_1', 'PRO_2', 'PRO_5'}, {'PRO_3'}}, 'PRO_4'};   
+    
+    % Hard self
+    {{{'PRO_1', 'PRO_2', 'PRO_4'}, {'PRO_3'}}, 'PRO_5'}; 
+    {{{'SUP_1', 'SUP_2', 'SUP_4'}, {'SUP_3'}}, 'SUP_5'};
+    {{{'FLX_1', 'FLX_2', 'FLX_4'}, {'FLX_3'}}, 'FLX_5'};
+    {{{'EXT_1', 'EXT_2', 'EXT_4'}, {'EXT_3'}}, 'EXT_5'};
+    
+    % Easy self
+    {{{'PRO_1', 'PRO_2', 'PRO_5'}, {'PRO_3'}}, 'PRO_4'};
+    {{{'SUP_1', 'SUP_2', 'SUP_5'}, {'SUP_3'}}, 'SUP_4'};
+    {{{'FLX_1', 'FLX_2', 'FLX_5'}, {'FLX_3'}}, 'FLX_4'}; 
+    {{{'EXT_1', 'EXT_2', 'EXT_5'}, {'EXT_3'}}, 'EXT_4'}; 
+    
+    % Complex PROSUP
+    {{{'PRO_1', 'PRO_2', 'PRO_3', 'PRO_5', ...
+       'SUP_1', 'SUP_2', 'SUP_3', 'SUP_5'}, ...
+       {'SUP_4', 'PRO_4'}}, ...
+       'PROSUP_1'};
+    {{{'PRO_1', 'PRO_2', 'PRO_3', 'PRO_5', ...
+       'SUP_1', 'SUP_2', 'SUP_3', 'SUP_5'}, ...
+       {'SUP_4', 'PRO_4'}}, ...
+       'PROSUP_2'};  
+   {{{'PRO_1', 'PRO_2', 'PRO_3', 'PRO_5', ...
+       'SUP_1', 'SUP_2', 'SUP_3', 'SUP_5'}, ...
+       {'SUP_4', 'PRO_4'}}, ...
+       'PROSUP_3'};  
+       
+    % Complex FLXEXT
+    {{{'FLX_1', 'FLX_2', 'FLX_3', 'FLX_5', ...
+       'EXT_1', 'EXT_2', 'EXT_3', 'EXT_5'}, ...
+       {'EXT_4', 'FLX_4'}}, ...
+       'FLXEXT_1'};
+    {{{'FLX_1', 'FLX_2', 'FLX_3', 'FLX_5', ...
+       'EXT_1', 'EXT_2', 'EXT_3', 'EXT_5'}, ...
+       {'EXT_4', 'FLX_4'}}, ...
+       'FLXEXT_2'};  
+   {{{'FLX_1', 'FLX_2', 'FLX_3', 'FLX_5', ...
+       'EXT_1', 'EXT_2', 'EXT_3', 'EXT_5'}, ...
+       {'EXT_4', 'FLX_4'}}, ...
+       'FLXEXT_3'};  
 };
 
 
-%% RNN
+% RNN
 hidden_node_count_list = {'12'};
 epoch = '1000';
 rand_seed = '4';
 cross_valid_patience_list = {'100'};
 
+% Signal Setting
+target_sample_rate = 10;
+RMS_window_size = 100;    % RMS window in pts
+
+semg_sample_rate = 460; % Approximate
+semg_max_value = 2048;
+semg_min_value = -2048;
+mpu_max_value = 90;
+mpu_min_value = -90;
+
+semg_channel_count = 4;
+mpu_channel_count = 2;
+
+semg_channel = 1:4;
+mpu_channel = 5:6;  % 5: Pitch(Flx/Ext) / 6: Roll(SUP/SUP) 
 
 %% For different hidden node count...
 rnn_result_plaintext = [];
@@ -39,10 +93,6 @@ ica_file_label_list = file_to_test{f}{1}{1};
 train_file_label_list = file_to_test{f}{1}{1};
 cross_file_label_list = file_to_test{f}{1}{2};
 test_file_label = file_to_test{f}{2};
-
-%% Signal Setting
-target_sample_rate = 10;
-RMS_window_size = 100;    % RMS window in pts
 
 
 %% File
@@ -67,7 +117,6 @@ for i = 1 : length(train_file_label_list)
     ica_filename_list{i} = ...
         [file_loc_prepend, filename_prepend, ...
             ica_file_label_list{i}, file_extension];
-    
 end
 
 
@@ -105,18 +154,6 @@ test_output_file = [ ...
     '../../../../RNN/LSTM/data/input/exp_', ...
         test_output_filename, file_extension];              
 
-semg_sample_rate = 460; % Approximate
-semg_max_value = 2048;
-semg_min_value = -2048;
-mpu_max_value = 180;
-mpu_min_value = -180;
-
-semg_channel_count = 4;
-mpu_channel_count = 2;
-
-semg_channel = 1:4;
-mpu_channel = 5:6;  % 3: Roll(SUP/SUP) / 4: Pitch(Flx/Ext)
-
 num_of_train_file = length(train_filename_list);
 num_of_cross_file = length(cross_filename_list);
 
@@ -126,7 +163,7 @@ for i = 1 : length(ica_filename_list)
     raw_data = csvread(ica_filename_list{i});
     semg = raw_data(:, semg_channel);
 
-    % Remove unstable value
+    % Remove front and end to avoid noise
     semg = semg(10:end - 10, :);
   
     concat_semg = [concat_semg semg'];    
@@ -134,23 +171,26 @@ end
 
 concat_semg = concat_semg - mean(concat_semg, 2) * ones(1, length(concat_semg));
 
-figure;
-subplot_helper(1:length(concat_semg), concat_semg, ...
-                [2 1 1], {'sample' 'amplitude' 'Before RMS'}, '-');                       
-concat_semg = RMS_calc(concat_semg', RMS_window_size)';
-subplot_helper(1:length(concat_semg), concat_semg, ...
-                [2 1 2], {'sample' 'amplitude' 'Before RMS'}, '-');
-            
+% figure;
+% subplot_helper(1:length(concat_semg), concat_semg, ...
+%                 [2 1 1], {'sample' 'amplitude' 'Before RMS'}, '-');                       
+% concat_semg = RMS_calc(concat_semg', RMS_window_size)';
+% subplot_helper(1:length(concat_semg), concat_semg, ...
+%                 [2 1 2], {'sample' 'amplitude' 'After RMS'}, '-');
+%             
          
+concat_semg = RMS_calc(concat_semg', RMS_window_size)';
+
 filter_order = 6;
 downsample_ratio = floor(semg_sample_rate / target_sample_rate);
 [concat_semg, cb, ca] = butter_filter( ...
         concat_semg', filter_order, target_sample_rate, semg_sample_rate);   
 concat_semg = downsample(concat_semg, downsample_ratio)';
 
-semg_max_value = max(max(concat_semg)) * 2;
-semg_min_value = min(0, min(min(concat_semg)) * 2);
+semg_max_value = max(max(concat_semg)) * 1.5;
+semg_min_value = min(0, min(min(concat_semg)) * 1.5);
 seperating_matrix = [];
+
 %% Process & Output - Train
 
 join_segment_list = cell(num_of_train_file, 1);
@@ -288,7 +328,7 @@ cd('../../../../RNN/LSTM/');
 cd(origin_dir);
 
 
-close all;
+% close all;
 % Show test file result
 verify_multi_semg(test_output_filename);
 

@@ -2,6 +2,11 @@ function [num_matrix, input_matrix_list, output_matrix_list] = ...
             read_test_file(file_name)
 
 fileID = fopen(file_name,'r');
+if fileID == -1
+    disp([file_name ' not found']);
+    return;
+end
+
 num_matrix = fscanf(fileID, '%d', 1);
 
 %fprintf('reading %d samples\n', num_matrix);

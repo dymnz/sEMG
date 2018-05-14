@@ -15,7 +15,7 @@ mpu_min_value = -90;
 mpu_max_value = 90;
 
 
-file_name = 'S2WA_10_PRO_5_DNO_DS10_RMS100_FULL';
+file_name = 'S2WA_10_FLX_1_ICAdown_DS10_RMS100_FULL';
 
 
 test_file_location = '../../../../RNN/LSTM/data/output/';

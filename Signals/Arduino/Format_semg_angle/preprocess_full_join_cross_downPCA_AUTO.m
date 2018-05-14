@@ -1,40 +1,80 @@
+% Downsample before PCA
+
 clear; close all;
 
 % set(0,'DefaultFigureVisible','on');
 set(0,'DefaultFigureVisible','off');
 
 addpath('../matlab_lib');
+%% Setting
+file_loc_prepend = './data/raw_';
+file_extension = '.txt';
 
+filename_prepend = 'S2WA_10_';
 file_to_test = {
-    {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
-        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'};  
-    {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
-        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'}; 
-    {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
-        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'}; 
-    {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
-        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'};  
-    {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
-        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'}; 
-    {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
-        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'}; 
-    {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
-        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'};  
-    {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
-        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'}; 
-    {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
-        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'}; 
-    {{{'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'PRO_1', ...
-        'PRO_2', 'PRO_3', 'PRO_4', 'PROSUP_2'}, {'PRO_5', 'SUP_5'}}, 'PROSUP_1'}; 
+    
+    % Hard self
+    {{{'PRO_1', 'PRO_2', 'PRO_4'}, {'PRO_3'}}, 'PRO_5'}; 
+    {{{'SUP_1', 'SUP_2', 'SUP_4'}, {'SUP_3'}}, 'SUP_5'};
+    {{{'FLX_1', 'FLX_2', 'FLX_4'}, {'FLX_3'}}, 'FLX_5'};
+    {{{'EXT_1', 'EXT_2', 'EXT_4'}, {'EXT_3'}}, 'EXT_5'};
+    
+    % Easy self
+    {{{'PRO_1', 'PRO_2', 'PRO_5'}, {'PRO_3'}}, 'PRO_4'};
+    {{{'SUP_1', 'SUP_2', 'SUP_5'}, {'SUP_3'}}, 'SUP_4'};
+    {{{'FLX_1', 'FLX_2', 'FLX_5'}, {'FLX_3'}}, 'FLX_4'}; 
+    {{{'EXT_1', 'EXT_2', 'EXT_5'}, {'EXT_3'}}, 'EXT_4'}; 
+    
+    % Complex PROSUP
+    {{{'PRO_1', 'PRO_2', 'PRO_3', 'PRO_5', ...
+       'SUP_1', 'SUP_2', 'SUP_3', 'SUP_5'}, ...
+       {'SUP_4', 'PRO_4'}}, ...
+       'PROSUP_1'};
+    {{{'PRO_1', 'PRO_2', 'PRO_3', 'PRO_5', ...
+       'SUP_1', 'SUP_2', 'SUP_3', 'SUP_5'}, ...
+       {'SUP_4', 'PRO_4'}}, ...
+       'PROSUP_2'};  
+   {{{'PRO_1', 'PRO_2', 'PRO_3', 'PRO_5', ...
+       'SUP_1', 'SUP_2', 'SUP_3', 'SUP_5'}, ...
+       {'SUP_4', 'PRO_4'}}, ...
+       'PROSUP_3'};  
+       
+    % Complex FLXEXT
+    {{{'FLX_1', 'FLX_2', 'FLX_3', 'FLX_5', ...
+       'EXT_1', 'EXT_2', 'EXT_3', 'EXT_5'}, ...
+       {'EXT_4', 'FLX_4'}}, ...
+       'FLXEXT_1'};
+    {{{'FLX_1', 'FLX_2', 'FLX_3', 'FLX_5', ...
+       'EXT_1', 'EXT_2', 'EXT_3', 'EXT_5'}, ...
+       {'EXT_4', 'FLX_4'}}, ...
+       'FLXEXT_2'};  
+   {{{'FLX_1', 'FLX_2', 'FLX_3', 'FLX_5', ...
+       'EXT_1', 'EXT_2', 'EXT_3', 'EXT_5'}, ...
+       {'EXT_4', 'FLX_4'}}, ...
+       'FLXEXT_3'};  
 };
 
-
-
-%% RNN
-hidden_node_count_list = {'8'};
+% RNN
+hidden_node_count_list = {'12'};
 epoch = '1000';
 rand_seed = '4';
 cross_valid_patience_list = {'100'};
+
+% Signal Setting
+target_sample_rate = 10;
+RMS_window_size = 100;    % RMS window in pts
+
+semg_sample_rate = 460; % Approximate
+semg_max_value = 2048;
+semg_min_value = -2048;
+mpu_max_value = 90;
+mpu_min_value = -90;
+
+semg_channel_count = 4;
+mpu_channel_count = 2;
+
+semg_channel = 1:4;
+mpu_channel = 5:6;  % 3: Roll(SUP/SUP) / 4: Pitch(Flx/Ext)
 
 %% For different hidden node count...
 rnn_result_plaintext = [];
@@ -49,18 +89,10 @@ for p = 1 : length(cross_valid_patience_list)
 for f = 1 : numel(file_to_test) % For different files...
 
 %% Filename Prepend
-file_loc_prepend = './data/raw_';
-filename_prepend = 'S2WA_7_';
-file_extension = '.txt';
-
 ica_file_label_list = file_to_test{f}{1}{1};
 train_file_label_list = file_to_test{f}{1}{1};
 cross_file_label_list = file_to_test{f}{1}{2};
 test_file_label = file_to_test{f}{2};
-
-%% Signal Setting
-target_sample_rate = 10;
-RMS_window_size = 100;    % RMS window in pts
 
 % Gather training filename
 train_filename_list = cell(1, length(train_file_label_list));
@@ -89,7 +121,7 @@ end
 train_output_filename = [ ...
     filename_prepend, ...
     strjoin(train_file_label_list, '_'), ...
-    '_PCA', ...
+    '_downPCA', ...
     '_DS', num2str(target_sample_rate), ...
     '_RMS', num2str(RMS_window_size), '_FULL'];
 train_output_file = ...
@@ -99,7 +131,7 @@ train_output_file = ...
 cross_output_filename = [ ...
     filename_prepend, ...
     strjoin(cross_file_label_list, '_'), ...
-    '_PCA', ...
+    '_downPCA', ...
     '_DS', num2str(target_sample_rate), ...
     '_RMS', num2str(RMS_window_size), '_FULL'];
 cross_output_file = ...
@@ -114,24 +146,12 @@ test_filename = [ ...
 test_output_filename = [ ...
     filename_prepend, ...
     test_file_label, ...
-    '_PCA', ...
+    '_downPCA', ...
     '_DS', num2str(target_sample_rate), ...
     '_RMS', num2str(RMS_window_size), '_FULL'];
 test_output_file = [ ...
     '../../../../RNN/LSTM/data/input/exp_', ...
         test_output_filename, file_extension];              
-
-semg_sample_rate = 540; % Approximate
-semg_max_value = 2048;
-semg_min_value = -2048;
-mpu_max_value = 90;
-mpu_min_value = -90;
-
-semg_channel_count = 2;
-mpu_channel_count = 2;
-
-semg_channel = 1:2;
-mpu_channel = 3:4;  % 3: Roll(SUP/SUP) / 4: Pitch(Flx/Ext)
 
 num_of_train_file = length(train_filename_list);
 num_of_cross_file = length(cross_filename_list);
@@ -170,24 +190,24 @@ concat_semg = downsample(concat_semg, downsample_ratio)';
 %                 [3 1 2], {'sample' 'amplitude' 'Before ICA'}, '-');
    
 pca_coeff = pca(concat_semg', 'Algorithm','eig');
-icasig = pca_coeff' * concat_semg; % (mixed' * Coeff')'
+pca_sig = pca_coeff' * concat_semg; % (mixed' * Coeff')'
 
 figure;
 subplot_helper(1:length(concat_semg), concat_semg(1, :), ...
                 [2 1 1], {'sample' 'amplitude' 'Before PCA'}, '-');                                                          
 subplot_helper(1:length(concat_semg), concat_semg(2, :), ...
                 [2 1 1], {'sample' 'amplitude' 'Before PCA'}, '-');              
-subplot_helper(1:length(icasig), abs(icasig(1, :)), ...    
+subplot_helper(1:length(pca_sig), abs(pca_sig(1, :)), ...    
                 [2 1 2], {'sample' 'amplitude' 'After PCA'}, '-');  
-subplot_helper(1:length(icasig), abs(icasig(2, :)), ...    
+subplot_helper(1:length(pca_sig), abs(pca_sig(2, :)), ...    
                 [2 1 2], {'sample' 'amplitude' 'After PCA'}, '-'); 
             
 
-% max(max(icasig)) - min(min(icasig))
+% max(max(pca_sig)) - min(min(pca_sig))
 % max(max(max_min_matrix)) - min(min(max_min_matrix))
 
-semg_max_value = max(max(icasig)) * 1.3;
-semg_min_value = min(min(icasig)) * 1.3;
+semg_max_value = max(max(pca_sig)) * 2;
+semg_min_value = min(0, min(min(min(pca_sig)) * 2, min(min(pca_sig)) - 50));
 
 %% Process & Output - Train
 
@@ -196,7 +216,7 @@ for i = 1 : num_of_train_file
     
     % Input/Output/Length  % num_of_segments
     join_segment_list{i} = ...
-        semg_mpu_full_process_PCA(train_filename_list{i}, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, pca_coeff);
+        semg_mpu_full_process_downPCA(train_filename_list{i}, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, pca_coeff);
     %fprintf('Processed File %d\n', i);
 end
 
@@ -241,7 +261,7 @@ for i = 1 : num_of_cross_file
     
     % Input/Output/Length  % num_of_segments
     join_segment_list{i} = ...
-        semg_mpu_full_process_PCA(cross_filename_list{i}, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, pca_coeff);
+        semg_mpu_full_process_downPCA(cross_filename_list{i}, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, pca_coeff);
     %fprintf('Processed File %d\n', i);
 end
 
@@ -284,7 +304,7 @@ fclose(output_fileID);
 
 % Input/Output/Length  % num_of_segments
 full_sig = ... 
-    semg_mpu_full_process_PCA(test_filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, pca_coeff);
+    semg_mpu_full_process_downPCA(test_filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, pca_coeff);
 
 output_fileID = fopen(test_output_file, 'w');
 

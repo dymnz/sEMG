@@ -1,10 +1,10 @@
-function [processed_signal] = semg_mpu_full_process_newICA(filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, seperating_matrix)
+function [processed_signal] = semg_mpu_full_process_ICAdown(filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, seperating_matrix)
 
 raw_data = csvread(filename);
 semg = raw_data(:, semg_channel);
 mpu = raw_data(:, mpu_channel);
 
-% Remove mean and normalize sEMG
+% Remove mean
 semg = semg - mean(semg);
 mpu = mpu - mpu_shift_value;
 
@@ -44,18 +44,22 @@ semg_max = max(max(semg));
 %                     '-');    
 %     ylim([semg_min semg_max]);
 % end     
-% 
+
 % subplot_helper(1:length(mpu), mpu, ...
 %                 [graph_count 1 graph_count], {'sample' 'amplitude' 'Interpolated angle'}, '-');         
 % ylim([mpu_min_value mpu_max_value]);
 % legend('Angle-1', 'Angle-2');
-
+% 
 % figure;
 % subplot_helper(1:length(semg), semg, ...
 %                 [2 1 1], {'sample' 'amplitude' 'sEMG'}, '-');
 % subplot_helper(1:length(mpu), mpu, ...
 %                 [2 1 2], {'sample' 'amplitude' 'Interpolated angle'}, '-');         
 % ylim([-90 90]);
+
+
+%% ICA demix
+semg = (seperating_matrix * semg')';
 
 %% sEMG RMS & Angle delay
 semg = RMS_calc(semg, RMS_window_size);
@@ -67,6 +71,7 @@ mpu = [(mpu(1, :) .* ones(RMS_window_size, size(mpu, 2))) ; mpu];
 % subplot_helper(1:length(mpu), mpu, ...
 %                 [2 1 2], {'sample' 'amplitude' 'Interpolated angle'}, '-');         
 % ylim([-90 90]);
+
 
 %% Downsample
 downsample_ratio = floor(semg_sample_rate / target_sample_rate);
@@ -88,9 +93,6 @@ mpu = downsample(mpu, downsample_ratio);
 %                 [2 1 2], {'sample' 'amplitude' 'Downsampled angle'}, '-');         
 % ylim([-90 90]);    
 
-%% ICA demix
-semg = (seperating_matrix' * semg')';
-
 %% Restrain SEMG range
 % disp(['max: ' num2str(max(max(semg))) ' ' ...
 %     'min: ' num2str(min(min(semg))) ...
@@ -102,8 +104,8 @@ if ~isempty(find(semg > semg_max_value, 1)) || ...
         'min: ' num2str(min(min(semg))) ...
         ' ' num2str(semg_max_value) '~' num2str(semg_min_value)]);
     disp('x');
+    beep2();
 end
-
 
 
 %% Remove faulty data
@@ -125,8 +127,11 @@ if RMS_window_size <= 0
 end
 
 % semg = abs(semg);
-semg =  2.*(semg - semg_min_value)...
-        ./ (semg_max_value - semg_min_value) - 1;
+% semg =  2.*(semg - semg_min_value)...
+%         ./ (semg_max_value - semg_min_value) - 1;
+
+semg =  semg ...
+        ./ (semg_max_value - semg_min_value);    
 
 mpu =  2.*(mpu - mpu_min_value)...
         ./ (mpu_max_value - mpu_min_value) - 1;    
@@ -140,6 +145,7 @@ mpu =  2.*(mpu - mpu_min_value)...
 %                 [2 1 2], {'sample' 'amplitude' 'Normalized angle'}, '-');         
 % ylim([-1 1]);
 % legend('Angle-1', 'Angle-2');
+
 
 %%
 
