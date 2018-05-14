@@ -8,6 +8,7 @@ mpu = raw_data(:, mpu_channel);
 semg = semg - mean(semg);
 mpu = mpu - mpu_shift_value;
 
+
 %% Angle data interpolation
 %mpu(abs(mpu)<1e-3) = 0;
 
@@ -115,7 +116,7 @@ end
 
 
 %% Remove faulty data
-usable_data_range = 1 : min(length(semg), length(mpu));
+usable_data_range = 10 : min(length(semg), length(mpu));
 semg = semg(usable_data_range, :);
 mpu = mpu(usable_data_range, :);
 

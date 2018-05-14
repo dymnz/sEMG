@@ -87,7 +87,7 @@ end
 
 
 %% Remove faulty data
-usable_data_range = 1 : min(length(semg), length(mpu));
+usable_data_range = 10 : min(length(semg), length(mpu));
 semg = semg(usable_data_range, :);
 mpu = mpu(usable_data_range, :);
 

@@ -105,11 +105,11 @@ if ~isempty(find(semg > semg_max_value, 1)) || ...
         ' ' num2str(semg_max_value) '~' num2str(semg_min_value)]);
     disp('x');
     beep2();
-end
+end 
 
 
 %% Remove faulty data
-usable_data_range = 1 : min(length(semg), length(mpu));
+usable_data_range = 10 : min(length(semg), length(mpu));
 semg = semg(usable_data_range, :);
 mpu = mpu(usable_data_range, :);
 
