@@ -101,9 +101,6 @@ if ~isempty(find(semg > semg_max_value, 1)) || ...
         'min: ' num2str(min(min(semg))) ...
         ' ' num2str(semg_max_value) '~' num2str(semg_min_value)]);
     disp('x');
-    semg =  semg ...
-        ./ (semg_max_value - semg_min_value);
-    figure; plot(semg);
     beep2();
 end
 

@@ -67,12 +67,12 @@ semg = downsample(semg, downsample_ratio);
 mpu = downsample(mpu, downsample_ratio);
 
 
-figure;
-subplot_helper(1:length(semg), semg, ...
-                [2 1 1], {'sample' 'amplitude' 'Downsampled sEMG'}, '-');
-subplot_helper(1:length(mpu), mpu, ...
-                [2 1 2], {'sample' 'amplitude' 'Downsampled angle'}, '-');         
-ylim([-90 90]);    
+% figure;
+% subplot_helper(1:length(semg), semg, ...
+%                 [2 1 1], {'sample' 'amplitude' 'Downsampled sEMG'}, '-');
+% subplot_helper(1:length(mpu), mpu, ...
+%                 [2 1 2], {'sample' 'amplitude' 'Downsampled angle'}, '-');         
+% ylim([-90 90]);    
 
 
 

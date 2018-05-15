@@ -30,7 +30,17 @@ ICA, Impulse extraction,
     * flexor carpi ulnaris
 * [EMG-based simultaneous and proportional estimation of wrist/hand kinematics in uni-lateral trans-radial amputees (2012)](https://jneuroengrehab.biomedcentral.com/articles/10.1186/1743-0003-9-42)
   * Wrist (3-DOF), 7-ch sEMG, TDAR feature set, MLP
-  * Intact-limbed: (3-DOF)72.8 +- 8.29% accuracy
+  * Intact-limbed: 
+    * (3-DOF)72.8 +- 8.29% accuracy
+    * ~DoF-12 90.6% ± 3.68% (CG group, motion 1/2/4/5, accounting PROSUP/FLXEXT)~ DOF2 is R/U deviation
+* [Multichannel surface EMG based estimation of bilateral hand kinematics during movements at multiple degrees of freedom (2010)](https://ieeexplore.ieee.org/document/5627622/)
+  * Previous work of above
+  * Intact bodied, 5 grid w/ 16-ch each (80-ch)
+  * Fullwave rectified sEMG
+  * 3-DOF, w/ 6 separate MLP. MLP output filted w/ LPF 1Hz(?)
+  * Coefficient of determination (variability explained by estimated values)
+    * FLX/EXT: 82.7 +- 2.9%
+    * PRO/SUP: 76.6 +- 11.8%
 * [Simultaneous and proportional control of 2D wrist movements with myoelectric signals (2012)](http://ieeexplore.ieee.org/document/6349712/)
   * 192-ch sEMG array, nonlinear transformations, Flexion/Extension/RU-Deviation
 * [Bayesian Filtering of Surface EMG for Accurate Simultaneous and Proportional Prosthetic Control (2014)](http://ieeexplore.ieee.org/document/7332757/)
@@ -39,8 +49,11 @@ ICA, Impulse extraction,
 * [Quantifying Forearm Muscle Activity during Wrist and Finger Movements by Means of Multi-Channel Electromyography (2014)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4188712/)
   * 112-ch sEMG array
 * [EMG-based learning approach for estimating wrist motion (2015)](https://www.researchgate.net/publication/283713267_EMG-based_learning_approach_for_estimating_wrist_motion)
+  * Based on *EMG-based simultaneous and proportional estimation of wrist/hand kinematics in uni-lateral trans-radial amputees (2012)*
   * 11-ch sEMG, SVR
   * Wrist angle @ different arm position
+  * Circular motion of FLX/EXT & RU-Deviation
+  * Same day Same pose: 78% | Same day Across pose: 63% | Different day: 50 ~ 0%
 * Continuous Estimation of Wrist Angles for Proportional Control Based on Surface Electromyography (2016)
   * 4-ch sEMG, BPNN w/ fixed windowed RMS pre-processing has the best result
   * Separate tests for Flexion/Extension/Pronation/Supination
@@ -65,12 +78,12 @@ ICA, Impulse extraction,
   * [Source](http://www.sportsinjuryclinic.net/anatomy/human-muscles/wrist-hand-joint-actions/wrist-extension) | **Highlighted** because used in [other paper](http://ieeexplore.ieee.org/document/6072755/)
     * Extensor Digitorum <- testing
     * **[Extensor Carpi Radialis Longus](https://en.wikipedia.org/wiki/Extensor_carpi_radialis_longus_muscle)**
-    * **[Extensor Carpi Ulnaris](https://en.wikipedia.org/wiki/Extensor_carpi_ulnaris_muscle)** 
+    * **[Extensor Carpi Ulnaris](https://en.wikipedia.org/wiki/Extensor_carpi_ulnaris_muscle)** <-- Chosen
     * Extensor Pollicis Longus 
 
 * Flexion | *Should find which muscle other experiments are focusing on*
   * [Source](http://www.sportsinjuryclinic.net/anatomy/human-muscles/wrist-hand-joint-actions/wrist-flexion) | **Highlighted** because used in [other paper](http://ieeexplore.ieee.org/document/6072755/)
-    * **[Flexor Carpi Radialis](https://en.wikipedia.org/wiki/Flexor_carpi_radialis_muscle)**
+    * **[Flexor Carpi Radialis](https://en.wikipedia.org/wiki/Flexor_carpi_radialis_muscle)** <-- Chosen
     * **[Flexor Carpi Ulnaris](https://en.wikipedia.org/wiki/Flexor_carpi_ulnaris_muscle)**
     * Flexor Digitorum Superficialis <- testing
     * Flexor Pollicis Longus (Thumb movement)
@@ -79,5 +92,5 @@ ICA, Impulse extraction,
   * **[Pronator Teres](https://en.wikipedia.org/wiki/Pronator_teres_muscle)**: Near elbow
   * Pronator Quadratus: Near wrist (Hard to locate)
 * Supination | [Source](http://www.innerbody.com/image/musc03.html) | **Highlighted** = chosen
-  * Supinator Muscle: Near elbow (Hard to locate)
-  * **Biceps Brachii** 
+  * **Supinator Muscle** : Near elbow (Hard to locate)
+  * Biceps Brachii (Tried and failed)
