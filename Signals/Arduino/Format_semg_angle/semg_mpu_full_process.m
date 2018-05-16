@@ -30,7 +30,7 @@ for ch = 1 : mpu_channel_count
     mpu(start_point:end_point, ch) = ...
         interp1([start_point end_point], ...
             [mpu(start_point, ch) mpu(end_point, ch)], xq);        
-end    
+end
 
 semg_min = min(min(semg));
 semg_max = max(max(semg));

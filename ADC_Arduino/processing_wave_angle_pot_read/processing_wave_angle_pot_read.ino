@@ -90,7 +90,7 @@ void loop() {
     MPU_read(&mpu_1);
     MPU_calculateAverage(&mpu_1);
     MPU_calculateOrientation(&mpu_1);
-    ((int16_t *)(mpu_packet + alignment_packet_len))[0] = (int16_t)mpu_1.roll_pitch[0];
+    ((int16_t *)(mpu_packet + alignment_packet_len))[0] = (int16_t)mpu_1.roll_pitch[1];
     SerialUSB.write(mpu_packet, mpu_packet_len);
 
     POT_read(&pot_1);

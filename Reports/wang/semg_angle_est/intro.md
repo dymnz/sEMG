@@ -20,6 +20,9 @@ ICA, Impulse extraction,
 
 ### Paper
 
+* [A new strategy for multifunction myoelectric control(1993)](https://ieeexplore.ieee.org/document/204774/)
+  * ANN chosen for fast training time
+
 * [SVM for Estimation of Wrist Angle from Sonomyography And SEMG Signals (2011)](http://ieeexplore.ieee.org/document/4353415/)
   * Flexion/Extension
 * [Wrist angle estimation based on musculoskeletal systems with EMG (2011)](http://ieeexplore.ieee.org/document/6072755/)

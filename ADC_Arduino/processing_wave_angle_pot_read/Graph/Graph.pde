@@ -6,7 +6,7 @@ PrintWriter file;
 enum State {HOLD, SEMG_ALIGN, MPU_ALIGN, POT_ALIGN,SEMG_READ, MPU_READ, POT_READ,SEMG_FIN, MPU_FIN, POT_FIN}
 State serial_state = State.HOLD;
 
-final String filename = "../../../Signals/Arduino/Format_semg_angle/data/raw_S2WA_10_FLXEXTPROSUP_1.txt";
+final String filename = "../../../Signals/Arduino/Format_semg_angle/data/MPU_VS_POT_1.txt";
 
 final int width = 1440;
 final int height = 900;
@@ -139,9 +139,11 @@ void serialEvent(Serial serial) {
       if (serial_count >= mpu_packet_len) {
         mpu_values[0] =  int((mpu_packet[1] << 8) | (mpu_packet[0]));
 
+        mpu_values[0] = convert_to_int16((int)mpu_values[0]);
+        
         mpu_convert();
-
-        mpu_buffer[0][mpu_buffer_index] = convert_to_int16((int)mpu_values[0]);
+        
+        mpu_buffer[0][mpu_buffer_index] = (int)mpu_values[0];
      
         if (++mpu_buffer_index >= value_buffer_size) 
           mpu_buffer_index = 0;

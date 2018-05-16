@@ -23,7 +23,7 @@ void drawAll() {
     for (int i = 0; i < semg_channel; i++  ) {
       draw_value = int(map(semg_buffer[i][semg_draw_index], semg_minValue, semg_maxValue, 0, height));
       stroke(semg_color_list[i][0], semg_color_list[i][1], semg_color_list[i][2]);
-      line(semg_last_x, semg_last_height[i], x, height - draw_value);
+      //line(semg_last_x, semg_last_height[i], x, height - draw_value);
 
       semg_last_height[i] = int(height - draw_value);
 
@@ -114,15 +114,6 @@ void semg_convert_abs() {
   semg_values[0] = abs(semg_values[0] - 2048) + 2048;
 }
 
-
-final int mpu_minValue = -180;
-final int mpu_maxValue = 180;
-void mpu_convert() {
-  mpu_values[0] = mpu_values[0] - mpu_angle_0d_diff;
-}
-
-
-
 final int pot_minValue = 0;
 final int pot_maxValue = 4095;
 final int converted_pot_minValue = -90;
@@ -140,17 +131,23 @@ void pot_convert() {
   pot_values[0] = m * pot_values[0] + b - pot_angle_0d_diff;
 }
 
+final int mpu_minValue = -180;
+final int mpu_maxValue = 180;
+void mpu_convert() {
+  mpu_values[0] = mpu_values[0] - mpu_angle_0d_diff;
+  
+}
 
 // Use the last value stored in pot_buffer to tare;
 void pot_tare() {
-  println("Tared!");
+  println("Pot. Tared!");
   pot_angle_0d_diff = (int) pot_buffer[0][pot_buffer_index] + pot_angle_0d_diff;
 }
 
 // Use the last value stored in pot_buffer to tare;
 int mpu_angle_0d_diff = 0; // The diff of angle when hand resting and 0d; 
 void mpu_tare() {
-  println("Tared!");
+  println("MPU Tared!");
   mpu_angle_0d_diff = (int) mpu_buffer[0][mpu_buffer_index] + mpu_angle_0d_diff;
 }
 
