@@ -10,8 +10,10 @@
   * TD feature set + 6 AR, not suitable for RNN. See [A new strategy for multifunction myoelectric control(1993)](https://ieeexplore.ieee.org/document/204774/)
   * Window = 100 ms long, with 60 ms overlap
 * [Multichannel surface EMG based estimation of bilateral hand kinematics during movements at multiple degrees of freedom (2010)](https://ieeexplore.ieee.org/document/5627622/)
+  * Full-wave rectified, LPF-16Hz
 
 * [Simultaneous and proportional control of 2D wrist movements with myoelectric signals (2012)](http://ieeexplore.ieee.org/document/6349712/)
+  * 200mS of AVG/RMS/LOG-VAR. See [Spatial Filtering for Robust Myoelectric Control](https://ieeexplore.ieee.org/document/6156755/)
 
 * [Bayesian Filtering of Surface EMG for Accurate Simultaneous and Proportional Prosthetic Control (2014)](http://ieeexplore.ieee.org/document/7332757/)
 
@@ -20,7 +22,7 @@
 * [EMG-based learning approach for estimating wrist motion (2015)](https://www.researchgate.net/publication/283713267_EMG-based_learning_approach_for_estimating_wrist_motion)
 
 * Continuous Estimation of Wrist Angles for Proportional Control Based on Surface Electromyography (2016)
-
+ 
 * [Continuous estimation of hand's joint angles from sEMG using wavelet-based features and SVR (2016)](https://dl.acm.org/citation.cfm?id=3051498)
 
 * [sEMG-based approach for estimating wrist and fingers joint angles using discrete wavelet transform (2016)](https://www.researchgate.net/publication/313455445_sEMG-based_approach_for_estimating_wrist_and_fingers_joint_angles_using_discrete_wavelet_transform)
