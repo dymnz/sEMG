@@ -1,8 +1,11 @@
-function [processed_signal] = semg_mpu_full_process(filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, seperating_matrix)
+function [processed_signal] = semg_mpu_full_process_RMSonly(filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, seperating_matrix)
 
 raw_data = csvread(filename);
 semg = raw_data(:, semg_channel);
 mpu = raw_data(:, mpu_channel);
+
+semg = semg(1 : end - 10, :);
+mpu = mpu(1 : end - 10, :);
 
 % Remove mean
 semg = semg - mean(semg);

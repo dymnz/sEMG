@@ -4,6 +4,9 @@ raw_data = csvread(filename);
 semg = raw_data(:, semg_channel);
 mpu = raw_data(:, mpu_channel);
 
+semg = semg(1 : end - 10, :);
+mpu = mpu(1 : end - 10, :);
+
 % Remove mean
 semg = semg - mean(semg);
 

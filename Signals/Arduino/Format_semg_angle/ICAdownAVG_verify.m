@@ -154,6 +154,9 @@ concat_semg = concat_semg - ones(size(concat_semg)) .* mean(concat_semg, 2);
 variance = (sqrt(var(concat_semg'))') * ones(1, length(concat_semg));
 concat_semg = concat_semg ./ variance;
 
+concat_semg = AVG_calc(concat_semg', RMS_window_size)';
+
+
 figure;
 subplot_helper(1:length(concat_semg), concat_semg(1, :)', ...
                 [4 1 1], {'sample' 'amplitude' 'Before ICA'}, '-');                                                                  
@@ -166,7 +169,9 @@ subplot_helper(1:length(concat_semg), concat_semg(4, :)'', ...
 
 [ica_semg, mixing_matrix, seperating_matrix] = fastica(concat_semg, ...
     'verbose', 'off', 'displayMode', 'off');   
+ica_semg = AVG_calc(ica_semg', RMS_window_size)';
 
+ica_semg = ica_semg - mean(ica_semg);
 
 figure;
 subplot_helper(1:length(ica_semg), ica_semg(1, :)', ...
@@ -188,8 +193,7 @@ end
 return;
 %%
 
-concat_semg = RMS_calc(concat_semg', RMS_window_size)';
-ica_semg = RMS_calc(ica_semg', RMS_window_size)';
+
 
 downsample_ratio = floor(semg_sample_rate / target_sample_rate);
 filter_order = 6;
