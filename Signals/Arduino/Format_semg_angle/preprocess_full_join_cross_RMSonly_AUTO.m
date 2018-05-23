@@ -292,6 +292,7 @@ for i = 1 : length(ica_filename_list)
 
     % Remove front and end to avoid noise
     semg = semg(10:end - 10, :);
+    semg = semg - mean(semg);
   
     concat_semg = [concat_semg semg'];    
 end
@@ -314,9 +315,8 @@ downsample_ratio = floor(semg_sample_rate / target_sample_rate);
         concat_semg', filter_order, target_sample_rate, semg_sample_rate);   
 concat_semg = downsample(concat_semg, downsample_ratio)';
 
-semg_max_value = max(max(concat_semg)) * 1.5;
-semg_min_value = 0;
-seperating_matrix = [];
+semg_max_value = max(concat_semg, [], 2) .* 2;
+semg_min_value =  zeros(semg_channel_count, 1);
 
 %% Process & Output - Train
 
@@ -324,7 +324,7 @@ join_segment_list = cell(num_of_train_file, 1);
 for i = 1 : num_of_train_file    
     % Input/Output/Length  % num_of_segments
     join_segment_list{i} = ...
-        semg_mpu_full_process_RMSonly(train_filename_list{i}, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_val, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, seperating_matrix);        
+        semg_mpu_full_process_RMSonly(train_filename_list{i}, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_val, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel);        
     %fprintf('Processed File %d\n', i);
 end
 
@@ -369,7 +369,7 @@ for i = 1 : num_of_cross_file
     
     % Input/Output/Length  % num_of_segments
     join_segment_list{i} = ...
-        semg_mpu_full_process_RMSonly(cross_filename_list{i}, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_val, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, seperating_matrix);        
+        semg_mpu_full_process_RMSonly(cross_filename_list{i}, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_val, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel);        
     %fprintf('Processed File %d\n', i);
 end
 
@@ -413,7 +413,7 @@ fclose(output_fileID);
 
 % Input/Output/Length  % num_of_segments
 full_sig = ...    
-    semg_mpu_full_process_RMSonly(test_filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_val, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, seperating_matrix);
+    semg_mpu_full_process_RMSonly(test_filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_val, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel);
 
 
 output_fileID = fopen(test_output_file, 'w');

@@ -1,11 +1,11 @@
-function [processed_signal] = semg_mpu_full_process_RAW(filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, seperating_matrix)
+function [processed_signal] = semg_mpu_full_process_PULSE(filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, pulse_threshold)
 
 raw_data = csvread(filename);
 semg = raw_data(:, semg_channel);
 mpu = raw_data(:, mpu_channel);
 
-semg = semg(1 : end - 10, :);
-mpu = mpu(1 : end - 10, :);
+semg = semg(10 : end - 10, :);
+mpu = mpu(10 : end - 10, :);
 
 
 % Remove mean
@@ -61,6 +61,9 @@ semg_max = max(max(semg));
 %                 [2 1 2], {'sample' 'amplitude' 'Interpolated angle'}, '-o');         
 % ylim([-90 90]);
 
+%% Pulse generation
+
+semg = semg_find_pulse(semg, pulse_threshold);
 
 %% Downsample
 downsample_ratio = floor(semg_sample_rate / target_sample_rate);
@@ -83,19 +86,17 @@ mpu = downsample(mpu, downsample_ratio);
 % ylim([-90 90]);    
 
 %% Restrain SEMG range
-% disp(['max: ' num2str(max(max(semg))) ' ' ...
-%     'min: ' num2str(min(min(semg))) ...
-%     ' ' num2str(semg_max_value) '~' num2str(semg_min_value)]);
-if ~isempty(find(semg > semg_max_value, 1)) || ...
-   ~isempty(find(semg < semg_min_value, 1))
+for i = 1 : semg_channel_count
+if ~isempty(find(semg(:, i) > semg_max_value(i), 1)) || ...
+   ~isempty(find(semg(:, i) < semg_min_value(i), 1))
     disp('semg max/min error');
     disp(['max: ' num2str(max(max(semg))) ' ' ...
         'min: ' num2str(min(min(semg))) ...
-        ' ' num2str(semg_max_value) '~' num2str(semg_min_value)]);
+        ' ' num2str(semg_max_value(i)) '~' num2str(semg_min_value(i))]);
     disp('x');
     beep2();
 end
-
+end
 
 %% Remove faulty data
 usable_data_range = 10 : min(length(semg), length(mpu));
@@ -119,8 +120,14 @@ end
 % semg =  2.*(semg - semg_min_value)...
 %         ./ (semg_max_value - semg_min_value) - 1;
 
-semg =  semg ...
-        ./ (semg_max_value - semg_min_value);    
+% semg =  semg ...
+%         ./ (semg_max_value' - semg_min_value');    
+% semg =  semg ...
+%          ./ (semg_max_value'); 
+
+semg =  2.*(semg - semg_min_value')...
+        ./ (semg_max_value' - semg_min_value');
+semg = semg - mean(semg);
 
 mpu =  2.*(mpu - mpu_min_value)...
         ./ (mpu_max_value - mpu_min_value) - 1;    

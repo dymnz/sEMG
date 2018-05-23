@@ -85,16 +85,16 @@ mpu = downsample(mpu, downsample_ratio);
 
 
 %% Restrain SEMG range
-% disp(['max: ' num2str(max(max(semg))) ' ' ...
-%     'min: ' num2str(min(min(semg))) ...
-%     ' ' num2str(semg_max_value) '~' num2str(semg_min_value)]);
-if ~isempty(find(semg > semg_max_value, 1)) || ...
-   ~isempty(find(semg < semg_min_value, 1))
+for i = 1 : semg_channel_count
+if ~isempty(find(semg(:, i) > semg_max_value(i), 1)) || ...
+   ~isempty(find(semg(:, i) < semg_min_value(i), 1))
     disp('semg max/min error');
     disp(['max: ' num2str(max(max(semg))) ' ' ...
         'min: ' num2str(min(min(semg))) ...
-        ' ' num2str(semg_max_value) '~' num2str(semg_min_value)]);
+        ' ' num2str(semg_max_value(i)) '~' num2str(semg_min_value(i))]);
+    disp('x');
     beep2();
+end
 end
  
 %% Remove faulty data
@@ -120,7 +120,7 @@ end
 %         ./ (semg_max_value - semg_min_value) - 1;
 
 semg =  semg ...
-        ./ (semg_max_value - semg_min_value);    
+        ./ (semg_max_value' - semg_min_value');    
     
 mpu =  2.*(mpu - mpu_min_value)...
         ./ (mpu_max_value - mpu_min_value) - 1;    

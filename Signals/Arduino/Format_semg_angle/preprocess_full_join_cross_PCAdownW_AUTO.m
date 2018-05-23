@@ -9,8 +9,8 @@ addpath('../matlab_lib');
 %% Setting
 file_loc_prepend = './data/raw_';
 file_extension = '.txt';
-
 filename_prepend = 'S2WA_10_';
+
 file_to_test = {
     % Hard self
     {{{'PRO_1', 'PRO_2', 'PRO_4'}, {'PRO_3'}}, 'PRO_5'}; 
@@ -168,9 +168,9 @@ file_to_test = {
 
 % RNN
 hidden_node_count_list = {'12'};
-epoch = '1000';
+epoch = '2000';
 rand_seed = '4';
-cross_valid_patience_list = {'100'};
+cross_valid_patience_list = {'200'};
 
 % Signal Setting
 target_sample_rate = 10;
@@ -292,6 +292,7 @@ for i = 1 : length(ica_filename_list)
      
     % Remove unstable value
     semg = semg(10:end - 10, :);
+    semg = semg - mean(semg);
   
     concat_semg = [concat_semg semg'];    
 end
@@ -373,8 +374,8 @@ concat_semg = downsample(concat_semg, downsample_ratio)';
 %                 [2 1 2], {'sample' 'amplitude' 'After PCA'}, '-'); 
             
 
-semg_max_value = max(max(pca_semg)) * 1.5;
-semg_min_value = 0;
+semg_max_value = max(concat_semg, [], 2) .* 2;
+semg_min_value =  zeros(semg_channel_count, 1);
 %% Process & Output - Train
 
 join_segment_list = cell(num_of_train_file, 1);

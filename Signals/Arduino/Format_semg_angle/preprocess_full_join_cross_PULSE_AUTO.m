@@ -7,10 +7,13 @@ addpath('../matlab_lib');
 addpath('../matlab_lib/FastICA_21');
 
 %% Setting
+pulse_threshold = 50;
+
+
 file_loc_prepend = './data/raw_';
 file_extension = '.txt';
 
-filename_prepend = 'S2WA_10_';0;
+filename_prepend = 'S2WA_10_';
 file_to_test = {  
     % Hard self
     {{{'PRO_1', 'PRO_2', 'PRO_4'}, {'PRO_3'}}, 'PRO_5'}; 
@@ -284,7 +287,7 @@ test_output_file = [ ...
 num_of_train_file = length(train_filename_list);
 num_of_cross_file = length(cross_filename_list);
 
-%% ICA is processed on the concated semg
+%% Filtering is processed on the concated semg to get the max/min value
 concat_semg = [];
 for i = 1 : length(ica_filename_list)
     raw_data = csvread(ica_filename_list{i});
@@ -292,22 +295,21 @@ for i = 1 : length(ica_filename_list)
 
     % Remove front and end to avoid noise
     semg = semg(10:end - 10, :);
+    semg = semg - mean(semg);
   
     concat_semg = [concat_semg semg'];    
 end
 
 concat_semg = concat_semg - mean(concat_semg, 2) * ones(1, length(concat_semg));      
 
-
-
-
+filtered_semg = semg_find_pulse(concat_semg', pulse_threshold)';
 
 filter_order = 6;
 downsample_ratio = floor(semg_sample_rate / target_sample_rate);
 [filtered_semg, cb, ca] = butter_filter( ...
-        concat_semg', filter_order, target_sample_rate, semg_sample_rate);   
+        filtered_semg', filter_order, target_sample_rate, semg_sample_rate);   
 filtered_semg = downsample(filtered_semg, downsample_ratio)';
-
+% 
 % figure;
 % subplot_helper(1:length(concat_semg), concat_semg(1, :)', ...
 %                 [4 1 1], {'sample' 'amplitude' 'Before ICA'}, '-');                                                                  
@@ -317,29 +319,39 @@ filtered_semg = downsample(filtered_semg, downsample_ratio)';
 %                 [4 1 3], {'sample' 'amplitude' 'Before ICA'}, '-');                                                                  
 % subplot_helper(1:length(concat_semg), concat_semg(4, :)'', ...    
 %                 [4 1 4], {'sample' 'amplitude' 'Before ICA'}, '-'); 
+%   
+%         
+% semg_max_value = max(filtered_semg, [], 2) .* 1;
+% semg_min_value =  min(filtered_semg, [], 2) * 1;            
+%          
+% filtered_semg =  2.*(filtered_semg - semg_min_value)...
+%         ./ (semg_max_value - semg_min_value);
+% filtered_semg = filtered_semg - mean(filtered_semg);
 % 
 % figure;
 % subplot_helper(1:length(filtered_semg), filtered_semg(1, :)', ...
-%                 [4 1 1], {'sample' 'amplitude' 'Before ICA'}, '-');                                                                  
+%                 [4 1 1], {'sample' 'amplitude' 'Before ICA'}, '-o'); 
+%             ylim([-1 1]);
 % subplot_helper(1:length(filtered_semg), filtered_semg(2, :)'', ...    
-%                 [4 1 2], {'sample' 'amplitude' 'Before ICA'}, '-'); 
+%                 [4 1 2], {'sample' 'amplitude' 'Before ICA'}, '-o'); 
+%             ylim([-1 1]);
 % subplot_helper(1:length(filtered_semg), filtered_semg(3, :)', ...
-%                 [4 1 3], {'sample' 'amplitude' 'Before ICA'}, '-');                                                                  
+%                 [4 1 3], {'sample' 'amplitude' 'Before ICA'}, '-o'); 
+%             ylim([-1 1]);
 % subplot_helper(1:length(filtered_semg), filtered_semg(4, :)'', ...    
-%                 [4 1 4], {'sample' 'amplitude' 'Before ICA'}, '-'); 
-
-
-semg_max_value = max(max(filtered_semg)) * 1.5;
-semg_min_value =  min(0, min(min(filtered_semg)) * 1.5);
-seperating_matrix = [];
+%                 [4 1 4], {'sample' 'amplitude' 'Before ICA'}, '-o'); 
+% ylim([-1 1]);
 % return;
+semg_max_value = max(concat_semg, [], 2) .* 2;
+semg_min_value =  zeros(semg_channel_count, 1);
+
 %% Process & Output - Train
 
 join_segment_list = cell(num_of_train_file, 1);
 for i = 1 : num_of_train_file    
     % Input/Output/Length  % num_of_segments
     join_segment_list{i} = ...
-        semg_mpu_full_process_RAW(train_filename_list{i}, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_val, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, seperating_matrix);        
+        semg_mpu_full_process_PULSE(train_filename_list{i}, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_val, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, pulse_threshold);        
     %fprintf('Processed File %d\n', i);
 end
 
@@ -384,7 +396,7 @@ for i = 1 : num_of_cross_file
     
     % Input/Output/Length  % num_of_segments
     join_segment_list{i} = ...
-        semg_mpu_full_process_RAW(cross_filename_list{i}, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_val, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, seperating_matrix);        
+        semg_mpu_full_process_PULSE(cross_filename_list{i}, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_val, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, pulse_threshold);        
     %fprintf('Processed File %d\n', i);
 end
 
@@ -428,7 +440,7 @@ fclose(output_fileID);
 
 % Input/Output/Length  % num_of_segments
 full_sig = ...    
-    semg_mpu_full_process_RAW(test_filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_val, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, seperating_matrix);
+    semg_mpu_full_process_PULSE(test_filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_val, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, pulse_threshold);
 
 
 output_fileID = fopen(test_output_file, 'w');

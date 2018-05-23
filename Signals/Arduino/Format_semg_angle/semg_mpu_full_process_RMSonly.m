@@ -1,4 +1,4 @@
-function [processed_signal] = semg_mpu_full_process_RMSonly(filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, seperating_matrix)
+function [processed_signal] = semg_mpu_full_process_RMSonly(filename, target_sample_rate, RMS_window_size, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, mpu_shift_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel)
 
 raw_data = csvread(filename);
 semg = raw_data(:, semg_channel);
@@ -94,19 +94,17 @@ mpu = downsample(mpu, downsample_ratio);
 % ylim([-90 90]);    
 
 %% Restrain SEMG range
-% disp(['max: ' num2str(max(max(semg))) ' ' ...
-%     'min: ' num2str(min(min(semg))) ...
-%     ' ' num2str(semg_max_value) '~' num2str(semg_min_value)]);
-if ~isempty(find(semg > semg_max_value, 1)) || ...
-   ~isempty(find(semg < semg_min_value, 1))
+for i = 1 : semg_channel_count
+if ~isempty(find(semg(:, i) > semg_max_value(i), 1)) || ...
+   ~isempty(find(semg(:, i) < semg_min_value(i), 1))
     disp('semg max/min error');
     disp(['max: ' num2str(max(max(semg))) ' ' ...
         'min: ' num2str(min(min(semg))) ...
-        ' ' num2str(semg_max_value) '~' num2str(semg_min_value)]);
+        ' ' num2str(semg_max_value(i)) '~' num2str(semg_min_value(i))]);
     disp('x');
     beep2();
 end
-
+end
 
 %% Remove faulty data
 usable_data_range = 10 : min(length(semg), length(mpu));
@@ -131,7 +129,7 @@ end
 %         ./ (semg_max_value - semg_min_value) - 1;
 
 semg =  semg ...
-        ./ (semg_max_value - semg_min_value);    
+        ./ (semg_max_value' - semg_min_value');    
 
 mpu =  2.*(mpu - mpu_min_value)...
         ./ (mpu_max_value - mpu_min_value) - 1;    
