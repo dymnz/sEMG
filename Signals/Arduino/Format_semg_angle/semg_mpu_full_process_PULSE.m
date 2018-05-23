@@ -77,6 +77,7 @@ filter_order = 6;
 semg = downsample(semg, downsample_ratio);
 mpu = downsample(mpu, downsample_ratio);
 
+semg(semg < 0) = 0;
 
 % figure;
 % subplot_helper(1:length(semg), semg, ...
@@ -125,9 +126,8 @@ end
 % semg =  semg ...
 %          ./ (semg_max_value'); 
 
-semg =  2.*(semg - semg_min_value')...
-        ./ (semg_max_value' - semg_min_value');
-semg = semg - mean(semg);
+semg =  semg ...
+        ./ (semg_max_value - semg_min_value); 
 
 mpu =  2.*(mpu - mpu_min_value)...
         ./ (mpu_max_value - mpu_min_value) - 1;    
