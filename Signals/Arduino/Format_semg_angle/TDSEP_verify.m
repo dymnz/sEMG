@@ -1,4 +1,4 @@
-% PCA before Downsample
+% TDSEP
 
 clear; close all;
 
@@ -6,6 +6,7 @@ set(0,'DefaultFigureVisible','on');
 % set(0,'DefaultFigureVisible','off');
 
 addpath('../matlab_lib');
+addpath('../matlab_lib/TDSEP');
 
 %% Setting
 file_loc_prepend = './data/raw_';
@@ -30,6 +31,7 @@ rand_seed = '4';
 cross_valid_patience_list = {'100'};
 
 % Signal Setting
+tdsep_tau = [0:2];
 target_sample_rate = 10;
 RMS_window_size = 100;    % RMS window in pts
 
@@ -152,8 +154,9 @@ concat_semg = concat_semg - ones(size(concat_semg)) .* mean(concat_semg, 2);
 variance = (sqrt(var(concat_semg'))') .* ones(semg_channel_count, length(concat_semg));
 concat_semg = concat_semg ./ variance;
 
-pca_coeff = pca(concat_semg', 'Algorithm','svd');
-pca_semg = pca_coeff' * concat_semg; % (mixed' * Coeff')'
+
+C = tdsep2(concat_semg, tdsep_tau);
+pca_semg = C \ concat_semg; 
 
 figure;
 subplot_helper(1:length(concat_semg), concat_semg(1, :)', ...
@@ -164,8 +167,6 @@ subplot_helper(1:length(concat_semg), concat_semg(3, :)', ...
                 [4 1 3], {'sample' 'amplitude' 'Before PCA'}, '-');                                                                  
 subplot_helper(1:length(concat_semg), concat_semg(4, :)'', ...    
                 [4 1 4], {'sample' 'amplitude' 'Before PCA'}, '-'); 
-
-
 
 figure;
 subplot_helper(1:length(pca_semg), pca_semg(1, :)', ...
@@ -180,10 +181,11 @@ subplot_helper(1:length(pca_semg), pca_semg(4, :)'', ...
 similarity_list = zeros(semg_channel_count);
 for i = 1 : semg_channel_count
     for r = 1 : semg_channel_count
-         coef = corrcoef(pca_semg(i, :), concat_semg(r, :));
+         coef = corrcoef(pca_semg(i, :), pca_semg(r, :));
          similarity_list(i, r) = coef(1, 2);
     end
 end
+similarity_list
 return;
 %%
 
