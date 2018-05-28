@@ -9,13 +9,18 @@ addpath('../matlab_lib');
 addpath('../matlab_lib/TDSEP');
 
 %% Setting
-tdsep_tau = [0:10000];
+
+% tdsep_file_list = {'FLX_1', 'EXT_1', 'PRO_1', 'SUP_1'};
+tdsep_file_list = {'FLX_1'};
+tdsep_range_list = {[1:2820], [1:2500], [1:1400], [1:2000]};
+tdsep_tau = [0:6];
+
 
 file_loc_prepend = './data/raw_';
 file_extension = '.txt';
 
 filename_prepend = 'S2WA_10_';
-tdsep_file_list = {'FLX_1', 'EXT_1', 'PRO_1', 'SUP_1'};
+
 
 % RNN
 hidden_node_count_list = {'12'};
@@ -68,7 +73,8 @@ for i = 1 : length(tdsep_filename_list)
     semg = raw_data(:, semg_channel);
 
     % Remove front and end to avoid noise
-    semg = semg(10:end - 10, :);
+    semg = semg(tdsep_range_list{i}, :);
+    semg = semg(10:end, :);
   
     concat_semg = [concat_semg semg'];    
 end

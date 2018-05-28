@@ -6,10 +6,17 @@ set(0,'DefaultFigureVisible','on');
 % set(0,'DefaultFigureVisible','off');   
 
 addpath('../matlab_lib');
+addpath('../matlab_lib/TDSEP');
 %% Setting
+tdsep_tau = [0:10 :1000];
+
+
 file_loc_prepend = './data/raw_';
 file_extension = '.txt';
 filename_prepend = 'S2WA_10_';
+
+tdsep_file_list = {'FLX_1', 'EXT_1', 'PRO_1', 'SUP_1'};
+
 
 file_to_test = {
     % Hard self
@@ -167,13 +174,12 @@ file_to_test = {
 };
 
 % RNN
-hidden_node_count_list = {'12'};
+hidden_node_count_list = {'16'};
 epoch = '1000';
 rand_seed = '4';
 cross_valid_patience_list = {'100'};
 
 % Signal Setting
-tdsep_tau = [0:3];
 target_sample_rate = 10;
 RMS_window_size = 100;    % RMS window in pts
 
@@ -203,7 +209,7 @@ for p = 1 : length(cross_valid_patience_list)
 for f = 1 : numel(file_to_test) % For different files...
 
 %% Filename Prepend
-ica_file_label_list = file_to_test{f}{1}{1};
+tdsep_file_label_list = tdsep_file_list;
 train_file_label_list = file_to_test{f}{1}{1};
 cross_file_label_list = file_to_test{f}{1}{2};
 test_file_label = file_to_test{f}{2};
@@ -225,19 +231,19 @@ for i = 1 : length(cross_file_label_list)
             cross_file_label_list{i}, file_extension];    
 end
 
-ica_filename_list = cell(1, length(ica_file_label_list));
+tdsep_filename_list = cell(1, length(tdsep_file_label_list));
 
-for i = 1 : length(train_file_label_list)
-    ica_filename_list{i} = ...
+for i = 1 : length(tdsep_file_label_list)
+    tdsep_filename_list{i} = ...
         [file_loc_prepend, filename_prepend, ...
-            ica_file_label_list{i}, file_extension];    
+            tdsep_file_label_list{i}, file_extension];    
 end
 
 
 train_output_filename = [ ...
     filename_prepend, ...
     strjoin(train_file_label_list, '_'), ...
-    '_PCAdownW', ...
+    '_TDSEPW', ...
     '_DS', num2str(target_sample_rate), ...
     '_RMS', num2str(RMS_window_size), '_FULL'];
     
@@ -248,7 +254,7 @@ if length(train_output_filename) > 100
     filename_prepend, ...
     strjoin(truncated_train_file_label_list, '_'), ...
     '_TRUNCAT', ...
-    '_PCAdownW', ...
+    '_TDSEPW', ...
     '_DS', num2str(target_sample_rate), ...
     '_RMS', num2str(RMS_window_size), '_FULL'];
 end
@@ -260,7 +266,7 @@ train_output_file = ...
 cross_output_filename = [ ...
     filename_prepend, ...
     strjoin(cross_file_label_list, '_'), ...
-    '_PCAdownW', ...
+    '_TDSEPW', ...
     '_DS', num2str(target_sample_rate), ...
     '_RMS', num2str(RMS_window_size), '_FULL'];
 cross_output_file = ...
@@ -275,7 +281,7 @@ test_filename = [ ...
 test_output_filename = [ ...
     filename_prepend, ...
     test_file_label, ...
-    '_PCAdownW', ...
+    '_TDSEPW', ...
     '_DS', num2str(target_sample_rate), ...
     '_RMS', num2str(RMS_window_size), '_FULL'];
 test_output_file = [ ...
@@ -287,8 +293,8 @@ num_of_cross_file = length(cross_filename_list);
 
 %% ICA is processed on the concated semg
 concat_semg = [];
-for i = 1 : length(ica_filename_list)
-    raw_data = csvread(ica_filename_list{i});
+for i = 1 : length(tdsep_file_label_list)
+    raw_data = csvread(tdsep_filename_list{i});
     semg = raw_data(:, semg_channel);
      
     % Remove unstable value
@@ -297,6 +303,7 @@ for i = 1 : length(ica_filename_list)
   
     concat_semg = [concat_semg semg'];    
 end
+addpath('../matlab_lib');
 
 concat_semg = concat_semg - mean(concat_semg, 2) * ones(1, length(concat_semg));
 

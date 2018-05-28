@@ -11,7 +11,7 @@ addpath('../matlab_lib');
 %     'FLXEXTPROSUP_1', 'FLXEXTPROSUP_2', 'FLXEXTPROSUP_3', ...
 %     'FLXEXTPRO_1', 'FLXEXTSUP_1', 'FLXEXTPRO_2', 'FLXEXTSUP_2'
 % };
-filename_list =  {'PROSUP_3'};
+filename_list =  {'FLXEXTPROSUP_1'};
 % Signal Setting
 target_sample_rate = 10;
 RMS_window_size = 100;    % RMS window in pts
@@ -62,7 +62,7 @@ for i = 1 : 1
                     '-');                                                         
     ylim([mpu_min_value mpu_max_value]);
     end 
-    pause;
+%     pause;
     
 end
 
