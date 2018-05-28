@@ -1,6 +1,6 @@
 function subplot_helper(X, Y, D, Label, symbol)
 subplot(D(1), D(2), D(3));
-plot(X, abs(Y), symbol, 'LineWidth', 2);
+plot(X, Y, symbol, 'LineWidth', 2);
 hold on;
 xlabel(Label(1), 'FontSize', 15);
 ylabel(Label(2), 'FontSize', 15);
@@ -21,6 +21,5 @@ else
     ymin = min(ydata);
     ymax = max(ymin+1, max(ydata));
 end
-
 xlim([1 length(X)]); 
 ylim([ymin ymax]);

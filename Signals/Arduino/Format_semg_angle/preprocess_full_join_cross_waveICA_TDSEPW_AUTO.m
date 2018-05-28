@@ -15,7 +15,7 @@ filename_prepend = 'S2WA_10_';
 
 % Wavelet setting
 wname = 'db4';
-wlevel = 2;
+wlevel = 1;
 
 % TDSEP
 tdsep_tau = [0:1];
@@ -187,7 +187,7 @@ file_to_test = {
 %        {'FLXEXTPROSUP_1', 'FLXEXTPROSUP_2'}}, ...
 %        'FLXEXTPROSUP_3'};
 % 
-% 	% Complex MIX, Reduced Simple/Mix Training
+% 	% Complex MIX, semg_mpu_full_process_PULSEReduced Simple/Mix Training
 %    {{{
 %        'FLXEXTPROSUP_3', 'FLXEXTPROSUP_2'}, ...
 %        {'FLXEXTPROSUP_3', 'FLXEXTPROSUP_2'}}, ...
