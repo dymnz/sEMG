@@ -23,6 +23,13 @@ ICA, Impulse extraction,
 * [A new strategy for multifunction myoelectric control(1993)](https://ieeexplore.ieee.org/document/204774/)
   * ANN chosen for fast training time
 
+* [Simultaneous and Proportional Force Estimation for Multifunction Myoelectric Prostheses Using Mirrored Bilateral Training (2010)](https://ieeexplore.ieee.org/document/5551179/)
+  * Wrist (2-DOF) FLX/EXT & RU-DEV
+  * 7-ch sEMG
+  * Multilayer Perceptron
+  * Feature set performance: MSV(?) < TD = TD+6AR = TD+5 wavelet marginal(TDWV)(?)
+  * 7-ch semg -> TD feature -> PCA -> MLP
+
 * [SVM for Estimation of Wrist Angle from Sonomyography And SEMG Signals (2011)](http://ieeexplore.ieee.org/document/4353415/)
   * Flexion/Extension
 
