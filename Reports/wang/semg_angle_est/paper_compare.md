@@ -74,10 +74,11 @@ fifth array was placed over the pronator teres.*
     - 2 FLX, 2 EXT muscle
 
 * [EMG-based simultaneous and proportional estimation of wrist/hand kinematics in uni-lateral trans-radial amputees (2012)](https://jneuroengrehab.biomedcentral.com/articles/10.1186/1743-0003-9-42)
-  * 
+  * FLX/EXT, RU-DEV, PRO/SUP. Separate and mix 
   * Action
-    * 
-    * 
+    * See list
+    * *Each trial lasted approximately 65 s and was separated to the next by resting
+periods of 2 − 3 min to avoid fatigue*
   * Electrode
     * 7-ch
     * 
@@ -89,7 +90,25 @@ fifth array was placed over the pronator teres.*
       because **7 electrode pairs provided necessary coverage of
       the area of interest*, as shown in previous studies [14,15]**
 
+      ```
 
+      Sinusoidal contractions along a single DoF (freq. ≈ 0.5 − 1 Hz)
+      1: flexion/extension (DoF1)
+      2: radial/ulnar deviation (DoF2)
+      3: pronation/supination (DoF3)
+      ---
+      Combined activation of two DoFs, in which one DoF was articulated sinousoidally, and the other was fixed at positions close to maximal range of motion
+      4: DoF1 + DoF2
+      5: DoF2 + DoF1
+      6: DoF1 + DoF3
+      ---
+      Cyclic contractions of unconstrained dynamic wrist movements. (freq. ≈ 0.5 − 1 Hz)
+      7: DoF3 + DoF1
+      8: DoF2 + DoF3
+      9: DoF3 + DoF2
+      10: DoF1 + DoF2 + DoF3
+
+      ```
 
 
 * [Simultaneous and proportional control of 2D wrist movements with myoelectric signals (2012)](http://ieeexplore.ieee.org/document/6349712/)

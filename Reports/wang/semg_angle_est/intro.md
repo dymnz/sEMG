@@ -92,6 +92,9 @@ ICA, Impulse extraction,
 * *[Neural network committees for finger joint angle estimation from surface EMG signals](https://biomedical-engineering-online.biomedcentral.com/articles/10.1186/1475-925X-8-2)*
 * *[Real-time simultaneous and proportional myoelectric control using intramuscular EMG (2014)](http://iopscience.iop.org/article/10.1088/1741-2560/11/6/066013/pdf)*
 * *[Estimation of finger joint angles from sEMG using a recurrent neural network with time-delayed input vectors (2009)](https://www.researchgate.net/publication/224580490_Estimation_of_finger_joint_angles_from_sEMG_using_a_recurrent_neural_network_with_time-delayed_input_vectors)*
+* *[Extracting Simultaneous and Proportional Neural
+Control Information for Multiple-DOF Prostheses
+From the Surface Electromyographic Signal](https://ieeexplore.ieee.org/document/4663628/)
 ---
 
 ### Wrist movement muscle:
