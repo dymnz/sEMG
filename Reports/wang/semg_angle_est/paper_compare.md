@@ -13,7 +13,7 @@
   * Movement classification
 
 * [Multichannel surface EMG based estimation of bilateral hand kinematics during movements at multiple degrees of freedom (2010)](https://ieeexplore.ieee.org/document/5627622/)
-  * 
+  * FLX/EXT RU-DEV PRO/SUP. Separate and simultaneous
   * Action
     * See list
     * 6s per segment
@@ -24,10 +24,7 @@
       * pause at start pos. til 6s
   * Electrode
     * 16 array x 5 
-    * *Four arrays were placed 
-around the circumference of the right forearm at a distance 
-from the elbow of one third of the elbow–wrist distance. The 
-fifth array was placed over the pronator teres.*
+    * *Four arrays were placed around the circumference of the right forearm at a distance from the elbow of one third of the elbow–wrist distance. The fifth array was placed over the pronator teres.*
 
       ```
       1 Wrist flexion 
@@ -98,16 +95,9 @@ periods of 2 − 3 min to avoid fatigue*
   * Electrode
     * 7-ch
     * 
-      *placed around the thickest part of the forearm (approximately 1/3
-      distally from the elbow), equi-spaced in a circle around the
-      forearm, similarly to [11,14].
-      Equi-spaced electrode place-
-      ment was used, rather than targeting at specific muscles,
-      because **7 electrode pairs provided necessary coverage of
-      the area of interest*, as shown in previous studies [14,15]**
+      *placed around the thickest part of the forearm (approximately 1/3 distally from the elbow), equi-spaced in a circle around the forearm, similarly to [11,14]. Equi-spaced electrode placement was used, rather than targeting at specific muscles, because **7 electrode pairs provided necessary coverage of the area of interest*, as shown in previous studies [14,15]**
 
       ```
-      
       Sinusoidal contractions along a single DoF (freq. ≈ 0.5 − 1 Hz)
       1: flexion/extension (DoF1)
       2: radial/ulnar deviation (DoF2)
@@ -125,7 +115,6 @@ periods of 2 − 3 min to avoid fatigue*
       10: DoF1 + DoF2 + DoF3
 
       ```
-
 
 * [Simultaneous and proportional control of 2D wrist movements with myoelectric signals (2012)](http://ieeexplore.ieee.org/document/6349712/)
   * Simultaneous FLX/EXT and RU-DEV
@@ -167,6 +156,10 @@ periods of 2 − 3 min to avoid fatigue*
     * 
       *placed around the forearm circumference ... approximately 2 cm from the elbow crease*
 
+* [Continuous Motion Decoding from EMG Using Independent Component Analysis and Adaptive Model Training(2014)](https://www.ncbi.nlm.nih.gov/pubmed/25571132)
+  * Shoulder and elbow est. No numerical result
+
+
 * [EMG-based learning approach for estimating wrist motion (2015)](https://www.researchgate.net/publication/283713267_EMG-based_learning_approach_for_estimating_wrist_motion)
   * Based on *EMG-based simultaneous and proportional estimation of wrist/hand kinematics in uni-lateral trans-radial amputees (2012)*
   * Real-time simultaneous FLX/EXT and RU-DEV
@@ -178,7 +171,7 @@ periods of 2 − 3 min to avoid fatigue*
     * Exact placement. 2 each for FLX/EXT (4-ch total for wrist)
 
 * Continuous Estimation of Wrist Angles for Proportional Control Based on Surface Electromyography (2016)
-  * 
+  * Separate FLX/EXT/PRO/SUP angle estimation
   * Action
     * See list
     * 5s per segment, 5 trials
@@ -187,42 +180,23 @@ periods of 2 − 3 min to avoid fatigue*
     * Exact placement
 
     ```
-    1 Wrist supination  (WS)
-    2 Wrist pronation (WP)
-    3 Wrist supination  + 20% maximum torsion strength  (WST)
-    4 Wrist pronation + 20% maximum torsion strength  (WPT)
-    5 Wrist supination  + 20% maximum grip strength (WSG)
-    6 Wrist pronation + 20% maximum grip strength (WPG)
-    7 Wrist flexion (WF)
-    8 Wrist extension (WE)
-    9 Wrist flexion   + 20% maximum torsion strength  (WFT)
-    10  Wrist extension + 20% maximum torsion strength  (WET)
-    11  Wrist flexion   + 20% maximum grip strength (WFG)
-    12  Wrist extension + 20% maximum grip strength (WEG)
+    Wrist supination    (WS)
+    Wrist pronation     (WP)
+    Wrist supination  + 20% maximum torsion strength  (WST)
+    Wrist pronation   + 20% maximum torsion strength  (WPT)
+    Wrist supination  + 20% maximum grip strength     (WSG)
+    Wrist pronation   + 20% maximum grip strength     (WPG)
+    Wrist flexion       (WF)
+    Wrist extension     (WE)
+    Wrist flexion     + 20% maximum torsion strength  (WFT)
+    Wrist extension   + 20% maximum torsion strength  (WET)
+    Wrist flexion     + 20% maximum grip strength     (WFG)
+    Wrist extension   + 20% maximum grip strength     (WEG)
     ```
-* [Continuous estimation of hand's joint angles from sEMG using wavelet-based features and SVR (2016)](https://dl.acm.org/citation.cfm?id=3051498)
-  * 
-  * Action
-    * 
-    * 
-  * Electrode
-    * 
-    *
-  
-* [EMG-Based Continuous and Simultaneous Estimation of Arm Kinematics in Able-Bodied Individuals and Stroke Survivors (2017)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5575159/)
-  * 
-  * Action
-    * 
-    * 
-  * Electrode
-    * 
-    * 
 
-* [Continuous Motion Decoding from EMG Using Independent Component Analysis and Adaptive Model Training(2014)](https://www.ncbi.nlm.nih.gov/pubmed/25571132)
-  * 
-  * Action
-    * 
-    * 
-  * Electrode
-    * 
-    *
+* [Continuous estimation of hand's joint angles from sEMG using wavelet-based features and SVR (2016)](https://dl.acm.org/citation.cfm?id=3051498)
+  * Nian Pro database, semg/angle database for hand, 22-DOF
+
+
+* [EMG-Based Continuous and Simultaneous Estimation of Arm Kinematics in Able-Bodied Individuals and Stroke Survivors (2017)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5575159/)
+  * Shoulder, elbow and wrist angle est.
