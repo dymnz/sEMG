@@ -46,7 +46,14 @@ fifth array was placed over the pronator teres.*
       14 Ulnar deviation & Forearm supination
       15 Rest              
       ```
-
+* [Surface EMG pattern recognition for real-time control of a wrist exoskeleton (2010)](https://www.ncbi.nlm.nih.gov/pubmed/20796304)
+  * 
+  * Action
+    * 
+    * 
+  * Electrode
+    * 
+    *
 
 * [Simultaneous and Proportional Force Estimation for Multifunction Myoelectric Prostheses Using Mirrored Bilateral Training (2010)](https://ieeexplore.ieee.org/document/5551179/)
   * FLX/EXT & RU-DEV
@@ -60,6 +67,15 @@ fifth array was placed over the pronator teres.*
   * Electrode
     * 7-ch
     * 3-FLX / 3-EXT / 1-Bicep
+
+* [Comparison of regression models for estimation of isometric wrist joint torques using surface electromyography (2011)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3198911/)
+  * 
+  * Action
+    * 
+    * 
+  * Electrode
+    * 
+    *
 
 * [SVM for Estimation of Wrist Angle from Sonomyography And SEMG Signals (2011)](http://ieeexplore.ieee.org/document/4353415/)
   * Ultrasound
@@ -91,7 +107,7 @@ periods of 2 − 3 min to avoid fatigue*
       the area of interest*, as shown in previous studies [14,15]**
 
       ```
-
+      
       Sinusoidal contractions along a single DoF (freq. ≈ 0.5 − 1 Hz)
       1: flexion/extension (DoF1)
       2: radial/ulnar deviation (DoF2)
@@ -112,50 +128,78 @@ periods of 2 − 3 min to avoid fatigue*
 
 
 * [Simultaneous and proportional control of 2D wrist movements with myoelectric signals (2012)](http://ieeexplore.ieee.org/document/6349712/)
-  * 
+  * Simultaneous FLX/EXT and RU-DEV
   * Action
-    * 
-    * 
+    * 18 runs
+    * Pattern: 16 lines, 4 ellipses -> 20 patterns
+      * Clockwise and counter-clockwise
+      * Line trajectory: 16 direction from center and back
+      * Elliptical trajectory: Move to the left (FLX) then draw a circle
+        * 2 diameter
+    * Line: 8s per segment
+      * 3s center to final
+      * 2s hold at final
+      * 3s final to center
+    * Elliptical: 10s per segment
   * Electrode
-    * 
+    * 18x24 array (192-ch)
     *
+      *The electrode was placed on the proximal portion of the upper forearm, covering a range of 8 cm*
 
 * [Bayesian Filtering of Surface EMG for Accurate Simultaneous and Proportional Prosthetic Control (2014)](http://ieeexplore.ieee.org/document/7332757/)
-  * 
+  * FLX/EXT and PRO/SUP
   * Action
-    * 
-    * 
+    * 2-DOF, 8 trials each
+    * 10s per segment, details unclear
   * Electrode
+    * 16-ch
     * 
-    *
+      *centered approximately 1/3 distal of the forearm*
 
 * [Quantifying Forearm Muscle Activity during Wrist and Finger Movements by Means of Multi-Channel Electromyography (2014)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4188712/)
-  * 
+  * FLX/EXT RU-DEV @ prone, neutral pos. 
   * Action
-    * 
-    * 
+    * 20 times (for wrist movement, paper includes finger movement)
+    * 2s rest to 1st target
+    * 2s 1st target to 2nd target
   * Electrode
+    * 14x8 array (112-ch)
     * 
-    *
+      *placed around the forearm circumference ... approximately 2 cm from the elbow crease*
 
 * [EMG-based learning approach for estimating wrist motion (2015)](https://www.researchgate.net/publication/283713267_EMG-based_learning_approach_for_estimating_wrist_motion)
-  * 
+  * Based on *EMG-based simultaneous and proportional estimation of wrist/hand kinematics in uni-lateral trans-radial amputees (2012)*
+  * Real-time simultaneous FLX/EXT and RU-DEV
   * Action
-    * 
-    * 
+    * Move arm to 9 pos. on 40x40cm board
+    * 30 circular motion
   * Electrode
-    * 
-    *
+    * 11-ch
+    * Exact placement. 2 each for FLX/EXT (4-ch total for wrist)
 
 * Continuous Estimation of Wrist Angles for Proportional Control Based on Surface Electromyography (2016)
   * 
   * Action
-    * 
-    * 
+    * See list
+    * 5s per segment, 5 trials
   * Electrode
-    * 
-    *
+    * 4-ch
+    * Exact placement
 
+    ```
+    1 Wrist supination  (WS)
+    2 Wrist pronation (WP)
+    3 Wrist supination  + 20% maximum torsion strength  (WST)
+    4 Wrist pronation + 20% maximum torsion strength  (WPT)
+    5 Wrist supination  + 20% maximum grip strength (WSG)
+    6 Wrist pronation + 20% maximum grip strength (WPG)
+    7 Wrist flexion (WF)
+    8 Wrist extension (WE)
+    9 Wrist flexion   + 20% maximum torsion strength  (WFT)
+    10  Wrist extension + 20% maximum torsion strength  (WET)
+    11  Wrist flexion   + 20% maximum grip strength (WFG)
+    12  Wrist extension + 20% maximum grip strength (WEG)
+    ```
 * [Continuous estimation of hand's joint angles from sEMG using wavelet-based features and SVR (2016)](https://dl.acm.org/citation.cfm?id=3051498)
   * 
   * Action

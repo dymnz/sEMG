@@ -10,21 +10,22 @@ addpath('../matlab_lib/FastICA_21');
 
 % Wavelet setting
 wname = 'db45';
-wlevel = 1;
+wlevel = 4;
 
-pulse_threshold = [50 50 20 50];
+pulse_threshold = [8 10 2 8];
 
 file_loc_prepend = './data/raw_';
 file_extension = '.txt';
 
 filename_prepend = 'S2WA_10_';
+
+
 file_to_test = {  
-    % Hard self
-    {{{'PRO_1', 'PRO_2', 'PRO_4', 'SUP_1', 'SUP_2', 'SUP_4', ...
-       'FLX_1', 'FLX_2', 'FLX_4', 'EXT_1', 'EXT_2', 'EXT_4', ...
-       'PRO_3', 'SUP_3', 'FLX_3', 'EXT_3'},...
-        {'PRO_3', 'SUP_3', 'FLX_3', 'EXT_3'}}, ...
-        'PRO_5'}
+    {{{'FLX_1', 'FLX_2', 'FLX_3', 'FLX_5', ...
+       'EXT_1', 'EXT_2', 'EXT_3', 'EXT_5', ...
+       'FLXEXT_2'}, ...
+       {'EXT_4', 'FLX_4', 'FLXEXT_3'}}, ...
+       'FLXEXT_1'};
 };
 
 
@@ -158,7 +159,6 @@ for i = 1 : length(ica_filename_list)
     concat_semg = [concat_semg semg'];    
 end
 
-
 concat_semg = concat_semg - ones(size(concat_semg)) .* mean(concat_semg, 2);
 % variance = (sqrt(var(concat_semg'))') .* ones(semg_channel_count, length(concat_semg));
 % concat_semg = concat_semg ./ variance;
@@ -188,7 +188,7 @@ filtered_semg = downsample(filtered_semg, downsample_ratio);
 
 
 filtered_semg(filtered_semg < 0) = 0;
-% 
+
 % figure;
 % subplot_helper(1:length(wavelet_concat_semg), wavelet_concat_semg(1, :), ...
 %                 [4 1 1], {'sample' 'amplitude' 'Before ICA'}, '-');                                                                  

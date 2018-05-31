@@ -23,12 +23,17 @@ ICA, Impulse extraction,
 * [A new strategy for multifunction myoelectric control(1993)](https://ieeexplore.ieee.org/document/204774/)
   * ANN chosen for fast training time
 
+* [Surface EMG pattern recognition for real-time control of a wrist exoskeleton (2010)](https://www.ncbi.nlm.nih.gov/pubmed/20796304)
+
 * [Simultaneous and Proportional Force Estimation for Multifunction Myoelectric Prostheses Using Mirrored Bilateral Training (2010)](https://ieeexplore.ieee.org/document/5551179/)
   * Wrist (2-DOF) FLX/EXT & RU-DEV
   * 7-ch sEMG
   * Multilayer Perceptron
   * Feature set performance: MSV(?) < TD = TD+6AR = TD+5 wavelet marginal(TDWV)(?)
   * 7-ch semg -> TD feature -> PCA -> MLP
+
+* [Comparison of regression models for estimation of isometric wrist joint torques using surface electromyography (2011)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3198911/)
+
 
 * [SVM for Estimation of Wrist Angle from Sonomyography And SEMG Signals (2011)](http://ieeexplore.ieee.org/document/4353415/)
   * Flexion/Extension
@@ -104,6 +109,14 @@ From the Surface Electromyographic Signal](https://ieeexplore.ieee.org/document/
     * **[Extensor Carpi Radialis Longus](https://en.wikipedia.org/wiki/Extensor_carpi_radialis_longus_muscle)**
     * **[Extensor Carpi Ulnaris](https://en.wikipedia.org/wiki/Extensor_carpi_ulnaris_muscle)** <-- Chosen
     * Extensor Pollicis Longus 
+  * Characteristic
+      * POWER: Linear transform of EMG
+      * RMS: sqrt(POWER), non-linear
+      * LOG-VAR: log(POWER), non-linear
+  * Use non-linear transform to linearize relationship between Feature and Joint angle
+    * Linear regression performance better w/ RMS, LOG-VAR
+    * MLP is better w/ POWER
+    * Linear regreesion w/ LOG-VAR has best performance
 
 * Flexion | *Should find which muscle other experiments are focusing on*
   * [Source](http://www.sportsinjuryclinic.net/anatomy/human-muscles/wrist-hand-joint-actions/wrist-flexion) | **Highlighted** because used in [other paper](http://ieeexplore.ieee.org/document/6072755/)
