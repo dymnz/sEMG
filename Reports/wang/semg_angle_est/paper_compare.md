@@ -1,4 +1,6 @@
-### Select paper for comparison
+ ### Select paper for comparison
+
+See 'paper_sel.xlsx' for comparison table
 
 * Application
 * Action
@@ -13,7 +15,7 @@
   * Movement classification
 
 * [Multichannel surface EMG based estimation of bilateral hand kinematics during movements at multiple degrees of freedom (2010)](https://ieeexplore.ieee.org/document/5627622/)
-  * FLX/EXT RU-DEV PRO/SUP. Separate and simultaneous
+  * FLX/EXT RU-DEV PRO/SUP. Separate and  FLX/EXT or RU-DEV w/ PRO/SUP
   * Action
     * See list
     * 6s per segment
@@ -44,13 +46,8 @@
       15 Rest              
       ```
 * [Surface EMG pattern recognition for real-time control of a wrist exoskeleton (2010)](https://www.ncbi.nlm.nih.gov/pubmed/20796304)
-  * 
-  * Action
-    * 
-    * 
-  * Electrode
-    * 
-    *
+  * FLX/EXT RU-DEV classification (13 class) w/ 10~50% MVC torque
+
 
 * [Simultaneous and Proportional Force Estimation for Multifunction Myoelectric Prostheses Using Mirrored Bilateral Training (2010)](https://ieeexplore.ieee.org/document/5551179/)
   * FLX/EXT & RU-DEV
@@ -64,15 +61,6 @@
   * Electrode
     * 7-ch
     * 3-FLX / 3-EXT / 1-Bicep
-
-* [Comparison of regression models for estimation of isometric wrist joint torques using surface electromyography (2011)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3198911/)
-  * 
-  * Action
-    * 
-    * 
-  * Electrode
-    * 
-    *
 
 * [SVM for Estimation of Wrist Angle from Sonomyography And SEMG Signals (2011)](http://ieeexplore.ieee.org/document/4353415/)
   * Ultrasound
