@@ -119,7 +119,16 @@ void setup()
     // Get magnetometer calibration from AK8963 ROM
     initAK8963(magCalibration); SerialUSB.println("AK8963 initialized for active data mode...."); // Initialize device for active mode read of magnetometer
 
-    magcalMPU9250(magBias, magScale);
+
+    // Don't use online calibration, use value from 'MPU9250_mag_cal'
+    //magcalMPU9250(magBias, magScale);
+    magBias[0] = 126.0  * mRes * magCalibration[0]; // save mag biases in G for main program
+    magBias[1] = 33.0   * mRes * magCalibration[1];
+    magBias[2] = -86.0  * mRes * magCalibration[2];
+    magScale[0] = 1.0286195;
+    magScale[1] = 0.983897;
+    magScale[2] = 0.98867315;
+    
     SerialUSB.println("AK8963 mag biases (mG)"); SerialUSB.println(magBias[0]); SerialUSB.println(magBias[1]); SerialUSB.println(magBias[2]);
     SerialUSB.println("AK8963 mag scale (mG)"); SerialUSB.println(magScale[0]); SerialUSB.println(magScale[1]); SerialUSB.println(magScale[2]);
     delay(2000); // add delay to see results before SerialUSB.spew of data
@@ -204,6 +213,7 @@ void loop()
   delt_t = millis() - count;
   if (delt_t > 500) { // update LCD once per half-second independent of read rate
 
+  /*
     if (SerialDebug) {
       SerialUSB.print("ax = "); SerialUSB.print((int)1000 * ax);
       SerialUSB.print(" ay = "); SerialUSB.print((int)1000 * ay);
@@ -220,6 +230,7 @@ void loop()
       SerialUSB.print(" qy = "); SerialUSB.print(q[2]);
       SerialUSB.print(" qz = "); SerialUSB.println(q[3]);
     }
+    */
 
     // Define output variables from updated quaternion---these are Tait-Bryan angles, commonly used in aircraft orientation.
     // In this coordinate system, the positive z-axis is down toward Earth.
@@ -258,7 +269,7 @@ void loop()
     if (SerialDebug) {
       SerialUSB.print("Yaw, Pitch, Roll: ");
       SerialUSB.print(yaw, 2);
-      SerialUSB.print(", ");
+      /*SerialUSB.print(", ");
       SerialUSB.print(pitch, 2);
       SerialUSB.print(", ");
       SerialUSB.println(roll, 2);
@@ -275,7 +286,7 @@ void loop()
       SerialUSB.print(lin_ay * 1000, 2);
       SerialUSB.print(", ");
       SerialUSB.print(lin_az * 1000, 2);  SerialUSB.println(" mg");
-
+*/
       SerialUSB.print("rate = "); SerialUSB.print((float)sumCount / sum, 2); SerialUSB.println(" Hz");
     }
 

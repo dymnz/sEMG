@@ -10,6 +10,9 @@
 
 #define SerialDebug true  // set to true to get Serial output for debugging
 
+const int alignment_packet_len = 5;
+uint8_t alignment_packet[] = {'$', '@', '%', '!', '~'};
+
 // Specify sensor full scale
 uint8_t Gscale = GFS_250DPS;
 uint8_t Ascale = AFS_2G;
@@ -68,26 +71,27 @@ void setup()
 //  TWBR = 12;  // 400 kbit/sec I2C speed for Pro Mini
   // Setup for Master mode, pins 18/19, external pullups, 400kHz for Teensy 3.1
 //  Wire.begin(I2C_MASTER, 0x00, I2C_PINS_16_17, I2C_PULLUP_EXT, I2C_RATE_400);
-  delay(4000);
   SerialUSB.begin(0);
   while (!SerialUSB);
+
+  SerialUSB.write(alignment_packet, alignment_packet_len);
   
-  SerialUSB.println("MPU9250 9-axis motion sensor...");
+  //SerialUSB.println("MPU9250 9-axis motion sensor...");
   
   // Set up the interrupt pin, its set as active high, push-pull
   pinMode(intPin, INPUT);
 
-  SerialUSB.println("MPU9250 9-axis motion sensor...");
+  //SerialUSB.println("MPU9250 9-axis motion sensor...");
 
 
   // Read the WHO_AM_I register, this is a good test of communication
-  SerialUSB.println("MPU9250 9-axis motion sensor...");
+  //SerialUSB.println("MPU9250 9-axis motion sensor...");
   byte c = readByte(MPU9250_ADDRESS, WHO_AM_I_MPU9250);  // Read WHO_AM_I register for MPU-9250
-  SerialUSB.print("MPU9250 "); SerialUSB.print("I AM "); SerialUSB.print(c, HEX); SerialUSB.print(" I should be "); SerialUSB.println(0x71, HEX);
+  //SerialUSB.print("MPU9250 "); SerialUSB.print("I AM "); SerialUSB.print(c, HEX); SerialUSB.print(" I should be "); SerialUSB.println(0x71, HEX);
 
   if (c == 0x71) // WHO_AM_I should always be 0x68
   {
-    SerialUSB.println("MPU9250 is online...");
+    //SerialUSB.println("MPU9250 is online...");
 
     MPU9250SelfTest(SelfTest); // Start by performing self test and reporting values
     
@@ -96,14 +100,14 @@ void setup()
     getGres();
     getMres();
     initMPU9250();
-    SerialUSB.println("MPU9250 initialized for active data mode...."); // Initialize device for active mode read of acclerometer, gyroscope, and temperature
+    //SerialUSB.println("MPU9250 initialized for active data mode...."); // Initialize device for active mode read of acclerometer, gyroscope, and temperature
 
     // Read the WHO_AM_I register of the magnetometer, this is a good test of communication
     byte d = readByte(AK8963_ADDRESS, AK8963_WHO_AM_I);  // Read WHO_AM_I register for AK8963
-    SerialUSB.print("AK8963 "); SerialUSB.print("I AM "); SerialUSB.print(d, HEX); SerialUSB.print(" I should be "); SerialUSB.println(0x48, HEX);
+    //SerialUSB.print("AK8963 "); //SerialUSB.print("I AM "); SerialUSB.print(d, HEX); SerialUSB.print(" I should be "); SerialUSB.println(0x48, HEX);
 
     // Get magnetometer calibration from AK8963 ROM
-    initAK8963(magCalibration); SerialUSB.println("AK8963 initialized for active data mode...."); // Initialize device for active mode read of magnetometer
+    initAK8963(magCalibration); //SerialUSB.println("AK8963 initialized for active data mode...."); // Initialize device for active mode read of magnetometer
 
     magcalMPU9250_processing(magBias, magScale);
   }

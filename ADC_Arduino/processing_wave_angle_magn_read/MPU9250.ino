@@ -159,9 +159,14 @@ void initMPU9250()
   writeByte(MPU9250_ADDRESS, CONFIG, 0x03);
 
 // Set sample rate = gyroscope output rate/(1 + SMPLRT_DIV)
-  writeByte(MPU9250_ADDRESS, SMPLRT_DIV, 0x04);  // Use a 200 Hz rate; a rate consistent with the filter update rate
+  //writeByte(MPU9250_ADDRESS, SMPLRT_DIV, 0x04);  // Use a 200 Hz rate; a rate consistent with the filter update rate
+  writeByte(MPU9250_ADDRESS, SMPLRT_DIV, 0x09);  // Use a 100 Hz rate; a rate consistent with the filter update rate
   // determined inset in CONFIG above
+  
+  
 
+
+  
 // Set gyroscope full scale range
 // Range selects FS_SEL and GFS_SEL are 0 - 3, so 2-bit values are left-shifted into positions 4:3
   uint8_t c = readByte(MPU9250_ADDRESS, GYRO_CONFIG); // get current GYRO_CONFIG register value
@@ -407,7 +412,6 @@ void magcalMPU9250(float * dest1, float * dest2)
   dest2[2] = avg_rad / ((float)mag_scale[2]);
 
   SerialUSB.println("Mag Calibration done!");
-  while(1);
 }
 
 
