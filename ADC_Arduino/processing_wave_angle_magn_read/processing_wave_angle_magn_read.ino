@@ -206,7 +206,8 @@ void loop()
   // function to get North along the accel +x-axis, East along the accel -y-axis, and Down along the accel -z-axis.
   // This orientation choice can be modified to allow any convenient (non-NED) orientation convention.
   // Pass gyro rate as rad/s
-  MadgwickQuaternionUpdate(-ax, ay, az, gx * PI / 180.0f, -gy * PI / 180.0f, -gz * PI / 180.0f,  my,  -mx, mz);
+  //MadgwickQuaternionUpdate(-ax, ay, az, gx * PI / 180.0f, -gy * PI / 180.0f, -gz * PI / 180.0f,  my,  -mx, mz);
+  MadgwickQuaternionUpdate(ay, ax, -az, gy * PI / 180.0f, gx * PI / 180.0f, -gz * PI / 180.0f,  mx,  my, mz);
 //  if(passThru)MahonyQuaternionUpdate(-ax, ay, az, gx*PI/180.0f, -gy*PI/180.0f, -gz*PI/180.0f,  my,  -mx, mz);
 
   // SerialUSB.print and/or display at 0.5 s rate independent of data rates
@@ -269,7 +270,7 @@ void loop()
     if (SerialDebug) {
       SerialUSB.print("Yaw, Pitch, Roll: ");
       SerialUSB.print(yaw, 2);
-      /*SerialUSB.print(", ");
+      SerialUSB.print(", ");
       SerialUSB.print(pitch, 2);
       SerialUSB.print(", ");
       SerialUSB.println(roll, 2);
@@ -286,7 +287,7 @@ void loop()
       SerialUSB.print(lin_ay * 1000, 2);
       SerialUSB.print(", ");
       SerialUSB.print(lin_az * 1000, 2);  SerialUSB.println(" mg");
-*/
+
       SerialUSB.print("rate = "); SerialUSB.print((float)sumCount / sum, 2); SerialUSB.println(" Hz");
     }
 
