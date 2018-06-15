@@ -1,5 +1,4 @@
-% TDSEP
-
+% RMS-TDSEP
 clear; close all;
 
 set(0,'DefaultFigureVisible','on');
@@ -17,11 +16,6 @@ file_extension = '.txt';
 filename_prepend = 'S2WA_10_';
 tdsep_file_list = {'FLX_1', 'EXT_1', 'PRO_1', 'SUP_1'};
 
-% RNN
-hidden_node_count_list = {'12'};
-epoch = '1000';
-rand_seed = '4';
-cross_valid_patience_list = {'100'};
 
 % Signal Setting
 target_sample_rate = 10;
@@ -39,16 +33,7 @@ mpu_channel_count = 2;
 semg_channel = 1:4;
 mpu_channel = 5:6;  % 3: Roll(SUP/SUP) / 4: Pitch(Flx/Ext)
 
-%% For different hidden node count...
-rnn_result_plaintext = [];
-
-cross_valid_patience = cross_valid_patience_list{1};
-hidden_node_count = hidden_node_count_list{1};
-
-%% Filename Prepend
-
 tdsep_file_label_list = tdsep_file_list;
-
 
 %% File
 
@@ -69,42 +54,54 @@ for i = 1 : length(tdsep_filename_list)
 
     % Remove front and end to avoid noise
     semg = semg(10:end - 10, :);
+    semg = semg - mean(semg);
   
     concat_semg = [concat_semg semg'];    
 end
 
 concat_semg = concat_semg - ones(size(concat_semg)) .* mean(concat_semg, 2);
-variance = (sqrt(var(concat_semg'))') .* ones(semg_channel_count, length(concat_semg));
-concat_semg = concat_semg ./ variance;
+% variance = (sqrt(var(concat_semg'))') .* ones(semg_channel_count, length(concat_semg));
+% concat_semg = concat_semg ./ variance;
 
+concat_semg = RMS_calc(concat_semg', RMS_window_size)';
 
 C = tdsep2(concat_semg, tdsep_tau);
-pca_semg = C \ concat_semg; 
+tdsep_semg = C \ concat_semg; 
+
+norm_concat_semg =  2.*(concat_semg - min(concat_semg, [], 2))...
+        ./ (max(concat_semg, [], 2) - min(concat_semg, [], 2));  
+norm_concat_semg = norm_concat_semg - mean(norm_concat_semg, 2);
+
 
 figure;
-subplot_helper(1:length(concat_semg), concat_semg(1, :)', ...
-                [4 1 1], {'sample' 'amplitude' 'Before TDSEP'}, '-');                                                                  
-subplot_helper(1:length(concat_semg), concat_semg(2, :)'', ...    
+subplot_helper(1:length(concat_semg), norm_concat_semg(1, :), ...
+                [4 1 1], {'sample' 'amplitude' 'Before TDSEP'}, '-');
+subplot_helper(1:length(concat_semg), norm_concat_semg(2, :), ...    
                 [4 1 2], {'sample' 'amplitude' 'Before TDSEP'}, '-'); 
-subplot_helper(1:length(concat_semg), concat_semg(3, :)', ...
-                [4 1 3], {'sample' 'amplitude' 'Before TDSEP'}, '-');                                                                  
-subplot_helper(1:length(concat_semg), concat_semg(4, :)'', ...    
+subplot_helper(1:length(concat_semg), norm_concat_semg(3, :), ...
+                [4 1 3], {'sample' 'amplitude' 'Before TDSEP'}, '-'); 
+subplot_helper(1:length(concat_semg), norm_concat_semg(4, :), ...    
                 [4 1 4], {'sample' 'amplitude' 'Before TDSEP'}, '-'); 
 
+            
+norm_tdsep_semg =  2.*(tdsep_semg - min(tdsep_semg, [], 2))...
+        ./ (max(tdsep_semg, [], 2) - min(tdsep_semg, [], 2));  
+norm_tdsep_semg = norm_tdsep_semg - mean(norm_tdsep_semg, 2);            
+            
 figure;
-subplot_helper(1:length(pca_semg), pca_semg(1, :)', ...
-                [4 1 1], {'sample' 'amplitude' 'After TDSEP'}, '-');                                                                  
-subplot_helper(1:length(pca_semg), pca_semg(2, :)'', ...    
-                [4 1 2], {'sample' 'amplitude' 'After TDSEP'}, '-'); 
-subplot_helper(1:length(pca_semg), pca_semg(3, :)', ...
-                [4 1 3], {'sample' 'amplitude' 'After TDSEP'}, '-');                                                                  
-subplot_helper(1:length(pca_semg), pca_semg(4, :)'', ...    
-                [4 1 4], {'sample' 'amplitude' 'After TDSEP'}, '-'); 
+subplot_helper(1:length(tdsep_semg), norm_tdsep_semg(1, :), ...
+                [4 1 1], {'sample' 'amplitude' 'After TDSEP'}, '-');  
+subplot_helper(1:length(tdsep_semg), norm_tdsep_semg(2, :), ...    
+                [4 1 2], {'sample' 'amplitude' 'After TDSEP'}, '-');        
+subplot_helper(1:length(tdsep_semg), norm_tdsep_semg(3, :), ...
+                [4 1 3], {'sample' 'amplitude' 'After TDSEP'}, '-');      
+subplot_helper(1:length(tdsep_semg), norm_tdsep_semg(4, :), ...    
+                [4 1 4], {'sample' 'amplitude' 'After TDSEP'}, '-');
 
 similarity_list = zeros(semg_channel_count);
 for i = 1 : semg_channel_count
     for r = 1 : semg_channel_count
-         coef = corrcoef(pca_semg(i, :), pca_semg(r, :));
+         coef = corrcoef(tdsep_semg(i, :), tdsep_semg(r, :));
          similarity_list(i, r) = coef(1, 2);
     end
 end
