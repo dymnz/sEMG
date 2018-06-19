@@ -1,5 +1,5 @@
 clear; close all;
-addpath('../matlab_lib');
+addpath('../../matlab_lib');
 
 filename_list =  {'PROSUP_3'};
 % Signal Setting
@@ -21,7 +21,7 @@ mpu_channel = 5:6;  % 3: Roll(SUP/SUP) / 4: Pitch(Flx/Ext)
 for f = 1 : numel(filename_list)
 filename = filename_list{f};
 
-file_loc_prepend = './data/raw_';
+file_loc_prepend = '../data/raw_';
 file_extension = '.txt';
 filename_prepend = 'S2WA_10_';
 file = [file_loc_prepend, filename_prepend, ...

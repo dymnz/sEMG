@@ -1,6 +1,6 @@
 clear; close all;
 
-addpath('../matlab_lib');
+addpath('../../matlab_lib');
 
 filename_list =  {'MPU_VS_POT_1'};
 % Signal Setting

@@ -1,6 +1,6 @@
 clear; close all;
 
-addpath('../matlab_lib');
+addpath('../../matlab_lib');
 
 
 semg_channel_count = 4;
