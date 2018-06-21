@@ -19,7 +19,8 @@ if iscell(ydata)
 else
     
     ymin = min(ydata);
-    ymax = max(ymin+1, max(ydata));
+%     ymax = max(ymin+1, max(ydata));
+    ymax = max(ydata);
 end
 xlim([1 length(X)]); 
 ylim([ymin ymax]);

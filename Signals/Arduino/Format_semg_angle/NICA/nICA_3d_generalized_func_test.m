@@ -21,11 +21,16 @@ mixed = A * source;
 
 % Plot mixed 
 figure; 
+equal_plot3(source, [-1 10], [-1 10], [-1 10]);
+title('Source', 'FontSize', 20);
+
+% Plot mixed 
+figure; 
 equal_plot3(mixed, [-1 10], [-1 10], [-1 10]);
-title('Mixed signal', 'FontSize', 20);
+title('Mixed', 'FontSize', 20);
 
 % nICA
 ica_sig = nICA(mixed);
 figure; 
 equal_plot3(ica_sig, [-0.1 0.5], [-0.1 0.5], [-0.1 0.5]);
-title('nICA signal', 'FontSize', 20);
+title('nICA', 'FontSize', 20);

@@ -1,4 +1,4 @@
-function ica_sig = nICA(sig, fsolve_max_step, fsolve_tolerance, global_tolerance_torque, global_max_step, step_per_log) 
+function [ica_sig, whitened_sig] = nICA(sig, fsolve_max_step, fsolve_tolerance, global_tolerance_torque, global_max_step, step_per_log) 
 
 % sig: N-dim x K-sample
 
@@ -18,6 +18,8 @@ Cx = x_centered * x_centered' / size(x_centered, 1);
 
 V =  E * diag(1./sqrt(diag(D))) * E';
 Z = V * X;
+
+whitened_sig = Z;
 
 %% nICA - 2D torque minimization
 W = eye(N);

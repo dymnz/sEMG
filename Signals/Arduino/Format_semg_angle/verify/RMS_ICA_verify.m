@@ -66,9 +66,23 @@ concat_semg = RMS_calc(concat_semg', RMS_window_size)';
 [ica_semg, mixing_matrix, seperating_matrix] = fastica(concat_semg, ...
     'verbose', 'off', 'displayMode', 'off');  
 
-norm_concat_semg =  2.*(concat_semg - min(concat_semg, [], 2))...
-        ./ (max(concat_semg, [], 2) - min(concat_semg, [], 2));  
-norm_concat_semg = norm_concat_semg - mean(norm_concat_semg, 2);
+if max(ica_semg(1, :)) ~= max(abs(ica_semg(1, :)))
+    ica_semg(1, :) = -ica_semg(1, :);
+end
+if max(ica_semg(2, :)) ~= max(abs(ica_semg(2, :)))
+    ica_semg(2, :) = -ica_semg(2, :);
+end
+if max(ica_semg(3, :)) ~= max(abs(ica_semg(3, :)))
+    ica_semg(3, :) = -ica_semg(3, :);
+end
+if max(ica_semg(4, :)) ~= max(abs(ica_semg(4, :)))
+    ica_semg(4, :) = -ica_semg(4, :);
+end
+    
+% norm_concat_semg =  2.*(concat_semg - min(concat_semg, [], 2))...
+%         ./ (max(concat_semg, [], 2) - min(concat_semg, [], 2));  
+% norm_concat_semg = norm_concat_semg - mean(norm_concat_semg, 2);
+norm_concat_semg = concat_semg;
 
 
 figure;
@@ -82,11 +96,13 @@ subplot_helper(1:length(concat_semg), norm_concat_semg(4, :), ...
                 [4 1 4], {'sample' 'amplitude' 'Before ICA'}, '-'); 
 
             
-norm_tdsep_semg =  2.*(ica_semg - min(ica_semg, [], 2))...
-        ./ (max(ica_semg, [], 2) - min(ica_semg, [], 2));  
-norm_tdsep_semg = norm_tdsep_semg - mean(norm_tdsep_semg, 2); 
+% norm_tdsep_semg =  2.*(ica_semg - min(ica_semg, [], 2))...
+%         ./ (max(ica_semg, [], 2) - min(ica_semg, [], 2));  
+% norm_tdsep_semg = norm_tdsep_semg - mean(norm_tdsep_semg, 2); 
+% norm_tdsep_semg = abs(norm_tdsep_semg);
 
-% norm_tdsep_semg = abs(norm_tdsep_semg);  
+norm_tdsep_semg = ica_semg;
+
 
 figure;
 subplot_helper(1:length(ica_semg), norm_tdsep_semg(1, :), ...

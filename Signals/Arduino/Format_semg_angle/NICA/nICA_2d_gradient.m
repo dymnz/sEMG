@@ -4,8 +4,8 @@ clear; close all
 % Signal specification
 N = 2;
 K = 500;
-p1_limit = [2 3];
-p2_limit = [2 7];
+p1_limit = [0 3];
+p2_limit = [0 7];
 
 % Generation
 p1 = unifrnd(p1_limit(1), p1_limit(2), 1, K);
@@ -45,8 +45,8 @@ equal_plot(Z, [-0.1 0.5], [-0.1 0.5]);
 title('pre-whitened', 'FontSize', 20);
 
 %% nICA - 2D torque minimization
-max_step = 2000;
-step_per_log = 400;
+max_step = 400;
+step_per_log = 50;
 phi = 0;
 eta = 1e-2;
 
@@ -64,7 +64,7 @@ if mod(step, step_per_log) == 0
     J = 1/2 * sum((Z - W'*Y_pos).^2, 2);
     fprintf('torque at step %5d is %.5f %.5f\n', step, J(1), J(2));
     figure; 
-    equal_plot(Y, [-0.1 1], [-0.1 1]);
+    equal_plot(Y, [-0.1 0.3], [-0.1 0.3]);
     title(sprintf('Y = WZ @ step %d', step), 'FontSize', 20);
 end
 

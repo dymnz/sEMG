@@ -1,4 +1,4 @@
-% RMS-nICA
+% RMS-nICA grounded
 clear; close all;
 
 set(0,'DefaultFigureVisible','on');
@@ -17,14 +17,13 @@ tdsep_file_list = {'FLX_1', 'EXT_1', 'PRO_1', 'SUP_1'};
 
 % Signal Setting
 target_sample_rate = 10;
-RMS_window_size = 500;    % RMS window in pts
+RMS_window_size = 100;    % RMS window in pts
 
-fsolve_max_step = 2000;
-fsolve_tolerance = 1e-18;
-global_tolerance_torque = 1e-8;
-global_max_step = 400;
-step_per_log = 100;
-
+semg_sample_rate = 460; % Approximate
+semg_max_value = 2048;
+semg_min_value = -2048;
+mpu_max_value = 90;
+mpu_min_value = -90;
 
 semg_channel_count = 4;
 mpu_channel_count = 2;
@@ -60,6 +59,13 @@ end
 
 concat_semg = concat_semg - ones(size(concat_semg)) .* mean(concat_semg, 2);
 RMS_concat_semg = RMS_calc(concat_semg', RMS_window_size)';
+  
+ 
+fsolve_max_step = 2000;
+fsolve_tolerance = 1e-18;
+global_tolerance_torque = 1e-10;
+global_max_step = 400;
+step_per_log = 100;
 
 [nICA_semg, whitened_semg] = nICA(RMS_concat_semg, fsolve_max_step, fsolve_tolerance, global_tolerance_torque, global_max_step, step_per_log);
 
@@ -99,7 +105,6 @@ scatter(whitened_semg(2, :), whitened_semg(4, :));
 
 figure;
 scatter(nICA_semg(2, :), nICA_semg(4, :));
-
 
 
 

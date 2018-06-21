@@ -1,5 +1,5 @@
 clear; close all;
-addpath('../../matlab_lib');
+addpath('../matlab_lib');
 
 % filename_list = {
 %     'PRO_1', 'PRO_2', 'PRO_3', 'PRO_4', 'PRO_5', ...
@@ -11,7 +11,7 @@ addpath('../../matlab_lib');
 %     'FLXEXTPROSUP_1', 'FLXEXTPROSUP_2', 'FLXEXTPROSUP_3', ...
 %     'FLXEXTPRO_1', 'FLXEXTSUP_1', 'FLXEXTPRO_2', 'FLXEXTSUP_2'
 % };
-filename_list =  {'FLXEXTPROSUP_1'};
+filename_list =  {'FLX_1'};
 % Signal Setting
 target_sample_rate = 10;
 RMS_window_size = 100;    % RMS window in pts
@@ -31,7 +31,7 @@ mpu_channel = 5:6;  % 3: Roll(SUP/SUP) / 4: Pitch(Flx/Ext)
 for f = 1 : numel(filename_list)
 filename = filename_list{f};
 
-file_loc_prepend = '../data/raw_';
+file_loc_prepend = './data/raw_';
 file_extension = '.txt';
 filename_prepend = 'S2WA_10_';
 file = [file_loc_prepend, filename_prepend, ...
