@@ -4,7 +4,7 @@
  license: Beerware - Use this code however you'd like. If you
  find it useful you can buy me a beer some time.
  */
-#include "Wire.h"
+#include <i2c_t3.h>
 #include <SPI.h>
 #include "common.h"
 
@@ -64,10 +64,10 @@ float eInt[3] = {0.0f, 0.0f, 0.0f};       // vector to hold integral error for M
 
 void setup()
 {
-  Wire.begin();
+ // Wire.begin();
 //  TWBR = 12;  // 400 kbit/sec I2C speed for Pro Mini
   // Setup for Master mode, pins 18/19, external pullups, 400kHz for Teensy 3.1
-//  Wire.begin(I2C_MASTER, 0x00, I2C_PINS_16_17, I2C_PULLUP_EXT, I2C_RATE_400);
+  Wire.begin(I2C_MASTER, 0x00, I2C_PINS_16_17, I2C_PULLUP_INT, I2C_RATE_400);
   delay(4000);
   Serial.begin(2000000);
   while (!SerialUSB);
@@ -118,16 +118,17 @@ void setup()
 
     // Get magnetometer calibration from AK8963 ROM
     initAK8963(magCalibration); Serial.println("AK8963 initialized for active data mode...."); // Initialize device for active mode read of magnetometer
-
-
-    // Don't use online calibration, use value from 'MPU9250_mag_cal'
-    //magcalMPU9250(magBias, magScale);
+    
+    magcalMPU9250(magBias, magScale);
+    /* // Don't use online calibration, use value from 'MPU9250_mag_cal'
     magBias[0] = 126.0  * mRes * magCalibration[0]; // save mag biases in G for main program
     magBias[1] = 33.0   * mRes * magCalibration[1];
     magBias[2] = -86.0  * mRes * magCalibration[2];
     magScale[0] = 1.0286195;
     magScale[1] = 0.983897;
     magScale[2] = 0.98867315;
+    */ 
+
     
     Serial.println("AK8963 mag biases (mG)"); Serial.println(magBias[0]); Serial.println(magBias[1]); Serial.println(magBias[2]);
     Serial.println("AK8963 mag scale (mG)"); Serial.println(magScale[0]); Serial.println(magScale[1]); Serial.println(magScale[2]);
@@ -206,15 +207,15 @@ void loop()
   // function to get North along the accel +x-axis, East along the accel -y-axis, and Down along the accel -z-axis.
   // This orientation choice can be modified to allow any convenient (non-NED) orientation convention.
   // Pass gyro rate as rad/s
-  //MadgwickQuaternionUpdate(-ax, ay, az, gx * PI / 180.0f, -gy * PI / 180.0f, -gz * PI / 180.0f,  my,  -mx, mz);
-  MadgwickQuaternionUpdate(ay, ax, -az, gy * PI / 180.0f, gx * PI / 180.0f, -gz * PI / 180.0f,  mx,  my, mz);
+  MadgwickQuaternionUpdate(-ax, ay, az, gx * PI / 180.0f, -gy * PI / 180.0f, -gz * PI / 180.0f,  my,  -mx, mz);
+  //MadgwickQuaternionUpdate(ay, ax, -az, gy * PI / 180.0f, gx * PI / 180.0f, -gz * PI / 180.0f,  mx,  my, mz);
 //  if(passThru)MahonyQuaternionUpdate(-ax, ay, az, gx*PI/180.0f, -gy*PI/180.0f, -gz*PI/180.0f,  my,  -mx, mz);
 
   // Serial.print and/or display at 0.5 s rate independent of data rates
   delt_t = millis() - count;
   if (delt_t > 500) { // update LCD once per half-second independent of read rate
 
-  /*
+    ///*
     if (SerialDebug) {
       Serial.print("ax = "); Serial.print((int)1000 * ax);
       Serial.print(" ay = "); Serial.print((int)1000 * ay);
@@ -231,7 +232,7 @@ void loop()
       Serial.print(" qy = "); Serial.print(q[2]);
       Serial.print(" qz = "); Serial.println(q[3]);
     }
-    */
+    //*/
 
     // Define output variables from updated quaternion---these are Tait-Bryan angles, commonly used in aircraft orientation.
     // In this coordinate system, the positive z-axis is down toward Earth.
