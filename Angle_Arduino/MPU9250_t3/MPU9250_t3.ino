@@ -117,7 +117,8 @@ void setup()
 
 
     // Get magnetometer calibration from AK8963 ROM
-    initAK8963(magCalibration); Serial.println("AK8963 initialized for active data mode...."); // Initialize device for active mode read of magnetometer    
+    initAK8963(magCalibration); Serial.println("AK8963 initialized for active data mode...."); // Initialize device for active mode read of magnetometer
+    
     magcalMPU9250(magBias, magScale);
     /* // Don't use online calibration, use value from 'MPU9250_mag_cal'
     magBias[0] = 126.0  * mRes * magCalibration[0]; // save mag biases in G for main program
@@ -152,16 +153,23 @@ void setup()
 }
 
 void loop()
-{   
+{
+  // Workaround to not use INT
+  //if (readByte(MPU9250_ADDRESS, DMP_INT_STATUS) & 0x01)
+  //  newData = true;
+    
   // If intPin goes high, all data registers have new data 
   if (newData == true) { // On interrupt, read data
     newData = false;  // reset newData flag
     readMPU9250Data(MPU9250Data); // INT cleared on any read
+//   readAccelData(accelCount);  // Read the x/y/z adc values
 
     // Now we'll calculate the accleration value into actual g's
     ax = (float)MPU9250Data[0] * aRes - accelBias[0]; // get actual g value, this depends on scale being set
     ay = (float)MPU9250Data[1] * aRes - accelBias[1];
     az = (float)MPU9250Data[2] * aRes - accelBias[2];
+
+//   readGyroData(gyroCount);  // Read the x/y/z adc values
 
     // Calculate the gyro value into actual degrees per second
     gx = (float)MPU9250Data[4] * gRes; // get actual gyro value, this depends on scale being set
@@ -201,7 +209,8 @@ void loop()
   // Pass gyro rate as rad/s
   MadgwickQuaternionUpdate(-ax, ay, az, gx * PI / 180.0f, -gy * PI / 180.0f, -gz * PI / 180.0f,  my,  -mx, mz);
   //MadgwickQuaternionUpdate(ay, ax, -az, gy * PI / 180.0f, gx * PI / 180.0f, -gz * PI / 180.0f,  mx,  my, mz);
-  
+//  if(passThru)MahonyQuaternionUpdate(-ax, ay, az, gx*PI/180.0f, -gy*PI/180.0f, -gz*PI/180.0f,  my,  -mx, mz);
+
   // Serial.print and/or display at 0.5 s rate independent of data rates
   delt_t = millis() - count;
   if (delt_t > 500) { // update LCD once per half-second independent of read rate

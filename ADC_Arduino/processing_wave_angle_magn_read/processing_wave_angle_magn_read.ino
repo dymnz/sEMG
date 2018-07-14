@@ -4,7 +4,7 @@
  license: Beerware - Use this code however you'd like. If you
  find it useful you can buy me a beer some time.
  */
-#include "Wire.h"
+#include <i2c_t3.h>
 #include <SPI.h>
 #include "common.h"
 
@@ -62,40 +62,49 @@ float q[4] = {1.0f, 0.0f, 0.0f, 0.0f};    // vector to hold quaternion
 float eInt[3] = {0.0f, 0.0f, 0.0f};       // vector to hold integral error for Mahony method
 
 
+bool mpu_data_ready = false;
+const int expected_mpu_report_rate = 500;
+const int mpu_report_interval_ms = (int) (1000.0f / expected_mpu_report_rate);
+
+const int alignment_packet_len = 1;
+
+const int semg_channel = 4;
+const int semg_packet_byte = 2;
+const int semg_packet_len = alignment_packet_len + semg_channel * semg_packet_byte;
+
+const int mpu_channel = 3;
+const int mpu_packet_byte = 2;  // uint16_t for 0-360 degree
+const int mpu_packet_len = alignment_packet_len + mpu_channel * mpu_packet_byte;
+
+uint8_t semg_packet[semg_packet_len] = {'$'};
+uint8_t mpu_packet[mpu_packet_len] = {'@'};
+
+typedef uint8_t indexType; // !!!!!!! WORKS WHEN MV_SIZE < 255 !!!!!!!
+
+
 void setup()
 {
-  Wire.begin();
-//  TWBR = 12;  // 400 kbit/sec I2C speed for Pro Mini
-  // Setup for Master mode, pins 18/19, external pullups, 400kHz for Teensy 3.1
-//  Wire.begin(I2C_MASTER, 0x00, I2C_PINS_16_17, I2C_PULLUP_EXT, I2C_RATE_400);
-  delay(4000);
-  SerialUSB.begin(0);
-  while (!SerialUSB);
-  
-  SerialUSB.println("MPU9250 9-axis motion sensor...");
-  
+
+  // Setup for Master mode, pins 16/17, external pullups, 400kHz for Teensy 3.1
+  Wire.begin(I2C_MASTER, 0x00, I2C_PINS_16_17, I2C_PULLUP_INT, I2C_RATE_400);
+  Serial.begin(0);
+  while (!Serial);
+
+  // For sEMG ADC
+  analogReadResolution(12);
+  //analogReference(AR_EXTERNAL);
+ 
+
   // Set up the interrupt pin, its set as active high, push-pull
   pinMode(intPin, INPUT);
 
-  SerialUSB.println("MPU9250 9-axis motion sensor...");
-
 
   // Read the WHO_AM_I register, this is a good test of communication
-  SerialUSB.println("MPU9250 9-axis motion sensor...");
   byte c = readByte(MPU9250_ADDRESS, WHO_AM_I_MPU9250);  // Read WHO_AM_I register for MPU-9250
-  SerialUSB.print("MPU9250 "); SerialUSB.print("I AM "); SerialUSB.print(c, HEX); SerialUSB.print(" I should be "); SerialUSB.println(0x71, HEX);
-
+  
   if (c == 0x71) // WHO_AM_I should always be 0x68
   {
-    SerialUSB.println("MPU9250 is online...");
-
     MPU9250SelfTest(SelfTest); // Start by performing self test and reporting values
-    SerialUSB.print("x-axis self test: acceleration trim within : "); SerialUSB.print(SelfTest[0], 1); SerialUSB.println("% of factory value");
-    SerialUSB.print("y-axis self test: acceleration trim within : "); SerialUSB.print(SelfTest[1], 1); SerialUSB.println("% of factory value");
-    SerialUSB.print("z-axis self test: acceleration trim within : "); SerialUSB.print(SelfTest[2], 1); SerialUSB.println("% of factory value");
-    SerialUSB.print("x-axis self test: gyration trim within : "); SerialUSB.print(SelfTest[3], 1); SerialUSB.println("% of factory value");
-    SerialUSB.print("y-axis self test: gyration trim within : "); SerialUSB.print(SelfTest[4], 1); SerialUSB.println("% of factory value");
-    SerialUSB.print("z-axis self test: gyration trim within : "); SerialUSB.print(SelfTest[5], 1); SerialUSB.println("% of factory value");
     delay(1000);
 
     // get sensor resolutions, only need to do this once
@@ -103,93 +112,83 @@ void setup()
     getGres();
     getMres();
 
-    SerialUSB.println(" Calibrate gyro and accel");
     accelgyrocalMPU9250(gyroBias, accelBias); // Calibrate gyro and accelerometers, load biases in bias registers
-    SerialUSB.println("accel biases (mg)"); SerialUSB.println(1000.*accelBias[0]); SerialUSB.println(1000.*accelBias[1]); SerialUSB.println(1000.*accelBias[2]);
-    SerialUSB.println("gyro biases (dps)"); SerialUSB.println(gyroBias[0]); SerialUSB.println(gyroBias[1]); SerialUSB.println(gyroBias[2]);
-
     initMPU9250();
-    SerialUSB.println("MPU9250 initialized for active data mode...."); // Initialize device for active mode read of acclerometer, gyroscope, and temperature
 
     // Read the WHO_AM_I register of the magnetometer, this is a good test of communication
     byte d = readByte(AK8963_ADDRESS, AK8963_WHO_AM_I);  // Read WHO_AM_I register for AK8963
-    SerialUSB.print("AK8963 "); SerialUSB.print("I AM "); SerialUSB.print(d, HEX); SerialUSB.print(" I should be "); SerialUSB.println(0x48, HEX);
-
 
     // Get magnetometer calibration from AK8963 ROM
-    initAK8963(magCalibration); SerialUSB.println("AK8963 initialized for active data mode...."); // Initialize device for active mode read of magnetometer
-
-
+    initAK8963(magCalibration);
+    /* 
+    magcalMPU9250(magBias, magScale);
+    Serial.println("AK8963 mag biases (mG)"); Serial.println(magBias[0], 10); Serial.println(magBias[1], 10); Serial.println(magBias[2], 10);
+    Serial.println("AK8963 mag scale (mG)"); Serial.println(magScale[0], 10); Serial.println(magScale[1], 10); Serial.println(magScale[2], 10);
+    delay(100); // add delay to see results before Serial.spew of data
+    */
+    ///*
     // Don't use online calibration, use value from 'MPU9250_mag_cal'
-    //magcalMPU9250(magBias, magScale);
-    magBias[0] = 126.0  * mRes * magCalibration[0]; // save mag biases in G for main program
-    magBias[1] = 33.0   * mRes * magCalibration[1];
-    magBias[2] = -86.0  * mRes * magCalibration[2];
-    magScale[0] = 1.0286195;
-    magScale[1] = 0.983897;
-    magScale[2] = 0.98867315;
-    
-    SerialUSB.println("AK8963 mag biases (mG)"); SerialUSB.println(magBias[0]); SerialUSB.println(magBias[1]); SerialUSB.println(magBias[2]);
-    SerialUSB.println("AK8963 mag scale (mG)"); SerialUSB.println(magScale[0]); SerialUSB.println(magScale[1]); SerialUSB.println(magScale[2]);
-    delay(2000); // add delay to see results before SerialUSB.spew of data
-
-    if (SerialDebug) {
-//  SerialUSB.println("Calibration values: ");
-      SerialUSB.print("X-Axis sensitivity adjustment value "); SerialUSB.println(magCalibration[0], 2);
-      SerialUSB.print("Y-Axis sensitivity adjustment value "); SerialUSB.println(magCalibration[1], 2);
-      SerialUSB.print("Z-Axis sensitivity adjustment value "); SerialUSB.println(magCalibration[2], 2);
-    }
+    magBias[0] = 232.4815216064;
+    magBias[1] = 32.1548767090;
+    magBias[2] = -149.8100891113;
+    magScale[0] = 1.0383275747;
+    magScale[1] = 1.0205479860;
+    magScale[2] = 0.9460317492;
+    //*/ 
 
     attachInterrupt(intPin, myinthandler, RISING);  // define interrupt for INT pin output of MPU9250
 
   }
   else
   {
-    SerialUSB.print("Could not connect to MPU9250: 0x");
-    SerialUSB.println(c, HEX);
-    while (1) ; // Loop forever if communication doesn't happen
+    Serial.print("Could not connect to MPU9250: 0x");
+    Serial.println(c, HEX);
+    while (1); // Loop forever if communication doesn't happen
   }
 }
 
-void loop()
+void read_and_send_semg()
 {
-  // Workaround to not use INT
-  //if (readByte(MPU9250_ADDRESS, DMP_INT_STATUS) & 0x01)
-  //  newData = true;
-    
-  // If intPin goes high, all data registers have new data 
-  if (newData == true) { // On interrupt, read data
-    newData = false;  // reset newData flag
-    readMPU9250Data(MPU9250Data); // INT cleared on any read
-//   readAccelData(accelCount);  // Read the x/y/z adc values
+  // A6-9 = Pin20-23
+  ((uint16_t *)(semg_packet + alignment_packet_len))[0] = analogRead(A6);;
+  ((uint16_t *)(semg_packet + alignment_packet_len))[1] = analogRead(A7);
+  ((uint16_t *)(semg_packet + alignment_packet_len))[2] = analogRead(A8);
+  ((uint16_t *)(semg_packet + alignment_packet_len))[3] = analogRead(A9);;               
+  SerialUSB.write(semg_packet, semg_packet_len);
+}
 
-    // Now we'll calculate the accleration value into actual g's
-    ax = (float)MPU9250Data[0] * aRes - accelBias[0]; // get actual g value, this depends on scale being set
-    ay = (float)MPU9250Data[1] * aRes - accelBias[1];
-    az = (float)MPU9250Data[2] * aRes - accelBias[2];
+void update_mpu_data()
+{
+  newData = false;  // reset newData flag
+  readMPU9250Data(MPU9250Data); // INT cleared on any read
 
-//   readGyroData(gyroCount);  // Read the x/y/z adc values
+  // Now we'll calculate the accleration value into actual g's
+  ax = (float)MPU9250Data[0] * aRes - accelBias[0]; // get actual g value, this depends on scale being set
+  ay = (float)MPU9250Data[1] * aRes - accelBias[1];
+  az = (float)MPU9250Data[2] * aRes - accelBias[2];
 
-    // Calculate the gyro value into actual degrees per second
-    gx = (float)MPU9250Data[4] * gRes; // get actual gyro value, this depends on scale being set
-    gy = (float)MPU9250Data[5] * gRes;
-    gz = (float)MPU9250Data[6] * gRes;
+  // Calculate the gyro value into actual degrees per second
+  gx = (float)MPU9250Data[4] * gRes; // get actual gyro value, this depends on scale being set
+  gy = (float)MPU9250Data[5] * gRes;
+  gz = (float)MPU9250Data[6] * gRes;
 
-    readMagData(magCount);  // Read the x/y/z adc values
+  readMagData(magCount);  // Read the x/y/z adc values
 
-    // Calculate the magnetometer values in milliGauss
-    // Include factory calibration per data sheet and user environmental corrections
-    if (newMagData == true) {
-      newMagData = false; // reset newMagData flag
-      mx = (float)magCount[0] * mRes * magCalibration[0] - magBias[0]; // get actual magnetometer value, this depends on scale being set
-      my = (float)magCount[1] * mRes * magCalibration[1] - magBias[1];
-      mz = (float)magCount[2] * mRes * magCalibration[2] - magBias[2];
-      mx *= magScale[0];
-      my *= magScale[1];
-      mz *= magScale[2];
-    }
+  // Calculate the magnetometer values in milliGauss
+  // Include factory calibration per data sheet and user environmental corrections
+  if (newMagData == true) {
+    newMagData = false; // reset newMagData flag
+    mx = (float)magCount[0] * mRes * magCalibration[0] - magBias[0]; // get actual magnetometer value, this depends on scale being set
+    my = (float)magCount[1] * mRes * magCalibration[1] - magBias[1];
+    mz = (float)magCount[2] * mRes * magCalibration[2] - magBias[2];
+    mx *= magScale[0];
+    my *= magScale[1];
+    mz *= magScale[2];
   }
+}
 
+void update_mpu_filter()
+{
   Now = micros();
   deltat = ((Now - lastUpdate) / 1000000.0f); // set integration time by time elapsed since last filter update
   lastUpdate = Now;
@@ -197,60 +196,12 @@ void loop()
   sum += deltat; // sum for averaging filter update rate
   sumCount++;
 
-  // Sensors x (y)-axis of the accelerometer/gyro is aligned with the y (x)-axis of the magnetometer;
-  // the magnetometer z-axis (+ down) is misaligned with z-axis (+ up) of accelerometer and gyro!
-  // We have to make some allowance for this orientation mismatch in feeding the output to the quaternion filter.
-  // For the MPU9250+MS5637 Mini breakout the +x accel/gyro is North, then -y accel/gyro is East. So if we want te quaternions properly aligned
-  // we need to feed into the Madgwick function Ax, -Ay, -Az, Gx, -Gy, -Gz, My, -Mx, and Mz. But because gravity is by convention
-  // positive down, we need to invert the accel data, so we pass -Ax, Ay, Az, Gx, -Gy, -Gz, My, -Mx, and Mz into the Madgwick
-  // function to get North along the accel +x-axis, East along the accel -y-axis, and Down along the accel -z-axis.
-  // This orientation choice can be modified to allow any convenient (non-NED) orientation convention.
-  // Pass gyro rate as rad/s
-  //MadgwickQuaternionUpdate(-ax, ay, az, gx * PI / 180.0f, -gy * PI / 180.0f, -gz * PI / 180.0f,  my,  -mx, mz);
-  MadgwickQuaternionUpdate(ay, ax, -az, gy * PI / 180.0f, gx * PI / 180.0f, -gz * PI / 180.0f,  mx,  my, mz);
-//  if(passThru)MahonyQuaternionUpdate(-ax, ay, az, gx*PI/180.0f, -gy*PI/180.0f, -gz*PI/180.0f,  my,  -mx, mz);
-
-  // SerialUSB.print and/or display at 0.5 s rate independent of data rates
+  MadgwickQuaternionUpdate(-ax, ay, az, gx * PI / 180.0f, -gy * PI / 180.0f, -gz * PI / 180.0f,  my,  -mx, mz);
+  //MadgwickQuaternionUpdate(ay, ax, -az, gy * PI / 180.0f, gx * PI / 180.0f, -gz * PI / 180.0f,  mx,  my, mz);
+  
+  // Serial.print and/or display at 0.5 s rate independent of data rates
   delt_t = millis() - count;
-  if (delt_t > 500) { // update LCD once per half-second independent of read rate
-
-  /*
-    if (SerialDebug) {
-      SerialUSB.print("ax = "); SerialUSB.print((int)1000 * ax);
-      SerialUSB.print(" ay = "); SerialUSB.print((int)1000 * ay);
-      SerialUSB.print(" az = "); SerialUSB.print((int)1000 * az); SerialUSB.println(" mg");
-      SerialUSB.print("gx = "); SerialUSB.print( gx, 2);
-      SerialUSB.print(" gy = "); SerialUSB.print( gy, 2);
-      SerialUSB.print(" gz = "); SerialUSB.print( gz, 2); SerialUSB.println(" deg/s");
-      SerialUSB.print("mx = "); SerialUSB.print( (int)mx );
-      SerialUSB.print(" my = "); SerialUSB.print( (int)my );
-      SerialUSB.print(" mz = "); SerialUSB.print( (int)mz ); SerialUSB.println(" mG");
-
-      SerialUSB.print("q0 = "); SerialUSB.print(q[0]);
-      SerialUSB.print(" qx = "); SerialUSB.print(q[1]);
-      SerialUSB.print(" qy = "); SerialUSB.print(q[2]);
-      SerialUSB.print(" qz = "); SerialUSB.println(q[3]);
-    }
-    */
-
-    // Define output variables from updated quaternion---these are Tait-Bryan angles, commonly used in aircraft orientation.
-    // In this coordinate system, the positive z-axis is down toward Earth.
-    // Yaw is the angle between Sensor x-axis and Earth magnetic North (or true North if corrected for local declination, looking down on the sensor positive yaw is counterclockwise.
-    // Pitch is angle between sensor x-axis and Earth ground plane, toward the Earth is positive, up toward the sky is negative.
-    // Roll is angle between sensor y-axis and Earth ground plane, y-axis up is positive roll.
-    // These arise from the definition of the homogeneous rotation matrix constructed from quaternions.
-    // Tait-Bryan angles as well as Euler angles are non-commutative; that is, the get the correct orientation the rotations must be
-    // applied in the correct order which for this configuration is yaw, pitch, and then roll.
-    // For more see http://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles which has additional links.
-    //Software AHRS:
-//   yaw   = atan2f(2.0f * (q[1] * q[2] + q[0] * q[3]), q[0] * q[0] + q[1] * q[1] - q[2] * q[2] - q[3] * q[3]);
-//   pitch = -asinf(2.0f * (q[1] * q[3] - q[0] * q[2]));
-//   roll  = atan2f(2.0f * (q[0] * q[1] + q[2] * q[3]), q[0] * q[0] - q[1] * q[1] - q[2] * q[2] + q[3] * q[3]);
-//   pitch *= 180.0f / PI;
-//   yaw   *= 180.0f / PI;
-//   yaw   += 13.8f; // Declination at Danville, California is 13 degrees 48 minutes and 47 seconds on 2014-04-04
-//   if(yaw < 0) yaw   += 360.0f; // Ensure yaw stays between 0 and 360
-//   roll  *= 180.0f / PI;
+  if (delt_t > mpu_report_interval_ms) { // update LCD once per half-second independent of read rate
     a12 =   2.0f * (q[1] * q[2] + q[0] * q[3]);
     a22 =   q[0] * q[0] + q[1] * q[1] - q[2] * q[2] - q[3] * q[3];
     a31 =   2.0f * (q[0] * q[1] + q[2] * q[3]);
@@ -264,37 +215,37 @@ void loop()
     yaw   += 4.31f; // http://www.magnetic-declination.com/Myanmar/E-yaw/1625256.html#
     if (yaw < 0) yaw   += 360.0f; // Ensure yaw stays between 0 and 360
     roll  *= 180.0f / PI;
-    lin_ax = ax + a31;
-    lin_ay = ay + a32;
-    lin_az = az - a33;
-    if (SerialDebug) {
-      SerialUSB.print("Yaw, Pitch, Roll: ");
-      SerialUSB.print(yaw, 2);
-      SerialUSB.print(", ");
-      SerialUSB.print(pitch, 2);
-      SerialUSB.print(", ");
-      SerialUSB.println(roll, 2);
-
-      SerialUSB.print("Grav_x, Grav_y, Grav_z: ");
-      SerialUSB.print(-a31 * 1000, 2);
-      SerialUSB.print(", ");
-      SerialUSB.print(-a32 * 1000, 2);
-      SerialUSB.print(", ");
-      SerialUSB.print(a33 * 1000, 2);  SerialUSB.println(" mg");
-      SerialUSB.print("Lin_ax, Lin_ay, Lin_az: ");
-      SerialUSB.print(lin_ax * 1000, 2);
-      SerialUSB.print(", ");
-      SerialUSB.print(lin_ay * 1000, 2);
-      SerialUSB.print(", ");
-      SerialUSB.print(lin_az * 1000, 2);  SerialUSB.println(" mg");
-
-      SerialUSB.print("rate = "); SerialUSB.print((float)sumCount / sum, 2); SerialUSB.println(" Hz");
-    }
-
+    
+    mpu_data_ready = true;
+    
     count = millis();
     sumCount = 0;
     sum = 0;
   }
-
 }
+
+void send_mpu()
+{
+  // Send Roll/Pitch/Yaw
+  ((uint16_t *)(mpu_packet + alignment_packet_len))[0] = (uint16_t) roll;
+  ((uint16_t *)(mpu_packet + alignment_packet_len))[1] = (uint16_t) pitch;
+  ((uint16_t *)(mpu_packet + alignment_packet_len))[2] = (uint16_t) yaw;
+  SerialUSB.write(mpu_packet, mpu_packet_len);
+}
+    
+void loop()
+{ 
+  read_and_send_semg();
+
+  if (newData == true) 
+    update_mpu_data();
+
+  update_mpu_filter();
+
+  if (mpu_data_ready == true) {
+    send_mpu();
+    mpu_data_ready = false;
+  }
+}
+
 
