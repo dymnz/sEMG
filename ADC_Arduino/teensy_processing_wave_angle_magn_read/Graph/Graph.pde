@@ -3,10 +3,10 @@ import processing.serial.*;
 Serial serial;
 PrintWriter file;
 
-enum State {HOLD, SEMG_ALIGN, MPU_ALIGN, SEMG_READ, MPU_READ, SEMG_FIN, MPU_FIN}
+enum State {HOLD, SEMG_ALIGN, MPU_ALIGN, POT_ALIGN,SEMG_READ, MPU_READ, POT_READ,SEMG_FIN, MPU_FIN, POT_FIN}
 State serial_state = State.HOLD;
 
-final String filename = "../../../Signals/Arduino/Format_semg_angle/data/MPU_MAGN_1.txt";
+final String filename = "../../../Signals/Arduino/Format_semg_angle/data/MPU_VS_POT_1.txt";
 
 final int width = 1440;
 final int height = 900;
@@ -27,6 +27,7 @@ final int mpu_packet_len = mpu_channel * mpu_packet_byte;
 
 int semg_buffer_index = 0, semg_draw_index = 0;
 int mpu_buffer_index = 0, mpu_draw_index = 0;
+int pot_buffer_index = 0, pot_draw_index = 0;
 
 float[] semg_values = new float[semg_channel];
 float[] mpu_values = new float[mpu_channel];
@@ -65,6 +66,7 @@ void setup() {
   file = createWriter(filename); 
   
   println(Serial.list()); // Use this to print connected serial devices  
+  int ind = Serial.list().length - 1;
   serial = new Serial(this, "/dev/ttyACM0", 4000000); // Set this to your serial port obtained using the line above
 
 }
@@ -85,12 +87,13 @@ void serialEvent(Serial serial) {
           serial_state = State.MPU_ALIGN;         
         ++alignment_count;
       }       //<>//
+
       
       if (alignment_count >= alignment_packet_len) {
         if (serial_state == State.SEMG_ALIGN)
           serial_state = State.SEMG_READ;
         else if (serial_state == State.MPU_ALIGN)
-          serial_state = State.MPU_READ;  
+          serial_state = State.MPU_READ; 
           
         alignment_count = 0;
       }    
@@ -101,7 +104,8 @@ void serialEvent(Serial serial) {
       
       if (serial_count >= semg_packet_len) {
         for (int i = 0; i < semg_channel; ++i) {
-        semg_values[i] = (semg_packet[2*i + 1] << 8) | semg_packet[2*i];
+        semg_values[i] = (semg_packet[2 * i + 1] << 8) | semg_packet[2 * i];
+
         semg_buffer[i][semg_buffer_index] = semg_values[i];
         }
         
@@ -120,12 +124,10 @@ void serialEvent(Serial serial) {
       ++serial_count;
       
       if (serial_count >= mpu_packet_len) {
-        for (int i = 0; i < mpu_channel; ++i) {
-          mpu_values[i] =  int((mpu_packet[i*2 + 1] << 8) | (mpu_packet[i*2])); 
-        }
-        
+        for (int i = 0; i < mpu_channel; ++i)
+          mpu_values[i] =  int((mpu_packet[2 * i + 1] << 8) | (mpu_packet[2 * (i - 1)]));
+  
         mpu_convert();
-        
         for (int i = 0; i < mpu_channel; ++i)
           mpu_buffer[i][mpu_buffer_index] = (int)mpu_values[i];
      
@@ -136,12 +138,13 @@ void serialEvent(Serial serial) {
         serial_state = State.HOLD;
         serial_count = 0;        
       }     
-    }  
-  }
+    }
+  }  
 }
 
 void keyPressed() {
   if (key == '0') { // ascii for '0' 
+    pot_tare();
     mpu_tare();
     tared = true;
   }

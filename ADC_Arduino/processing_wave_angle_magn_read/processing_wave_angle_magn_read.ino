@@ -8,7 +8,7 @@
 #include <SPI.h>
 #include "common.h"
 
-#define SerialDebug true  // set to true to get Serial output for debugging
+#define VerboseSerialDebug false  // set to true to get Serial output for debugging
 
 // Specify sensor full scale
 uint8_t Gscale = GFS_250DPS;
@@ -50,14 +50,14 @@ float zeta = sqrt(3.0f / 4.0f) * GyroMeasDrift;   // compute zeta, the other fre
 #define Ki 0.0f
 
 uint32_t delt_t = 0, count = 0, sumCount = 0;  // used to control display output rate
-float pitch, yaw, roll;
+float pitch, yaw, roll;                   // range = [-180 +180] [-180 +180] [-180 +180]
 float a12, a22, a31, a32, a33;            // rotation matrix coefficients for Euler angles and gravity components
 float deltat = 0.0f, sum = 0.0f;          // integration interval for both filter schemes
 uint32_t lastUpdate = 0, firstUpdate = 0; // used to calculate integration interval
 uint32_t Now = 0;                         // used to calculate integration interval
 
 float ax, ay, az, gx, gy, gz, mx, my, mz; // variables to hold latest sensor data values
-float lin_ax, lin_ay, lin_az;             // linear acceleration (acceleration with gravity component subtracted)
+float lin_ax, lin_ay, lin_az;             // falselinear acceleration (acceleration with gravity component subtracted)
 float q[4] = {1.0f, 0.0f, 0.0f, 0.0f};    // vector to hold quaternion
 float eInt[3] = {0.0f, 0.0f, 0.0f};       // vector to hold integral error for Mahony method
 
@@ -92,7 +92,7 @@ void setup()
 
   // For sEMG ADC
   analogReadResolution(12);
-  //analogReference(AR_EXTERNAL);
+  analogReference(AR_EXTERNAL);
  
 
   // Set up the interrupt pin, its set as active high, push-pull
@@ -120,21 +120,22 @@ void setup()
 
     // Get magnetometer calibration from AK8963 ROM
     initAK8963(magCalibration);
-    /* 
+    /*
     magcalMPU9250(magBias, magScale);
     Serial.println("AK8963 mag biases (mG)"); Serial.println(magBias[0], 10); Serial.println(magBias[1], 10); Serial.println(magBias[2], 10);
     Serial.println("AK8963 mag scale (mG)"); Serial.println(magScale[0], 10); Serial.println(magScale[1], 10); Serial.println(magScale[2], 10);
-    delay(100); // add delay to see results before Serial.spew of data
+    delay(10000); // add delay to see results before Serial.spew of data
     */
     ///*
     // Don't use online calibration, use value from 'MPU9250_mag_cal'
-    magBias[0] = 232.4815216064;
-    magBias[1] = 32.1548767090;
-    magBias[2] = -149.8100891113;
-    magScale[0] = 1.0383275747;
-    magScale[1] = 1.0205479860;
-    magScale[2] = 0.9460317492;
+    magBias[0] = 172.1427917480;
+    magBias[1] = 114.3284530640;
+    magBias[2] = -165.3076934814;
+    magScale[0] = 1.0514285564;
+    magScale[1] = 1.0000000000;
+    magScale[2] = 0.9533678889;
     //*/ 
+
 
     attachInterrupt(intPin, myinthandler, RISING);  // define interrupt for INT pin output of MPU9250
 
@@ -147,19 +148,40 @@ void setup()
   }
 }
 
+void loop()
+{ 
+  read_and_send_semg();
+
+  if (newData == true) {
+    newData = false;  // reset newData flag
+    update_mpu_data();
+  }
+
+  update_mpu_filter();
+
+  if (mpu_data_ready == true) {
+    send_mpu();
+    mpu_data_ready = false;
+  }
+}
+
 void read_and_send_semg()
 {
+  // A6-9 = Pin20-23
+#if VerboseSerialDebug
+
+#else
   // A6-9 = Pin20-23
   ((uint16_t *)(semg_packet + alignment_packet_len))[0] = analogRead(A6);;
   ((uint16_t *)(semg_packet + alignment_packet_len))[1] = analogRead(A7);
   ((uint16_t *)(semg_packet + alignment_packet_len))[2] = analogRead(A8);
   ((uint16_t *)(semg_packet + alignment_packet_len))[3] = analogRead(A9);;               
   SerialUSB.write(semg_packet, semg_packet_len);
+#endif
 }
 
 void update_mpu_data()
 {
-  newData = false;  // reset newData flag
   readMPU9250Data(MPU9250Data); // INT cleared on any read
 
   // Now we'll calculate the accleration value into actual g's
@@ -214,6 +236,7 @@ void update_mpu_filter()
     yaw   *= 180.0f / PI;
     yaw   += 4.31f; // http://www.magnetic-declination.com/Myanmar/E-yaw/1625256.html#
     if (yaw < 0) yaw   += 360.0f; // Ensure yaw stays between 0 and 360
+    yaw -= 180.0f;  // Restrict yaw to [-180 180] like roll/pitch
     roll  *= 180.0f / PI;
     
     mpu_data_ready = true;
@@ -226,26 +249,20 @@ void update_mpu_filter()
 
 void send_mpu()
 {
+  
+#if VerboseSerialDebug
+  SerialUSB.print("Roll/Pitch/Yaw: "); 
+  SerialUSB.print(roll); SerialUSB.print("/"); 
+  SerialUSB.print(pitch); SerialUSB.print("/"); 
+  SerialUSB.println(yaw);
+#else
   // Send Roll/Pitch/Yaw
-  ((uint16_t *)(mpu_packet + alignment_packet_len))[0] = (uint16_t) roll;
-  ((uint16_t *)(mpu_packet + alignment_packet_len))[1] = (uint16_t) pitch;
-  ((uint16_t *)(mpu_packet + alignment_packet_len))[2] = (uint16_t) yaw;
+  ((int16_t *)(mpu_packet + alignment_packet_len))[0] = (int16_t) roll;
+  ((int16_t *)(mpu_packet + alignment_packet_len))[1] = (int16_t) pitch;
+  ((int16_t *)(mpu_packet + alignment_packet_len))[2] = (int16_t) yaw;
   SerialUSB.write(mpu_packet, mpu_packet_len);
+#endif
 }
     
-void loop()
-{ 
-  read_and_send_semg();
-
-  if (newData == true) 
-    update_mpu_data();
-
-  update_mpu_filter();
-
-  if (mpu_data_ready == true) {
-    send_mpu();
-    mpu_data_ready = false;
-  }
-}
 
 
