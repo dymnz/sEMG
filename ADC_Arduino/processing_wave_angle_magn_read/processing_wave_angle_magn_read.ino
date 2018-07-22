@@ -34,7 +34,7 @@ double Temperature, Pressure; // stores MS5637 pressures sensor pressure and tem
 float SelfTest[6];            // holds results of gyro and accelerometer self test
 
 // global constants for 9 DoF fusion and AHRS (Attitude and Heading Reference System)
-float GyroMeasError = PI * (4.0f / 180.0f);   // gyroscope measurement error in rads/s (start at 40 deg/s)
+float GyroMeasError = PI * (10.0f / 180.0f);   // gyroscope measurement error in rads/s (start at 40 deg/s)
 float GyroMeasDrift = PI * (0.0f  / 180.0f);   // gyroscope measurement drift in rad/s/s (start at 0.0 deg/s/s)
 // There is a tradeoff in the beta parameter between accuracy and response speed.
 // In the original Madgwick study, beta of 0.041 (corresponding to GyroMeasError of 2.7 degrees/s) was found to give optimal accuracy.
@@ -92,7 +92,7 @@ void setup()
 
   // For sEMG ADC
   analogReadResolution(12);
-  analogReference(AR_EXTERNAL);
+  //analogReference(INTERNAL);
  
 
   // Set up the interrupt pin, its set as active high, push-pull
@@ -126,15 +126,7 @@ void setup()
     Serial.println("AK8963 mag scale (mG)"); Serial.println(magScale[0], 10); Serial.println(magScale[1], 10); Serial.println(magScale[2], 10);
     delay(10000); // add delay to see results before Serial.spew of data
     */
-    ///*
-    // Don't use online calibration, use value from 'MPU9250_mag_cal'
-    magBias[0] = 172.1427917480;
-    magBias[1] = 114.3284530640;
-    magBias[2] = -165.3076934814;
-    magScale[0] = 1.0514285564;
-    magScale[1] = 1.0000000000;
-    magScale[2] = 0.9533678889;
-    //*/ 
+    magcalMPU9250_fixed_value(magBias, magScale); 
 
 
     attachInterrupt(intPin, myinthandler, RISING);  // define interrupt for INT pin output of MPU9250
@@ -163,19 +155,25 @@ void loop()
     send_mpu();
     mpu_data_ready = false;
   }
+
+  delay(1);
 }
 
 void read_and_send_semg()
 {
   // A6-9 = Pin20-23
 #if VerboseSerialDebug
-
+  SerialUSB.print("20/21/22/23: "); 
+  SerialUSB.print(analogRead(A6)); SerialUSB.print("/"); 
+  SerialUSB.print(analogRead(A7)); SerialUSB.print("/"); 
+  SerialUSB.print(analogRead(A8)); SerialUSB.print("/"); 
+  SerialUSB.println(analogRead(A9));
 #else
   // A6-9 = Pin20-23
-  ((uint16_t *)(semg_packet + alignment_packet_len))[0] = analogRead(A6);;
+  ((uint16_t *)(semg_packet + alignment_packet_len))[0] = analogRead(A6);
   ((uint16_t *)(semg_packet + alignment_packet_len))[1] = analogRead(A7);
   ((uint16_t *)(semg_packet + alignment_packet_len))[2] = analogRead(A8);
-  ((uint16_t *)(semg_packet + alignment_packet_len))[3] = analogRead(A9);;               
+  ((uint16_t *)(semg_packet + alignment_packet_len))[3] = analogRead(A9);               
   SerialUSB.write(semg_packet, semg_packet_len);
 #endif
 }
@@ -219,7 +217,6 @@ void update_mpu_filter()
   sumCount++;
 
   MadgwickQuaternionUpdate(-ax, ay, az, gx * PI / 180.0f, -gy * PI / 180.0f, -gz * PI / 180.0f,  my,  -mx, mz);
-  //MadgwickQuaternionUpdate(ay, ax, -az, gy * PI / 180.0f, gx * PI / 180.0f, -gz * PI / 180.0f,  mx,  my, mz);
   
   // Serial.print and/or display at 0.5 s rate independent of data rates
   delt_t = millis() - count;

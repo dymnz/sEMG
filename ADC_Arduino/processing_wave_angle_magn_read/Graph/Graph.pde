@@ -6,7 +6,9 @@ PrintWriter file;
 enum State {HOLD, SEMG_ALIGN, MPU_ALIGN, SEMG_READ, MPU_READ, SEMG_FIN, MPU_FIN}
 State serial_state = State.HOLD;
 
-final String filename = "../../../Signals/Arduino/Format_semg_angle/data/MPU_MAGN_1.txt";
+final String SERIAL_NAME = "/dev/ttyACM0";
+final String filename = "../../../Signals/Arduino/Format_semg_angle_magn/data/MPU_MAGN_1.txt";
+
 
 final int width = 1440;
 final int height = 900;
@@ -65,7 +67,7 @@ void setup() {
   file = createWriter(filename); 
   
   println(Serial.list()); // Use this to print connected serial devices  
-  serial = new Serial(this, "/dev/ttyACM0", 4000000); // Set this to your serial port obtained using the line above
+  serial = new Serial(this, SERIAL_NAME, 4000000); // Set this to your serial port obtained using the line above
 
 }
 
@@ -104,7 +106,7 @@ void serialEvent(Serial serial) {
         semg_values[i] = (semg_packet[2*i + 1] << 8) | semg_packet[2*i];
         semg_buffer[i][semg_buffer_index] = semg_values[i];
         }
-        
+        println(semg_values[0]);
         if (++semg_buffer_index >= value_buffer_size) 
           semg_buffer_index = 0;
           

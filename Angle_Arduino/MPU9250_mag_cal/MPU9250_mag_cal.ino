@@ -4,7 +4,8 @@
  license: Beerware - Use this code however you'd like. If you
  find it useful you can buy me a beer some time.
  */
-#include "Wire.h"
+ 
+#include <i2c_t3.h>
 #include <SPI.h>
 #include "common.h"
 
@@ -67,10 +68,10 @@ float eInt[3] = {0.0f, 0.0f, 0.0f};       // vector to hold integral error for M
 
 void setup()
 {
-  Wire.begin();
+  //Wire.begin();
 //  TWBR = 12;  // 400 kbit/sec I2C speed for Pro Mini
   // Setup for Master mode, pins 18/19, external pullups, 400kHz for Teensy 3.1
-//  Wire.begin(I2C_MASTER, 0x00, I2C_PINS_16_17, I2C_PULLUP_EXT, I2C_RATE_400);
+  Wire.begin(I2C_MASTER, 0x00, I2C_PINS_16_17, I2C_PULLUP_INT, I2C_RATE_400);
   SerialUSB.begin(0);
   while (!SerialUSB);
 
@@ -109,7 +110,8 @@ void setup()
     // Get magnetometer calibration from AK8963 ROM
     initAK8963(magCalibration); //SerialUSB.println("AK8963 initialized for active data mode...."); // Initialize device for active mode read of magnetometer
 
-    magcalMPU9250_processing(magBias, magScale);
+    magcalMPU9250_fixed_value(magBias, magScale);
+    magcalMPU9250_processing_cal(magBias, magScale);
   }
   else
   {

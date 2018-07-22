@@ -411,6 +411,16 @@ void magcalMPU9250(float * dest1, float * dest2)
   dest2[2] = avg_rad / ((float)mag_scale[2]);
 }
 
+void magcalMPU9250_fixed_value(float * dest1, float * dest2)
+{
+  dest1[0] = (float) 77 * mRes * magCalibration[0]; // save mag biases in G for main program
+  dest1[1] = (float) 65 * mRes * magCalibration[1];
+  dest1[2] = (float) -99 * mRes * magCalibration[2];
+
+  dest2[0] = 1.0267296;
+  dest2[1] = 0.99847096;
+  dest2[2] = 0.97608376;
+}
 
 void magcalMPU9250_processing(float * dest1, float * dest2)
 {
@@ -426,6 +436,41 @@ void magcalMPU9250_processing(float * dest1, float * dest2)
   for (ii = 0; ii < sample_count; ii++) {
     readMagData(mag_temp);  // Read the mag data
     
+    data_packet[0] = (uint8_t)(mag_temp[0] >> 8);
+    data_packet[1] = (uint8_t)(mag_temp[0] & 0xFF);
+    data_packet[2] = (uint8_t)(mag_temp[1] >> 8);
+    data_packet[3] = (uint8_t)(mag_temp[1] & 0xFF);
+    data_packet[4] = (uint8_t)(mag_temp[2] >> 8);
+    data_packet[5] = (uint8_t)(mag_temp[2] & 0xFF);
+    
+    SerialUSB.write(data_packet, 6);
+    
+    if (Mmode == 0x02) delay(135); // at 8 Hz ODR, new mag data is available every 125 ms
+    if (Mmode == 0x06) delay(12); // at 100 Hz ODR, new mag data is available every 10 ms
+  }
+}
+
+void magcalMPU9250_processing_cal(float * magBias, float * magScale)
+{
+  uint8_t data_packet[6];
+  uint16_t ii = 0, sample_count = 0;
+  int32_t mag_bias[3] = {0, 0, 0}, mag_scale[3] = {0, 0, 0};
+  int16_t mag_max[3] = { -32767, -32767, -32767}, mag_min[3] = {32767, 32767, 32767}, mag_temp[3] = {0, 0, 0};
+
+  
+  // shoot for ~fifteen seconds of mag data
+  if (Mmode == 0x02) sample_count = 1280; // at 8 Hz ODR, new mag data is available every 125 ms
+  if (Mmode == 0x06) sample_count = 15000; // at 100 Hz ODR, new mag data is available every 10 ms
+  for (ii = 0; ii < sample_count; ii++) {
+    readMagData(mag_temp);  // Read the mag data
+    
+    mag_temp[0] = (float)mag_temp[0] * mRes * magCalibration[0] - magBias[0]; // get actual magnetometer value, this depends on scale being set
+    mag_temp[1]  = (float)mag_temp[1] * mRes * magCalibration[1] - magBias[1];
+    mag_temp[2] = (float)mag_temp[2] * mRes * magCalibration[2] - magBias[2];
+    mag_temp[0] *= magScale[0];
+    mag_temp[1] *= magScale[1];
+    mag_temp[2] *= magScale[2];
+
     data_packet[0] = (uint8_t)(mag_temp[0] >> 8);
     data_packet[1] = (uint8_t)(mag_temp[0] & 0xFF);
     data_packet[2] = (uint8_t)(mag_temp[1] >> 8);

@@ -18,10 +18,10 @@ void drawAll() {
   //println(semg_buffer_index, force_buffer_index);
   while (semg_draw_index < semg_buffer_index) {
     buffer_str = "";
-    for (int i = 0; i < semg_channel; i++  ) {
+    for (int i = 0; i < 1; i++  ) {
       draw_value = int(map(semg_buffer[i][semg_draw_index], semg_minValue, semg_maxValue, 0, height));
       stroke(semg_color_list[i][0], semg_color_list[i][1], semg_color_list[i][2]);
-      //line(semg_last_x, semg_last_height[i], x, height - draw_value);
+      line(semg_last_x, semg_last_height[i], x, height - draw_value);
 
       semg_last_height[i] = int(height - draw_value);
 
@@ -33,7 +33,7 @@ void drawAll() {
       for (int i = 0; i < mpu_channel; ++i) {
         stroke(mpu_color_list[i][0], mpu_color_list[i][1], mpu_color_list[i][2]);
         draw_value = int(map(mpu_buffer[i][mpu_draw_index], RPY_minValue[i], RPY_maxValue[i], 0, height));
-        line(mpu_last_x, mpu_last_height[i], x, height - draw_value);
+        //line(mpu_last_x, mpu_last_height[i], x, height - draw_value);
 
         mpu_last_height[i] = int(height - draw_value);
 
@@ -72,13 +72,16 @@ void resetGraph() {
   background(255);  
   strokeWeight(2);
 
+
+
+  /*
   stroke(130, 130, 130);
   for (int i = RPY_maxValue[0] + RPY_minValue[0]; i < RPY_maxValue[0] - RPY_minValue[0]; i+=15) {
     int y = int(map(i, RPY_maxValue[0] + RPY_minValue[0], RPY_maxValue[0] - RPY_minValue[0], 0, height));
     line(0, height - y, width, height - y);
     line(0, y, width, y);
   }
-
+  */
 
   stroke(0); 
   line(0, height / 2, width, height / 2);

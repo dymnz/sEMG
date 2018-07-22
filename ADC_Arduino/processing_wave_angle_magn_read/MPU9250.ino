@@ -159,14 +159,10 @@ void initMPU9250()
   writeByte(MPU9250_ADDRESS, CONFIG, 0x03);
 
 // Set sample rate = gyroscope output rate/(1 + SMPLRT_DIV)
+  writeByte(MPU9250_ADDRESS, SMPLRT_DIV, 0x03);  // Use a 250 Hz rate; a rate consistent with the filter update rate
   //writeByte(MPU9250_ADDRESS, SMPLRT_DIV, 0x04);  // Use a 200 Hz rate; a rate consistent with the filter update rate
-  writeByte(MPU9250_ADDRESS, SMPLRT_DIV, 0x09);  // Use a 100 Hz rate; a rate consistent with the filter update rate
   // determined inset in CONFIG above
-  
-  
 
-
-  
 // Set gyroscope full scale range
 // Range selects FS_SEL and GFS_SEL are 0 - 3, so 2-bit values are left-shifted into positions 4:3
   uint8_t c = readByte(MPU9250_ADDRESS, GYRO_CONFIG); // get current GYRO_CONFIG register value
@@ -501,6 +497,18 @@ void MPU9250SelfTest(float * destination) // Should return percent deviation fro
   }
 
 }
+
+void magcalMPU9250_fixed_value(float * dest1, float * dest2)
+{
+  dest1[0] = (float) 77 * mRes * magCalibration[0]; // save mag biases in G for main program
+  dest1[1] = (float) 65 * mRes * magCalibration[1];
+  dest1[2] = (float) -99 * mRes * magCalibration[2];
+
+  dest2[0] = 1.0267296;
+  dest2[1] = 0.99847096;
+  dest2[2] = 0.97608376;
+}
+
 
 // I2C scan function
 
