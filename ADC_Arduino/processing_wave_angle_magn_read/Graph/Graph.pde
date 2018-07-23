@@ -106,7 +106,7 @@ void serialEvent(Serial serial) {
         semg_values[i] = (semg_packet[2*i + 1] << 8) | semg_packet[2*i];
         semg_buffer[i][semg_buffer_index] = semg_values[i];
         }
-        println(semg_values[0]);
+        
         if (++semg_buffer_index >= value_buffer_size) 
           semg_buffer_index = 0;
           

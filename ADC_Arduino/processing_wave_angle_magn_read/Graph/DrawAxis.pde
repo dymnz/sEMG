@@ -18,10 +18,10 @@ void drawAll() {
   //println(semg_buffer_index, force_buffer_index);
   while (semg_draw_index < semg_buffer_index) {
     buffer_str = "";
-    for (int i = 0; i < 1; i++  ) {
+    for (int i = 0; i < semg_channel; i++  ) {
       draw_value = int(map(semg_buffer[i][semg_draw_index], semg_minValue, semg_maxValue, 0, height));
       stroke(semg_color_list[i][0], semg_color_list[i][1], semg_color_list[i][2]);
-      line(semg_last_x, semg_last_height[i], x, height - draw_value);
+      //line(semg_last_x, semg_last_height[i], x, height - draw_value);
 
       semg_last_height[i] = int(height - draw_value);
 

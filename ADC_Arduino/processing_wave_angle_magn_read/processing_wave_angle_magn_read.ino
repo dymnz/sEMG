@@ -49,7 +49,6 @@ float zeta = sqrt(3.0f / 4.0f) * GyroMeasDrift;   // compute zeta, the other fre
 #define Kp 2.0f * 5.0f // these are the free parameters in the Mahony filter and fusion scheme, Kp for proportional feedback, Ki for integral
 #define Ki 0.0f
 
-uint32_t delt_t = 0, count = 0, sumCount = 0;  // used to control display output rate
 float pitch, yaw, roll;                   // range = [-180 +180] [-180 +180] [-180 +180]
 float a12, a22, a31, a32, a33;            // rotation matrix coefficients for Euler angles and gravity components
 float deltat = 0.0f, sum = 0.0f;          // integration interval for both filter schemes
@@ -61,10 +60,18 @@ float lin_ax, lin_ay, lin_az;             // falselinear acceleration (accelerat
 float q[4] = {1.0f, 0.0f, 0.0f, 0.0f};    // vector to hold quaternion
 float eInt[3] = {0.0f, 0.0f, 0.0f};       // vector to hold integral error for Mahony method
 
-
+const uint32_t expected_mpu_report_rate = 500;
+const uint32_t mpu_report_interval_us = (uint32_t) (1000000 / expected_mpu_report_rate);
 bool mpu_data_ready = false;
-const int expected_mpu_report_rate = 500;
-const int mpu_report_interval_ms = (int) (1000.0f / expected_mpu_report_rate);
+uint32_t mpu_delta_t = 0;
+uint32_t mpu_last_t = 0;
+
+
+const uint32_t expected_semg_report_rate = 3000;
+const uint32_t semg_report_interval_us = (uint32_t) (1000000 / expected_semg_report_rate);
+bool semg_data_ready = false;
+uint32_t semg_delta_t = 0;
+uint32_t semg_last_t = 0;
 
 const int alignment_packet_len = 1;
 
@@ -142,7 +149,8 @@ void setup()
 
 void loop()
 { 
-  read_and_send_semg();
+  //try_read_and_send_semg(); // Rate limited send
+  read_and_send_semg(); // Send whenever
 
   if (newData == true) {
     newData = false;  // reset newData flag
@@ -155,8 +163,29 @@ void loop()
     send_mpu();
     mpu_data_ready = false;
   }
+}
 
-  delay(1);
+
+// A6-9 = Pin20-23
+void try_read_and_send_semg()
+{
+  semg_delta_t = micros() - semg_last_t;
+  if (semg_delta_t > semg_report_interval_us) {
+#if VerboseSerialDebug
+    SerialUSB.print("20/21/22/23: "); 
+    SerialUSB.print(analogRead(A6)); SerialUSB.print("/"); 
+    SerialUSB.print(analogRead(A7)); SerialUSB.print("/"); 
+    SerialUSB.print(analogRead(A8)); SerialUSB.print("/"); 
+    SerialUSB.println(analogRead(A9));
+#else
+    ((uint16_t *)(semg_packet + alignment_packet_len))[0] = analogRead(A6);
+    ((uint16_t *)(semg_packet + alignment_packet_len))[1] = analogRead(A7);
+    ((uint16_t *)(semg_packet + alignment_packet_len))[2] = analogRead(A8);
+    ((uint16_t *)(semg_packet + alignment_packet_len))[3] = analogRead(A9);               
+    SerialUSB.write(semg_packet, semg_packet_len);
+#endif
+    semg_last_t = micros();
+  }
 }
 
 void read_and_send_semg()
@@ -213,14 +242,11 @@ void update_mpu_filter()
   deltat = ((Now - lastUpdate) / 1000000.0f); // set integration time by time elapsed since last filter update
   lastUpdate = Now;
 
-  sum += deltat; // sum for averaging filter update rate
-  sumCount++;
-
   MadgwickQuaternionUpdate(-ax, ay, az, gx * PI / 180.0f, -gy * PI / 180.0f, -gz * PI / 180.0f,  my,  -mx, mz);
   
   // Serial.print and/or display at 0.5 s rate independent of data rates
-  delt_t = millis() - count;
-  if (delt_t > mpu_report_interval_ms) { // update LCD once per half-second independent of read rate
+  mpu_delta_t = micros() - mpu_last_t;
+  if (mpu_delta_t > mpu_report_interval_us) { // update LCD once per half-second independent of read rate
     a12 =   2.0f * (q[1] * q[2] + q[0] * q[3]);
     a22 =   q[0] * q[0] + q[1] * q[1] - q[2] * q[2] - q[3] * q[3];
     a31 =   2.0f * (q[0] * q[1] + q[2] * q[3]);
@@ -236,11 +262,8 @@ void update_mpu_filter()
     yaw -= 180.0f;  // Restrict yaw to [-180 180] like roll/pitch
     roll  *= 180.0f / PI;
     
-    mpu_data_ready = true;
-    
-    count = millis();
-    sumCount = 0;
-    sum = 0;
+    mpu_data_ready = true;    
+    mpu_last_t = micros();
   }
 }
 
