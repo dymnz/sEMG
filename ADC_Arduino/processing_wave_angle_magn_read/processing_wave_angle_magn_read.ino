@@ -34,7 +34,7 @@ double Temperature, Pressure; // stores MS5637 pressures sensor pressure and tem
 float SelfTest[6];            // holds results of gyro and accelerometer self test
 
 // global constants for 9 DoF fusion and AHRS (Attitude and Heading Reference System)
-float GyroMeasError = PI * (10.0f / 180.0f);   // gyroscope measurement error in rads/s (start at 40 deg/s)
+float GyroMeasError = PI * (20.0f / 180.0f);   // gyroscope measurement error in rads/s (start at 40 deg/s)
 float GyroMeasDrift = PI * (0.0f  / 180.0f);   // gyroscope measurement drift in rad/s/s (start at 0.0 deg/s/s)
 // There is a tradeoff in the beta parameter between accuracy and response speed.
 // In the original Madgwick study, beta of 0.041 (corresponding to GyroMeasError of 2.7 degrees/s) was found to give optimal accuracy.
@@ -192,11 +192,13 @@ void read_and_send_semg()
 {
   // A6-9 = Pin20-23
 #if VerboseSerialDebug
+  /*
   SerialUSB.print("20/21/22/23: "); 
   SerialUSB.print(analogRead(A6)); SerialUSB.print("/"); 
   SerialUSB.print(analogRead(A7)); SerialUSB.print("/"); 
   SerialUSB.print(analogRead(A8)); SerialUSB.print("/"); 
   SerialUSB.println(analogRead(A9));
+  */
 #else
   // A6-9 = Pin20-23
   ((uint16_t *)(semg_packet + alignment_packet_len))[0] = analogRead(A6);
