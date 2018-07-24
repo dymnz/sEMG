@@ -7,7 +7,7 @@ enum State {HOLD, SEMG_ALIGN, MPU_ALIGN, SEMG_READ, MPU_READ, SEMG_FIN, MPU_FIN}
 State serial_state = State.HOLD;
 
 final String SERIAL_NAME = "/dev/ttyACM0";
-final String filename = "../../../Signals/Arduino/Format_semg_angle_magn/data/EXT_1.txt";
+final String filename = "../../../Signals/Arduino/Format_semg_angle_magn/data/ICA_3.txt";
 
 
 final int width = 1440;
