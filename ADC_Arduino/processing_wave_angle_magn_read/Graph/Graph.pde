@@ -1,13 +1,15 @@
-import processing.serial.*;
+import processing.serial.*; //<>//
 
 Serial serial;
 PrintWriter file;
 
-enum State {HOLD, SEMG_ALIGN, MPU_ALIGN, SEMG_READ, MPU_READ, SEMG_FIN, MPU_FIN}
+enum State {
+  HOLD, SEMG_ALIGN, MPU_ALIGN, SEMG_READ, MPU_READ, SEMG_FIN, MPU_FIN
+}
 State serial_state = State.HOLD;
 
 final String SERIAL_NAME = "/dev/ttyACM0";
-final String filename = "../../../Signals/Arduino/Format_semg_angle_magn/data/ICA_3.txt";
+final String filename = "../../../Signals/Arduino/Format_semg_angle_magn/data/raw_S2WA_21_" + "SUP_1" + ".txt";
 
 
 final int width = 1440;
@@ -65,80 +67,78 @@ void setup() {
   resetGraph();
   frameRate(1000);
   file = createWriter(filename); 
-  
+
   println(Serial.list()); // Use this to print connected serial devices  
   serial = new Serial(this, SERIAL_NAME, 4000000); // Set this to your serial port obtained using the line above
-
 }
 
 int c = 0;
 void serialEvent(Serial serial) {  
   while (serial.available() > 0) {
     char ch = (char)serial.read();
-    
+
     if (serial_state == State.HOLD) {
       if (ch == semg_alignment_packet[alignment_count]) {
         if (alignment_count == 0)
           serial_state = State.SEMG_ALIGN;
         ++alignment_count;
-      }
-      else if (ch == mpu_alignment_packet[alignment_count]) {
+      } else if (ch == mpu_alignment_packet[alignment_count]) {
         if (alignment_count == 0)
           serial_state = State.MPU_ALIGN;         
         ++alignment_count;
-      }       //<>//
-      
+      }      
+
       if (alignment_count >= alignment_packet_len) {
         if (serial_state == State.SEMG_ALIGN)
           serial_state = State.SEMG_READ;
         else if (serial_state == State.MPU_ALIGN)
           serial_state = State.MPU_READ;  
-          
+
         alignment_count = 0;
-      }    
+      }
     } else if (serial_state == State.SEMG_READ) {      
       semg_packet[serial_count] = ch;
-      
+
       ++serial_count;
-      
+
       if (serial_count >= semg_packet_len) {
         for (int i = 0; i < semg_channel; ++i) {
-        semg_values[i] = (semg_packet[2*i + 1] << 8) | semg_packet[2*i];
-        semg_buffer[i][semg_buffer_index] = semg_values[i];
+          semg_values[i] = (semg_packet[2*i + 1] << 8) | semg_packet[2*i];
+          semg_buffer[i][semg_buffer_index] = semg_values[i];
         }
-        
+
         if (++semg_buffer_index >= value_buffer_size) 
           semg_buffer_index = 0;
-          
+
         draw_semg = true;    
         serial_state = State.HOLD;
         serial_count = 0;
-        
+
         sampleCount();
-      }             
+      }
     } else if (serial_state == State.MPU_READ) {
       mpu_packet[serial_count] = ch;
-      
+
       ++serial_count;
-      
+
       if (serial_count >= mpu_packet_len) {
         for (int i = 0; i < mpu_channel; ++i) {
-          mpu_values[i] =  int((mpu_packet[i*2 + 1] << 8) | (mpu_packet[i*2])); 
+          mpu_values[i] =  int((mpu_packet[i*2 + 1] << 8) | (mpu_packet[i*2]));
         }
-        
+
         mpu_convert();
-        
+
         for (int i = 0; i < mpu_channel; ++i)
           mpu_buffer[i][mpu_buffer_index] = (int)mpu_values[i];
-     
+
         if (++mpu_buffer_index >= value_buffer_size) 
           mpu_buffer_index = 0;
-          
+
         draw_mpu = true;
         serial_state = State.HOLD;
-        serial_count = 0;        
-      }     
-    }  
+        serial_count = 0;
+      }
+    }
   }
 }
 
@@ -157,7 +157,7 @@ void draw() {
     draw_semg = false;   
     drawAll();
     //writeAll();
-  }  
+  }
 }
 
 void sampleCount() {     
@@ -167,5 +167,5 @@ void sampleCount() {
     println(sample_count);
     last_time = millis();
     sample_count = 0;
-  }        
+  }
 }

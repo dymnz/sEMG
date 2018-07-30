@@ -30,17 +30,17 @@ cross_valid_patience_list = {'100'};
 target_sample_rate = 10;
 RMS_window_size = 100;    % RMS window in pts
 
-semg_sample_rate = 460; % Approximate
+semg_sample_rate = 2660; % Approximate
 semg_max_value = 2048;
 semg_min_value = -2048;
 mpu_max_value = 90;
 mpu_min_value = -90;
 
 semg_channel_count = 4;
-mpu_channel_count = 2;
+mpu_channel_count = 3;
 
 semg_channel = 1:4;
-mpu_channel = 5:6;  % 3: Roll(SUP/SUP) / 4: Pitch(Flx/Ext)
+mpu_channel = 5:7; 
 
 %% For different hidden node count...
 rnn_result_plaintext = [];

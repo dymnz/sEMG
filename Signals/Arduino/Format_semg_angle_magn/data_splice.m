@@ -1,4 +1,4 @@
-% Downsample before ICA
+% Data splice
 
 clear; close all;
 
@@ -14,7 +14,7 @@ file_extension = '.txt';
 
 filename_prepend = 'S2WA_21_';
 file_to_splice = { 
-    'PRO_1', 'PRO_2', 'PRO_3'
+    'ICA_1', 'ICA_2', 'ICA_3'
 };
 
 % Signal Setting

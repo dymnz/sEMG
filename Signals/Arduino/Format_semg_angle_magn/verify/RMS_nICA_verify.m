@@ -11,26 +11,26 @@ addpath('../../matlab_lib/nICA');
 file_loc_prepend = '../data/raw_';
 file_extension = '.txt';
 
-filename_prepend = 'S2WA_10_';
-tdsep_file_list = {'FLX_1', 'EXT_1', 'PRO_1', 'SUP_1'};
+filename_prepend = 'S2WA_21_';
+tdsep_file_list = {'ICA_1'};
 
 
 % Signal Setting
 target_sample_rate = 10;
-RMS_window_size = 500;    % RMS window in pts
+RMS_window_size = 2660/4;    % RMS window in pts
 
 fsolve_max_step = 2000;
 fsolve_tolerance = 1e-18;
 global_tolerance_torque = 1e-8;
-global_max_step = 400;
+global_max_step = 200;
 step_per_log = 100;
 
 
 semg_channel_count = 4;
-mpu_channel_count = 2;
+mpu_channel_count = 3;
 
 semg_channel = 1:4;
-mpu_channel = 5:6;  % 3: Roll(SUP/SUP) / 4: Pitch(Flx/Ext)
+mpu_channel = 5:7;  % 3: Roll(SUP/SUP) / 4: Pitch(Flx/Ext)
 
 tdsep_file_label_list = tdsep_file_list;
 
@@ -92,13 +92,13 @@ subplot_helper(1:length(nICA_semg), norm_nICA_semg(3, :), ...
 subplot_helper(1:length(nICA_semg), norm_nICA_semg(4, :), ...    
                 [4 1 4], {'sample' 'amplitude' 'After nICA'}, '-');
             
-figure;
-scatter(RMS_concat_semg(2, :), RMS_concat_semg(4, :));
-figure;
-scatter(whitened_semg(2, :), whitened_semg(4, :));
-
-figure;
-scatter(nICA_semg(2, :), nICA_semg(4, :));
+% figure;
+% scatter(RMS_concat_semg(2, :), RMS_concat_semg(4, :));
+% figure;
+% scatter(whitened_semg(2, :), whitened_semg(4, :));
+% 
+% figure;
+% scatter(nICA_semg(2, :), nICA_semg(4, :));
 
 
 

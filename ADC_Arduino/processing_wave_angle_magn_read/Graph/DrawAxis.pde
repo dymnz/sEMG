@@ -9,6 +9,10 @@ int[] mpu_last_height = new int[mpu_channel];
 final int[][] semg_color_list = {{120, 10, 10}, {255, 170, 170}, {10, 120, 10}, {170, 255, 170}};
 final int[][] mpu_color_list = {{255, 30, 30}, {30, 255, 30}, {30, 30, 255}};
 
+final int semg_minValue = 0;
+final int semg_maxValue = 4095;
+final int[] semg_shift_value = {0, semg_maxValue/4, 2*semg_maxValue/4, 3*semg_maxValue/4};
+
 String buffer_str = ""; 
 
 //https://forum.processing.org/two/discussion/6738/reduce-delay-in-writing-data-to-a-graph
@@ -19,7 +23,7 @@ void drawAll() {
   while (semg_draw_index < semg_buffer_index) {
     buffer_str = "";
     for (int i = 0; i < semg_channel; i++  ) {
-      draw_value = int(map(semg_buffer[i][semg_draw_index], semg_minValue, semg_maxValue, 0, height));
+      draw_value = int(map(semg_buffer[i][semg_draw_index] + semg_shift_value[i] - semg_maxValue/3, semg_minValue, semg_maxValue, 0, height));
       stroke(semg_color_list[i][0], semg_color_list[i][1], semg_color_list[i][2]);
       line(semg_last_x, semg_last_height[i], x, height - draw_value);
 
@@ -87,8 +91,6 @@ void resetGraph() {
   line(0, height / 2, width, height / 2);
 }
 
-final int semg_minValue = 0;
-final int semg_maxValue = 4095;
 void semg_convert() {
 }
 

@@ -19,7 +19,7 @@ tdsep_file_list = {'FLX_1', 'EXT_1', 'PRO_1', 'SUP_1'};
 target_sample_rate = 10;
 RMS_window_size = 100;    % RMS window in pts
 
-semg_sample_rate = 460; % Approximate
+semg_sample_rate = 2660; % Approximate
 semg_max_value = 2048;
 semg_min_value = -2048;
 mpu_max_value = 90;
