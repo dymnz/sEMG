@@ -1,28 +1,35 @@
 clear; close all;
 
-addpath('../../matlab_lib');
+addpath('../matlab_lib');
 
 
 semg_channel_count = 4;
-mpu_channel_count = 2;
+mpu_channel_count = 1;
 
 graph_count = 1 + mpu_channel_count;
 
 semg_channel_index = 1:4;
-mpu_channel_index = 1:2;
+mpu_channel_index = 1;
 
 mpu_min_value = -90;
 mpu_max_value = 90;
 
 
-file_name = 'S2WA_10_FLX_1_ICAdown_DS10_RMS100_FULL';
+file_name = 'S2WA_21_FLX_1';
 
 
-test_file_location = '../../../../RNN/LSTM/data/output/';
-test_file_name = strcat('res_', file_name, '.txt');
+% test_file_location = '../../../../RNN/LSTM/data/output/';
+% test_file_name = strcat('res_', file_name, '.txt');
+% 
+% train_file_location = '../../../../RNN/LSTM/data/input/';
+% train_file_name = strcat('exp_', file_name, '.txt');
 
-train_file_location = '../../../../RNN/LSTM/data/input/';
-train_file_name = strcat('exp_', file_name, '.txt');
+
+test_file_location = './data/exp_';
+test_file_name = strcat(file_name, '.txt');
+
+train_file_location = test_file_location;
+train_file_name = test_file_name;
 
 
 [num_matrix, test_input_matrix_list, test_output_matrix_list] = ...
