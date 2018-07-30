@@ -12,7 +12,7 @@ file_loc_prepend = '../data/raw_';
 file_extension = '.txt';
 
 filename_prepend = 'S2WA_21_';
-tdsep_file_list = {'ICA_1'};
+tdsep_file_list = {'ICA_1', 'ICA_2'};
 
 
 % Signal Setting
