@@ -1,6 +1,7 @@
-function [ica_sig, whitened_sig] = nICA(sig, fsolve_max_step, fsolve_tolerance, global_tolerance_torque, global_max_step, step_per_log) 
+function [ica_sig, whitened_sig, W] = nICA(sig, fsolve_max_step, fsolve_tolerance, global_tolerance_torque, global_max_step, step_per_log) 
 
-% sig: N-dim x K-sample
+% sig: K-dim x N-sample
+sig = sig';	% Workaround to fit the other program
 
 N = size(sig, 1);
 K = size(sig, 2);
@@ -81,5 +82,7 @@ if mod(step, step_per_log) == 0
 end
 
 end
+	
+ica_sig = Z_t; 
+ica_sig = ica_sig';  % Workaround to fit the other program
 
-ica_sig = Z_t;
