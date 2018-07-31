@@ -3,6 +3,9 @@
 % Output consists of all semg channel and 
 % 'mpu_segment_index' mpu channel
 
+% Whittening and nICA demixing matrix is calculated w/
+% ica_file_list and kept throughout the exp
+
 clear; close all;
 addpath('../matlab_lib');
 
@@ -115,18 +118,6 @@ subplot_helper(1:length(rms_nica_semg), rms_nica_semg(:, 4), ...
 RMSDOWN_semg = (W * whittened)';
 
 
-
-figure;
-subplot_helper(1:length(RMSDOWN_semg), RMSDOWN_semg(:, 1), ...
-                [4 1 1], {'sample' 'amplitude' 'Before nICA'}, '-');
-subplot_helper(1:length(RMSDOWN_semg), RMSDOWN_semg(:, 2), ...    
-                [4 1 2], {'sample' 'amplitude' 'Before nICA'}, '-'); 
-subplot_helper(1:length(RMSDOWN_semg), RMSDOWN_semg(:, 3), ...
-                [4 1 3], {'sample' 'amplitude' 'Before nICA'}, '-'); 
-subplot_helper(1:length(RMSDOWN_semg), RMSDOWN_semg(:, 4), ...    
-                [4 1 4], {'sample' 'amplitude' 'Before nICA'}, '-'); 
- 
-return;
 %% For different hidden node count...
 rnn_result_plaintext = [];
 

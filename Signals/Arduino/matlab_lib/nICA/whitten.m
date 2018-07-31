@@ -1,6 +1,7 @@
-function [whitened_sig] = whitten(sig) 
+function [whitened_sig, W] = whitten(sig) 
 
-% sig: N-dim x K-sample
+% sig: K-dim x N-sample
+sig = sig';	% Workaround to fit the other program
 
 N = size(sig, 1);
 K = size(sig, 2);
@@ -20,3 +21,4 @@ V =  E * diag(1./sqrt(diag(D))) * E';
 Z = V * X;
 
 whitened_sig = Z;
+whitened_sig = whitened_sig';	% Workaround to fit the other program
