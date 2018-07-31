@@ -15,7 +15,7 @@ file_loc_prepend = './data/';
 file_extension = '.txt';
 
 filename_prepend = 'raw_S2WA_21_';
-output_filename_prepend = 'exp_S2WA_21_';
+output_filename_prepend = 'exp_S2WA_21_RMSDOWN_';
 file_to_splice = { 
     'FLX_1', 'FLX_2', 'FLX_3'
 };
@@ -30,13 +30,17 @@ mpu_channel_count = 3;
 semg_channel = 1:4;
 mpu_channel = 5:7;  % Roll/Pitch/Yaw
 
-% Signal Setting
-target_sample_rate = 10;
-RMS_window_size = 100;    % RMS window in pts
-
+% Signal param
 semg_sample_rate = 2660; % Approximate
-semg_max_value = 2048;
-semg_min_value = -2048;
+
+% Downsample/RMS param
+RMS_window_size = 500;    % RMS window in pts
+target_sample_rate = 100;
+downsample_filter_order = 6;
+
+
+semg_max_value = 2048 / 4;
+semg_min_value = -2048 / 4;
 mpu_max_value = 90;
 mpu_min_value = -90;
 
@@ -64,14 +68,15 @@ for i = 1 : length(file_label_list)
 end
 
 
+processed_segments_list = {};
 
-
-
-%%
-for i = 1 : length(file_label_list)
-    output_fileID = fopen(output_filename_list{i}, 'w');
-    filename = filename_list{i};
-    raw_data = csvread(filename);
+%% Process
+for f = 1 : length(file_label_list)
+    input_filename = filename_list{f};
+    output_fileID = fopen(output_filename_list{f}, 'w');
+    fprintf(['Output:  ' output_filename_list{f} '\n']);
+    
+    raw_data = csvread(input_filename);
     semg = raw_data(:, semg_channel);
     mpu = raw_data(:, mpu_channel);
     
@@ -100,17 +105,33 @@ for i = 1 : length(file_label_list)
                 [mpu(start_point, ch) mpu(end_point, ch)], xq);        
     end    
     
+    % RMS
+    semg = RMS_calc(semg, RMS_window_size);
+   
+    % Downsample
+    downsample_ratio = floor(semg_sample_rate / target_sample_rate);
+    [semg, cb, ca] = butter_filter( ...
+            semg, downsample_filter_order, target_sample_rate, semg_sample_rate);   
+    semg = downsample(semg, downsample_ratio);
+    [mpu, cb, ca] = butter_filter( ...
+            mpu, downsample_filter_order, target_sample_rate, semg_sample_rate);   
+    mpu = downsample(mpu, downsample_ratio);    
+    
     % Normalization
     semg =  semg ...
             ./ (semg_max_value - semg_min_value);    
     
     mpu =  2.*(mpu - mpu_min_value)...
             ./ (mpu_max_value - mpu_min_value) - 1;
-        
+    
+    if (max(max(semg)) > 1) || (min(min(semg)) < -1)
+        disp('Range error');
+        return;
+    end
         
         
     % Display
-    figure('Name', filename);
+    figure('Name', input_filename);
     
     for ch = 1 : semg_channel_count
     subplot_helper(1:length(semg), semg(:, ch), ...
@@ -174,6 +195,7 @@ for i = 1 : length(file_label_list)
         processed_segments{i - 1, 3} = length(cutoff_range);       
     end   
     
+    processed_segments_list{f} = processed_segments;
     
     num_of_sample = length(mid_segment_indices) - 1;
     fprintf('# of sample: %d\n', num_of_sample);
@@ -198,13 +220,13 @@ for i = 1 : length(file_label_list)
         fprintf(output_fileID, '\n'); 
 
         
-        figure;
-        subplot_helper(1:length(cutoff_semg), cutoff_semg, ...
-                        [2 1 1], {'sample' 'amplitude' 'Interpolated sEMG'}, '-');                       
-        ylim([-1 1]);     
-        subplot_helper(1:length(cutoff_mpu), cutoff_mpu, ...
-                        [2 1 2], {'sample' 'amplitude' 'Interpolated Angle'}, '-');                                       
-        ylim([-1 1]);     
+%         figure;
+%         subplot_helper(1:length(cutoff_semg), cutoff_semg, ...
+%                         [2 1 1], {'sample' 'amplitude' 'Interpolated sEMG'}, '-');                       
+%         ylim([-1 1]);     
+%         subplot_helper(1:length(cutoff_mpu), cutoff_mpu, ...
+%                         [2 1 2], {'sample' 'amplitude' 'Interpolated Angle'}, '-');                                       
+%         ylim([-1 1]);
     end
 
 end
