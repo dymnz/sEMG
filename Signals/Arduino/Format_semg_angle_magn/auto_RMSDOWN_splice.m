@@ -16,8 +16,8 @@ file_extension = '.txt';
 filename_prepend = 'S2WA_21_';
 
 % RNN
-hidden_node_count_list = {'16'};
-epoch = '1000';
+hidden_node_count_list = {'4'};
+epoch = '500';
 rand_seed = '4';
 cross_valid_patience_list = {'100'};
 
@@ -203,7 +203,7 @@ for i = 1 : num_of_train_file
     
     % Input/Output/Length  % num_of_segments
     join_segment_list{i} = ...
-        RMSDOWN_splice_funcc(train_filename_list{i}, target_sample_rate, RMS_window_size, downsample_filter_order, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, mpu_segment_threshold, mpu_segment_index);
+        RMSDOWN_splice_func(train_filename_list{i}, target_sample_rate, RMS_window_size, downsample_filter_order, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, mpu_segment_threshold, mpu_segment_index);
     join_num_of_segments = join_num_of_segments ...
                             + length(join_segment_list{i});
 %     fprintf('Processed File %d\n', i);
@@ -255,7 +255,7 @@ for i = 1 : num_of_cross_file
     
     % Input/Output/Length  % num_of_segments
     join_segment_list{i} = ...
-        RMSDOWN_splice_funcc(cross_filename_list{i}, target_sample_rate, RMS_window_size, downsample_filter_order, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, mpu_segment_threshold, mpu_segment_index);
+        RMSDOWN_splice_func(cross_filename_list{i}, target_sample_rate, RMS_window_size, downsample_filter_order, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, mpu_segment_threshold, mpu_segment_index);
     join_num_of_segments = join_num_of_segments ...
                             + length(join_segment_list{i});
 %     fprintf('Processed File %d\n', i);
@@ -304,7 +304,7 @@ fclose(output_fileID);
 
 % Input/Output/Length  % num_of_segments
 processed_segments = ... 
-    RMSDOWN_splice_funcc(test_filename, target_sample_rate, RMS_window_size, downsample_filter_order, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, mpu_segment_threshold, mpu_segment_index);
+    RMSDOWN_splice_func(test_filename, target_sample_rate, RMS_window_size, downsample_filter_order, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, mpu_segment_threshold, mpu_segment_index);
 
 num_of_segments = length(processed_segments);
 
