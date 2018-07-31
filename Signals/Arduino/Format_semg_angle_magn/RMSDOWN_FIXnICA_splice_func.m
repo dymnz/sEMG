@@ -1,4 +1,4 @@
-function processed_segments = RMSDOWN_splice_func(train_filename, target_sample_rate, RMS_window_size, downsample_filter_order, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, mpu_segment_threshold, mpu_segment_index)
+function processed_segments = RMSDOWN_FIXnICA_splice_func(train_filename, target_sample_rate, RMS_window_size, downsample_filter_order, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, mpu_segment_threshold, mpu_segment_index, V, W)
 
 % Interpolate angle data and output data splice
 % Output consists of all semg channel and 
@@ -51,6 +51,10 @@ semg = downsample(semg, downsample_ratio);
 [mpu, cb, ca] = butter_filter( ...
         mpu, downsample_filter_order, target_sample_rate, semg_sample_rate);   
 mpu = downsample(mpu, downsample_ratio);    
+
+% Whitten-nICA demix
+semg = (W * V * semg')'; 
+
 
 % Normalization
 semg =  semg ...

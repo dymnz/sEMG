@@ -17,7 +17,7 @@ file_extension = '.txt';
 filename_prepend = 'raw_S2WA_21_';
 output_filename_prepend = 'exp_S2WA_21_RMSDOWN_';
 file_to_splice = { 
-    'FLX_1', 'FLX_2', 'FLX_3'
+    'ICA_3'
 };
 
 mpu_segment_threshold = -10; % Degree
@@ -148,7 +148,7 @@ for f = 1 : length(file_label_list)
     
     end
    
-    
+    return;
     % Angle segmentation
     % Divide the data from the middle of each angle action
     % Force action: Angle >= angle_threshold

@@ -66,7 +66,7 @@ for i = 1 : num_matrix
    RMS_list(i, :) = sqrt(mean((train_mpu_data - test_mpu_data).^2));
    guess_RMS_list(i, :) = sqrt(mean((train_mpu_data - 0*ones(size(train_mpu_data))).^2));
 end
-fprintf('RMSE: ');
-fprintf("%f ", RMS_list);
-fprintf('\n');
-fprintf("guess mean RMS = %f\n", guess_RMS_list);
+fprintf('RMSE:\n');
+fprintf("%f \n", RMS_list);
+% fprintf('\n');
+% fprintf("guess mean RMS = %f\n", guess_RMS_list);

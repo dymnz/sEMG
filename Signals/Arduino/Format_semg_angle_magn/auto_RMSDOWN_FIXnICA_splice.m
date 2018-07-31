@@ -1,9 +1,14 @@
+% RMS-Downsample-nICA
 % Interpolate angle data and output data splice
 % Output consists of all semg channel and 
 % 'mpu_segment_index' mpu channel
 
+% Whittening and nICA demixing matrix is calculated w/
+% ica_file_list and kept throughout the exp
+
 clear; close all;
 addpath('../matlab_lib');
+addpath('../matlab_lib/nICA');
 
 set(0,'DefaultFigureVisible','on');
 % set(0,'DefaultFigureVisible','off');   
@@ -29,6 +34,13 @@ RMS_window_size = 500;    % RMS window in pts
 target_sample_rate = 100;
 downsample_filter_order = 6;
 
+% nICA param
+fsolve_max_step = 2000;
+fsolve_tolerance = 1e-18;
+global_tolerance_torque = 1e-8;
+global_max_step = 200;
+step_per_log = 100;
+
 semg_max_value = 2048 / 4;
 semg_min_value = -2048 / 4;
 mpu_max_value = 120;
@@ -40,7 +52,8 @@ semg_channel = 1:4;
 mpu_channel = 5:7;  % 3: Roll(SUP/SUP) / 4: Pitch(Flx/Ext)
 
 % Preprocessing target
-ica_file_list = {'ICA_1'};
+% ica_file_list = {'FLX_1', 'EXT_1', 'PRO_1', 'SUP_1'};
+ica_file_list = {'ICA_3'};
 % file_to_test = {
 %     {{{'FLX_1', 'EXT_1'}, ...
 %         {'FLX_2', 'EXT_2'}}, ...
@@ -72,20 +85,61 @@ for i = 1 : length(ica_filename_list)
     semg = raw_data(:, semg_channel);
 
     % Remove front and end to avoid noise
-    semg = semg(10:end, :);
+    semg = semg(50:end - 50, :);
     semg = semg - mean(semg);
   
     concat_semg = [concat_semg; semg];    
 end
 
-% RMS
+% RMS-Downsample
 rms_semg = RMS_calc(concat_semg, RMS_window_size);
 downsample_ratio = floor(semg_sample_rate / target_sample_rate);
 [RMSDOWN_semg, cb, ca] = butter_filter( ...
         rms_semg, downsample_filter_order, target_sample_rate, semg_sample_rate);   
 RMSDOWN_semg = downsample(RMSDOWN_semg, downsample_ratio);
 
+% nICA
+% W: demix V: whitten
+[rms_nica_semg, whittened, W, V] = nICA(RMSDOWN_semg, fsolve_max_step, fsolve_tolerance, global_tolerance_torque, global_max_step, step_per_log);
 
+figure;
+subplot_helper(1:length(RMSDOWN_semg), RMSDOWN_semg(:, 1), ...
+                [4 1 1], {'sample' 'amplitude' 'Before nICA'}, '-');
+subplot_helper(1:length(RMSDOWN_semg), RMSDOWN_semg(:, 2), ...    
+                [4 1 2], {'sample' 'amplitude' 'Before nICA'}, '-'); 
+subplot_helper(1:length(RMSDOWN_semg), RMSDOWN_semg(:, 3), ...
+                [4 1 3], {'sample' 'amplitude' 'Before nICA'}, '-'); 
+subplot_helper(1:length(RMSDOWN_semg), RMSDOWN_semg(:, 4), ...    
+                [4 1 4], {'sample' 'amplitude' 'Before nICA'}, '-');  
+
+figure;
+subplot_helper(1:length(rms_nica_semg), rms_nica_semg(:, 1), ...
+                [4 1 1], {'sample' 'amplitude' 'After nICA'}, '-');  
+ylim([0 0.3]);            
+subplot_helper(1:length(rms_nica_semg), rms_nica_semg(:, 2), ...    
+                [4 1 2], {'sample' 'amplitude' 'After nICA'}, '-'); 
+ylim([0 0.3]);            
+subplot_helper(1:length(rms_nica_semg), rms_nica_semg(:, 3), ...
+                [4 1 3], {'sample' 'amplitude' 'After nICA'}, '-');    
+ylim([0 0.3]);            
+subplot_helper(1:length(rms_nica_semg), rms_nica_semg(:, 4), ...    
+                [4 1 4], {'sample' 'amplitude' 'After nICA'}, '-');      
+ylim([0 0.3]);           
+            
+% Reconstruct test            
+% RMSDOWN_semg = (W * V * RMSDOWN_semg')';            
+%             
+% subplot_helper(1:length(RMSDOWN_semg), RMSDOWN_semg(:, 1), ...
+%                 [4 1 1], {'sample' 'amplitude' 'After nICA'}, '-');
+% subplot_helper(1:length(RMSDOWN_semg), RMSDOWN_semg(:, 2), ...    
+%                 [4 1 2], {'sample' 'amplitude' 'After nICA'}, '-'); 
+% subplot_helper(1:length(RMSDOWN_semg), RMSDOWN_semg(:, 3), ...
+%                 [4 1 3], {'sample' 'amplitude' 'After nICA'}, '-'); 
+% subplot_helper(1:length(RMSDOWN_semg), RMSDOWN_semg(:, 4), ...    
+%                 [4 1 4], {'sample' 'amplitude' 'After nICA'}, '-');  
+            
+% Why is there a difference            
+return
 %% For different hidden node count...
 rnn_result_plaintext = [];
 
@@ -193,16 +247,18 @@ for i = 1 : length(join_filename_list)
     concat_semg = [concat_semg; semg];    
 end
 
-% RMS
+% RMS-Downsample
 rms_semg = RMS_calc(concat_semg, RMS_window_size);
 downsample_ratio = floor(semg_sample_rate / target_sample_rate);
 [RMSDOWN_semg, cb, ca] = butter_filter( ...
         rms_semg, downsample_filter_order, target_sample_rate, semg_sample_rate);   
 RMSDOWN_semg = downsample(RMSDOWN_semg, downsample_ratio);
 
+% Whitten-nICA
+RMSDOWN_semg = (W * V * RMSDOWN_semg')';  
 
-semg_max_value = max(RMSDOWN_semg) * 1.1;
-semg_min_value =  zeros(1, semg_channel_count);
+semg_max_value = max(RMSDOWN_semg);
+semg_min_value = min(RMSDOWN_semg);
 
 %% Process & Output - Train
 
@@ -212,7 +268,7 @@ for i = 1 : num_of_train_file
     
     % Input/Output/Length  % num_of_segments
     join_segment_list{i} = ...
-        RMSDOWN_splice_func(train_filename_list{i}, target_sample_rate, RMS_window_size, downsample_filter_order, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, mpu_segment_threshold, mpu_segment_index);
+        RMSDOWN_FIXnICA_splice_func(train_filename_list{i}, target_sample_rate, RMS_window_size, downsample_filter_order, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, mpu_segment_threshold, mpu_segment_index, V, W);
     join_num_of_segments = join_num_of_segments ...
                             + length(join_segment_list{i});
 %     fprintf('Processed File %d\n', i);
@@ -264,7 +320,7 @@ for i = 1 : num_of_cross_file
     
     % Input/Output/Length  % num_of_segments
     join_segment_list{i} = ...
-        RMSDOWN_splice_func(cross_filename_list{i}, target_sample_rate, RMS_window_size, downsample_filter_order, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, mpu_segment_threshold, mpu_segment_index);
+        RMSDOWN_FIXnICA_splice_func(cross_filename_list{i}, target_sample_rate, RMS_window_size, downsample_filter_order, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, mpu_segment_threshold, mpu_segment_index, V, W);
     join_num_of_segments = join_num_of_segments ...
                             + length(join_segment_list{i});
 %     fprintf('Processed File %d\n', i);
@@ -275,7 +331,7 @@ output_fileID = fopen(cross_output_file, 'w');
 %fprintf('# of sample: %d\n', num_of_file);
 fprintf(output_fileID, '%d\n', join_num_of_segments);
 
-for i = 1 : num_of_cross_file
+for i = 1 : num_of_train_file
     num_of_segments = length(join_segment_list{i});
     for r = 1 : num_of_segments
         input = join_segment_list{i}{r, 1};
@@ -308,7 +364,6 @@ end
 
 fclose(output_fileID);
 
-
 %% Output full
 
 % Input/Output/Length  % num_of_segments
@@ -319,7 +374,7 @@ for i = 1 : num_of_test_file
     
     % Input/Output/Length  % num_of_segments
     join_segment_list{i} = ...
-        RMSDOWN_splice_func(test_filename_list{i}, target_sample_rate, RMS_window_size, downsample_filter_order, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, mpu_segment_threshold, mpu_segment_index);
+        RMSDOWN_FIXnICA_splice_func(test_filename_list{i}, target_sample_rate, RMS_window_size, downsample_filter_order, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, mpu_segment_threshold, mpu_segment_index, V, W);
     join_num_of_segments = join_num_of_segments ...
                             + length(join_segment_list{i});
 %     fprintf('Processed File %d\n', i);
@@ -362,7 +417,6 @@ for i = 1 : num_of_test_file
 end
 
 fclose(output_fileID);
-
 
 %% Run
 
