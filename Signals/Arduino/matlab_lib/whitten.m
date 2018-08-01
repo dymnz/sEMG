@@ -1,4 +1,4 @@
-function [whitened_sig, W] = whitten(sig) 
+function [whitened_sig, V] = whitten(sig) 
 
 % sig: K-dim x N-sample
 sig = sig';	% Workaround to fit the other program

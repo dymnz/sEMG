@@ -1,4 +1,4 @@
-function processed_segments = RMSDOWN_FIXnICA_splice_func(train_filename, target_sample_rate, RMS_window_size, downsample_filter_order, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, mpu_segment_threshold, mpu_segment_index, V, W)
+function processed_segments = PULSE_splice_func(train_filename, target_sample_rate, RMS_window_size, downsample_filter_order, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, mpu_segment_threshold, mpu_segment_index, semg_pulse_threshold)
 
 % Interpolate angle data and output data splice
 % Output consists of all semg channel and 
@@ -40,22 +40,17 @@ for ch = 1 : mpu_channel_count
             [mpu(start_point, ch) mpu(end_point, ch)], xq);        
 end    
 
-% RMS
-semg = RMS_calc(semg, RMS_window_size);
-
-  
-% Whitten-nICA demix
-semg = (W * V * semg')'; 
+% Find pulse
+semg = semg_find_pulse(semg, semg_pulse_threshold);
 
 % Downsample
 downsample_ratio = floor(semg_sample_rate / target_sample_rate);
-[semg, cb, ca] = butter_filter( ...
+[concat_semg, cb, ca] = butter_filter( ...
         semg, downsample_filter_order, target_sample_rate, semg_sample_rate);   
 semg = downsample(semg, downsample_ratio);
 [mpu, cb, ca] = butter_filter( ...
         mpu, downsample_filter_order, target_sample_rate, semg_sample_rate);   
-mpu = downsample(mpu, downsample_ratio); 
-
+mpu = downsample(mpu, downsample_ratio);    
 
 % Normalization
 semg =  semg ...
@@ -64,7 +59,7 @@ semg =  semg ...
 mpu =  2.*(mpu - mpu_min_value)...
         ./ (mpu_max_value - mpu_min_value) - 1;
 
-if max(max(semg)) > 1
+if max(max(semg)) > 1.0
     disp('Range error');
     max(max(semg))
     return;

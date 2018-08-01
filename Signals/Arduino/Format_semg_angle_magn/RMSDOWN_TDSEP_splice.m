@@ -8,7 +8,7 @@ set(0,'DefaultFigureVisible','on');
 % set(0,'DefaultFigureVisible','off');
 
 addpath('../matlab_lib');
-addpath('../matlab_lib/FastICA_21');
+addpath('../matlab_lib/TDSEP');
 
 % Setting
 file_loc_prepend = './data/';

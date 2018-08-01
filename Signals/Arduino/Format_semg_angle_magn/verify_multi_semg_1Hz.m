@@ -1,4 +1,4 @@
-function verify_multi_semg(file_name)
+function verify_multi_semg_1Hz(file_name)
 
 addpath('../matlab_lib');
 
@@ -33,17 +33,27 @@ guess_RMS_list = zeros(num_matrix, length(mpu_channel_index));
 for i = 1 : num_matrix
     test_semg_data = test_input_matrix_list{i}(:, semg_channel_index);
     test_mpu_data = test_output_matrix_list{i}(:, mpu_channel_index);       
+
+    filter_order = 6;
+    [test_mpu_data, cb, ca] = butter_filter( ...
+        test_mpu_data, filter_order, 1, 10);
+    test_mpu_data = [ test_mpu_data ;...
+        (test_mpu_data(end, :) .* ones(filter_order, size(test_mpu_data, 2)))];
+   
+    
     
     DATA_LENGTH = length(test_output_matrix_list{i});
     
     train_semg_data = train_input_matrix_list{i}(:, semg_channel_index);
     train_mpu_data = train_output_matrix_list{i}(:, mpu_channel_index);
-  
+    
+    train_mpu_data = [(train_mpu_data(1, :) .* ones(filter_order, size(train_mpu_data, 2))) ;...
+        train_mpu_data];
     
     figure('Name', file_name);
     subplot_helper(1:DATA_LENGTH, test_semg_data, ...
                     [graph_count 1 1], {'sample' 'amplitude' 'sEMG'}, ':x');
-    ylim([0 1]);
+    ylim([-1 1]);
     test_mpu_data = test_mpu_data .* mpu_max_value;
     train_mpu_data = train_mpu_data .* mpu_max_value;
                 
@@ -66,7 +76,7 @@ for i = 1 : num_matrix
    RMS_list(i, :) = sqrt(mean((train_mpu_data - test_mpu_data).^2));
    guess_RMS_list(i, :) = sqrt(mean((train_mpu_data - 0*ones(size(train_mpu_data))).^2));
 end
-fprintf('RMSE:\n');
+fprintf('RMSE: \n');
 fprintf("%f \n", RMS_list);
 % fprintf('\n');
 % fprintf("guess mean RMS = %f\n", guess_RMS_list);

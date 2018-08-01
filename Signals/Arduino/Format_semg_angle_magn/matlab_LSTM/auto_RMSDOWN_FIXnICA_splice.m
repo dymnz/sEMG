@@ -21,7 +21,7 @@ file_extension = '.txt';
 filename_prepend = 'S2WA_21_';
 
 % RNN
-hidden_node_count_list = {'16'};
+hidden_node_count_list = {'40'};
 epoch = '1000';
 rand_seed = '4';
 cross_valid_patience_list = {'100'};
@@ -52,7 +52,9 @@ semg_channel = 1:4;
 mpu_channel = 5:7;  % 3: Roll(SUP/SUP) / 4: Pitch(Flx/Ext)
 
 % Preprocessing target
-ica_file_list = {'ICA_2'};
+ica_file_list = {'ICA_3'};
+% ica_file_list = {'FLX_1', 'EXT_1', 'PRO_1', 'SUP_1'};
+% Preprocessing target
 % file_to_test = {
 %     {{{'FLX_1', 'EXT_1'}, ...
 %         {'FLX_2', 'EXT_2'}}, ...
@@ -61,14 +63,13 @@ ica_file_list = {'ICA_2'};
 % mpu_segment_index = 2; % 1-Roll/2-Pitch/3-Yaw
 
 file_to_test = {
-    {{{'PRO_3', 'SUP_3', 'PRO_1', 'SUP_1'}, ...
-        {'PRO_1', 'SUP_1'}}, ...
-        {'PRO_2', 'SUP_2'}};
+    {{{'PRO_3', 'SUP_3'}, ...
+        {'PRO_2', 'SUP_2'}}, ...
+        {'PRO_1', 'SUP_1'}};          
 };
 mpu_segment_index = 1; % 1-Roll/2-Pitch/3-Yaw
 
 mpu_segment_threshold = 10; % Degree
-
 
 % Preprocessing matrix
 ica_file_label_list = ica_file_list;
@@ -101,6 +102,13 @@ RMSDOWN_semg = rms_semg;
 % W: demix V: whitten
 [rms_nica_semg, whittened, W, V] = nICA(rms_semg, fsolve_max_step, fsolve_tolerance, global_tolerance_torque, global_max_step, step_per_log);
 
+% Downsample
+downsample_ratio = floor(semg_sample_rate / target_sample_rate);
+[rms_nica_semg, cb, ca] = butter_filter( ...
+        rms_nica_semg, downsample_filter_order, target_sample_rate, semg_sample_rate);   
+rms_nica_semg = downsample(rms_nica_semg, downsample_ratio);
+
+% % 
 % figure;
 % subplot_helper(1:length(RMSDOWN_semg), RMSDOWN_semg(:, 1), ...
 %                 [4 1 1], {'sample' 'amplitude' 'Before nICA'}, '-');
@@ -113,31 +121,15 @@ RMSDOWN_semg = rms_semg;
 % 
 % figure;
 % subplot_helper(1:length(rms_nica_semg), rms_nica_semg(:, 1), ...
-%                 [4 1 1], {'sample' 'amplitude' 'After nICA'}, '-');  
-% ylim([0 0.3]);            
+%                 [4 1 1], {'sample' 'amplitude' 'After nICA'}, '-');              
 % subplot_helper(1:length(rms_nica_semg), rms_nica_semg(:, 2), ...    
-%                 [4 1 2], {'sample' 'amplitude' 'After nICA'}, '-'); 
-% ylim([0 0.3]);            
+%                 [4 1 2], {'sample' 'amplitude' 'After nICA'}, '-');             
 % subplot_helper(1:length(rms_nica_semg), rms_nica_semg(:, 3), ...
-%                 [4 1 3], {'sample' 'amplitude' 'After nICA'}, '-');    
-% ylim([0 0.3]);            
+%                 [4 1 3], {'sample' 'amplitude' 'After nICA'}, '-');               
 % subplot_helper(1:length(rms_nica_semg), rms_nica_semg(:, 4), ...    
-%                 [4 1 4], {'sample' 'amplitude' 'After nICA'}, '-');      
-% ylim([0 0.3]);           
-            
-% Reconstruct test            
-% RMSDOWN_semg = (W * V * RMSDOWN_semg')';            
+%                 [4 1 4], {'sample' 'amplitude' 'After nICA'}, '-');                 
 %             
-% subplot_helper(1:length(RMSDOWN_semg), RMSDOWN_semg(:, 1), ...
-%                 [4 1 1], {'sample' 'amplitude' 'After nICA'}, '-');
-% subplot_helper(1:length(RMSDOWN_semg), RMSDOWN_semg(:, 2), ...    
-%                 [4 1 2], {'sample' 'amplitude' 'After nICA'}, '-'); 
-% subplot_helper(1:length(RMSDOWN_semg), RMSDOWN_semg(:, 3), ...
-%                 [4 1 3], {'sample' 'amplitude' 'After nICA'}, '-'); 
-% subplot_helper(1:length(RMSDOWN_semg), RMSDOWN_semg(:, 4), ...    
-%                 [4 1 4], {'sample' 'amplitude' 'After nICA'}, '-');  
-            
-% Why is there a difference            
+% 
 % return
 %% For different hidden node count...
 rnn_result_plaintext = [];
@@ -155,8 +147,6 @@ for f = 1 : numel(file_to_test) % For different files...
 train_file_label_list = file_to_test{f}{1}{1};
 cross_file_label_list = file_to_test{f}{1}{2};
 test_file_label_list = file_to_test{f}{2};
-
-
 
 % Gather training filename
 train_filename_list = cell(1, length(train_file_label_list));
@@ -262,192 +252,147 @@ semg_max_value = max(RMSDOWN_semg);
 semg_min_value = min(RMSDOWN_semg);
 
 %% Process & Output - Train
-
-join_segment_list = cell(num_of_train_file, 1);
-join_num_of_segments = 0;
+join_train_segment_list = cell(num_of_train_file, 1);
+join_train_num_of_segments = 0;
 for i = 1 : num_of_train_file
     
     % Input/Output/Length  % num_of_segments
-    join_segment_list{i} = ...
+    join_train_segment_list{i} = ...
         RMSDOWN_FIXnICA_splice_func(train_filename_list{i}, target_sample_rate, RMS_window_size, downsample_filter_order, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, mpu_segment_threshold, mpu_segment_index, V, W);
-    join_num_of_segments = join_num_of_segments ...
-                            + length(join_segment_list{i});
+    join_train_num_of_segments = join_train_num_of_segments ...
+                            + length(join_train_segment_list{i});
 %     fprintf('Processed File %d\n', i);
 end
-
-output_fileID = fopen(train_output_file, 'w');
-
-%fprintf('# of sample: %d\n', num_of_file);
-fprintf(output_fileID, '%d\n', join_num_of_segments);
-
-for i = 1 : num_of_train_file
-    num_of_segments = length(join_segment_list{i});
-    for r = 1 : num_of_segments
-        input = join_segment_list{i}{r, 1};
-        output = join_segment_list{i}{r, 2};
-        segment_length = join_segment_list{i}{r, 3};
-
-        % Input
-        fprintf(output_fileID, '%d %d\n', ...
-                segment_length, ...
-                semg_channel_count);
-        fprintf(output_fileID, '%f\t', input);
-        fprintf(output_fileID, '\n');
-
-        % Output: Force + Angle
-        fprintf(output_fileID, '%d %d\n', ...
-                segment_length, ...
-                1);
-        fprintf(output_fileID, '%f\t', output);
-        fprintf(output_fileID, '\n'); 
-
-    %         figure;
-    %         subplot_helper(1:length(input), input, ...
-    %                         [2 1 1], {'sample' 'amplitude' 'Interpolated sEMG'}, '-');                       
-    %         ylim([-1 1]);     
-    %         subplot_helper(1:length(output), output, ...
-    %                         [2 1 2], {'sample' 'amplitude' 'Interpolated Angle'}, '-');                                       
-    %         ylim([-1 1]); 
-    end  
-end
-
-fclose(output_fileID);
 
 %% Process & Output - Cross
 
-join_segment_list = cell(num_of_cross_file, 1);
-join_num_of_segments = 0;
+join_cross_segment_list = cell(num_of_cross_file, 1);
+join_cross_num_of_segments = 0;
 for i = 1 : num_of_cross_file
     
     % Input/Output/Length  % num_of_segments
-    join_segment_list{i} = ...
+    join_cross_segment_list{i} = ...
         RMSDOWN_FIXnICA_splice_func(cross_filename_list{i}, target_sample_rate, RMS_window_size, downsample_filter_order, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, mpu_segment_threshold, mpu_segment_index, V, W);
-    join_num_of_segments = join_num_of_segments ...
-                            + length(join_segment_list{i});
+    join_cross_num_of_segments = join_cross_num_of_segments ...
+                            + length(join_cross_segment_list{i});
 %     fprintf('Processed File %d\n', i);
 end
 
-output_fileID = fopen(cross_output_file, 'w');
+%% Process & Output - Test
 
-%fprintf('# of sample: %d\n', num_of_file);
-fprintf(output_fileID, '%d\n', join_num_of_segments);
-
-for i = 1 : num_of_cross_file
-    num_of_segments = length(join_segment_list{i});
-    for r = 1 : num_of_segments
-        input = join_segment_list{i}{r, 1};
-        output = join_segment_list{i}{r, 2};
-        segment_length = join_segment_list{i}{r, 3};
-
-        % Input
-        fprintf(output_fileID, '%d %d\n', ...
-                segment_length, ...
-                semg_channel_count);
-        fprintf(output_fileID, '%f\t', input);
-        fprintf(output_fileID, '\n');
-
-        % Output: Force + Angle
-        fprintf(output_fileID, '%d %d\n', ...
-                segment_length, ...
-                1);
-        fprintf(output_fileID, '%f\t', output);
-        fprintf(output_fileID, '\n'); 
-
-    %         figure;
-    %         subplot_helper(1:length(input), input, ...
-    %                         [2 1 1], {'sample' 'amplitude' 'Interpolated sEMG'}, '-');                       
-    %         ylim([-1 1]);     
-    %         subplot_helper(1:length(output), output, ...
-    %                         [2 1 2], {'sample' 'amplitude' 'Interpolated Angle'}, '-');                                       
-    %         ylim([-1 1]); 
-    end  
-end
-
-fclose(output_fileID);
-
-%% Output full
-
-% Input/Output/Length  % num_of_segments
-
-join_segment_list = cell(num_of_test_file, 1);
-join_num_of_segments = 0;
+join_test_segment_list = cell(num_of_test_file, 1);
+join_test_num_of_segments = 0;
 for i = 1 : num_of_test_file
     
     % Input/Output/Length  % num_of_segments
-    join_segment_list{i} = ...
+    join_test_segment_list{i} = ...
         RMSDOWN_FIXnICA_splice_func(test_filename_list{i}, target_sample_rate, RMS_window_size, downsample_filter_order, semg_sample_rate, semg_max_value, semg_min_value, mpu_max_value, mpu_min_value, semg_channel_count,mpu_channel_count,semg_channel,mpu_channel, mpu_segment_threshold, mpu_segment_index, V, W);
-    join_num_of_segments = join_num_of_segments ...
-                            + length(join_segment_list{i});
+    join_test_num_of_segments = join_test_num_of_segments ...
+                            + length(join_test_segment_list{i});
 %     fprintf('Processed File %d\n', i);
 end
 
-output_fileID = fopen(test_output_file, 'w');
 
-%fprintf('# of sample: %d\n', num_of_file);
-fprintf(output_fileID, '%d\n', join_num_of_segments);
+%% Run LSTM
 
+
+% Prepare training dataset
+XTrain = {};
+YTrain = {};
+for i = 1 : num_of_train_file
+    for r = 1 : length(join_train_segment_list{i})
+        XTrain = [XTrain; join_train_segment_list{i}{r, 1}];
+        YTrain = [YTrain; join_train_segment_list{i}{r, 2}];
+    end
+end
+
+% Prepare training (cross-validation set is used for training) dataset
+for i = 1 : num_of_cross_file
+    for r = 1 : length(join_cross_segment_list{i})
+        XTrain = [XTrain; join_cross_segment_list{i}{r, 1}];
+        YTrain = [YTrain; join_cross_segment_list{i}{r, 2}];
+    end
+end
+
+% Prepare testing dataset
+XTest = {};
+YTest = {};
 for i = 1 : num_of_test_file
-    num_of_segments = length(join_segment_list{i});
-    for r = 1 : num_of_segments
-        input = join_segment_list{i}{r, 1};
-        output = join_segment_list{i}{r, 2};
-        segment_length = join_segment_list{i}{r, 3};
-
-        % Input
-        fprintf(output_fileID, '%d %d\n', ...
-                segment_length, ...
-                semg_channel_count);
-        fprintf(output_fileID, '%f\t', input);
-        fprintf(output_fileID, '\n');
-
-        % Output: Force + Angle
-        fprintf(output_fileID, '%d %d\n', ...
-                segment_length, ...
-                1);
-        fprintf(output_fileID, '%f\t', output);
-        fprintf(output_fileID, '\n'); 
-
-    %         figure;
-    %         subplot_helper(1:length(input), input, ...
-    %                         [2 1 1], {'sample' 'amplitude' 'Interpolated sEMG'}, '-');                       
-    %         ylim([-1 1]);     
-    %         subplot_helper(1:length(output), output, ...
-    %                         [2 1 2], {'sample' 'amplitude' 'Interpolated Angle'}, '-');                                       
-    %         ylim([-1 1]); 
-    end  
-end
-
-fclose(output_fileID);
-
-%% Run
-
-fprintf(['./rnn.exe ', train_output_filename, ' ', ...
-    test_output_filename, ' ', cross_output_filename, ...
-    ' ', hidden_node_count, ' ', epoch, ' ', cross_valid_patience, ...
-    ' 10 100000 ', rand_seed, '\n']);
-
-origin_dir = pwd;
-cd('../../../../RNN/LSTM/');
-[status,cmdout] = system(['rnn.exe ', train_output_filename, ' ', ...
-    test_output_filename, ' ', cross_output_filename, ...
-    ' ', hidden_node_count, ' ', epoch, ' ', cross_valid_patience, ...
-    ' 10 100000 ', rand_seed, '\n']);
-cd(origin_dir);
-
-
-rnn_result = regexp(cmdout, '[\f\n\r]', 'split');
-rnn_result = rnn_result(end-4:end-1);
-
-% close all;
-% Show test file result
-verify_multi_semg(test_output_filename);
-
-end
-end
+    for r = 1 : length(join_test_segment_list{i})
+        XTest = [XTest; join_test_segment_list{i}{r, 1}];
+        YTest = [YTest; join_test_segment_list{i}{r, 2}];
+    end
 end
 
 
+numResponses = 1;
+featureDimension = semg_channel_count;
+numHiddenUnits = str2num(hidden_node_count);
 
+layers = [ ...
+    sequenceInputLayer(featureDimension)
+    lstmLayer(numHiddenUnits,'OutputMode','sequence')
+    fullyConnectedLayer(numHiddenUnits/2)
+    dropoutLayer(0.5)
+    fullyConnectedLayer(numResponses)
+    regressionLayer];
+
+maxEpochs = 60;
+miniBatchSize = 1;
+
+options = trainingOptions('adam', ...
+    'MaxEpochs',maxEpochs, ...
+    'MiniBatchSize',miniBatchSize, ...
+    'InitialLearnRate',0.01, ...
+    'LearnRateSchedule', 'piecewise', ...
+    'GradientThreshold', 1, ...
+    'Shuffle','every-epoch', ...
+    'Plots','training-progress',...
+    'Verbose',0);
+
+
+net = trainNetwork(XTrain,YTrain,layers,options);
+
+YPred = predict(net,XTest,'MiniBatchSize',1);
+
+%% Check RMSE
+
+RMSE_list = zeros(join_test_num_of_segments, 1);
+for i = 1 : join_test_num_of_segments
+    input = XTest{i};
+    pred = YPred{i} .* mpu_max_value;
+    target = YTest{i} .* mpu_max_value;
+        
+    RMSE = sqrt(mean((pred - target).^2));
+    RMSE_list(i, 1) = RMSE;
+
+    
+    figure;
+    subplot_helper(1:length(input), input, ...
+                    [2 1 1], {'sample' 'amplitude' 'sEMG'}, ':x');
+    ylim([-1 1]);           
+	subplot_helper(1:length(target), target(:), ...
+                    [2 1 2], ...
+                    {'sample' 'amplitude' 'angle'}, ...
+                    '-');                                                         
+    ylim([mpu_min_value mpu_max_value]);
+	subplot_helper(1:length(pred), pred(:), ...
+                    [2 1 2], ...
+                    {'sample' 'amplitude' 'angle'}, ...
+                    '-');
+    ylim([mpu_min_value mpu_max_value]);
+    legend('real', 'predict');
+end
+
+RMSE_list
+
+end
+end
+end
+
+
+clipboard('copy', rnn_result_plaintext);
+fprintf(rnn_result_plaintext);
 
 set(0,'DefaultFigureVisible','on');
 % msgbox('Ding!');

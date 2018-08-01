@@ -1,14 +1,14 @@
-% RMS-Downsample-nICA
+% ICA-RMS-Downsample
 % Interpolate angle data and output data splice
 % Output consists of all semg channel and 
 % 'mpu_segment_index' mpu channel
 
-% Whittening and nICA demixing matrix is calculated w/
+% Whittening and ICA demixing matrix is calculated w/
 % ica_file_list and kept throughout the exp
 
 clear; close all;
 addpath('../matlab_lib');
-addpath('../matlab_lib/nICA');
+addpath('../matlab_lib/FastICA_21');
 
 set(0,'DefaultFigureVisible','on');
 % set(0,'DefaultFigureVisible','off');   
@@ -30,7 +30,7 @@ cross_valid_patience_list = {'100'};
 semg_sample_rate = 2660; % Approximate
 
 % Downsample/RMS param
-RMS_window_size = semg_sample_rate / 4;    % RMS window in pts
+RMS_window_size = 500;    % RMS window in pts
 target_sample_rate = 100;
 downsample_filter_order = 6;
 
@@ -52,22 +52,21 @@ semg_channel = 1:4;
 mpu_channel = 5:7;  % 3: Roll(SUP/SUP) / 4: Pitch(Flx/Ext)
 
 % Preprocessing target
-ica_file_list = {'ICA_2'};
-% file_to_test = {
-%     {{{'FLX_1', 'EXT_1'}, ...
-%         {'FLX_2', 'EXT_2'}}, ...
-%         {'FLX_3', 'EXT_3'}};          
-% };
-% mpu_segment_index = 2; % 1-Roll/2-Pitch/3-Yaw
-
+% ica_file_list = {'FLX_1', 'EXT_1', 'PRO_1', 'SUP_1'};
+ica_file_list = {'ICA_3'};
 file_to_test = {
-    {{{'PRO_3', 'SUP_3', 'PRO_1', 'SUP_1'}, ...
-        {'PRO_1', 'SUP_1'}}, ...
-        {'PRO_2', 'SUP_2'}};
+    {{{'FLX_3', 'EXT_3'}, ...
+        {'FLX_2', 'EXT_2'}}, ...
+        {'FLX_1', 'EXT_1'}};          
 };
-mpu_segment_index = 1; % 1-Roll/2-Pitch/3-Yaw
-
+% file_to_test = {
+%     {{{'PRO_3', 'SUP_3'}, ...
+%         {'PRO_2', 'SUP_2'}}, ...
+%         {'PRO_1', 'SUP_1'}};          
+% };
 mpu_segment_threshold = 10; % Degree
+mpu_segment_index = 2; % 1-Roll/2-Pitch/3-Yaw
+
 
 
 % Preprocessing matrix
@@ -93,13 +92,18 @@ for i = 1 : length(ica_filename_list)
     concat_semg = [concat_semg; semg];    
 end
 
-% RMS
-rms_semg = RMS_calc(concat_semg, RMS_window_size);
-RMSDOWN_semg = rms_semg;
-
-% nICA
+% ICA
 % W: demix V: whitten
-[rms_nica_semg, whittened, W, V] = nICA(rms_semg, fsolve_max_step, fsolve_tolerance, global_tolerance_torque, global_max_step, step_per_log);
+[rms_nica_semg, whittened, W, V] = nICA(RMSDOWN_semg, fsolve_max_step, fsolve_tolerance, global_tolerance_torque, global_max_step, step_per_log);
+
+
+% RMS-Downsample
+rms_semg = RMS_calc(concat_semg, RMS_window_size);
+downsample_ratio = floor(semg_sample_rate / target_sample_rate);
+[RMSDOWN_semg, cb, ca] = butter_filter( ...
+        rms_semg, downsample_filter_order, target_sample_rate, semg_sample_rate);   
+RMSDOWN_semg = downsample(RMSDOWN_semg, downsample_ratio);
+
 
 % figure;
 % subplot_helper(1:length(RMSDOWN_semg), RMSDOWN_semg(:, 1), ...
@@ -246,17 +250,15 @@ for i = 1 : length(join_filename_list)
     concat_semg = [concat_semg; semg];    
 end
 
-% RMS
+% RMS-Downsample
 rms_semg = RMS_calc(concat_semg, RMS_window_size);
-
-% Whitten-nICA
-RMSDOWN_semg = (W * V * rms_semg')';  
-
-% Downsample
 downsample_ratio = floor(semg_sample_rate / target_sample_rate);
 [RMSDOWN_semg, cb, ca] = butter_filter( ...
-        RMSDOWN_semg, downsample_filter_order, target_sample_rate, semg_sample_rate);   
+        rms_semg, downsample_filter_order, target_sample_rate, semg_sample_rate);   
 RMSDOWN_semg = downsample(RMSDOWN_semg, downsample_ratio);
+
+% Whitten-nICA
+RMSDOWN_semg = (W * V * RMSDOWN_semg')';  
 
 semg_max_value = max(RMSDOWN_semg);
 semg_min_value = min(RMSDOWN_semg);
@@ -332,7 +334,7 @@ output_fileID = fopen(cross_output_file, 'w');
 %fprintf('# of sample: %d\n', num_of_file);
 fprintf(output_fileID, '%d\n', join_num_of_segments);
 
-for i = 1 : num_of_cross_file
+for i = 1 : num_of_train_file
     num_of_segments = length(join_segment_list{i});
     for r = 1 : num_of_segments
         input = join_segment_list{i}{r, 1};
@@ -437,6 +439,9 @@ cd(origin_dir);
 
 rnn_result = regexp(cmdout, '[\f\n\r]', 'split');
 rnn_result = rnn_result(end-4:end-1);
+fprintf([rnn_result{1} newline rnn_result{2} newline rnn_result{3} newline rnn_result{4} newline]);
+
+rnn_result_plaintext = [rnn_result_plaintext rnn_result{1} newline rnn_result{2} newline rnn_result{3} newline rnn_result{4} newline];
 
 % close all;
 % Show test file result
@@ -444,11 +449,13 @@ verify_multi_semg(test_output_filename);
 
 end
 end
+rnn_result_plaintext = [rnn_result_plaintext newline];
 end
 
 
-
+clipboard('copy', rnn_result_plaintext);
+fprintf(rnn_result_plaintext);
 
 set(0,'DefaultFigureVisible','on');
-% msgbox('Ding!');
-beep2()
+msgbox('Ding!');
+% beep2()

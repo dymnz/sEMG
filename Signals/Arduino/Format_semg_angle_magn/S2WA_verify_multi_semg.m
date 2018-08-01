@@ -15,17 +15,15 @@ mpu_min_value = -90;
 mpu_max_value = 90;
 
 
-./rnn S2WA_21_FLX_1_FLX_2_DOWNRMS_DS100_RMS500_FULL S2WA_21_FLX_3_DOWNRMS_DS100_RMS500_FULL S2WA_21_FLX_1_FLX_2_DOWNRMS_DS100_RMS500_FULL 16 1000 100 10 100000 4
 
+filename = 'S2WA_21_PRO_1_SUP_1_RMSDOWN_DS100_RMS665_FULL';
 
+train_file_location = '../../../../RNN/LSTM/data/input/';
+train_file_name = strcat('exp_', filename, '.txt');
 
-file_name = 
+test_file_location = train_file_location;
+test_file_name = train_file_name;
 
-% test_file_location = '../../../../RNN/LSTM/data/output/';
-% test_file_name = strcat('res_', file_name, '.txt');
-% 
-% train_file_location = '../../../../RNN/LSTM/data/input/';
-% train_file_name = strcat('exp_', file_name, '.txt');
 
 [num_matrix, test_input_matrix_list, test_output_matrix_list] = ...
     read_test_file(strcat(test_file_location, test_file_name));
