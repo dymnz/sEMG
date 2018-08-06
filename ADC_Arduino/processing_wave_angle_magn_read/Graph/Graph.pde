@@ -3,13 +3,13 @@ import processing.serial.*; //<>//
 Serial serial;
 PrintWriter file;
 
-enum State {
+enum SerialState {
   HOLD, SEMG_ALIGN, MPU_ALIGN, SEMG_READ, MPU_READ, SEMG_FIN, MPU_FIN
 }
-State serial_state = State.HOLD;
+SerialState serial_state = SerialState.HOLD;
 
 final String SERIAL_NAME = "/dev/ttyACM0";
-final String filename = "../../../Signals/Arduino/Format_semg_angle_magn/data/raw_S2WA_21_" + "SUP_3" + ".txt";
+final String filename = "../../../Signals/Arduino/Format_semg_angle_magn/data/raw_S2WA_22_" + "SUP_3" + ".txt";
 
 
 final int width = 1440;
@@ -48,9 +48,12 @@ int serial_count = 0;
 char[] semg_packet = new char[semg_packet_len];
 char[] mpu_packet = new char[mpu_packet_len];
 
-int current_time = 0;
-int last_time = 0;
-int sample_count = 0;
+int sc_current_time = 0;
+int sc_last_time = 0;
+int sc_sample_count = 0;
+
+int pm_current_time = 0;
+int pm_last_time = 0;
 
 boolean draw_semg  = false;
 boolean draw_mpu = false;
@@ -77,26 +80,26 @@ void serialEvent(Serial serial) {
   while (serial.available() > 0) {
     char ch = (char)serial.read();
 
-    if (serial_state == State.HOLD) {
+    if (serial_state == SerialState.HOLD) {
       if (ch == semg_alignment_packet[alignment_count]) {
         if (alignment_count == 0)
-          serial_state = State.SEMG_ALIGN;
+          serial_state = SerialState.SEMG_ALIGN;
         ++alignment_count;
       } else if (ch == mpu_alignment_packet[alignment_count]) {
         if (alignment_count == 0)
-          serial_state = State.MPU_ALIGN;         
+          serial_state = SerialState.MPU_ALIGN;         
         ++alignment_count;
       }      
 
       if (alignment_count >= alignment_packet_len) {
-        if (serial_state == State.SEMG_ALIGN)
-          serial_state = State.SEMG_READ;
-        else if (serial_state == State.MPU_ALIGN)
-          serial_state = State.MPU_READ;  
+        if (serial_state == SerialState.SEMG_ALIGN)
+          serial_state = SerialState.SEMG_READ;
+        else if (serial_state == SerialState.MPU_ALIGN)
+          serial_state = SerialState.MPU_READ;  
 
         alignment_count = 0;
       }
-    } else if (serial_state == State.SEMG_READ) {      
+    } else if (serial_state == SerialState.SEMG_READ) {      
       semg_packet[serial_count] = ch;
 
       ++serial_count;
@@ -111,12 +114,16 @@ void serialEvent(Serial serial) {
           semg_buffer_index = 0;
 
         draw_semg = true;    
-        serial_state = State.HOLD;
+        serial_state = SerialState.HOLD;
         serial_count = 0;
-
-        sampleCount();
+        
+        if (tared)
+          printMove();
+        else
+          sampleCount();
+        
       }
-    } else if (serial_state == State.MPU_READ) {
+    } else if (serial_state == SerialState.MPU_READ) {
       mpu_packet[serial_count] = ch;
 
       ++serial_count;
@@ -135,7 +142,7 @@ void serialEvent(Serial serial) {
           mpu_buffer_index = 0;
 
         draw_mpu = true;
-        serial_state = State.HOLD;
+        serial_state = SerialState.HOLD;
         serial_count = 0;
       }
     }
@@ -161,11 +168,32 @@ void draw() {
 }
 
 void sampleCount() {     
-  sample_count++;
-  current_time = millis();
-  if (current_time - last_time > 1000) {
-    println(sample_count);
-    last_time = millis();
-    sample_count = 0;
+  sc_sample_count++;
+  sc_current_time = millis();
+  if (sc_current_time - sc_last_time > 1000) {
+    println(sc_sample_count);
+    
+    sc_last_time = millis();
+    sc_sample_count = 0;
+  }
+}
+
+
+
+final String [] move_list = {"1: Hold init", "2: Hold init", 
+                             "3: Move to final", "4: Hold final", "5: Move to init",
+                             "6: Hold init", "7: Hold init"};
+int move_list_index = 0;
+int move_count = 0;
+void printMove() {     
+  pm_current_time = millis();
+  if (pm_current_time - pm_last_time > 1000) {
+    println(move_list[move_list_index] + " --> " + move_count);
+    
+    pm_last_time = millis();
+    move_list_index = (move_list_index + 1) % move_list.length;
+    
+    if (move_list_index == 0)
+      ++move_count;
   }
 }
