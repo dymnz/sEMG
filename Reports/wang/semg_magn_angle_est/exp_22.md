@@ -36,7 +36,10 @@ Goal: Check the effect of nICA w/ ringed placement
 
 #### Cross-validation
 * Segments from different sessions are mixed
-* 4-fold cross validation (45-15 in this case)
+* 5-fold cross validation (48 - 12 in this case) | [source](https://stackoverflow.com/questions/13610074/is-there-a-rule-of-thumb-for-how-to-divide-a-dataset-into-training-and-validatio)
+  * Training - 36
+  * Cross-validation - 12
+  * Testing - 12
 * Separate FLX/EXT and PRO/SUP training for now (1, 3)
 
 ---
@@ -51,8 +54,15 @@ Goal: Check the effect of nICA w/ ringed placement
   * Flexion: >0 degree only. From 0d move toward -90d then pause. Start moving toward 0d then stop.
     * S2WA_22_FLX_
   * ICA
-    * 1: 
-    * 2:
-    * 3:
-    * 4: 
+    * 1: 4 gesutre
+    * 2: Random continuous Wrist movement (long)
+    * 3: 4 gesutre
+    * 4: Random continuous Wrist movement (short)
+
 ---
+
+#### Preprocess
+* `data_preprocess_splice.m`: Interpolate and splice PRO/SUP/FLX/EXT
+  * Segmented data stored in `.mat` file
+* `data_preprocess.m`: Interpolate ICAs 
+  * Full data stored in `.mat` file

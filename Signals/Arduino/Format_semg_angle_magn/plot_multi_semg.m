@@ -1,17 +1,8 @@
 clear; close all;
 addpath('../matlab_lib');
 
-% filename_list = {
-%     'PRO_1', 'PRO_2', 'PRO_3', 'PRO_4', 'PRO_5', ...
-%     'SUP_1', 'SUP_2', 'SUP_3', 'SUP_4', 'SUP_5', ...
-%     'FLX_1', 'FLX_2', 'FLX_3', 'FLX_4', 'FLX_5', ...
-%     'EXT_1', 'EXT_2', 'EXT_3', 'EXT_4', 'EXT_5', ...
-%     'PROSUP_1', 'PROSUP_2', 'PROSUP_3', ...
-%     'FLXEXT_1', 'FLXEXT_2', 'FLXEXT_3', ...
-%     'FLXEXTPROSUP_1', 'FLXEXTPROSUP_2', 'FLXEXTPROSUP_3', ...
-%     'FLXEXTPRO_1', 'FLXEXTSUP_1', 'FLXEXTPRO_2', 'FLXEXTSUP_2'
-% };
-filename_list =  {'PRO_1', 'SUP_1'};
+
+filename_list =  {'FLX_1', 'FLX_2', 'FLX_3'};
 % Signal Setting
 target_sample_rate = 10;
 RMS_window_size = 100;    % RMS window in pts
@@ -33,7 +24,7 @@ filename = filename_list{f};
 
 file_loc_prepend = './data/raw_';
 file_extension = '.txt';
-filename_prepend = 'S2WA_21_';
+filename_prepend = 'S2WA_22_';
 file = [file_loc_prepend, filename_prepend, ...
             filename, file_extension];
         
