@@ -15,13 +15,18 @@ file_loc_prepend = './data/';
 file_extension = '.txt';
 
 filename_prepend = 'raw_S2WA_22_';
+% file_to_splice = { 
+%     'PRO_1', 'PRO_2', 'PRO_3', ...
+%     'SUP_1', 'SUP_2', 'SUP_3'
+% };
+
 file_to_splice = { 
-    'PRO_1', 'PRO_2', 'PRO_3', ...
-    'SUP_1', 'SUP_2', 'SUP_3'
+    'FLX_1', 'FLX_2', 'FLX_3', ...
+    'EXT_1', 'EXT_2', 'EXT_3'
 };
 
 mpu_segment_threshold = 20; % Degree
-mpu_segment_index = 1; % 1-Roll/2-Pitch/3-Yaw
+mpu_segment_index = 2; % 1-Roll/2-Pitch/3-Yaw
 
 
 semg_channel_count = 4;
@@ -118,7 +123,7 @@ for f = 1 : length(file_label_list)
         cutoff_range = mid_segment_indices(i - 1) : mid_segment_indices(i);
 
         cutoff_semg = semg(cutoff_range, :);
-        cutoff_mpu = mpu(cutoff_range, :);
+        cutoff_mpu = mpu(cutoff_range, mpu_segment_index);
 
         processed_segments{i - 1, 1} = cutoff_semg';
         processed_segments{i - 1, 2} = cutoff_mpu';
@@ -144,3 +149,5 @@ for f = 1 : length(file_label_list)
     end
     
 end
+
+set(0,'DefaultFigureVisible','on');

@@ -1,4 +1,4 @@
-function verify_multi_semg(file_name)
+function RMS_list = verify_multi_semg(file_name)
 
 addpath('../matlab_lib');
 
@@ -10,8 +10,8 @@ graph_count = 1 + mpu_channel_count;
 semg_channel_index = 1:4;
 mpu_channel_index = 1;
 
-mpu_min_value = -120;
-mpu_max_value = 120;
+mpu_min_value = -130;
+mpu_max_value = -mpu_min_value;
 
 
 test_file_location = '../../../../RNN/LSTM/data/output/';
@@ -47,26 +47,25 @@ for i = 1 : num_matrix
     test_mpu_data = test_mpu_data .* mpu_max_value;
     train_mpu_data = train_mpu_data .* mpu_max_value;
                 
-    for ch = 1 : mpu_channel_count
-	subplot_helper(1:length(train_mpu_data), train_mpu_data(:, ch), ...
-                    [graph_count 1 ch+1], ...
-                    {'sample' 'amplitude' 'angle'}, ...
-                    '-');                                                         
-    ylim([mpu_min_value mpu_max_value]);
-	subplot_helper(1:length(test_mpu_data), test_mpu_data(:, ch), ...
-                    [graph_count 1 ch+1], ...
-                    {'sample' 'amplitude' 'angle'}, ...
-                    '-');
-    ylim([mpu_min_value mpu_max_value]);
-    legend('real', 'predict');
-    end 
+%     for ch = 1 : mpu_channel_count
+% 	subplot_helper(1:length(train_mpu_data), train_mpu_data(:, ch), ...
+%                     [graph_count 1 ch+1], ...
+%                     {'sample' 'amplitude' 'angle'}, ...
+%                     '-');                                                         
+%     ylim([mpu_min_value mpu_max_value]);
+% 	subplot_helper(1:length(test_mpu_data), test_mpu_data(:, ch), ...
+%                     [graph_count 1 ch+1], ...
+%                     {'sample' 'amplitude' 'angle'}, ...
+%                     '-');
+%     ylim([mpu_min_value mpu_max_value]);
+%     legend('real', 'predict');
+%     end 
     
     
 % 	print(strcat('./pics/', test_file_name, num2str(i), '.png'),'-dpng')
    RMS_list(i, :) = sqrt(mean((train_mpu_data - test_mpu_data).^2));
-   guess_RMS_list(i, :) = sqrt(mean((train_mpu_data - 0*ones(size(train_mpu_data))).^2));
 end
-fprintf('RMSE:\n');
-fprintf("%f \n", RMS_list);
+% fprintf('RMSE:\n');
+% fprintf("%f \n", RMS_list);
 % fprintf('\n');
 % fprintf("guess mean RMS = %f\n", guess_RMS_list);
