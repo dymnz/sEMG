@@ -101,7 +101,7 @@ for f = 1 : length(file_label_list)
     
     end
     
-    processed_segments = {semg mpu length(semg)};
+    processed_segments = {semg' mpu' length(semg)};
     processed_segments_list = [processed_segments_list; {processed_segments  file_to_splice{f}}]; 
 end
 

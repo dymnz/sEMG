@@ -1,18 +1,24 @@
 close all;
 figure;
-boxplot(data, 'Labels',{'FLX', 'EXT', 'PRO','SUP'});
-title('RMSDown');
+boxplot(rms_data, 'Labels',{'FLX', 'EXT', 'PRO','SUP'});
 set(findobj(gca, 'type', 'line'), 'linew', 3);
-set(gca,'fontsize',20)
 
-fprintf('0.25: \t');
-fprintf('%.3f\t', quantile(data, 0.25));
-fprintf('\n');
+title('RMSDown v.s. nICA');
+set(gca,'fontsize', 30);
+xlabel('Gesture'); ylabel('RMSE (degree)');
+hold on;
+boxplot(ica_data, 'Labels',{'FLX', 'EXT', 'PRO','SUP'});
 
-fprintf('median:\t');
-fprintf('%.3f\t', median(data));
-fprintf('\n');
 
-fprintf('0.75: \t');
-fprintf('%.3f\t', quantile(data, 0.75));
-fprintf('\n');
+
+% fprintf('0.25: \t');
+% fprintf('%.3f\t', quantile(ica_data, 0.25));
+% fprintf('\n');
+% 
+% fprintf('median:\t');
+% fprintf('%.3f\t', median(ica_data));
+% fprintf('\n');
+% 
+% fprintf('0.75: \t');
+% fprintf('%.3f\t', quantile(ica_data, 0.75));
+% fprintf('\n');
