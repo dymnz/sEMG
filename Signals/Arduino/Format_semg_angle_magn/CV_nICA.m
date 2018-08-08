@@ -7,20 +7,17 @@ set(0,'DefaultFigureVisible','off');
 
 %% Setting
 % File
-gesture_list = {'PRO', 'SUP'};
+all_test_list = {{'FLX', 'EXT'}, {'PRO', 'SUP'}};
 
 ica_file_idx = 1;
 ica_filename = 'ICA_processed';
 
 in_file_loc_prepend = './data/S2WA_22_';
 in_file_extension = '.mat';
-in_filename = [strjoin(gesture_list, '_') '_processed'];
-
 out_file_loc_prepend = '../../../../RNN/LSTM/data/input/exp_';
 out_file_prepend_list = {'TR_', 'CV_', 'TS_'};
 out_file_extension = '.txt';
-out_filename = [strjoin(gesture_list, '_') '_nICA'];
-                  
+
 % RNN param
 hidden_node_count = '8';
 epoch = '1000';
@@ -105,6 +102,13 @@ rms_semg = RMS_calc(semg, RMS_window_size);
 % subplot_helper(1:length(ica_m_semg), ica_m_semg(4, :), ...    
 %                 [4 1 4], {'sample' 'amplitude' 'After nICA'}, '-');            
                                
+all_RMS_list = [];
+for list_idx = 1 : length(all_test_list)
+gesture_list = all_test_list{list_idx};
+
+
+in_filename = [strjoin(gesture_list, '_') '_processed'];
+out_filename = [strjoin(gesture_list, '_') '_nICA'];
 
 RMS_list = zeros(num_of_segment_per_gesture, num_of_gesture);
 %% K-fold cross-validation
@@ -255,14 +259,14 @@ test_out_file = [out_file_loc_prepend, test_out_name out_file_extension];
 generate_LSTM_data(test_out_file, processed_join_dataset{3});
 
 %% Run LSTM
-fprintf(['./rnn.exe ', train_out_name, ' ', ...
+fprintf(['./rnn ', train_out_name, ' ', ...
     test_out_name, ' ', cv_out_name, ...
     ' ', hidden_node_count, ' ', epoch, ' ', cross_valid_patience, ...
     ' 10 100000 ', rand_seed, '\n']);
 
 origin_dir = pwd;
 cd('../../../../RNN/LSTM/');
-[status,cmdout] = system(['rnn.exe ', train_out_name, ' ', ...
+[status,cmdout] = system(['./rnn ', train_out_name, ' ', ...
     test_out_name, ' ', cv_out_name, ...
     ' ', hidden_node_count, ' ', epoch, ' ', cross_valid_patience, ...
     ' 10 100000 ', rand_seed, '\n']);
@@ -283,9 +287,11 @@ for i = 1 : num_of_gesture
     fprintf('---\n');
 end
 fprintf('===========\n');
-
+end
+all_RMS_list = [all_RMS_list RMS_list];
 end
 %% Clean up
 set(0,'DefaultFigureVisible','on');
 
-beep();
+beep2();
+

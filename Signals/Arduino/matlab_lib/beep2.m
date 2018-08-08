@@ -2,8 +2,12 @@ function beep2()
 
 res = 22050;
 
-len = 0.2 * res;
+len = res * 10;
 
-hz = 1000;
+hz = 1600;
+lhz = 2;
+ahz = 800;
 
-sound( 0.2 .* sin( hz*(2*pi*(0:len)/res) ), res);
+X = 0.8 .* sin( hz*(2*pi*(0:len)/res) ) .* sin( lhz*(2*pi*(0:len)/res) ) .*...
+    sin( ahz*(2*pi*(0:len)/res) );
+sound(X , res);
