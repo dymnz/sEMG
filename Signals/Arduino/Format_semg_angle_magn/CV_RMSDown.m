@@ -77,7 +77,7 @@ out_filename = [strjoin(gesture_list, '_') '_nICA'];
 RMS_list = zeros(num_of_segment_per_gesture, num_of_gesture);
 %% K-fold cross-validation
 for round = 1 : total_partition   
-close all;
+close all;  % TODO: Check if this can be removed   
 fprintf('---total: %d/%d \tround: %d/%d\n', ...
     list_idx, length(all_test_list), ...
     round, total_partition);
@@ -214,14 +214,14 @@ generate_LSTM_data(test_out_file, processed_join_dataset{3});
 fprintf(['rnn.exe ', train_out_name, ' ', ...
     test_out_name, ' ', cv_out_name, ...
     ' ', hidden_node_count, ' ', epoch, ' ', cross_valid_patience, ...
-    ' 10 100000 ', rand_seed, '\n']);
+    ' 10 100000 ', rand_seed{list_idx}, '\n']);
 
 origin_dir = pwd;
 cd('../../../../RNN/LSTM/');
 [status,cmdout] = system(['rnn.exe ', train_out_name, ' ', ...
     test_out_name, ' ', cv_out_name, ...
     ' ', hidden_node_count, ' ', epoch, ' ', cross_valid_patience, ...
-    ' 10 100000 ', rand_seed, '\n']);
+    ' 10 100000 ', rand_seed{list_idx}, '\n']);
 cd(origin_dir);
 
 %% Show result
@@ -245,5 +245,5 @@ all_RMS_list = [all_RMS_list RMS_list];
 end
 %% Clean up
 set(0,'DefaultFigureVisible','on');
-
+save('RMSDown_data', 'all_RMS_list');
 beep2();
