@@ -7,7 +7,13 @@ set(0,'DefaultFigureVisible','off');
 
 %% Setting
 % File
-all_test_list = {{'FLX', 'EXT'}, {'PRO', 'SUP'}};
+all_test_list = {...
+    {'FLX', 'EXT'}, {'PRO', 'SUP'}, ...
+    {'FLX', 'EXT'}, {'PRO', 'SUP'}, ...
+    {'FLX', 'EXT'}, {'PRO', 'SUP'}, ...
+    {'FLX', 'EXT'}, {'PRO', 'SUP'}, ...
+    {'FLX', 'EXT'}, {'PRO', 'SUP'}
+    };
 
 ica_file_idx = 1;
 ica_filename = 'ICA_processed';
@@ -21,7 +27,7 @@ out_file_extension = '.txt';
 % RNN param
 hidden_node_count = '8';
 epoch = '1000';
-rand_seed = '4';
+rand_seed = {'5', '5', '6', '6', '7', '7', '8', '8', '9', '9'};
 cross_valid_patience = '20';
 
 % nICA param
@@ -101,7 +107,11 @@ rms_semg = RMS_calc(semg, RMS_window_size);
 %                 [4 1 3], {'sample' 'amplitude' 'After nICA'}, '-');               
 % subplot_helper(1:length(ica_m_semg), ica_m_semg(4, :), ...    
 %                 [4 1 4], {'sample' 'amplitude' 'After nICA'}, '-');            
-                               
+
+if length(all_test_list) ~= length(rand_seed)
+    error('rand_seed length error');
+end
+
 all_RMS_list = [];
 for list_idx = 1 : length(all_test_list)
 gesture_list = all_test_list{list_idx};
@@ -262,14 +272,14 @@ generate_LSTM_data(test_out_file, processed_join_dataset{3});
 fprintf(['./rnn ', train_out_name, ' ', ...
     test_out_name, ' ', cv_out_name, ...
     ' ', hidden_node_count, ' ', epoch, ' ', cross_valid_patience, ...
-    ' 10 100000 ', rand_seed, '\n']);
+    ' 10 100000 ', rand_seed{list_idx}, '\n']);
 
 origin_dir = pwd;
 cd('../../../../RNN/LSTM/');
 [status,cmdout] = system(['./rnn ', train_out_name, ' ', ...
     test_out_name, ' ', cv_out_name, ...
     ' ', hidden_node_count, ' ', epoch, ' ', cross_valid_patience, ...
-    ' 10 100000 ', rand_seed, '\n']);
+    ' 10 100000 ', rand_seed{list_idx}, '\n']);
 cd(origin_dir);
 
 %% Show result

@@ -40,10 +40,10 @@ for i = 1 : num_matrix
     train_mpu_data = train_output_matrix_list{i}(:, mpu_channel_index);
   
     
-    figure('Name', file_name);
-    subplot_helper(1:DATA_LENGTH, test_semg_data, ...
-                    [graph_count 1 1], {'sample' 'amplitude' 'sEMG'}, ':x');
-    ylim([0 1]);
+%     figure('Name', file_name);
+%     subplot_helper(1:DATA_LENGTH, test_semg_data, ...
+%                     [graph_count 1 1], {'sample' 'amplitude' 'sEMG'}, ':x');
+%     ylim([0 1]);
     test_mpu_data = test_mpu_data .* mpu_max_value;
     train_mpu_data = train_mpu_data .* mpu_max_value;
                 

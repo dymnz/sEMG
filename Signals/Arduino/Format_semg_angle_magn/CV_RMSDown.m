@@ -10,9 +10,8 @@ all_test_list = {...
     {'FLX', 'EXT'}, {'PRO', 'SUP'}, ...
     {'FLX', 'EXT'}, {'PRO', 'SUP'}, ...
     {'FLX', 'EXT'}, {'PRO', 'SUP'}, ...
-    {'FLX', 'EXT'}, {'PRO', 'SUP'}, ...
     {'FLX', 'EXT'}, {'PRO', 'SUP'}
-    };
+};
 
 ica_file_idx = 1;
 ica_filename = 'ICA_processed';
@@ -26,7 +25,7 @@ out_file_extension = '.txt';
 % RNN param
 hidden_node_count = '8';
 epoch = '1000';
-rand_seed = '4';
+rand_seed = {'6', '6', '7', '7', '8', '8', '9', '9'};
 cross_valid_patience = '20';
 
 % Signal param
@@ -64,18 +63,25 @@ cv_size = partition_ratio(2) / total_partition ...
 test_size = partition_ratio(3) / total_partition ...
                     * num_of_segment_per_gesture;     
                 
-                               
+if length(all_test_list) ~= length(rand_seed)
+    error('rand_seed length error');
+end
+                
 all_RMS_list = [];
 for list_idx = 1 : length(all_test_list)
 gesture_list = all_test_list{list_idx};
-
 
 in_filename = [strjoin(gesture_list, '_') '_processed'];
 out_filename = [strjoin(gesture_list, '_') '_nICA'];
 
 RMS_list = zeros(num_of_segment_per_gesture, num_of_gesture);
 %% K-fold cross-validation
-for round = 1 : total_partition     
+for round = 1 : total_partition   
+close all;
+fprintf('---total: %d/%d \tround: %d/%d\n', ...
+    list_idx, length(all_test_list), ...
+    round, total_partition);
+    
 partition_offset_idx = (round - 1) * test_size;
 
 % Read file
@@ -116,9 +122,9 @@ test_idx = ...
     mod(partition_offset_idx + train_size + cv_size : ...
     (partition_offset_idx + train_size + cv_size + test_size - 1), num_of_segment_per_gesture) + 1;
 
-fprintf('Train data range: \t[%2d %2d]\n', train_idx(1), train_idx(end));
-fprintf('CV data range: \t\t[%2d %2d]\n', cv_idx(1), cv_idx(end));
-fprintf('Test data range: \t[%2d %2d]\n', test_idx(1), test_idx(end));
+% fprintf('Train data range: \t[%2d %2d]\n', train_idx(1), train_idx(end));
+% fprintf('CV data range: \t\t[%2d %2d]\n', cv_idx(1), cv_idx(end));
+% fprintf('Test data range: \t[%2d %2d]\n', test_idx(1), test_idx(end));
 
 for i = 1 : num_of_gesture
     partitioned_dataset{i, 1} = ... % Train
@@ -205,14 +211,14 @@ test_out_file = [out_file_loc_prepend, test_out_name out_file_extension];
 generate_LSTM_data(test_out_file, processed_join_dataset{3});
 
 %% Run LSTM
-fprintf(['./rnn ', train_out_name, ' ', ...
+fprintf(['rnn.exe ', train_out_name, ' ', ...
     test_out_name, ' ', cv_out_name, ...
     ' ', hidden_node_count, ' ', epoch, ' ', cross_valid_patience, ...
     ' 10 100000 ', rand_seed, '\n']);
 
 origin_dir = pwd;
 cd('../../../../RNN/LSTM/');
-[status,cmdout] = system(['./rnn ', train_out_name, ' ', ...
+[status,cmdout] = system(['rnn.exe ', train_out_name, ' ', ...
     test_out_name, ' ', cv_out_name, ...
     ' ', hidden_node_count, ' ', epoch, ' ', cross_valid_patience, ...
     ' 10 100000 ', rand_seed, '\n']);
@@ -221,18 +227,18 @@ cd(origin_dir);
 %% Show result
 temp_RMS_list = verify_multi_semg(test_out_name);
 
-fprintf('===========\n');
+% fprintf('===========\n');
 for i = 1 : num_of_gesture    
-    for r = 1 : test_size
-        segment_name = [gesture_list{i} '_' num2str(test_idx(r))];
+    for r = 1 : test_size        
         RMS_idx = (i - 1) * num_of_gesture + r;
-        fprintf('%s %2.10f\n', segment_name, temp_RMS_list(RMS_idx));
-        
         RMS_list(test_idx(r), i) = temp_RMS_list(RMS_idx);
+        
+%         segment_name = [gesture_list{i} '_' num2str(test_idx(r))];
+%         fprintf('%s %2.10f\n', segment_name, temp_RMS_list(RMS_idx));                
     end
-    fprintf('---\n');
+%     fprintf('---\n');
 end
-fprintf('===========\n');
+% fprintf('===========\n');
 
 end
 all_RMS_list = [all_RMS_list RMS_list];

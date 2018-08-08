@@ -11,6 +11,8 @@ boxplot(ica_data, 'Labels',{'FLX', 'EXT', 'PRO','SUP'});
 
 
 
+
+
 % fprintf('0.25: \t');
 % fprintf('%.3f\t', quantile(ica_data, 0.25));
 % fprintf('\n');
