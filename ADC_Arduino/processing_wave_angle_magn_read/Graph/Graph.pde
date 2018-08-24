@@ -9,7 +9,7 @@ enum SerialState {
 SerialState serial_state = SerialState.HOLD;
 
 final String SERIAL_NAME = "/dev/ttyACM0";
-final String filename = "../../../Signals/Arduino/Format_semg_angle_magn/data/raw_S2WA_22_" + "SUP_3" + ".txt";
+final String filename = "../../../Signals/Arduino/Format_semg_angle_magn/data/raw_S2WA_23_" + "ICA" + "_2" + ".txt";
 
 
 final int width = 1440;
@@ -184,7 +184,7 @@ final String [] move_list = {"1: Hold init", "2: Hold init",
                              "3: Move to final", "4: Hold final", "5: Move to init",
                              "6: Hold init", "7: Hold init"};
 int move_list_index = 0;
-int move_count = 0;
+int move_count = 1;
 void printMove() {     
   pm_current_time = millis();
   if (pm_current_time - pm_last_time > 1000) {

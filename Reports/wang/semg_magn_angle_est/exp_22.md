@@ -11,6 +11,7 @@ Goal: Check the effect of nICA w/ ringed placement
 * Forming a ring around the thickest part of the forearm (~4.5cm from elbow)
   * Circumference 27.5cm, divided by 4 --> 6.9cm lateral inter-electrode distance
   * Placing clockwise, labelled 1-4
+  * **Start placing from the top of the arm, perpendicular to the table**
 * Exact placement
   * Baseline test: Ring starting from the top of the forearm w/ palm facing down
   * "Random" test: Ring starting from the top of the forearm w/ palm facing down, then rotate 45d
