@@ -13,7 +13,7 @@ addpath('../matlab_lib/FastICA_21');
 file_loc_prepend = './data/';
 file_extension = '.txt';
 
-filename_prepend = 'raw_S2WA_22_';
+filename_prepend = 'raw_S2WA_23_';
 file_to_splice = { 
     'ICA_1', 'ICA_2', 'ICA_3', 'ICA_4'
 };

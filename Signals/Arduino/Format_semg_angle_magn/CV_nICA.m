@@ -23,7 +23,7 @@ all_test_list = {...
 ica_file_idx = 1;
 ica_filename = 'ICA_processed';
 
-in_file_loc_prepend = './data/S2WA_22_';
+in_file_loc_prepend = './data/S2WA_23_';
 in_file_extension = '.mat';
 out_file_loc_prepend = '../../../../RNN/LSTM/data/input/exp_';
 out_file_prepend_list = {'TR_', 'CV_', 'TS_'};
