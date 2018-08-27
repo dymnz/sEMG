@@ -20,7 +20,7 @@ all_test_list = {...
     {'FLX', 'EXT'}, {'PRO', 'SUP'}
     };
 
-ica_file_idx = 1;
+ica_file_idx = 4;
 ica_filename = 'ICA_processed';
 
 in_file_loc_prepend = './data/S2WA_23_';
@@ -28,6 +28,8 @@ in_file_extension = '.mat';
 out_file_loc_prepend = '../../../../RNN/LSTM/data/input/exp_';
 out_file_prepend_list = {'TR_', 'CV_', 'TS_'};
 out_file_extension = '.txt';
+
+record_filename = 'S2WA_23_nICA_4_10rd_data';
 
 % RNN param
 hidden_node_count = '8';
@@ -313,9 +315,9 @@ end
 all_RMS_list = [all_RMS_list RMS_list];
 end
 
-save('nICA_data', 'all_RMS_list');
+save(record_filename, 'all_RMS_list');
+
 %% Clean up
 set(0,'DefaultFigureVisible','on');
-
-beep2();
+% beep2();
 

@@ -28,6 +28,8 @@ out_file_loc_prepend = '../../../../RNN/LSTM/data/input/exp_';
 out_file_prepend_list = {'TR_', 'CV_', 'TS_'};
 out_file_extension = '.txt';
                   
+record_filename = 'S2WA_23_RMSDown_4_10rd_data';
+
 % RNN param
 hidden_node_count = '8';
 epoch = '1000';
@@ -79,7 +81,7 @@ for list_idx = 1 : length(all_test_list)
 gesture_list = all_test_list{list_idx};
 
 in_filename = [strjoin(gesture_list, '_') '_processed'];
-out_filename = [strjoin(gesture_list, '_') '_nICA'];
+out_filename = [strjoin(gesture_list, '_') '_RMSDown'];
 
 RMS_list = zeros(num_of_segment_per_gesture, num_of_gesture);
 %% K-fold cross-validation
@@ -250,7 +252,9 @@ end
 end
 all_RMS_list = [all_RMS_list RMS_list];
 end
+
+save(record_filename, 'all_RMS_list');
+
 %% Clean up
 set(0,'DefaultFigureVisible','on');
-save('RMSDown_data', 'all_RMS_list');
-beep2();
+% beep2();
