@@ -2,8 +2,8 @@ clear; close all;
 addpath('../matlab_lib');
 addpath('../matlab_lib/nICA');
 
-set(0,'DefaultFigureVisible','on');   
-% set(0,'DefaultFigureVisible','off');   
+% set(0,'DefaultFigureVisible','on');   
+set(0,'DefaultFigureVisible','off');   
 
 %% Setting
 % File
@@ -20,7 +20,7 @@ all_test_list = {...
     {'FLX', 'EXT'}, {'PRO', 'SUP'}
     };
 
-ica_file_idx = 1;
+ica_file_idx = 4;
 ica_filename = 'ICA_processed';
 
 in_file_loc_prepend = './data/S2WA_23_';
@@ -96,30 +96,30 @@ rms_semg = RMS_calc(semg, RMS_window_size);
          fsolve_tolerance, global_tolerance_torque, ...
          global_max_step, step_per_log);
 
-%% Show nICA effect     
-figure;
-subplot_helper(1:length(rms_semg), rms_semg(1, :), ...
-                [4 1 1], {'sample' 'amplitude' 'Before nICA'}, '-');             
-subplot_helper(1:length(rms_semg), rms_semg(2, :), ...    
-                [4 1 2], {'sample' 'amplitude' 'Before nICA'}, '-');           
-subplot_helper(1:length(rms_semg), rms_semg(3, :), ...
-                [4 1 3], {'sample' 'amplitude' 'Before nICA'}, '-');              
-subplot_helper(1:length(rms_semg), rms_semg(4, :), ...    
-                [4 1 4], {'sample' 'amplitude' 'Before nICA'}, '-'); 
+     
+% figure;
+% subplot_helper(1:length(ica_semg), ica_semg(1, :), ...
+%                 [4 1 1], {'sample' 'amplitude' 'After nICA'}, '-');             
+% subplot_helper(1:length(ica_semg), ica_semg(2, :), ...    
+%                 [4 1 2], {'sample' 'amplitude' 'After nICA'}, '-');           
+% subplot_helper(1:length(ica_semg), ica_semg(3, :), ...
+%                 [4 1 3], {'sample' 'amplitude' 'After nICA'}, '-');              
+% subplot_helper(1:length(ica_semg), ica_semg(4, :), ...    
+%                 [4 1 4], {'sample' 'amplitude' 'After nICA'}, '-'); 
 
-figure;
-subplot_helper(1:length(ica_semg), ica_semg(1, :), ...
-                [4 1 1], {'sample' 'amplitude' 'After nICA'}, '-');             
-subplot_helper(1:length(ica_semg), ica_semg(2, :), ...    
-                [4 1 2], {'sample' 'amplitude' 'After nICA'}, '-');           
-subplot_helper(1:length(ica_semg), ica_semg(3, :), ...
-                [4 1 3], {'sample' 'amplitude' 'After nICA'}, '-');              
-subplot_helper(1:length(ica_semg), ica_semg(4, :), ...    
-                [4 1 4], {'sample' 'amplitude' 'After nICA'}, '-');   
-return;     
+% figure;
+% subplot_helper(1:length(ica_semg), ica_semg(1, :), ...
+%                 [4 1 1], {'sample' 'amplitude' 'After nICA'}, '-');             
+% subplot_helper(1:length(ica_semg), ica_semg(2, :), ...    
+%                 [4 1 2], {'sample' 'amplitude' 'After nICA'}, '-');           
+% subplot_helper(1:length(ica_semg), ica_semg(3, :), ...
+%                 [4 1 3], {'sample' 'amplitude' 'After nICA'}, '-');              
+% subplot_helper(1:length(ica_semg), ica_semg(4, :), ...    
+%                 [4 1 4], {'sample' 'amplitude' 'After nICA'}, '-');   
      
      
-%% Verify nICA
+     
+% Verify nICA
 % ica_m_semg = (W * V * rms_semg); 
 % figure;
 % subplot_helper(1:length(ica_semg), ica_semg(1, :), ...
