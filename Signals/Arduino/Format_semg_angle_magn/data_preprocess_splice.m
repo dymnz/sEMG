@@ -4,8 +4,8 @@
 
 clear; close all;
 
-% set(0,'DefaultFigureVisible','on');
-set(0,'DefaultFigureVisible','off');
+set(0,'DefaultFigureVisible','on');
+% set(0,'DefaultFigureVisible','off');
 
 addpath('../matlab_lib');
 addpath('../matlab_lib/FastICA_21');
@@ -16,9 +16,14 @@ file_extension = '.txt';
 
 filename_prepend = 'raw_S2WA_23_';
 file_to_splice = { 
-    'PRO_1', 'PRO_2', 'PRO_3', ...
-    'SUP_1', 'SUP_2', 'SUP_3'
+    'PRO_1', ...
+    'SUP_1',
 };
+
+% file_to_splice = { 
+%     'PRO_1', 'PRO_2', 'PRO_3', ...
+%     'SUP_1', 'SUP_2', 'SUP_3'
+% };
 
 % file_to_splice = { 
 %     'FLX_1', 'FLX_2', 'FLX_3', ...
