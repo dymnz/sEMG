@@ -2,13 +2,13 @@ clear; close all;
 addpath('../matlab_lib');
 addpath('../matlab_lib/nICA');
 
-set(0,'DefaultFigureVisible','on');   
-% set(0,'DefaultFigureVisible','off');   
+% set(0,'DefaultFigureVisible','on');   
+set(0,'DefaultFigureVisible','off');   
 
 %% Setting
 % File
 all_test_list = {...
-    {'PRO', 'SUP'}, {'PRO', 'SUP'}, ...
+    {'FLX', 'EXT'}, {'PRO', 'SUP'}, ...
     {'FLX', 'EXT'}, {'PRO', 'SUP'}, ...
     {'FLX', 'EXT'}, {'PRO', 'SUP'}, ...
     {'FLX', 'EXT'}, {'PRO', 'SUP'}, ...
@@ -20,19 +20,6 @@ all_test_list = {...
     {'FLX', 'EXT'}, {'PRO', 'SUP'}
     };
 
-% all_test_list = {...
-%     {'FLX', 'EXT'}, {'PRO', 'SUP'}, ...
-%     {'FLX', 'EXT'}, {'PRO', 'SUP'}, ...
-%     {'FLX', 'EXT'}, {'PRO', 'SUP'}, ...
-%     {'FLX', 'EXT'}, {'PRO', 'SUP'}, ...
-%     {'FLX', 'EXT'}, {'PRO', 'SUP'}, ...
-%     {'FLX', 'EXT'}, {'PRO', 'SUP'}, ...
-%     {'FLX', 'EXT'}, {'PRO', 'SUP'}, ...
-%     {'FLX', 'EXT'}, {'PRO', 'SUP'}, ...
-%     {'FLX', 'EXT'}, {'PRO', 'SUP'}, ...  
-%     {'FLX', 'EXT'}, {'PRO', 'SUP'}
-%     };
-
 ica_file_idx = 1;
 ica_filename = 'ICA_processed';
 
@@ -41,11 +28,11 @@ in_file_extension = '.mat';
 out_file_loc_prepend = '../../../../RNN/LSTM/data/input/exp_';
 out_file_prepend_list = {'TR_', 'CV_', 'TS_'};
 out_file_extension = '.txt';
-
-record_filename = 'S2WA_23_nICA_4_10rd_data';
+ 
+record_filename = 'S2WA_23_nICA_1_h16_10rd_data';
 
 % RNN param
-hidden_node_count = '8';
+hidden_node_count = '16';
 epoch = '1000';
 rand_seed = {'5', '5', '6', '6', '7', '7', '8', '8', '9', '9', '10', '10', ...
              '11', '11', '12', '12', '13', '13', '14', '14'};
@@ -333,7 +320,7 @@ cd(origin_dir);
 
 %% Show result
 temp_RMS_list = verify_multi_semg(test_out_name);
-return;
+
 % fprintf('===========\n');
 for i = 1 : num_of_gesture    
     for r = 1 : test_size        

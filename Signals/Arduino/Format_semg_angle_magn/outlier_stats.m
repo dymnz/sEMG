@@ -1,3 +1,8 @@
+% Remove outlier of each gesture in each round (N/60 * 10)
+% Find the median w/ the mean of the outlier removed round
+
+error('The code may contain error');
+
 close all; clear all;
 mean_list = zeros(10, 4);
 
