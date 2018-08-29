@@ -5,16 +5,16 @@ close all; clear all;
 mean_list = zeros(10, 4);
 
 
-nica_data = load('./result/S2WA_23_nICA_1_10rd_data.mat');
+nica_data = load('./result/S2WA_22_nICA_1_10rd_data.mat');
 nica_data = nica_data.all_RMS_list;
 
-rmsdown_data = load('./result/S2WA_23_RMSDown_1_10rd_data.mat');
+rmsdown_data = load('./result/S2WA_22_RMSDown_1_10rd_data.mat');
 rmsdown_data = rmsdown_data.all_RMS_list;
 
 title_string = 'RMSDown v.s. nICA_1 - 10x average';
 
 %%%
-for i = 1 : 10
+for i = 1 : 9
 s_idx = (i - 1) * 4 + 1;
 data = rmsdown_data(:, s_idx:s_idx+3);
 

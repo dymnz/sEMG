@@ -25,10 +25,10 @@ out_file_loc_prepend = '../../../../RNN/LSTM/data/input/exp_';
 out_file_prepend_list = {'TR_', 'CV_', 'TS_'};
 out_file_extension = '.txt';
                   
-record_filename = 'S2WA_23_RMSDown_1_h16_10rd_data';
+record_filename = 'S2WA_23_RMSDown_1_SPS30_10rd_data';
 
 % RNN param
-hidden_node_count = '16';
+hidden_node_count = '8';
 epoch = '1000';
 rand_seed = {'5', '5', '6', '6', '7', '7', '8', '8', '9', '9', '10', '10', ...
              '11', '11', '12', '12', '13', '13', '14', '14'};
@@ -43,7 +43,7 @@ mpu_min_value = -mpu_max_value;
 
 % Downsample/RMS param
 RMS_window_size = 500;    % RMS window in pts
-target_sample_rate = 100;
+target_sample_rate = 30;
 downsample_filter_order = 6;
 downsample_ratio = floor(semg_sample_rate / target_sample_rate);
 
