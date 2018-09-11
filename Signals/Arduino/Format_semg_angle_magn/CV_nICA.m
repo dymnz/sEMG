@@ -20,19 +20,20 @@ all_test_list = {...
     {'FLX', 'EXT'}, {'PRO', 'SUP'}
     };
 
-ica_file_idx = 1;
+for ica_file_idx = 1 : 4
+    
 ica_filename = 'ICA_processed';
 
-in_file_loc_prepend = './data/S2WA_23_';
+in_file_loc_prepend = './data/S2WA_22_';
 in_file_extension = '.mat';
 out_file_loc_prepend = '../../../../RNN/LSTM/data/input/exp_';
 out_file_prepend_list = {'TR_', 'CV_', 'TS_'};
 out_file_extension = '.txt';
  
-record_filename = 'S2WA_23_nICA_1_SPS30_10rd_data';
+record_filename = ['S2WA_22_nICA_' num2str(ica_file_idx) '_SPS30_10rd_data'];
 
 % RNN param
-hidden_node_count = '16';
+hidden_node_count = '8';
 epoch = '1000';
 rand_seed = {'5', '5', '6', '6', '7', '7', '8', '8', '9', '9', '10', '10', ...
              '11', '11', '12', '12', '13', '13', '14', '14'};
@@ -344,3 +345,4 @@ save(record_filename, 'all_RMS_list');
 set(0,'DefaultFigureVisible','on');
 % beep2();
 
+end
