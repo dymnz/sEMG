@@ -145,6 +145,7 @@ if length(all_test_list) ~= length(rand_seed)
 end
 
 all_RMS_list = [];
+
 for list_idx = 1 : length(all_test_list)
 gesture_list = all_test_list{list_idx};
 

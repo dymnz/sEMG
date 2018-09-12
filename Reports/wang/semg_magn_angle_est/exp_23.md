@@ -53,8 +53,8 @@ Goal: Check the effect of nICA w/ ringed placement **and different electrode pla
   * Extension: <0 degree only. From 0d move toward 90d then pause. Start moving toward 0d then stop.
     * S2WA_23_EXT_
   * Flexion: >0 degree only. From 0d move toward -90d then pause. Start moving toward 0d then stop.
-    * S2WA_23_FLX_
-  * ICA
+    * S2WA_23_FLX_ 
+  * ICA **Motion desc. may be wrong**
     * 1: FEPS
     * 2: FEPS
     * 3: Random continuous Wrist movement (short)

@@ -9,7 +9,7 @@ enum SerialState {
 SerialState serial_state = SerialState.HOLD;
 
 final String SERIAL_NAME = "/dev/ttyACM0";
-final String filename = "../../../Signals/Arduino/Format_semg_angle_magn/data/raw_S2WA_23_" + "ICA" + "_2" + ".txt";
+final String filename = "../../../Signals/Arduino/Format_semg_angle_magn/data/raw_S2WA_24_" + "SUP" + "_3" + ".txt";
 
 
 final int width = 1440;
@@ -150,7 +150,7 @@ void serialEvent(Serial serial) {
 }
 
 void keyPressed() {
-  if (key == '0') { // ascii for '0' 
+  if (key == '1') { // ascii for '1' 
     mpu_tare();
     tared = true;
   }

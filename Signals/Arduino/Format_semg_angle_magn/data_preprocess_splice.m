@@ -14,24 +14,19 @@ addpath('../matlab_lib/FastICA_21');
 file_loc_prepend = './data/';
 file_extension = '.txt';
 
-filename_prepend = 'raw_S2WA_23_';
-file_to_splice = { 
-    'PRO_1', ...
-    'SUP_1',
-};
-
+filename_prepend = 'raw_S2WA_24_';
 % file_to_splice = { 
 %     'PRO_1', 'PRO_2', 'PRO_3', ...
 %     'SUP_1', 'SUP_2', 'SUP_3'
 % };
-
-% file_to_splice = { 
-%     'FLX_1', 'FLX_2', 'FLX_3', ...
-%     'EXT_1', 'EXT_2', 'EXT_3'
-% };
+% 
+file_to_splice = { 
+    'FLX_1', 'FLX_2', 'FLX_3', ...
+    'EXT_1', 'EXT_2', 'EXT_3'
+};
 
 mpu_segment_threshold = 20; % Degree
-mpu_segment_index = 1; % 1-Roll/2-Pitch/3-Yaw
+mpu_segment_index = 2; % 1-Roll/2-Pitch/3-Yaw
 
 
 semg_channel_count = 4;
@@ -144,13 +139,13 @@ for f = 1 : length(file_label_list)
         cutoff_semg = semg(cutoff_range, :);
         cutoff_mpu = mpu(cutoff_range, mpu_segment_index);
         
-        figure;
-        subplot_helper(1:length(cutoff_semg), cutoff_semg, ...
-                        [2 1 1], {'sample' 'amplitude' 'Interpolated sEMG'}, '-');                       
-        ylim([semg_min_value semg_max_value]);     
-        subplot_helper(1:length(cutoff_mpu), cutoff_mpu, ...
-                        [2 1 2], {'sample' 'amplitude' 'Interpolated Angle'}, '-');                                       
-        ylim([mpu_min_value mpu_max_value]);
+%         figure;
+%         subplot_helper(1:length(cutoff_semg), cutoff_semg, ...
+%                         [2 1 1], {'sample' 'amplitude' 'Interpolated sEMG'}, '-');                       
+%         ylim([semg_min_value semg_max_value]);     
+%         subplot_helper(1:length(cutoff_mpu), cutoff_mpu, ...
+%                         [2 1 2], {'sample' 'amplitude' 'Interpolated Angle'}, '-');                                       
+%         ylim([mpu_min_value mpu_max_value]);
     end
     
 end
