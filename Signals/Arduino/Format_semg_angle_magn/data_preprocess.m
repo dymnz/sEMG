@@ -13,7 +13,9 @@ addpath('../matlab_lib/FastICA_21');
 file_loc_prepend = './data/';
 file_extension = '.txt';
 
-filename_prepend = 'raw_S2WA_23_';
+record_filename = './data/S2WA_24_ICA_processed';
+
+filename_prepend = 'raw_S2WA_24_';
 file_to_splice = { 
     'ICA_1', 'ICA_2', 'ICA_3', 'ICA_4'
 };
@@ -105,5 +107,6 @@ for f = 1 : length(file_label_list)
     processed_segments_list = [processed_segments_list; {processed_segments  file_to_splice{f}}]; 
 end
 
+save(record_filename, 'processed_segments_list');
 
 set(0,'DefaultFigureVisible','on');

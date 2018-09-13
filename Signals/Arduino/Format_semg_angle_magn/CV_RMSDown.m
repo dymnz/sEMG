@@ -19,13 +19,13 @@ all_test_list = {
     {'FLX', 'EXT'}, {'PRO', 'SUP'}
 };
 
-in_file_loc_prepend = './data/S2WA_22_';
+in_file_loc_prepend = './data/S2WA_24_';
 in_file_extension = '.mat';
 out_file_loc_prepend = '../../../../RNN/LSTM/data/input/exp_';
 out_file_prepend_list = {'TR_', 'CV_', 'TS_'};
 out_file_extension = '.txt';
                   
-record_filename = 'S2WA_22_RMSDown_SPS30_10rd_data';
+record_filename = 'S2WA_24_RMSDown_SPS30_10rd_data';
 
 % RNN param
 hidden_node_count = '8';
@@ -38,7 +38,7 @@ cross_valid_patience = '20';
 semg_sample_rate = 2660; % Approximate
 semg_max_value = 2048 / 4;
 semg_min_value = -semg_max_value;
-mpu_max_value = 130;
+mpu_max_value = 140;
 mpu_min_value = -mpu_max_value;
 
 % Downsample/RMS param
