@@ -30,7 +30,7 @@ out_file_loc_prepend = '../../../../RNN/LSTM/data/input/exp_';
 out_file_prepend_list = {'TR_', 'CV_', 'TS_'};
 out_file_extension = '.txt';
  
-record_filename = ['S2WA_24_nICA_' num2str(ica_file_idx) '_SPS30_10rd_data'];
+record_filename = ['S2WA_24_nICA_' num2str(ica_file_idx) '_SPS100_10rd_data'];
 
 % RNN param
 hidden_node_count = '8';
@@ -55,7 +55,7 @@ mpu_min_value = -mpu_max_value;
 
 % Downsample/RMS param
 RMS_window_size = 500;    % RMS window in pts
-target_sample_rate = 30;
+target_sample_rate = 100;
 downsample_filter_order = 6;
 downsample_ratio = floor(semg_sample_rate / target_sample_rate);
 
