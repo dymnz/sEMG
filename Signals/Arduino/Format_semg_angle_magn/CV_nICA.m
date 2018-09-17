@@ -2,10 +2,16 @@ clear; close all;
 addpath('../matlab_lib');
 addpath('../matlab_lib/nICA');
 
-% set(0,'DefaultFigureVisible','on');   
-set(0,'DefaultFigureVisible','off');   
+set(0,'DefaultFigureVisible','on');   
+% set(0,'DefaultFigureVisible','off');   
 
 %% Setting
+
+for exp_num = 22 : 24
+for target_sample_rate = [35 95]
+    
+fprintf('============================= nICA S2WA%d %d_SPS =============================\n', exp_num, target_sample_rate);
+
 % File
 all_test_list = {...
     {'FLX', 'EXT'}, {'PRO', 'SUP'}, ...
@@ -24,26 +30,40 @@ for ica_file_idx = 1 : 4
     
 ica_filename = 'ICA_processed';
 
-in_file_loc_prepend = './data/S2WA_24_';
+in_file_loc_prepend = ['./data/S2WA_' num2str(exp_num) '_'];
 in_file_extension = '.mat';
 out_file_loc_prepend = '../../../../RNN/LSTM/data/input/exp_';
 out_file_prepend_list = {'TR_', 'CV_', 'TS_'};
 out_file_extension = '.txt';
  
-record_filename = ['S2WA_24_nICA_' num2str(ica_file_idx) '_SPS100_10rd_data'];
+
+
+record_filename = ['./result/S2WA_' num2str(exp_num) '_nICA_' ...
+    num2str(ica_file_idx) '_SPS' ...
+    num2str(target_sample_rate) '_10rd_data'];
 
 % RNN param
 hidden_node_count = '8';
 epoch = '1000';
-rand_seed = {'5', '5', '6', '6', '7', '7', '8', '8', '9', '9', '10', '10', ...
-             '11', '11', '12', '12', '13', '13', '14', '14'};
 cross_valid_patience = '20';
+
+% Rand param
+rand_seed_start = 21;
+rand_seed_end = 30;
+rand_seed = cell(1, length(all_test_list));
+
+seed_inc = 0;
+for i = 1 : 2 : length(all_test_list)
+    rand_seed{i} = num2str(rand_seed_start + seed_inc);
+    rand_seed{i+1} = num2str(rand_seed_start + seed_inc);
+    seed_inc = seed_inc + 1;
+end    
 
 % nICA param
 fsolve_max_step = 2000;
 fsolve_tolerance = 1e-18;
 global_tolerance_torque = 1e-8;
-global_max_step = 200;
+global_max_step = 300;
 step_per_log = 100;
 
 % Signal param
@@ -55,7 +75,6 @@ mpu_min_value = -mpu_max_value;
 
 % Downsample/RMS param
 RMS_window_size = 500;    % RMS window in pts
-target_sample_rate = 100;
 downsample_filter_order = 6;
 downsample_ratio = floor(semg_sample_rate / target_sample_rate);
 
@@ -118,7 +137,7 @@ rms_semg = RMS_calc(semg, RMS_window_size);
 % subplot_helper(1:length(ica_semg), ica_semg(4, :), ...    
 %                 [4 1 4], {'sample' 'amplitude' 'After nICA'}, '-');   
 % return;     
-     
+%      
      
 %% Verify nICA
 % ica_m_semg = (W * V * rms_semg); 
@@ -342,8 +361,12 @@ end
 
 save(record_filename, 'all_RMS_list');
 
+end
+
+end
+
+end
+
 %% Clean up
 set(0,'DefaultFigureVisible','on');
 % beep2();
-
-end

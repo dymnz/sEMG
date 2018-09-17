@@ -5,10 +5,10 @@ close all; clear all;
 mean_list = zeros(10, 4);
 
 
-nica_data = load('./result/S2WA_24_nICA_4_SPS30_10rd_data.mat');
+nica_data = load('./result/S2WA_22_RMSDown_SPS95_10rd_data');
 nica_data = nica_data.all_RMS_list;
 
-rmsdown_data = load('./result/S2WA_24_RMSDown_SPS30_10rd_data.mat');
+rmsdown_data = load('./result/S2WA_22_RMSDown_SPS95_10rd_data.mat');
 rmsdown_data = rmsdown_data.all_RMS_list;
 
 title_string = 'RMSDown v.s. nICA_1 - 10x average';
@@ -78,33 +78,33 @@ xlabel('Gesture'); ylabel('RMSE (degree)');
 ylim([0 max_error]);
 
 
-% rmsdown_qt = quantile(rmsdown_mean_list, [0.25 0.5 0.75]);
-% fprintf('RMSDown: \t75th: \t\t');
-% fprintf('%f\t', rmsdown_qt(3, :));
-% fprintf('\nRMSDown: \t25th: \t\t');
-% fprintf('%f\t', rmsdown_qt(1, :));
-% 
-% nICA_qt = quantile(nica_mean_list, [0.25 0.5 0.75]);
-% fprintf('\nnICA: \t\t75th: \t\t');
-% fprintf('%f\t', nICA_qt(3, :));
-% fprintf('\nnICA: \t\t25th: \t\t');
-% fprintf('%f\t', nICA_qt(1, :));
-% fprintf('\n');
+rmsdown_qt = quantile(rmsdown_mean_list, [0.25 0.5 0.75]);
+fprintf('RMSDown: \t75th: \t\t');
+fprintf('%f\t', rmsdown_qt(3, :));
+fprintf('\nRMSDown: \t25th: \t\t');
+fprintf('%f\t', rmsdown_qt(1, :));
 
-% fprintf('\nMean:');
-% fprintf('\nRMSDown: \t');
-% fprintf('%.2f\t', mean(rmsdown_mean_list));
-% 
-% fprintf('\nnICA: \t\t');
-% fprintf('%.2f\t', mean(nica_mean_list));
-% fprintf('\n');
-% 
-% fprintf('\nMedian:');
-% fprintf('\nRMSDown: \t');
-% fprintf('%.2f\t', rmsdown_qt(2, :));
-% fprintf('\nnICA: \t\t');
-% fprintf('%.2f\t', nICA_qt(2, :));
-% fprintf('\n\n');
+nICA_qt = quantile(nica_mean_list, [0.25 0.5 0.75]);
+fprintf('\nnICA: \t\t75th: \t\t');
+fprintf('%f\t', nICA_qt(3, :));
+fprintf('\nnICA: \t\t25th: \t\t');
+fprintf('%f\t', nICA_qt(1, :));
+fprintf('\n');
+
+fprintf('\nMean:');
+fprintf('\nRMSDown: \t');
+fprintf('%.2f\t', mean(rmsdown_mean_list));
+
+fprintf('\nnICA: \t\t');
+fprintf('%.2f\t', mean(nica_mean_list));
+fprintf('\n');
+
+fprintf('\nMedian:');
+fprintf('\nRMSDown: \t');
+fprintf('%.2f\t', rmsdown_qt(2, :));
+fprintf('\nnICA: \t\t');
+fprintf('%.2f\t', nICA_qt(2, :));
+fprintf('\n\n');
 
 fprintf('Mean w/ round mean outlier removed:');
 fprintf('\nRMSDown: \t');
