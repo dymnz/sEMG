@@ -12,6 +12,7 @@ final int[][] mpu_color_list = {{255, 30, 30}, {30, 255, 30}, {30, 30, 255}};
 final int semg_minValue = 0;
 final int semg_maxValue = 4095;
 final int[] semg_shift_value = {0, semg_maxValue/4, 2*semg_maxValue/4, 3*semg_maxValue/4};
+//final int[] semg_shift_value = {0, 0, 0, 0};
 
 String buffer_str = ""; 
 

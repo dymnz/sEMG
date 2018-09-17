@@ -4,7 +4,7 @@
 
 Goal: Check the effect of nICA w/ ringed placement **and different electrode placement configuration**
 
-**Repeat of S2WA_23**
+**Repeat of S2WA_22**
 
 ---
 
@@ -74,9 +74,3 @@ Goal: Check the effect of nICA w/ ringed placement **and different electrode pla
   * Segmented data stored in `.mat` file
 * `data_preprocess.m`: Interpolate ICAs 
   * Full data stored in `.mat` file
-
-#### Finding
-* nICA_2 has bad accuracy performance, the result is no better than no processing
-* PRO/SUP RMSE is significantly higher than S2WA_22
-  * ~8/7 to ~20/16 degree 
-  * FLX/EXT RMSE remains the same
