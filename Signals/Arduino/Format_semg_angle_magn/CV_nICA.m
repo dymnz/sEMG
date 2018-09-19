@@ -7,7 +7,7 @@ set(0,'DefaultFigureVisible','on');
 
 %% Setting
 
-for exp_num = 22 : 24
+for exp_num = 25:25
 for target_sample_rate = [35 95]
     
 fprintf('============================= nICA S2WA%d %d_SPS =============================\n', exp_num, target_sample_rate);
@@ -26,7 +26,7 @@ all_test_list = {...
     {'FLX', 'EXT'}, {'PRO', 'SUP'}
     };
 
-for ica_file_idx = 1 : 4
+for ica_file_idx = 1 : 6
     
 ica_filename = 'ICA_processed';
 
@@ -326,10 +326,10 @@ test_out_file = [out_file_loc_prepend, test_out_name out_file_extension];
 generate_LSTM_data(test_out_file, processed_join_dataset{3});
 
 %% Run LSTM
-fprintf(['rnn.exe ', train_out_name, ' ', ...
-    test_out_name, ' ', cv_out_name, ...
-    ' ', hidden_node_count, ' ', epoch, ' ', cross_valid_patience, ...
-    ' 10 100000 ', rand_seed{list_idx}, '\n']);
+% fprintf(['rnn.exe ', train_out_name, ' ', ...
+%     test_out_name, ' ', cv_out_name, ...
+%     ' ', hidden_node_count, ' ', epoch, ' ', cross_valid_patience, ...
+%     ' 10 100000 ', rand_seed{list_idx}, '\n']);
 
 origin_dir = pwd;
 cd('../../../../RNN/LSTM/');
