@@ -37,16 +37,16 @@ mpu_segment_index = 1; % 1-Roll/2-Pitch/3-Yaw
 
 mpu_segment_threshold = 20; % Degree
 
-semg_channel_count = 4;
+semg_channel_count = 6;
 mpu_channel_count = 3;
 
 semg_channel = 1:4;
 mpu_channel = 5:7;  % Roll/Pitch/Yaw
 
 % Signal param
-semg_sample_rate = 2660; % Approximate
+semg_sample_rate = 2500; % Approximate
 
-semg_max_value = 2048 / 4;
+semg_max_value = 2048 / 2;
 semg_min_value = -semg_max_value;
 mpu_max_value = 130;
 mpu_min_value = -mpu_max_value;
@@ -68,7 +68,6 @@ processed_segments_list = {};
 %% Process
 for f = 1 : length(file_label_list)
     input_filename = filename_list{f};
-    
     raw_data = csvread(input_filename);
     semg = raw_data(:, semg_channel);
     mpu = raw_data(:, mpu_channel);

@@ -56,10 +56,9 @@ Goal: Check the minimum error
   * ICA
     * 1: EPFS - slow
     * 2: EFPS - mid
-    * 3: EFPS - mid
+    * 3: Rand
     * 4: Rand
-    * 5: Rand
-    * 6: Rand - 8
+    * 5: Rand - 8
 
 ---
 

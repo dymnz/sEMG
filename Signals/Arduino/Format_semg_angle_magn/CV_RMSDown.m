@@ -7,9 +7,14 @@ set(0,'DefaultFigureVisible','off');
 
 
 %% Setting
+semg_sample_rate = 2500; % Approximate
+% Data format
+semg_channel_count = 6;
+mpu_channel_count = 1;
+hidden_node_count = '16';
 
-for exp_num = 25:25
-for target_sample_rate = [35 95]
+for exp_num = 31:31
+for target_sample_rate = [35]
 
 fprintf('============================= RMSDown S2WA%d %d_SPS =============================\n', exp_num, target_sample_rate);
 
@@ -34,7 +39,7 @@ out_file_prepend_list = {'TR_', 'CV_', 'TS_'};
 out_file_extension = '.txt';
                   
 record_filename = ['./result/S2WA_' num2str(exp_num) '_RMSDown_SPS' ...
-    num2str(target_sample_rate) '_10rd_data' ];
+    num2str(target_sample_rate) '_h' num2str(hidden_node_count) '_10rd_data' ];
 
 % RNN param
 hidden_node_count = '8';
@@ -54,8 +59,7 @@ for i = 1 : 2 : length(all_test_list)
 end        
          
 % Signal param
-semg_sample_rate = 2660; % Approximate
-semg_max_value = 2048 / 4;
+semg_max_value = -100;
 semg_min_value = -semg_max_value;
 mpu_max_value = 140;
 mpu_min_value = -mpu_max_value;
@@ -64,10 +68,6 @@ mpu_min_value = -mpu_max_value;
 RMS_window_size = 500;    % RMS window in pts
 downsample_filter_order = 6;
 downsample_ratio = floor(semg_sample_rate / target_sample_rate);
-
-% Data format
-semg_channel_count = 4;
-mpu_channel_count = 1;
 
 % Cross-validation param
 partition_ratio = [3 1 1]; % Train/CV/Test
@@ -205,21 +205,35 @@ for f = 1 : 3
         semg = semg(:, usable_data_range);
         mpu = mpu(:, usable_data_range);
 
-        % Normalization
-        semg = semg ...
-                ./ (semg_max_value - semg_min_value);    
+        % MPU normalization              
         mpu = 2 .* (mpu - mpu_min_value)...
                 ./ (mpu_max_value - mpu_min_value) - 1;
 
-        if max(max(abs(semg))) > 1 || max(abs(mpu)) > 1
-            error('Normalization error');
-        end
+        % Find max/min sEMG for normalization
+        semg_max_value = max(semg_max_value, max(semg, [], 2));
+        semg_min_value = min(semg_min_value, min(semg, [], 2));
 
         processed_join_dataset{f}{1, i} = semg;
         processed_join_dataset{f}{2, i} = mpu;
         processed_join_dataset{f}{3, i} = length(usable_data_range);
     end
 end
+
+% Normalization
+for f = 1 : 3
+    for i = 1 : num_of_segment_list(f)
+        semg = processed_join_dataset{f}{1, i};
+        semg = semg ...
+            ./ (semg_max_value - semg_min_value); 
+        
+        if max(abs(mpu)) > 1
+            error('Normalization error')
+        end      
+        
+        processed_join_dataset{f}{1, i} = semg;
+    end
+end
+
 
 % Output dataset for LSTM
 train_out_name = [out_file_prepend_list{1}, out_filename];  

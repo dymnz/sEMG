@@ -49,7 +49,8 @@ void drawAll() {
       ++mpu_draw_index;
       mpu_last_x = x;
     } else {
-      buffer_str += 0 + ",";
+      for (int i = 0; i < mpu_channel; ++i)
+        buffer_str += 0 + ",";
     }
 
     semg_last_x = x;    
