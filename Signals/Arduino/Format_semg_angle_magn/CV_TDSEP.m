@@ -1,21 +1,24 @@
 clear; close all;
 addpath('../matlab_lib');
-addpath('../matlab_lib/nICA');
+addpath('../matlab_lib/TDSEP');
 
 set(0,'DefaultFigureVisible','on');   
 % set(0,'DefaultFigureVisible','off');   
 
 %% Setting
-semg_sample_rate = 2500; % Approximate
+semg_sample_rate = 2660; % Approximate
 % Data format
-semg_channel_count = 6;
+semg_channel_count = 4;
 mpu_channel_count = 1;
 hidden_node_count = '8';
 
-for exp_num = 31:31
+% TDSEP
+tdsep_tau = [0:2];
+
+for exp_num = 22:25
 for target_sample_rate = [35]
     
-fprintf('============================= nICA S2WA%d %d_SPS =============================\n', exp_num, target_sample_rate);
+fprintf('============================= TDSEP S2WA%d %d_SPS =============================\n', exp_num, target_sample_rate);
 
 % File
 all_test_list = {...
@@ -31,7 +34,7 @@ all_test_list = {...
     {'FLX', 'EXT'}, {'PRO', 'SUP'}
     };
 
-for ica_file_idx = 1:5
+for ica_file_idx = 1:4
     
 ica_filename = 'ICA_processed';
 
@@ -43,9 +46,14 @@ out_file_extension = '.txt';
  
 
 
-record_filename = ['./result/S2WA_' num2str(exp_num) '_nICA_' ...
+% record_filename = ['./result/S2WA_' num2str(exp_num) '_TDSEP_' ...
+%     num2str(ica_file_idx) '_SPS' ...
+%     num2str(target_sample_rate) '_h' num2str(hidden_node_count)  '_10rd_data'];
+
+record_filename = ['./result/S2WA_' num2str(exp_num) '_TDSEP_' ...
     num2str(ica_file_idx) '_SPS' ...
-    num2str(target_sample_rate) '_h' num2str(hidden_node_count)  '_10rd_data'];
+    num2str(target_sample_rate)  '_10rd_data'];
+
 
 % RNN param
 epoch = '1000';
@@ -67,7 +75,7 @@ end
 fsolve_max_step = 2000;
 fsolve_tolerance = 1e-18;
 global_tolerance_torque = 1e-8;
-global_max_step = 1200;
+global_max_step = 200;
 step_per_log = 100;
 
 % Signal param
@@ -103,7 +111,7 @@ test_size = partition_ratio(3) / total_partition ...
                 
                 
 
-% Calculate nICA demixing matrix
+% Calculate TDSEP demixing matrix
 ica_file = [in_file_loc_prepend ica_filename in_file_extension];
 load(ica_file);
 semg = processed_segments_list{ica_file_idx, 1}{1};
@@ -111,13 +119,11 @@ semg = processed_segments_list{ica_file_idx, 1}{1};
 % RMS
 rms_semg = RMS_calc(semg, RMS_window_size);
 
-% nICA - W: demix V: whitten
-[ica_semg, whittened, W, V] = ...
-    nICA(rms_semg, fsolve_max_step, ...
-         fsolve_tolerance, global_tolerance_torque, ...
-         global_max_step, step_per_log);
+% TDSEP
+C = tdsep2(rms_semg, tdsep_tau);
+tdsep_semg = C \ rms_semg;
 
-%% Show nICA effect     
+%% Show TDSEP effect     
 % figure;
 % for channel = 1 : semg_channel_count
 % subplot_helper(1:length(rms_semg), rms_semg(channel, :), ...
@@ -127,34 +133,27 @@ rms_semg = RMS_calc(semg, RMS_window_size);
 % 
 % figure;
 % for channel = 1 : semg_channel_count
-% subplot_helper(1:length(ica_semg), ica_semg(channel, :), ...
+% subplot_helper(1:length(tdsep_semg), tdsep_semg(channel, :), ...
 %                 [semg_channel_count 1 channel], ...
 %                 {'sample' 'amplitude' 'after nICA'}, '-');    
-% ylim([0 max(max(ica_semg))]);
+% ylim([0 max(max(tdsep_semg))]);
 % end
-% 
-% return;     
-%      
      
-%% Verify nICA
-% ica_m_semg = (W * V * rms_semg); 
+%% Verify TDSEP
+% ica_m_semg = C \ rms_semg  ; 
 % figure;
-% subplot_helper(1:length(ica_semg), ica_semg(1, :), ...
-%                 [4 1 1], {'sample' 'amplitude' 'After nICA'}, '-');             
-% subplot_helper(1:length(ica_semg), ica_semg(2, :), ...    
-%                 [4 1 2], {'sample' 'amplitude' 'After nICA'}, '-');           
-% subplot_helper(1:length(ica_semg), ica_semg(3, :), ...
-%                 [4 1 3], {'sample' 'amplitude' 'After nICA'}, '-');              
-% subplot_helper(1:length(ica_semg), ica_semg(4, :), ...    
-%                 [4 1 4], {'sample' 'amplitude' 'After nICA'}, '-');                
-% subplot_helper(1:length(ica_m_semg), ica_m_semg(1, :), ...
-%                 [4 1 1], {'sample' 'amplitude' 'After nICA'}, '-');             
-% subplot_helper(1:length(ica_m_semg), ica_m_semg(2, :), ...    
-%                 [4 1 2], {'sample' 'amplitude' 'After nICA'}, '-');            
-% subplot_helper(1:length(ica_m_semg), ica_m_semg(3, :), ...
-%                 [4 1 3], {'sample' 'amplitude' 'After nICA'}, '-');               
-% subplot_helper(1:length(ica_m_semg), ica_m_semg(4, :), ...    
-%                 [4 1 4], {'sample' 'amplitude' 'After nICA'}, '-');            
+% for channel = 1 : semg_channel_count
+% subplot_helper(1:length(tdsep_semg), tdsep_semg(channel, :), ...
+%                 [semg_channel_count 1 channel], ...
+%                 {'sample' 'amplitude' 'Before nICA'}, '-');             
+% end
+% for channel = 1 : semg_channel_count
+% subplot_helper(1:length(ica_m_semg), ica_m_semg(channel, :), ...
+%                 [semg_channel_count 1 channel], ...
+%                 {'sample' 'amplitude' 'after nICA'}, '-');    
+% ylim([0 max(max(tdsep_semg))]);
+% end
+% return;
 
 if length(all_test_list) ~= length(rand_seed)
     error('rand_seed length error');
@@ -254,8 +253,8 @@ for f = 1 : 3
         semg = ...
             RMS_calc(semg, RMS_window_size);
 
-        % nICA
-        semg = W * V * semg;
+        % TDSEP
+        semg = C \ semg;
         
         % Filter
         [semg, cb, ca] = butter_filter( ...

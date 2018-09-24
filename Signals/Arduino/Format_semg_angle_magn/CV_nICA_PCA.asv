@@ -43,7 +43,7 @@ out_file_extension = '.txt';
  
 
 
-record_filename = ['./result/S2WA_' num2str(exp_num) '_nICA_' ...
+record_filename = ['./result/S2WA_' num2str(exp_num) '_nICA_PCA_' ...
     num2str(ica_file_idx) '_SPS' ...
     num2str(target_sample_rate) '_h' num2str(hidden_node_count)  '_10rd_data'];
 
@@ -117,44 +117,55 @@ rms_semg = RMS_calc(semg, RMS_window_size);
          fsolve_tolerance, global_tolerance_torque, ...
          global_max_step, step_per_log);
 
+% PCA
+
+pca_coeff = pca(ica_semg, 'Algorithm','svd');
+pca_sig = pca_coeff' * concat_semg; % (mixed' * Coeff')'
+     
 %% Show nICA effect     
-% figure;
-% for channel = 1 : semg_channel_count
-% subplot_helper(1:length(rms_semg), rms_semg(channel, :), ...
-%                 [semg_channel_count 1 channel], ...
-%                 {'sample' 'amplitude' 'Before nICA'}, '-');             
-% end
-% 
-% figure;
-% for channel = 1 : semg_channel_count
-% subplot_helper(1:length(ica_semg), ica_semg(channel, :), ...
-%                 [semg_channel_count 1 channel], ...
-%                 {'sample' 'amplitude' 'after nICA'}, '-');    
-% ylim([0 max(max(ica_semg))]);
-% end
-% 
+figure;
+for channel = 1 : semg_channel_count
+subplot_helper(1:length(rms_semg), rms_semg(channel, :), ...
+                [semg_channel_count 1 channel], ...
+                {'sample' 'amplitude' 'Before nICA'}, '-');             
+end
+
+figure;
+for channel = 1 : semg_channel_count
+subplot_helper(1:length(ica_semg), ica_semg(channel, :), ...
+                [semg_channel_count 1 channel], ...
+                {'sample' 'amplitude' 'after nICA'}, '-');    
+ylim([0 max(max(ica_semg))]);
+end
+
+figure;
+for channel = 1 : semg_channel_count
+subplot_helper(1:length(pca_semg), pca_semg(channel, :), ...
+                [semg_channel_count 1 channel], ...
+                {'sample' 'amplitude' 'after nICA'}, '-');    
+ylim([0 max(max(ica_semg))]);
+end
+
+
 % return;     
-%      
+     
      
 %% Verify nICA
-% ica_m_semg = (W * V * rms_semg); 
-% figure;
-% subplot_helper(1:length(ica_semg), ica_semg(1, :), ...
-%                 [4 1 1], {'sample' 'amplitude' 'After nICA'}, '-');             
-% subplot_helper(1:length(ica_semg), ica_semg(2, :), ...    
-%                 [4 1 2], {'sample' 'amplitude' 'After nICA'}, '-');           
-% subplot_helper(1:length(ica_semg), ica_semg(3, :), ...
-%                 [4 1 3], {'sample' 'amplitude' 'After nICA'}, '-');              
-% subplot_helper(1:length(ica_semg), ica_semg(4, :), ...    
-%                 [4 1 4], {'sample' 'amplitude' 'After nICA'}, '-');                
-% subplot_helper(1:length(ica_m_semg), ica_m_semg(1, :), ...
-%                 [4 1 1], {'sample' 'amplitude' 'After nICA'}, '-');             
-% subplot_helper(1:length(ica_m_semg), ica_m_semg(2, :), ...    
-%                 [4 1 2], {'sample' 'amplitude' 'After nICA'}, '-');            
-% subplot_helper(1:length(ica_m_semg), ica_m_semg(3, :), ...
-%                 [4 1 3], {'sample' 'amplitude' 'After nICA'}, '-');               
-% subplot_helper(1:length(ica_m_semg), ica_m_semg(4, :), ...    
-%                 [4 1 4], {'sample' 'amplitude' 'After nICA'}, '-');            
+ica_m_semg = (W * V * rms_semg); 
+figure;
+for channel = 1 : semg_channel_count
+subplot_helper(1:length(ica_semg), ica_semg(channel, :), ...
+                [semg_channel_count 1 channel], ...
+                {'sample' 'amplitude' 'Before nICA'}, '-');             
+end
+for channel = 1 : semg_channel_count
+subplot_helper(1:length(ica_m_semg), ica_m_semg(channel, :), ...
+                [semg_channel_count 1 channel], ...
+                {'sample' 'amplitude' 'after nICA'}, '-');    
+ylim([0 max(max(ica_semg))]);
+end
+
+return;
 
 if length(all_test_list) ~= length(rand_seed)
     error('rand_seed length error');

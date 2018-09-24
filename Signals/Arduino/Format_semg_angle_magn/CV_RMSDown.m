@@ -11,7 +11,7 @@ semg_sample_rate = 2500; % Approximate
 % Data format
 semg_channel_count = 6;
 mpu_channel_count = 1;
-hidden_node_count = '16';
+hidden_node_count = '8';
 
 for exp_num = 31:31
 for target_sample_rate = [35]
