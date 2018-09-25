@@ -4,18 +4,18 @@
 close all; clear all;
 
 
-exp_num = 31;
-target_sample_rate = 100;
+exp_num = 25;
+target_sample_rate = 35;
 
 
-nica_file_num = 5;
+nica_file_num = 2;
 mean_list = zeros(10, 4);
 formatted_Median_list = zeros(1 + nica_file_num, 4);
 formatted_Mean_list = zeros(1 + nica_file_num, 4);
 
 for nica_file_idx = 1 : nica_file_num
     
-nica_record_filename = ['./result/S2WA_' num2str(exp_num) '_nICA_' ...
+nica_record_filename = ['./result/S2WA_' num2str(exp_num) '_TDSEP_' ...
     num2str(nica_file_idx) '_SPS' ...
     num2str(target_sample_rate) '_10rd_data'];
 

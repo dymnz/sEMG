@@ -15,7 +15,7 @@ hidden_node_count = '8';
 % TDSEP
 tdsep_tau = [0:2];
 
-for exp_num = 22:25
+for exp_num = 25
 for target_sample_rate = [35]
     
 fprintf('============================= TDSEP S2WA%d %d_SPS =============================\n', exp_num, target_sample_rate);
@@ -34,7 +34,7 @@ all_test_list = {...
     {'FLX', 'EXT'}, {'PRO', 'SUP'}
     };
 
-for ica_file_idx = 1:4
+for ica_file_idx = 3:6
     
 ica_filename = 'ICA_processed';
 
