@@ -8,7 +8,7 @@ exp_num = 25;
 target_sample_rate = 35;
 
 
-nica_file_num = 2;
+nica_file_num = 6;
 mean_list = zeros(10, 4);
 formatted_Median_list = zeros(1 + nica_file_num, 4);
 formatted_Mean_list = zeros(1 + nica_file_num, 4);
