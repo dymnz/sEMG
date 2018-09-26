@@ -11,7 +11,7 @@ Goal: Check the effect of **different electrode placement configuration**
 * Forming a ring around the thickest part of the forearm (~4.5cm from elbow)
   * Circumference 27.5cm, divided by 6 --> 4.6cm lateral inter-electrode distance
   * Placing clockwise, labelled 1-6
-  * **Start placing 45 degree from the top of the arm, perpendicular to the table**
+  * **Start placing 30 degree from the top of the arm, perpendicular to the table**
 * Exact placement
   * Baseline test: Ring starting from the top of the forearm w/ palm facing down
   * "Random" test: Ring starting from the top of the forearm w/ palm facing down, then rotate 45d
