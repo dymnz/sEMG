@@ -11,9 +11,9 @@ semg_sample_rate = 2500; % Approximate
 % Data format
 semg_channel_count = 6;
 mpu_channel_count = 1;
-hidden_node_count = '8';
+hidden_node_count = '16';
 
-for exp_num = 31:31
+for exp_num = 33:33
 for target_sample_rate = [35]
 
 fprintf('============================= RMSDown S2WA%d %d_SPS =============================\n', exp_num, target_sample_rate);
@@ -42,7 +42,6 @@ record_filename = ['./result/S2WA_' num2str(exp_num) '_RMSDown_SPS' ...
     num2str(target_sample_rate) '_h' num2str(hidden_node_count) '_10rd_data' ];
 
 % RNN param
-hidden_node_count = '8';
 epoch = '1000';
 cross_valid_patience = '20';
 

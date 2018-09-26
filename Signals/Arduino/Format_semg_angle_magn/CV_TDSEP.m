@@ -6,16 +6,16 @@ set(0,'DefaultFigureVisible','on');
 % set(0,'DefaultFigureVisible','off');   
 
 %% Setting
-semg_sample_rate = 2660; % Approximate
+semg_sample_rate = 2500; % Approximate
 % Data format
 semg_channel_count = 4;
 mpu_channel_count = 1;
-hidden_node_count = '8';
+hidden_node_count = '16';
 
 % TDSEP
 tdsep_tau = [0:2];
 
-for exp_num = 25
+for exp_num = [32 33 31]
 for target_sample_rate = [35]
     
 fprintf('============================= TDSEP S2WA%d %d_SPS =============================\n', exp_num, target_sample_rate);
@@ -46,13 +46,13 @@ out_file_extension = '.txt';
  
 
 
-% record_filename = ['./result/S2WA_' num2str(exp_num) '_TDSEP_' ...
-%     num2str(ica_file_idx) '_SPS' ...
-%     num2str(target_sample_rate) '_h' num2str(hidden_node_count)  '_10rd_data'];
-
 record_filename = ['./result/S2WA_' num2str(exp_num) '_TDSEP_' ...
     num2str(ica_file_idx) '_SPS' ...
-    num2str(target_sample_rate)  '_10rd_data'];
+    num2str(target_sample_rate) '_h' num2str(hidden_node_count)  '_10rd_data'];
+
+% record_filename = ['./result/S2WA_' num2str(exp_num) '_TDSEP_' ...
+%     num2str(ica_file_idx) '_SPS' ...
+%     num2str(target_sample_rate)  '_10rd_data'];
 
 
 % RNN param
