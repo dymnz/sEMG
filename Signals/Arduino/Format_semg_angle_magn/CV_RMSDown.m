@@ -11,9 +11,9 @@ semg_sample_rate = 2500; % Approximate
 % Data format
 semg_channel_count = 6;
 mpu_channel_count = 1;
-hidden_node_count = '16';
+hidden_node_count = '8';
 
-for exp_num = 33:33
+for exp_num = 31:33
 for target_sample_rate = [35]
 
 fprintf('============================= RMSDown S2WA%d %d_SPS =============================\n', exp_num, target_sample_rate);
@@ -35,7 +35,7 @@ all_test_list = {
 in_file_loc_prepend = ['./data/S2WA_' num2str(exp_num) '_'];
 in_file_extension = '.mat';
 out_file_loc_prepend = '../../../../RNN/LSTM/data/input/exp_';
-out_file_prepend_list = {'TR_', 'CV_', 'TS_'};
+out_file_prepend_list = {'TR_RMSDown', 'CV_RMSDown', 'TS_RMSDown'};
 out_file_extension = '.txt';
                   
 record_filename = ['./result/S2WA_' num2str(exp_num) '_RMSDown_SPS' ...
