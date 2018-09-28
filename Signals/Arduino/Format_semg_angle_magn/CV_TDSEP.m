@@ -15,7 +15,7 @@ hidden_node_count = '8';
 % TDSEP
 tdsep_tau = [0:2];
 
-for exp_num = 31
+for exp_num = 22
 for target_sample_rate = [35]
     
 fprintf('============================= TDSEP S2WA%d %d_SPS =============================\n', exp_num, target_sample_rate);
@@ -34,7 +34,7 @@ all_test_list = {...
     {'FLX', 'EXT'}, {'PRO', 'SUP'}
     };
 
-for ica_file_idx = 1:2
+for ica_file_idx = 1
     
 ica_filename = 'ICA_processed';
 
@@ -117,20 +117,21 @@ C = tdsep2(rms_semg, tdsep_tau);
 tdsep_semg = C \ rms_semg;
 
 %% Show TDSEP effect     
-% figure;
-% for channel = 1 : semg_channel_count
-% subplot_helper(1:length(rms_semg), rms_semg(channel, :), ...
-%                 [semg_channel_count 1 channel], ...
-%                 {'sample' 'amplitude' 'Before nICA'}, '-');             
-% end
-% 
-% figure;
-% for channel = 1 : semg_channel_count
-% subplot_helper(1:length(tdsep_semg), tdsep_semg(channel, :), ...
-%                 [semg_channel_count 1 channel], ...
-%                 {'sample' 'amplitude' 'after nICA'}, '-');    
-% ylim([0 max(max(tdsep_semg))]);
-% end
+figure;
+for channel = 1 : semg_channel_count
+subplot_helper(1:length(rms_semg), rms_semg(channel, :), ...
+                [semg_channel_count 1 channel], ...
+                {'sample' 'amplitude' 'Before TDSEP'}, '-');             
+end
+
+figure;
+for channel = 1 : semg_channel_count
+subplot_helper(1:length(tdsep_semg), tdsep_semg(channel, :), ...
+                [semg_channel_count 1 channel], ...
+                {'sample' 'amplitude' 'after TDSEP'}, '-');    
+ylim([0 max(max(tdsep_semg))]);
+end
+return;
      
 %% Verify TDSEP
 % ica_m_semg = C \ rms_semg  ; 
@@ -302,15 +303,15 @@ end
 
 
 % Output dataset for LSTM
-train_out_name = [out_file_prepend_list{1}, out_filename];  
+train_out_name = [out_file_prepend_list{1}, num2str(exp_num), out_filename];  
 train_out_file = [out_file_loc_prepend, train_out_name out_file_extension];  
 generate_LSTM_data(train_out_file, processed_join_dataset{1});
 
-cv_out_name = [out_file_prepend_list{2}, out_filename];  
+cv_out_name = [out_file_prepend_list{2}, num2str(exp_num), out_filename];  
 cv_out_file = [out_file_loc_prepend, cv_out_name out_file_extension];  
 generate_LSTM_data(cv_out_file, processed_join_dataset{2});
 
-test_out_name = [out_file_prepend_list{3}, out_filename];  
+test_out_name = [out_file_prepend_list{3}, num2str(exp_num), out_filename];  
 test_out_file = [out_file_loc_prepend, test_out_name out_file_extension];    
 generate_LSTM_data(test_out_file, processed_join_dataset{3});
 

@@ -8,11 +8,11 @@ set(0,'DefaultFigureVisible','on');
 %% Setting
 semg_sample_rate = 2500; % Approximate
 % Data format
-semg_channel_count = 6;
+semg_channel_count = 4;
 mpu_channel_count = 1;
 hidden_node_count = '8';
 
-for exp_num = 33
+for exp_num = 23
 for target_sample_rate = [35]
 
 fprintf('============================= nICA S2WA%d %d_SPS =============================\n', exp_num, target_sample_rate);
@@ -31,7 +31,7 @@ all_test_list = {...
     {'FLX', 'EXT'}, {'PRO', 'SUP'}
     };
 
-for ica_file_idx = 1:4
+for ica_file_idx = 1
     
 ica_filename = 'ICA_processed';
 
@@ -65,7 +65,7 @@ end
 fsolve_max_step = 2000;
 fsolve_tolerance = 1e-18;
 global_tolerance_torque = 1e-8;
-global_max_step = 1200;
+global_max_step = 200;
 step_per_log = 100;
 
 % Signal param
@@ -116,23 +116,23 @@ rms_semg = RMS_calc(semg, RMS_window_size);
          global_max_step, step_per_log);
 
 %% Show nICA effect     
-% figure;
-% for channel = 1 : semg_channel_count
-% subplot_helper(1:length(rms_semg), rms_semg(channel, :), ...
-%                 [semg_channel_count 1 channel], ...
-%                 {'sample' 'amplitude' 'Before nICA'}, '-');             
-% end
-% 
-% figure;
-% for channel = 1 : semg_channel_count
-% subplot_helper(1:length(ica_semg), ica_semg(channel, :), ...
-%                 [semg_channel_count 1 channel], ...
-%                 {'sample' 'amplitude' 'after nICA'}, '-');    
-% ylim([0 max(max(ica_semg))]);
-% end
-% 
-% return;     
-%      
+figure;
+for channel = 1 : semg_channel_count
+subplot_helper(1:length(rms_semg), rms_semg(channel, :), ...
+                [semg_channel_count 1 channel], ...
+                {'sample' 'amplitude' 'Before nICA'}, '-');             
+end
+
+figure;
+for channel = 1 : semg_channel_count
+subplot_helper(1:length(ica_semg), ica_semg(channel, :), ...
+                [semg_channel_count 1 channel], ...
+                {'sample' 'amplitude' 'after nICA'}, '-');    
+ylim([0 max(max(ica_semg))]);
+end
+
+return;     
+     
      
 %% Verify nICA
 % ica_m_semg = (W * V * rms_semg); 
