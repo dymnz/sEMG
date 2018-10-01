@@ -8,13 +8,13 @@ set(0,'DefaultFigureVisible','on');
 %% Setting
 semg_sample_rate = 2500; % Approximate
 % Data format
-semg_channel_count = 6;
+semg_channel_count = 4;
 mpu_channel_count = 1;
 hidden_node_count = '8';
 
-for exp_num = 31:31
+for exp_num = 23
 for target_sample_rate = [35]
-    
+
 fprintf('============================= nICA S2WA%d %d_SPS =============================\n', exp_num, target_sample_rate);
 
 % File
@@ -31,18 +31,16 @@ all_test_list = {...
     {'FLX', 'EXT'}, {'PRO', 'SUP'}
     };
 
-for ica_file_idx = 1:5
+for ica_file_idx = 1
     
 ica_filename = 'ICA_processed';
 
 in_file_loc_prepend = ['./data/S2WA_' num2str(exp_num) '_'];
 in_file_extension = '.mat';
 out_file_loc_prepend = '../../../../RNN/LSTM/data/input/exp_';
-out_file_prepend_list = {'TR_', 'CV_', 'TS_'};
+out_file_prepend_list = {'TR_nICA', 'CV_nICA', 'TS_nICA'};
 out_file_extension = '.txt';
  
-
-
 record_filename = ['./result/S2WA_' num2str(exp_num) '_nICA_' ...
     num2str(ica_file_idx) '_SPS' ...
     num2str(target_sample_rate) '_h' num2str(hidden_node_count)  '_10rd_data'];
@@ -67,7 +65,7 @@ end
 fsolve_max_step = 2000;
 fsolve_tolerance = 1e-18;
 global_tolerance_torque = 1e-8;
-global_max_step = 1200;
+global_max_step = 200;
 step_per_log = 100;
 
 % Signal param
@@ -118,23 +116,23 @@ rms_semg = RMS_calc(semg, RMS_window_size);
          global_max_step, step_per_log);
 
 %% Show nICA effect     
-% figure;
-% for channel = 1 : semg_channel_count
-% subplot_helper(1:length(rms_semg), rms_semg(channel, :), ...
-%                 [semg_channel_count 1 channel], ...
-%                 {'sample' 'amplitude' 'Before nICA'}, '-');             
-% end
-% 
-% figure;
-% for channel = 1 : semg_channel_count
-% subplot_helper(1:length(ica_semg), ica_semg(channel, :), ...
-%                 [semg_channel_count 1 channel], ...
-%                 {'sample' 'amplitude' 'after nICA'}, '-');    
-% ylim([0 max(max(ica_semg))]);
-% end
-% 
-% return;     
-%      
+figure;
+for channel = 1 : semg_channel_count
+subplot_helper(1:length(rms_semg), rms_semg(channel, :), ...
+                [semg_channel_count 1 channel], ...
+                {'sample' 'amplitude' 'Before nICA'}, '-');             
+end
+
+figure;
+for channel = 1 : semg_channel_count
+subplot_helper(1:length(ica_semg), ica_semg(channel, :), ...
+                [semg_channel_count 1 channel], ...
+                {'sample' 'amplitude' 'after nICA'}, '-');    
+ylim([0 max(max(ica_semg))]);
+end
+
+return;     
+     
      
 %% Verify nICA
 % ica_m_semg = (W * V * rms_semg); 
@@ -310,15 +308,15 @@ end
 
 
 % Output dataset for LSTM
-train_out_name = [out_file_prepend_list{1}, out_filename];  
+train_out_name = [out_file_prepend_list{1}, num2str(exp_num), out_filename];  
 train_out_file = [out_file_loc_prepend, train_out_name out_file_extension];  
 generate_LSTM_data(train_out_file, processed_join_dataset{1});
 
-cv_out_name = [out_file_prepend_list{2}, out_filename];  
+cv_out_name = [out_file_prepend_list{2}, num2str(exp_num), out_filename];  
 cv_out_file = [out_file_loc_prepend, cv_out_name out_file_extension];  
 generate_LSTM_data(cv_out_file, processed_join_dataset{2});
 
-test_out_name = [out_file_prepend_list{3}, out_filename];  
+test_out_name = [out_file_prepend_list{3}, num2str(exp_num), out_filename];  
 test_out_file = [out_file_loc_prepend, test_out_name out_file_extension];    
 generate_LSTM_data(test_out_file, processed_join_dataset{3});
 

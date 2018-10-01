@@ -13,11 +13,11 @@ addpath('../matlab_lib/FastICA_21');
 file_loc_prepend = './data/';
 file_extension = '.txt';
 
-record_filename = './data/S2WA_31_ICA_processed';
+record_filename = './data/S2WA_33_ICA_processed';
 
-filename_prepend = 'raw_S2WA_31_';
+filename_prepend = 'raw_S2WA_33_';
 file_to_splice = { 
-    'ICA_1', 'ICA_3', 'ICA_4', 'ICA_5', 'ICA_6'
+    'ICA_1', 'ICA_2', 'ICA_3', 'ICA_4'
 };
 
 mpu_segment_threshold = 20; % Degree
