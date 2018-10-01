@@ -111,6 +111,11 @@ final int [] RPY_maxValue = {+180, +180, +180};
 float [][][] rot_list = new float[3][3][3];
 void mpu_convert() {
   
+  
+  mpu_values = quart_to_angle(mpu_values);
+  
+  
+  /*
   for (int i = 0; i < mpu_channel; ++i) {
     mpu_values[i] = convert_to_int16((int) mpu_values[i]);
     if (mpu_values[i] < -180) mpu_values[i] += 360;
@@ -119,17 +124,17 @@ void mpu_convert() {
   
 
   if (tared) {
-    /*
+    
     for (int i = 0; i < mpu_channel; ++i) {
       mpu_values = angle_rotate(mpu_values, rot_list[i]);
       //if (mpu_values[i] < -180) mpu_values[i] += 360;
       //if (mpu_values[i] > +180) mpu_values[i] -= 360;
     }
-    */
+   
     
     mpu_values = angle_rotate(mpu_values, rot_list[0]);
   }
-      
+     */ 
   
 }
 
@@ -203,4 +208,27 @@ float[][] get_rotate_Z(float ang) {
   };
   
   return rot;
+}
+
+
+float[] quart_to_angle(float [] q) {
+  float a12, a22, a31, a32, a33; 
+  float [] rpy = new float[3];
+ 
+  a12 =   2.0f * (q[1] * q[2] + q[0] * q[3]);
+  a22 =   q[0] * q[0] + q[1] * q[1] - q[2] * q[2] - q[3] * q[3];
+  a31 =   2.0f * (q[0] * q[1] + q[2] * q[3]);
+  a32 =   2.0f * (q[1] * q[3] - q[0] * q[2]);
+  a33 =   q[0] * q[0] - q[1] * q[1] - q[2] * q[2] + q[3] * q[3];
+  rpy[1] = -asin(a32);
+  rpy[0]  = atan2(a31, a33);
+  rpy[2]   = atan2(a12, a22);
+  rpy[1] *= 180.0f / PI;
+  rpy[2]   *= 180.0f / PI;
+  rpy[2]   += 4.31f; // http://www.magnetic-declination.com/Myanmar/E-yaw/1625256.html#
+  if (rpy[2] < 0) rpy[2]   += 360.0f; // Ensure yaw stays between 0 and 360
+  rpy[2] -= 180.0f;  // Restrict yaw to [-180 180] like roll/pitch
+  rpy[0] *= 180.0f / PI;
+  
+  return rpy;
 }

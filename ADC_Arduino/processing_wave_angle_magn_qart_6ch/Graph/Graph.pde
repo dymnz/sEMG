@@ -22,8 +22,8 @@ final int value_buffer_size = 10000;
 
 final int semg_channel = 6;
 final int semg_packet_byte = 2;
-final int mpu_channel = 3;
-final int mpu_packet_byte = 2;
+final int mpu_channel = 4;
+final int mpu_packet_byte = 4;
 
 final int total_channel = mpu_channel + semg_channel;
 final int semg_packet_len = semg_channel * semg_packet_byte;
@@ -129,9 +129,12 @@ void serialEvent(Serial serial) {
 
       if (serial_count >= mpu_packet_len) {
         for (int i = 0; i < mpu_channel; ++i) {
-          mpu_values[i] =  int((mpu_packet[i*2 + 1] << 8) | (mpu_packet[i*2]));
+          mpu_values[i] =  float( (mpu_packet[i*4 + 3] << 24) | 
+                                  (mpu_packet[i*4 + 2] << 16) |
+                                  (mpu_packet[i*4 + 1] << 8)  | 
+                                  (mpu_packet[i*4]));
         }
-
+        println(mpu_values[0]);
         mpu_convert();
 
         for (int i = 0; i < mpu_channel; ++i)
@@ -176,8 +179,6 @@ void sampleCount() {
     sc_sample_count = 0;
   }
 }
-
-
 
 final String [] move_list = {"1: Hold init", "2: Hold init", 
   "3: Move to final", "4: Hold final", "5: Move to init", 
