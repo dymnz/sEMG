@@ -48,20 +48,26 @@ void drawAll() {
   final int scale_factor = 2;
   background(100);
   lights();
-  scale(2);
+  scale(scale_factor);
   
   pushMatrix();
   translate(width/2/scale_factor, height/2/scale_factor, 0);
   
+  
+  
+  // Facing the audience
+  rotateX(radians(angle_values[1]));
+  rotateY(radians(-angle_values[2]));
+  rotateZ(radians(angle_values[0]));
+  
+  
+  
+  // Facing the screen
   /*
-  rotateX(-radians(angle_values[1]));
-  rotateY(-radians(angle_values[2]));
-  rotateZ(-radians(angle_values[0]));
+  float[] axis = new Quaternion(-quat_values[0], quat_values[1], quat_values[2], quat_values[3]).toAxisAngle();
+  rotate(axis[0], axis[2], axis[3], -axis[1]);
   */
   
-  float[] axis = new Quaternion(-quat_values[0], quat_values[1], quat_values[2], quat_values[3]).toAxisAngle();
-  //rotate(axis[0], -axis[1], axis[3], axis[2]);
-  rotate(axis[0], axis[2], axis[3], -axis[1]);
   
   noStroke();
   //stroke(255);
@@ -85,34 +91,41 @@ void drawAll() {
   drawCylinder(40, 40, finger_len/3, 8);
   popMatrix();
   
-  
-  
+
+  pushMatrix();
+  rotateZ(radians(-5));
+  translate(const_disp - 20, -finger_len, 0);
+  drawCylinder(20, 20, finger_len, 8);
+  popMatrix();  
   
   pushMatrix();
+  rotateZ(radians(0)); 
+  translate(const_disp + 0, -finger_len, 0);
+  drawCylinder(20, 20, finger_len, 8);
+  popMatrix();
+   
+  
+  pushMatrix();
+  rotateZ(radians(5)); 
   translate(const_disp + 20, -finger_len, 0);
   drawCylinder(20, 20, finger_len, 8);
   popMatrix();
   
   pushMatrix();
+  rotateZ(radians(10)); 
   translate(const_disp + 40, -finger_len, 0);
-  drawCylinder(20, 20, finger_len, 8);
+  drawCylinder(20, 20, finger_len * 3/5, 8);
   popMatrix();
   
-  pushMatrix();
-  translate(const_disp + 0, -finger_len, 0);
-  drawCylinder(20, 20, finger_len, 8);
-  popMatrix();
-  
-  pushMatrix();
-  translate(const_disp - 20, -finger_len, 0);
-  drawCylinder(20, 20, finger_len, 8);
-  popMatrix();
+
+
   
   pushMatrix();
   rotateZ(radians(120));
   translate(const_disp - 0, 50, 0);
   drawCylinder(20, 20, finger_len/2, 8); 
   popMatrix();
+  
   
   popMatrix();
   
