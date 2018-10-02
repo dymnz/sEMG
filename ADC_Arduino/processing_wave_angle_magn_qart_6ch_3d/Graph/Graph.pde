@@ -68,11 +68,11 @@ boolean quat_tared = false; // Value is wrote to file only after quat_tared = tr
 
 
 void settings() {
-  size(width, height, FX2D);
+  size(width, height, P3D);
 }
 
 void setup() {
-  resetGraph();
+
   frameRate(1000);
   file = createWriter(filename); 
 
@@ -175,7 +175,7 @@ void draw() {
   if (draw_semg) {
     draw_semg = false;   
     drawAll();
-    //writeAll();
+    //writeAll();background(0);
   }
 }
 

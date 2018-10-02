@@ -18,56 +18,78 @@ String buffer_str = "";
 
 //https://forum.processing.org/two/discussion/6738/reduce-delay-in-writing-data-to-a-graph
 void drawAll() {
-  int draw_value;
+
   strokeWeight(4);
   //println(semg_buffer_index, force                                                             _buffer_index);
   while (semg_draw_index < semg_buffer_index) {
     buffer_str = "";
     for (int i = 0; i < semg_channel; i++  ) {
-      draw_value = int(map(semg_buffer[i][semg_draw_index] + semg_shift_value[i] - 2*semg_maxValue/5, semg_minValue, semg_maxValue, 0, height));
-      //draw_value = int(map(semg_buffer[i][semg_draw_index], semg_minValue, semg_maxValue, 0, height));
-
-      stroke(semg_color_list[i][0], semg_color_list[i][1], semg_color_list[i][2]);
-      //line(semg_last_x, semg_last_height[i], x, height - draw_value);
-
-      semg_last_height[i] = int(height - draw_value);
-
       buffer_str += semg_buffer[i][semg_draw_index] + ",";
     }
     ++semg_draw_index;
 
     if (mpu_draw_index < angle_buffer_index) {      
       for (int i = 0; i < angle_channel; ++i) {
-        stroke(mpu_color_list[i][0], mpu_color_list[i][1], mpu_color_list[i][2]);
-        draw_value = int(map(angle_buffer[i][mpu_draw_index], RPY_minValue[i], RPY_maxValue[i], 0, height));
-        line(mpu_last_x, mpu_last_height[i], x, height - draw_value);
-
-        mpu_last_height[i] = int(height - draw_value);
-
         buffer_str += angle_buffer[i][mpu_draw_index] + ",";
       }
       ++mpu_draw_index;
-      mpu_last_x = x;
     } else {
       for (int i = 0; i < angle_channel; ++i)
         buffer_str += 0 + ",";
     }
 
-    semg_last_x = x;    
-    x += graph_x_step;
-
     if (quat_tared == true)
       file.println(buffer_str);
   }
 
+  background(0);
+  lights();
+  
+  pushMatrix();
+  translate(width/2, height/2, 0);
+  rotateX(-radians(angle_values[1]));
+  rotateY(-radians(angle_values[2]));
+  rotateZ(-radians(angle_values[0]));
+  
+  
+  noStroke();
+  //stroke(255);
+  //noFill();
+ 
+ 
+  pushMatrix();
+  
+  rotateX(radians(90));
+  
+  final int const_disp = 10;
+  
+  pushMatrix();
+  translate(const_disp + 20, 0, 0);
+  drawCylinder(20, 20, 200, 8);
+  popMatrix();
+  
+  pushMatrix();
+  translate(const_disp + 40, 0, 0);
+  drawCylinder(20, 20, 200, 8);
+  popMatrix();
+  
+  pushMatrix();
+  translate(const_disp + 0, 0, 0);
+  drawCylinder(20, 20, 200, 8); 
+  popMatrix();
+  
+  pushMatrix();
+  translate(const_disp - 20, 0, 0);
+  drawCylinder(20, 20, 200, 8); 
+  popMatrix();
+  
+  pushMatrix
+  
+  popMatrix();
+  box(100);
+  
+  popMatrix();
 
-  if (x >= width) {
-    x = 0;
-    semg_last_x = 0;
-    pot_last_x = 0;
-    mpu_last_x = 0;
-    resetGraph();
-  }  
 
   semg_buffer_index = 0;      
   semg_draw_index = 0;
@@ -75,25 +97,46 @@ void drawAll() {
   mpu_draw_index = 0;
   
 }
-
-void resetGraph() {
-  background(255);  
-  strokeWeight(2);
-
-
-
-  ///*
-  stroke(130, 130, 130);
-  for (int i = RPY_maxValue[0] + RPY_minValue[0]; i < RPY_maxValue[0] - RPY_minValue[0]; i+=15) {
-    int y = int(map(i, RPY_maxValue[0] + RPY_minValue[0], RPY_maxValue[0] - RPY_minValue[0], 0, height));
-    line(0, height - y, width, height - y);
-    line(0, y, width, y);
-  }
-  //*/
-
-  stroke(0); 
-  line(0, height / 2, width, height / 2);
+void drawCylinder(float topRadius, float bottomRadius, float tall, int sides) {
+    float angle = 0;
+    float angleIncrement = TWO_PI / sides;
+    beginShape(QUAD_STRIP);
+    for (int i = 0; i < sides + 1; ++i) {
+        vertex(topRadius*cos(angle), 0, topRadius*sin(angle));
+        vertex(bottomRadius*cos(angle), tall, bottomRadius*sin(angle));
+        angle += angleIncrement;
+    }
+    endShape();
+    
+    // If it is not a cone, draw the circular top cap
+    if (topRadius != 0) {
+        angle = 0;
+        beginShape(TRIANGLE_FAN);
+        
+        // Center point
+        vertex(0, 0, 0);
+        for (int i = 0; i < sides + 1; i++) {
+            vertex(topRadius * cos(angle), 0, topRadius * sin(angle));
+            angle += angleIncrement;
+        }
+        endShape();
+    }
+  
+    // If it is not a cone, draw the circular bottom cap
+    if (bottomRadius != 0) {
+        angle = 0;
+        beginShape(TRIANGLE_FAN);
+    
+        // Center point
+        vertex(0, tall, 0);
+        for (int i = 0; i < sides + 1; i++) {
+            vertex(bottomRadius * cos(angle), tall, bottomRadius * sin(angle));
+            angle += angleIncrement;
+        }
+        endShape();
+    }
 }
+
 
 void semg_convert() {
 }
