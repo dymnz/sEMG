@@ -42,15 +42,26 @@ void drawAll() {
       file.println(buffer_str);
   }
 
-  background(0);
+
+  final int const_disp = -10;
+  final int finger_len = 180;
+  final int scale_factor = 2;
+  background(100);
   lights();
+  scale(2);
   
   pushMatrix();
-  translate(width/2, height/2, 0);
+  translate(width/2/scale_factor, height/2/scale_factor, 0);
+  
+  /*
   rotateX(-radians(angle_values[1]));
   rotateY(-radians(angle_values[2]));
   rotateZ(-radians(angle_values[0]));
+  */
   
+  float[] axis = new Quaternion(-quat_values[0], quat_values[1], quat_values[2], quat_values[3]).toAxisAngle();
+  //rotate(axis[0], -axis[1], axis[3], axis[2]);
+  rotate(axis[0], axis[2], axis[3], -axis[1]);
   
   noStroke();
   //stroke(255);
@@ -61,32 +72,49 @@ void drawAll() {
   
   rotateX(radians(90));
   
-  final int const_disp = 10;
+  
+  
+  fill(234, 168, 75);
   
   pushMatrix();
-  translate(const_disp + 20, 0, 0);
-  drawCylinder(20, 20, 200, 8);
+  translate(0, 0, 0);
+  sphere(80);
+  
+  
+  translate(0, finger_len/3, 0);
+  drawCylinder(40, 40, finger_len/3, 8);
+  popMatrix();
+  
+  
+  
+  
+  pushMatrix();
+  translate(const_disp + 20, -finger_len, 0);
+  drawCylinder(20, 20, finger_len, 8);
   popMatrix();
   
   pushMatrix();
-  translate(const_disp + 40, 0, 0);
-  drawCylinder(20, 20, 200, 8);
+  translate(const_disp + 40, -finger_len, 0);
+  drawCylinder(20, 20, finger_len, 8);
   popMatrix();
   
   pushMatrix();
-  translate(const_disp + 0, 0, 0);
-  drawCylinder(20, 20, 200, 8); 
+  translate(const_disp + 0, -finger_len, 0);
+  drawCylinder(20, 20, finger_len, 8);
   popMatrix();
   
   pushMatrix();
-  translate(const_disp - 20, 0, 0);
-  drawCylinder(20, 20, 200, 8); 
+  translate(const_disp - 20, -finger_len, 0);
+  drawCylinder(20, 20, finger_len, 8);
   popMatrix();
   
-  pushMatrix
+  pushMatrix();
+  rotateZ(radians(120));
+  translate(const_disp - 0, 50, 0);
+  drawCylinder(20, 20, finger_len/2, 8); 
+  popMatrix();
   
   popMatrix();
-  box(100);
   
   popMatrix();
 

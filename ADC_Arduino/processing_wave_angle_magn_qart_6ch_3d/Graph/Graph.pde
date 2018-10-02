@@ -1,4 +1,6 @@
 import processing.serial.*; //<>//
+import toxi.geom.*;
+import toxi.processing.*;
 
 Serial serial;
 PrintWriter file;
