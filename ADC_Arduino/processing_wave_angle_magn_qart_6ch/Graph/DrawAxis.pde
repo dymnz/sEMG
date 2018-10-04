@@ -37,7 +37,7 @@ void drawAll() {
     ++semg_draw_index;
 
     if (mpu_draw_index < angle_buffer_index) {      
-      for (int i = 0; i < angle_channel; ++i) {
+      for (int i = 0; i < angle_channel - 1; ++i) {
         stroke(mpu_color_list[i][0], mpu_color_list[i][1], mpu_color_list[i][2]);
         draw_value = int(map(angle_buffer[i][mpu_draw_index], RPY_minValue[i], RPY_maxValue[i], 0, height));
         line(mpu_last_x, mpu_last_height[i], x, height - draw_value);
@@ -49,7 +49,7 @@ void drawAll() {
       ++mpu_draw_index;
       mpu_last_x = x;
     } else {
-      for (int i = 0; i < angle_channel; ++i)
+      for (int i = 0; i < angle_channel - 1; ++i)
         buffer_str += 0 + ",";
     }
 
@@ -117,6 +117,13 @@ void quat_convert() {
     quat_values = quat_derotate(derotate_q, quat_values);
   }
   radian_values = quat2radian(quat_values);
+  
+  // P' = P*cos(R) - Y*sin(R);
+  /*
+  radian_values[1] = radian_values[1] * cos(radian_values[0]) - 
+                     radian_values[2] * sin(radian_values[0]);
+  */
+  
   angle_values = radian2degree(radian_values);
   
   
@@ -184,12 +191,13 @@ float [] quat2radian(float [] q) {
 }
 
 float [] radian2degree(float [] rpy) {
+  rpy[0] *= 180.0f / PI;
   rpy[1] *= 180.0f / PI;
+  
   rpy[2]   *= 180.0f / PI;
   rpy[2]   += 4.31f; // http://www.magnetic-declination.com/Myanmar/E-yaw/1625256.html#
   if (rpy[2] < 0) rpy[2]   += 360.0f; // Ensure yaw stays between 0 and 360
   rpy[2] -= 180.0f;  // Restrict yaw to [-180 180] like roll/pitch
-  rpy[0] *= 180.0f / PI;
   
   return rpy;
 }

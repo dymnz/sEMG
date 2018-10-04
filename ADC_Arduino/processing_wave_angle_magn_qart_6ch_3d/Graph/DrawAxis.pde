@@ -42,24 +42,54 @@ void drawAll() {
       file.println(buffer_str);
   }
 
+  
+  semg_buffer_index = 0;      
+  semg_draw_index = 0;
+  angle_buffer_index = 0;      
+  mpu_draw_index = 0;
+  
+  
+  
+  reset_graph();
+  
+  int [] gt_roll_hand_disp = {-width/4, 0};
+  float [] gt_roll_angle_values = {angle_values[0], 0, 0};
+  draw_hand(gt_roll_hand_disp, gt_roll_angle_values);
+  
+  
+  int [] gt_pitch_hand_disp = {0 , 0};
+  float [] gt_pitch_angle_values = {0, angle_values[1], 0};
+  draw_hand(gt_pitch_hand_disp, gt_pitch_angle_values);
+  
+  int [] gt_hand_disp = {width/4 , 0};
+  draw_hand(gt_hand_disp, angle_values);
+}
 
-  final int const_disp = -10;
-  final int finger_len = 180;
-  final int scale_factor = 2;
+
+final int const_disp = -10;
+final int finger_len = 180;
+final int scale_factor = 1;  
+
+void reset_graph() {
   background(100);
   lights();
   scale(scale_factor);
-  
-  pushMatrix();
   translate(width/2/scale_factor, height/2/scale_factor, 0);
-  
-  
-  
+}
+
+
+void draw_hand(int [] disp_xy, float [] angle_values) {
+
+  pushMatrix();
+
+  translate(disp_xy[0]/scale_factor, disp_xy[1]/scale_factor, 0);
+
   // Facing the audience
+  ///*
+  rotateZ(radians(angle_values[0]));
   rotateX(radians(angle_values[1]));
   rotateY(radians(-angle_values[2]));
-  rotateZ(radians(angle_values[0]));
-  
+  //*/
   
   
   // Facing the screen
@@ -130,52 +160,7 @@ void drawAll() {
   popMatrix();
   
   popMatrix();
-
-
-  semg_buffer_index = 0;      
-  semg_draw_index = 0;
-  angle_buffer_index = 0;      
-  mpu_draw_index = 0;
   
-}
-void drawCylinder(float topRadius, float bottomRadius, float tall, int sides) {
-    float angle = 0;
-    float angleIncrement = TWO_PI / sides;
-    beginShape(QUAD_STRIP);
-    for (int i = 0; i < sides + 1; ++i) {
-        vertex(topRadius*cos(angle), 0, topRadius*sin(angle));
-        vertex(bottomRadius*cos(angle), tall, bottomRadius*sin(angle));
-        angle += angleIncrement;
-    }
-    endShape();
-    
-    // If it is not a cone, draw the circular top cap
-    if (topRadius != 0) {
-        angle = 0;
-        beginShape(TRIANGLE_FAN);
-        
-        // Center point
-        vertex(0, 0, 0);
-        for (int i = 0; i < sides + 1; i++) {
-            vertex(topRadius * cos(angle), 0, topRadius * sin(angle));
-            angle += angleIncrement;
-        }
-        endShape();
-    }
-  
-    // If it is not a cone, draw the circular bottom cap
-    if (bottomRadius != 0) {
-        angle = 0;
-        beginShape(TRIANGLE_FAN);
-    
-        // Center point
-        vertex(0, tall, 0);
-        for (int i = 0; i < sides + 1; i++) {
-            vertex(bottomRadius * cos(angle), tall, bottomRadius * sin(angle));
-            angle += angleIncrement;
-        }
-        endShape();
-    }
 }
 
 
@@ -200,7 +185,16 @@ void quat_convert() {
   if (quat_tared) {
     quat_values = quat_derotate(derotate_q, quat_values);
   }
+  
   radian_values = quat2radian(quat_values);
+  
+    
+  // P' = P*cos(R) - Y*sin(R);
+  ///*
+  radian_values[1] = radian_values[1] * cos(radian_values[0]) - 
+                     radian_values[2] * sin(radian_values[0]);
+  //*/
+  
   angle_values = radian2degree(radian_values);
   
   
@@ -268,12 +262,13 @@ float [] quat2radian(float [] q) {
 }
 
 float [] radian2degree(float [] rpy) {
+  rpy[0] *= 180.0f / PI;
   rpy[1] *= 180.0f / PI;
+  
   rpy[2]   *= 180.0f / PI;
   rpy[2]   += 4.31f; // http://www.magnetic-declination.com/Myanmar/E-yaw/1625256.html#
   if (rpy[2] < 0) rpy[2]   += 360.0f; // Ensure yaw stays between 0 and 360
   rpy[2] -= 180.0f;  // Restrict yaw to [-180 180] like roll/pitch
-  rpy[0] *= 180.0f / PI;
   
   return rpy;
 }
@@ -298,4 +293,45 @@ float [] quat_derotate(float [] p, float [] q) {
   r[3] = pw*qz + px*qy - py*qx + pz*qw;
   
   return r;
+}
+
+
+void drawCylinder(float topRadius, float bottomRadius, float tall, int sides) {
+    float angle = 0;
+    float angleIncrement = TWO_PI / sides;
+    beginShape(QUAD_STRIP);
+    for (int i = 0; i < sides + 1; ++i) {
+        vertex(topRadius*cos(angle), 0, topRadius*sin(angle));
+        vertex(bottomRadius*cos(angle), tall, bottomRadius*sin(angle));
+        angle += angleIncrement;
+    }
+    endShape();
+    
+    // If it is not a cone, draw the circular top cap
+    if (topRadius != 0) {
+        angle = 0;
+        beginShape(TRIANGLE_FAN);
+        
+        // Center point
+        vertex(0, 0, 0);
+        for (int i = 0; i < sides + 1; i++) {
+            vertex(topRadius * cos(angle), 0, topRadius * sin(angle));
+            angle += angleIncrement;
+        }
+        endShape();
+    }
+  
+    // If it is not a cone, draw the circular bottom cap
+    if (bottomRadius != 0) {
+        angle = 0;
+        beginShape(TRIANGLE_FAN);
+    
+        // Center point
+        vertex(0, tall, 0);
+        for (int i = 0; i < sides + 1; i++) {
+            vertex(bottomRadius * cos(angle), tall, bottomRadius * sin(angle));
+            angle += angleIncrement;
+        }
+        endShape();
+    }
 }

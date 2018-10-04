@@ -15,7 +15,7 @@ final String filename = "../../../Signals/Arduino/Format_semg_angle_magn/data/ra
 final int width = 1440;
 final int height = 900; //<>//
 final int grid_size = 30;
-final float graph_x_step = 0.1;
+final float graph_x_step = 0.04;
 
 final float force_calibration_factor = -200000;
 final int value_buffer_size = 10000;

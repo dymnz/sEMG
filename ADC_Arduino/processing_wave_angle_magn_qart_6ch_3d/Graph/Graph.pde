@@ -1,4 +1,4 @@
-import processing.serial.*; //<>//
+import processing.serial.*; //<>// //<>//
 import toxi.geom.*;
 import toxi.processing.*;
 
@@ -15,7 +15,7 @@ final String filename = "../../../Signals/Arduino/Format_semg_angle_magn/data/ra
 
 
 final int width = 1440;
-final int height = 900; //<>//
+final int height = 900;
 final int grid_size = 30;
 final float graph_x_step = 0.1;
 
@@ -136,15 +136,14 @@ void serialEvent(Serial serial) {
 
       if (serial_count >= quat_packet_len) {
         for (int i = 0; i < quat_channel; ++i) {
-          
+
           // https://stackoverflow.com/questions/4513498/java-bytes-to-floats-ints
           quat_values[i] =  Float.intBitsToFloat( ((quat_packet[i*4 + 3] & 0xFF) << 24) | 
-                                    ((quat_packet[i*4 + 2] & 0xFF) << 16) |
-                                    ((quat_packet[i*4 + 1] & 0xFF) << 8)  | 
-                                     (quat_packet[i*4] & 0xFF));
-                                  
+            ((quat_packet[i*4 + 2] & 0xFF) << 16) |
+            ((quat_packet[i*4 + 1] & 0xFF) << 8)  | 
+            (quat_packet[i*4] & 0xFF));
         }
-   
+
         quat_convert();
 
         for (int i = 0; i < angle_channel; ++i)
@@ -165,7 +164,7 @@ void keyPressed() {
   if (key == '1') { // ascii for '1' 
     mpu_tare();
     quat_tared = true;
-    
+
     println("Quat tared");
   }
 }
