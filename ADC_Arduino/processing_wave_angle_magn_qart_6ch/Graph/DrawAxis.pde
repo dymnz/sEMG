@@ -49,8 +49,14 @@ void drawAll() {
       ++mpu_draw_index;
       mpu_last_x = x;
     } else {
+        /*
       for (int i = 0; i < angle_channel - 1; ++i)
-        buffer_str += 0 + ",";
+        buffer_str +=  "0.0,";
+        */
+        
+        // Not appending extra 0 to show that there's not angle data in this sample
+        buffer_str +=  "0";
+        
     }
 
     semg_last_x = x;    
@@ -150,11 +156,6 @@ void quat_convert() {
   
 }
 
-// Use the last value stored in pot_buffer to tare;
-float [] derotate_q = new float [4];
-void mpu_tare() {
-  derotate_q = quat2conj(quat_values);
-}
 
 
 void writeAll() {
@@ -173,6 +174,11 @@ int convert2int16(int num) {
 }
 
 
+// Use the last value stored in pot_buffer to tare;
+float [] derotate_q = new float [4];
+void mpu_tare() {
+  derotate_q = quat2conj(quat_values);
+}
 
 float [] quat2radian(float [] q) {
   float a12, a22, a31, a32, a33; 
@@ -183,8 +189,9 @@ float [] quat2radian(float [] q) {
   a31 =   2.0f * (q[0] * q[1] + q[2] * q[3]);
   a32 =   2.0f * (q[1] * q[3] - q[0] * q[2]);
   a33 =   q[0] * q[0] - q[1] * q[1] - q[2] * q[2] + q[3] * q[3];
-  rpy[1] = -asin(a32);
+  
   rpy[0]  = atan2(a31, a33);
+  rpy[1] = -asin(a32);
   rpy[2]   = atan2(a12, a22);
   
   return rpy;

@@ -48,7 +48,7 @@ semg_sample_rate = 2500; % Approximate
 
 semg_max_value = 2048 / 2;
 semg_min_value = -semg_max_value;
-mpu_max_value = 130;
+mpu_max_value = 140;
 mpu_min_value = -mpu_max_value;
 
 graph_count = semg_channel_count + mpu_channel_count;

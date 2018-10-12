@@ -10,8 +10,8 @@ graph_count = 1 + mpu_channel_count;
 semg_channel_index = 1:4;
 mpu_channel_index = 1;
 
-mpu_min_value = -130;
-mpu_max_value = -mpu_min_value;
+mpu_max_value = 140;
+mpu_min_value = -mpu_max_value;
 
 
 test_file_location = '../../../../RNN/LSTM/data/output/';
