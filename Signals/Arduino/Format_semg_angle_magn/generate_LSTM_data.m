@@ -22,15 +22,15 @@ for i = 1 : num_of_segments
     % Output: Angle
     fprintf(fileID, '%d %d\n', ...
             segment_length, ...
-            1);
+            size(output, 1));
     fprintf(fileID, '%f\t', output);
     fprintf(fileID, '\n');    
 
-%     figure;
-%     subplot_helper(1:length(input), input, ...
-%                     [2 1 1], {'sample' 'amplitude' 'Interpolated sEMG'}, '-');                            
-%     subplot_helper(1:length(output), output, ...
-%                     [2 1 2], {'sample' 'amplitude' 'Interpolated Angle'}, '-');                                           
+    figure;
+    subplot_helper(1:length(input), input, ...
+                    [2 1 1], {'sample' 'amplitude' 'Interpolated sEMG'}, '-');                            
+    subplot_helper(1:length(output), output, ...
+                    [2 1 2], {'sample' 'amplitude' 'Interpolated Angle'}, '-');                                           
 end
 
 fclose(fileID);

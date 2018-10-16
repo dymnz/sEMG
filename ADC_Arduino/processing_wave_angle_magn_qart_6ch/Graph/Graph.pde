@@ -12,8 +12,8 @@ final String SERIAL_NAME = "/dev/ttyACM0";
 final String filename = "../../../Signals/Arduino/Format_semg_angle_magn/data/raw_S2WA_99_" + "TEST" + "_1" + ".txt";
 
 
-final int width = 1440;
-final int height = 900; //<>//
+final int width = 1280;
+final int height = 720; //<>//
 final int grid_size = 30;
 final float graph_x_step = 0.04;
 
@@ -190,15 +190,16 @@ void sampleCount() {
   }
 }
 
-final String [] move_list = {"1: Hold init", "2: Hold init", 
-  "3: Move to final", "4: Hold final", "5: Move to init", 
-  "6: Hold init", "7: Hold init"};
+final String [] move_list = {"1: Hold init   ",
+  "2: Move to final", "3: Hold final   ", "4: Move to init", 
+  "5: Hold init   "};
+  
 int move_list_index = 0;
 int move_count = 1;
 void printMove() {     
   pm_current_time = millis();
   if (pm_current_time - pm_last_time > 1000) {
-    println(move_list[move_list_index] + " --> " + move_count);
+    println(move_list[move_list_index] + " \t--> " + move_count);
 
     pm_last_time = millis();
     move_list_index = (move_list_index + 1) % move_list.length;

@@ -24,7 +24,7 @@ enum SerialState {
     HOLD, SEMG_ALIGN, MPU_ALIGN, SEMG_READ, MPU_READ, SEMG_FIN, MPU_FIN
 }
 
-final String semg_filename = "../../Signals/Arduino/Format_semg_angle_magn/data/raw_S2WA_31_" + "FLX" + "_3" + ".txt";
+final String semg_filename = "../../Signals/Arduino/Format_semg_angle_magn/data/raw_S2WA_31_" + "SUP" + "_3" + ".txt";
 BufferedReader reader;
 String line;
 String[] tokens;
@@ -44,7 +44,7 @@ final int semg_sample_rate = 2700;
 final int target_sample_rate =35;
 final int downsample_ratio = semg_sample_rate / target_sample_rate;
 
-final int angle_max_value = 130;
+final int angle_max_value = 140;
 final int angle_min_value = -angle_max_value;
 
 final int angle_channel = 3;
@@ -103,7 +103,7 @@ char temp_byte;
 
 int sample_since_last_send = 0;
 
-final String [] NN_SERIAL_NAME = {"/dev/pts/25", "/dev/pts/27"};
+final String [] NN_SERIAL_NAME = {"/dev/pts/23", "/dev/pts/25"};
 
 Serial [] NN_serial = new Serial[NN_channel];
 
@@ -283,7 +283,7 @@ void receive_from_AR(String [] rec_value) {
             send_to_NN(processed_semg_value);
             sample_since_last_send = 0;
             
-            GT_buffer[0][GT_buffer_idx[0]] = angle_values[1];
+            GT_buffer[0][GT_buffer_idx[0]] = angle_values[0];
             GT_buffer[1][GT_buffer_idx[1]] = angle_values[1];
             GT_buffer_idx[0] = GT_buffer_idx[0] + 1;
             GT_buffer_idx[1] = GT_buffer_idx[1] + 1; 

@@ -28,7 +28,7 @@ void drawAll() {
       //draw_value = int(map(semg_buffer[i][semg_draw_index], semg_minValue, semg_maxValue, 0, height));
 
       stroke(semg_color_list[i][0], semg_color_list[i][1], semg_color_list[i][2]);
-      //line(semg_last_x, semg_last_height[i], x, height - draw_value);
+      line(semg_last_x, semg_last_height[i], x, height - draw_value);
 
       semg_last_height[i] = int(height - draw_value);
 
@@ -125,10 +125,10 @@ void quat_convert() {
   radian_values = quat2radian(quat_values);
   
   // P' = P*cos(R) - Y*sin(R);
-  /*
+  ///*
   radian_values[1] = radian_values[1] * cos(radian_values[0]) - 
                      radian_values[2] * sin(radian_values[0]);
-  */
+  //*/
   
   angle_values = radian2degree(radian_values);
   

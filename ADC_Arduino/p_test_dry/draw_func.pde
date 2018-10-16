@@ -4,8 +4,8 @@ final int[][] GT_color_list = {{255, 180, 180}, {180, 255, 180}};
 
 
 ///*
-final int [] RPY_minValue = {-90, -90, -90};
-final int [] RPY_maxValue = {90, 90, 90};
+final int [] RPY_minValue = {-140, -140, -140};
+final int [] RPY_maxValue = {140, 140, 140};
 //*/
 
 /*
@@ -33,7 +33,8 @@ void drawAll() {
     RMSE = calculate_RMSE();
     fill(255); noStroke();
     rect(0, 0, 900, 100);
-    String s = "Pitch error: " + str(round2(RMSE[0], 2)) + "°";
+    String s = "Roll error: " + str(round2(RMSE[0], 2)) + "°\n"  +
+               "Pitch error: " + str(round2(RMSE[1], 2)) + "°\n"     ;
     
     fill(0); textSize(30);
     text(s, 0, 0, 900, 100);  // Text wraps within text box
@@ -53,8 +54,7 @@ void drawAll() {
     }
     */
     // Draw GT angles
-    //for (int i = 0; i < NN_channel; ++i) {
-    for (int i = 0; i < 1; ++i) {
+    for (int i = 0; i < NN_channel; ++i) {
       stroke(GT_color_list[i][0], GT_color_list[i][1], GT_color_list[i][2]);
       draw_value = int(map(GT_buffer[i][last_draw_idx % value_buffer_size], RPY_minValue[i], RPY_maxValue[i], 0, height));
       line(last_x, GT_last_height[i], x, height - draw_value);
@@ -63,8 +63,7 @@ void drawAll() {
     }
 
     // Draw NN angles
-    //for (int i = 0; i < NN_channel; ++i) {
-    for (int i = 0; i < 1; ++i) {
+    for (int i = 0; i < NN_channel; ++i) {
       stroke(NN_color_list[i][0], NN_color_list[i][1], NN_color_list[i][2]);
       draw_value = int(map(NN_buffer[i][last_draw_idx % value_buffer_size], RPY_minValue[i], RPY_maxValue[i], 0, height));
       line(last_x, NN_last_height[i], x, height - draw_value);
