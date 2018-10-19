@@ -43,8 +43,9 @@ sEMG Signal Separation for Real-time Wrist Angle Decoding
   4.1.1 Hardware (IMU angle / Active eletrode / Amp / ADC)
   4.1.2 Software (Processing 3 / Matlab / C)  
 4.2 Performance Metric
-    4.2.1 RMSE
-    4.2.2 Cross-validation
+    4.2.1 Ground Truth
+    4.2.2 RMSE
+    4.2.3 Cross-validation
 4.3 Compare Result of RMS-only / nICA / TDSEP
     4.3.1 Under 4 electrode
     4.3.2 Under 6 electrode
