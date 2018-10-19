@@ -32,8 +32,10 @@ sEMG Signal Separation for Real-time Wrist Angle Decoding
 3.3 TDSEP parameter
 3.4 LSTM parameter
 3.5 Flowchart 
-    3.5.1 Find Demixing Matrix (Record - RMS - Find Demixing mat.)
-    3.5.2 Processing for Testing (Record - Mean remove - Windowed RMS - Demix - Decimation - Normalization)
+    3.5.1 Find Demixing Matrix 
+        (Record - RMS - Find Demixing mat.)
+    3.5.2 Processing for Testing 
+        (Record - Mean remove - Windowed RMS - Demix - Decimation - Normalization)
   
 ### 4 - Result & Discussion ###
 4.1 Data Collection & Processing
