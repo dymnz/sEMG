@@ -17,32 +17,31 @@ sEMG Signal Separation for Real-time Wrist Angle Decoding
 2.4 sEMG Signal Separation (BSS)
     2.3.1 nICA
     2.3.2 TDSEP (Used in Gesture Recognition)
+    2.3.3 Difference in nICA/TDSEP
 2.4 Decoder
     2.4.1 MLP
-    2.4.2 SVR
-    2.4.3 BPNN
-    2.4.4 NARX (type of RNN)
-    2.4.5 LSTM (type of RNN)
+    2.4.2 BPNN
+    2.4.3 NARX (type of RNN)
+    2.4.4 LSTM (type of RNN)
 
 ### 3 - Experiment Param & Processing Procedure ###
-3.1 Difference in nICA/TDSEP
-3.2 Electrode configuration
-    3.2.1 # of Electrodes
-    3.2.2 Placement (Muscle Location & Randomness)
-3.3 Parameter
-    3.3.1 nICA (Tolerance for stopping condition)
-    3.3.2 TDSEP (*tau*)
-    3.3.3 LSTM (Learning rate adjusting w/ ADA-DELTA / Hidden node count)
-3.4 Flowchart 
-    3.4.1 Find Demixing Matrix 
+3.1 Electrode configuration
+    3.1.1 # of Electrodes
+    3.1.2 Placement (Muscle Location & Randomness)
+3.2 Parameter
+    3.2.1 nICA (Tolerance for stopping condition)
+    3.2.2 TDSEP (*tau*)
+    3.2.3 LSTM (Learning rate adjusting w/ ADA-DELTA / Hidden node count)
+3.3 Flowchart 
+    3.3.1 Find Demixing Matrix 
         (Record - RMS - Find Demixing mat.)
-    3.4.2 Processing for Testing 
+    3.3.2 Processing for Testing 
         (Record - Mean remove - Windowed RMS - Demix - Decimation - Normalization)
   
 ### 4 - Result & Discussion ###
 4.1 Data Collection & Processing
-  4.1.1 Hardware (Active eletrode / Amp / ADC)
-  4.1.2 Software (Processing3 / Matlab / C)  
+  4.1.1 Hardware (IMU angle / Active eletrode / Amp / ADC)
+  4.1.2 Software (Processing 3 / Matlab / C)  
 4.2 Performance Metric
     4.2.1 RMSE
     4.2.2 Cross-validation
