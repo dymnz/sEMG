@@ -1,5 +1,5 @@
 ```
-sEMG Signal Separation for Real-time Wrist Angle Decoding
+sEMG Signal Separation for Real-time Wrist Angle Estimation
 
 ### 1 - 緒論 ###
 1.1 研究動機與目的
@@ -13,10 +13,13 @@ sEMG Signal Separation for Real-time Wrist Angle Decoding
 2.2 Angle Decoding (from past paper)
     2.2.1 Limb in general
     2.2.2 Wrist Angle
-2.3 sEMG Feature (RMS)
+2.3 sEMG Feature 
+    2.3.1 MAV
+    2.3.2 RMS
+    2.3.3 Wavelet
 2.4 sEMG Signal Separation (BSS)
-    2.3.1 nICA
-    2.3.2 TDSEP (Used in Gesture Recognition)
+    2.4.1 nICA
+    2.4.2 TDSEP (Used in Gesture Recognition)
 2.5 Decoder
     2.5.1 MLP
     2.5.2 BPNN
