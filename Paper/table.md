@@ -18,8 +18,9 @@ sEMG Signal Separation for Real-time Wrist Angle Estimation
     2.3.2 RMS
     2.3.3 Wavelet
 2.4 sEMG Signal Separation (BSS)
-    2.4.1 nICA
-    2.4.2 TDSEP (Used in Gesture Recognition)
+    2.4.1 ICA
+    2.4.2 nICA
+    2.4.3 TDSEP (Used in Gesture Recognition)
 2.5 Decoder
     2.5.1 MLP
     2.5.2 BPNN
