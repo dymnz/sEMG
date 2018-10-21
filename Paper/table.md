@@ -10,7 +10,7 @@ sEMG Signal Separation for Real-time Wrist Angle Estimation
 2.1 EMG
     2.1.1 EMG
     2.1.2 sEMG
-2.2 Angle Decoding (from past paper)
+2.2 Angle Estimation (from past paper)
     2.2.1 Limb in general
     2.2.2 Wrist Angle
 2.3 sEMG Feature 
