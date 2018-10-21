@@ -260,6 +260,14 @@
         <link:link rdf:resource="#item_15"/>
         <link:link rdf:resource="#item_16"/>
         <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Electromyography</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Humans</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
            <z:AutomaticTag><rdf:value>Algorithms</rdf:value></z:AutomaticTag>
         </dc:subject>
         <dc:subject>
@@ -278,18 +286,10 @@
             </z:AutomaticTag>
         </dc:subject>
         <dc:subject>
-            <z:AutomaticTag>
-               <rdf:value>Electromyography</rdf:value>
-            </z:AutomaticTag>
-        </dc:subject>
-        <dc:subject>
            <z:AutomaticTag><rdf:value>Hand</rdf:value></z:AutomaticTag>
         </dc:subject>
         <dc:subject>
            <z:AutomaticTag><rdf:value>Hand Strength</rdf:value></z:AutomaticTag>
-        </dc:subject>
-        <dc:subject>
-           <z:AutomaticTag><rdf:value>Humans</rdf:value></z:AutomaticTag>
         </dc:subject>
         <dc:subject>
             <z:AutomaticTag>
@@ -437,12 +437,12 @@ PMCID: PMC1392416</dc:description>
         <link:link rdf:resource="#item_23"/>
         <dc:subject>
             <z:AutomaticTag>
-               <rdf:value>Biomechanical Phenomena</rdf:value>
+               <rdf:value>Electromyography</rdf:value>
             </z:AutomaticTag>
         </dc:subject>
         <dc:subject>
             <z:AutomaticTag>
-               <rdf:value>Electromyography</rdf:value>
+               <rdf:value>Biomechanical Phenomena</rdf:value>
             </z:AutomaticTag>
         </dc:subject>
         <dc:subject>
@@ -614,16 +614,6 @@ PMCID: PMC1392416</dc:description>
         <link:link rdf:resource="#item_27"/>
         <dc:subject>
             <z:AutomaticTag>
-               <rdf:value>Action Potentials</rdf:value>
-            </z:AutomaticTag>
-        </dc:subject>
-        <dc:subject>
-            <z:AutomaticTag>
-               <rdf:value>Electric Stimulation</rdf:value>
-            </z:AutomaticTag>
-        </dc:subject>
-        <dc:subject>
-            <z:AutomaticTag>
                <rdf:value>Electromyography</rdf:value>
             </z:AutomaticTag>
         </dc:subject>
@@ -633,6 +623,16 @@ PMCID: PMC1392416</dc:description>
         <dc:subject>
             <z:AutomaticTag>
                <rdf:value>Muscle, Skeletal</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Action Potentials</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Electric Stimulation</rdf:value>
             </z:AutomaticTag>
         </dc:subject>
         <dc:subject>
@@ -929,6 +929,11 @@ PMCID: PMC1392416</dc:description>
         </bib:authors>
         <link:link rdf:resource="#item_37"/>
         <link:link rdf:resource="#item_38"/>
+        <dc:subject>wrist</dc:subject>
+        <dc:subject>SVM</dc:subject>
+        <dc:subject>AR</dc:subject>
+        <dc:subject>RMS</dc:subject>
+        <dc:subject>wave length</dc:subject>
         <bib:pages>41</bib:pages>
         <dc:date>August 26, 2010</dc:date>
         <z:libraryCatalog>ResearchGate</z:libraryCatalog>
@@ -1072,8 +1077,1558 @@ The results of this study showed that classification of EMG signals by separatin
         <dc:title>The state of the art on sensors and sensor placement procedures for surface electromyography: a proposal for sensor placement procedures</dc:title>
         <z:shortTitle>The state of the art on sensors and sensor placement procedures for surface electromyography</z:shortTitle>
     </bib:Book>
+    <bib:Document rdf:about="https://ieeexplore.ieee.org/document/204774">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+           <z:Website></z:Website>
+        </dcterms:isPartOf>
+        <link:link rdf:resource="#item_48"/>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://ieeexplore.ieee.org/document/204774</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 17:25:38</dcterms:dateSubmitted>
+        <dc:title>A new strategy for multifunction myoelectric control - IEEE Journals &amp; Magazine</dc:title>
+    </bib:Document>
+    <z:Attachment rdf:about="#item_48">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://ieeexplore.ieee.org/document/204774</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 17:25:42</dcterms:dateSubmitted>
+        <dc:title>A new strategy for multifunction myoelectric control - IEEE Journals &amp; Magazine</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="http://ieeexplore.ieee.org/document/5551179/">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:0018-9294,%201558-2531"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Nielsen</foaf:surname>
+                        <foaf:givenname>Johnny L G</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Holmgaard</foaf:surname>
+                        <foaf:givenname>S</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>Ning Jiang</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Englehart</foaf:surname>
+                        <foaf:givenname>K B</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Farina</foaf:surname>
+                        <foaf:givenname>D</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Parker</foaf:surname>
+                        <foaf:givenname>P A</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:subject>wrist</dc:subject>
+        <dc:subject>MLP</dc:subject>
+        <dc:subject>wavelet</dc:subject>
+        <dc:subject>TDAR</dc:subject>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://ieeexplore.ieee.org/document/5551179/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>681-688</bib:pages>
+        <dc:date>03/2011</dc:date>
+        <dcterms:dateSubmitted>2018-10-21 17:26:56</dcterms:dateSubmitted>
+        <z:libraryCatalog>Crossref</z:libraryCatalog>
+        <dc:title>Simultaneous and Proportional Force Estimation for Multifunction Myoelectric Prostheses Using Mirrored Bilateral Training</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:0018-9294,%201558-2531">
+        <prism:volume>58</prism:volume>
+        <prism:number>3</prism:number>
+        <dc:title>IEEE Transactions on Biomedical Engineering</dc:title>
+        <dc:identifier>ISSN 0018-9294, 1558-2531</dc:identifier>
+        <dc:identifier>DOI 10.1109/TBME.2010.2068298</dc:identifier>
+    </bib:Journal>
+    <bib:Document rdf:about="https://ieeexplore.ieee.org/document/5551179">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+           <z:Website></z:Website>
+        </dcterms:isPartOf>
+        <link:link rdf:resource="#item_51"/>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://ieeexplore.ieee.org/document/5551179</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 17:27:07</dcterms:dateSubmitted>
+        <dc:title>Simultaneous and Proportional Force Estimation for Multifunction Myoelectric Prostheses Using Mirrored Bilateral Training - IEEE Journals &amp; Magazine</dc:title>
+    </bib:Document>
+    <z:Attachment rdf:about="#item_51">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://ieeexplore.ieee.org/document/5551179</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 17:27:12</dcterms:dateSubmitted>
+        <dc:title>Simultaneous and Proportional Force Estimation for Multifunction Myoelectric Prostheses Using Mirrored Bilateral Training - IEEE Journals &amp; Magazine</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3198911/">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:1743-0003"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Ziai</foaf:surname>
+                        <foaf:givenname>Amirreza</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Menon</foaf:surname>
+                        <foaf:givenname>Carlo</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_54"/>
+        <link:link rdf:resource="#item_53"/>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3198911/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>56</bib:pages>
+        <dc:date>2011-9-26</dc:date>
+        <dc:description>PMID: 21943179
+PMCID: PMC3198911</dc:description>
+        <dcterms:dateSubmitted>2018-10-21 17:27:27</dcterms:dateSubmitted>
+        <z:libraryCatalog>PubMed Central</z:libraryCatalog>
+        <dcterms:abstract>Background
+Several regression models have been proposed for estimation of isometric joint torque using surface electromyography (SEMG) signals. Common issues related to torque estimation models are degradation of model accuracy with passage of time, electrode displacement, and alteration of limb posture. This work compares the performance of the most commonly used regression models under these circumstances, in order to assist researchers with identifying the most appropriate model for a specific biomedical application.
+
+Methods
+Eleven healthy volunteers participated in this study. A custom-built rig, equipped with a torque sensor, was used to measure isometric torque as each volunteer flexed and extended his wrist. SEMG signals from eight forearm muscles, in addition to wrist joint torque data were gathered during the experiment. Additional data were gathered one hour and twenty-four hours following the completion of the first data gathering session, for the purpose of evaluating the effects of passage of time and electrode displacement on accuracy of models. Acquired SEMG signals were filtered, rectified, normalized and then fed to models for training.
+
+Results
+It was shown that mean adjusted coefficient of determination (Ra2) values decrease between 20%-35% for different models after one hour while altering arm posture decreased mean Ra2 values between 64% to 74% for different models.
+
+Conclusions
+Model estimation accuracy drops significantly with passage of time, electrode displacement, and alteration of limb posture. Therefore model retraining is crucial for preserving estimation accuracy. Data resampling can significantly reduce model training time without losing estimation accuracy. Among the models compared, ordinary least squares linear regression model (OLS) was shown to have high isometric torque estimation accuracy combined with very short training times.</dcterms:abstract>
+        <dc:title>Comparison of regression models for estimation of isometric wrist joint torques using surface electromyography</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:1743-0003">
+        <prism:volume>8</prism:volume>
+        <dc:title>Journal of NeuroEngineering and Rehabilitation</dc:title>
+        <dc:identifier>ISSN 1743-0003</dc:identifier>
+        <dcterms:alternative>J Neuroeng Rehabil</dcterms:alternative>
+        <dc:identifier>DOI 10.1186/1743-0003-8-56</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_54">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3198911/pdf/1743-0003-8-56.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 17:27:29</dcterms:dateSubmitted>
+        <dc:title>PubMed Central Full Text PDF</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_53">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3198911/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 17:27:27</dcterms:dateSubmitted>
+        <dc:title>PubMed Central Link</dc:title>
+        <z:linkMode>3</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="http://ieeexplore.ieee.org/document/204774/">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:00189294"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hudgins</foaf:surname>
+                        <foaf:givenname>B.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Parker</foaf:surname>
+                        <foaf:givenname>P.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Scott</foaf:surname>
+                        <foaf:givenname>R.N.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:subject>wrist</dc:subject>
+        <dc:subject>ANN</dc:subject>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://ieeexplore.ieee.org/document/204774/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>82-94</bib:pages>
+        <dc:date>Jan./1993</dc:date>
+        <dcterms:dateSubmitted>2018-10-21 17:28:12</dcterms:dateSubmitted>
+        <z:libraryCatalog>Crossref</z:libraryCatalog>
+        <dc:title>A new strategy for multifunction myoelectric control</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:00189294">
+        <prism:volume>40</prism:volume>
+        <prism:number>1</prism:number>
+        <dc:title>IEEE Transactions on Biomedical Engineering</dc:title>
+        <dc:identifier>ISSN 00189294</dc:identifier>
+        <dc:identifier>DOI 10.1109/10.204774</dc:identifier>
+    </bib:Journal>
+    <bib:Article rdf:about="#item_56">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <prism:volume>8</prism:volume>
+                <dc:title>Journal of NeuroEngineering and Rehabilitation</dc:title>
+                <dc:identifier>ISSN 1743-0003</dc:identifier>
+                <dcterms:alternative>J Neuroeng Rehabil</dcterms:alternative>
+                <dc:identifier>DOI 10.1186/1743-0003-8-56</dc:identifier>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Ziai</foaf:surname>
+                        <foaf:givenname>Amirreza</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Menon</foaf:surname>
+                        <foaf:givenname>Carlo</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_58"/>
+        <link:link rdf:resource="#item_57"/>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3198911/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>56</bib:pages>
+        <dc:date>2011-9-26</dc:date>
+        <dc:description>PMID: 21943179
+PMCID: PMC3198911</dc:description>
+        <dcterms:dateSubmitted>2018-10-21 17:28:34</dcterms:dateSubmitted>
+        <z:libraryCatalog>PubMed Central</z:libraryCatalog>
+        <dcterms:abstract>Background
+Several regression models have been proposed for estimation of isometric joint torque using surface electromyography (SEMG) signals. Common issues related to torque estimation models are degradation of model accuracy with passage of time, electrode displacement, and alteration of limb posture. This work compares the performance of the most commonly used regression models under these circumstances, in order to assist researchers with identifying the most appropriate model for a specific biomedical application.
+
+Methods
+Eleven healthy volunteers participated in this study. A custom-built rig, equipped with a torque sensor, was used to measure isometric torque as each volunteer flexed and extended his wrist. SEMG signals from eight forearm muscles, in addition to wrist joint torque data were gathered during the experiment. Additional data were gathered one hour and twenty-four hours following the completion of the first data gathering session, for the purpose of evaluating the effects of passage of time and electrode displacement on accuracy of models. Acquired SEMG signals were filtered, rectified, normalized and then fed to models for training.
+
+Results
+It was shown that mean adjusted coefficient of determination (Ra2) values decrease between 20%-35% for different models after one hour while altering arm posture decreased mean Ra2 values between 64% to 74% for different models.
+
+Conclusions
+Model estimation accuracy drops significantly with passage of time, electrode displacement, and alteration of limb posture. Therefore model retraining is crucial for preserving estimation accuracy. Data resampling can significantly reduce model training time without losing estimation accuracy. Among the models compared, ordinary least squares linear regression model (OLS) was shown to have high isometric torque estimation accuracy combined with very short training times.</dcterms:abstract>
+        <dc:title>Comparison of regression models for estimation of isometric wrist joint torques using surface electromyography</dc:title>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_58">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3198911/pdf/1743-0003-8-56.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 17:28:37</dcterms:dateSubmitted>
+        <dc:title>PubMed Central Full Text PDF</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_57">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3198911/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 17:28:34</dcterms:dateSubmitted>
+        <dc:title>PubMed Central Link</dc:title>
+        <z:linkMode>3</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="urn:isbn:978-1-4244-0787-3%20978-1-4244-0788-0">
+        <z:itemType>conferencePaper</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:identifier>ISBN 978-1-4244-0787-3 978-1-4244-0788-0</dc:identifier>
+                <dc:identifier>DOI 10.1109/IEMBS.2007.4353415</dc:identifier>
+                <dc:title>2007 29th Annual International Conference of the IEEE Engineering in Medicine and Biology Society</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Lyon, France</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>IEEE</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Shi</foaf:surname>
+                        <foaf:givenname>Jun</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Zheng</foaf:surname>
+                        <foaf:givenname>Yongping</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Yan</foaf:surname>
+                        <foaf:givenname>Zhuangzhi</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://ieeexplore.ieee.org/document/4353415/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>4806-4809</bib:pages>
+        <dc:date>08/2007</dc:date>
+        <dcterms:dateSubmitted>2018-10-21 17:28:47</dcterms:dateSubmitted>
+        <z:libraryCatalog>Crossref</z:libraryCatalog>
+        <bib:presentedAt>
+            <bib:Conference>
+                <dc:title>2007 29th Annual International Conference of the IEEE Engineering in Medicine and Biology Society</dc:title>
+            </bib:Conference>
+        </bib:presentedAt>
+        <dc:title>SVM for Estimation of Wrist Angle from Sonomyography And SEMG Signals</dc:title>
+    </rdf:Description>
+    <bib:Article rdf:about="#item_60">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <prism:volume>8</prism:volume>
+                <dc:title>Journal of NeuroEngineering and Rehabilitation</dc:title>
+                <dc:identifier>ISSN 1743-0003</dc:identifier>
+                <dcterms:alternative>J Neuroeng Rehabil</dcterms:alternative>
+                <dc:identifier>DOI 10.1186/1743-0003-8-56</dc:identifier>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Ziai</foaf:surname>
+                        <foaf:givenname>Amirreza</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Menon</foaf:surname>
+                        <foaf:givenname>Carlo</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_62"/>
+        <link:link rdf:resource="#item_61"/>
+        <dc:subject>wrist</dc:subject>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3198911/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>56</bib:pages>
+        <dc:date>2011-9-26</dc:date>
+        <dc:description>PMID: 21943179
+PMCID: PMC3198911</dc:description>
+        <dcterms:dateSubmitted>2018-10-21 17:28:50</dcterms:dateSubmitted>
+        <z:libraryCatalog>PubMed Central</z:libraryCatalog>
+        <dcterms:abstract>Background
+Several regression models have been proposed for estimation of isometric joint torque using surface electromyography (SEMG) signals. Common issues related to torque estimation models are degradation of model accuracy with passage of time, electrode displacement, and alteration of limb posture. This work compares the performance of the most commonly used regression models under these circumstances, in order to assist researchers with identifying the most appropriate model for a specific biomedical application.
+
+Methods
+Eleven healthy volunteers participated in this study. A custom-built rig, equipped with a torque sensor, was used to measure isometric torque as each volunteer flexed and extended his wrist. SEMG signals from eight forearm muscles, in addition to wrist joint torque data were gathered during the experiment. Additional data were gathered one hour and twenty-four hours following the completion of the first data gathering session, for the purpose of evaluating the effects of passage of time and electrode displacement on accuracy of models. Acquired SEMG signals were filtered, rectified, normalized and then fed to models for training.
+
+Results
+It was shown that mean adjusted coefficient of determination (Ra2) values decrease between 20%-35% for different models after one hour while altering arm posture decreased mean Ra2 values between 64% to 74% for different models.
+
+Conclusions
+Model estimation accuracy drops significantly with passage of time, electrode displacement, and alteration of limb posture. Therefore model retraining is crucial for preserving estimation accuracy. Data resampling can significantly reduce model training time without losing estimation accuracy. Among the models compared, ordinary least squares linear regression model (OLS) was shown to have high isometric torque estimation accuracy combined with very short training times.</dcterms:abstract>
+        <dc:title>Comparison of regression models for estimation of isometric wrist joint torques using surface electromyography</dc:title>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_62">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3198911/pdf/1743-0003-8-56.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 17:28:52</dcterms:dateSubmitted>
+        <dc:title>PubMed Central Full Text PDF</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_61">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3198911/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 17:28:50</dcterms:dateSubmitted>
+        <dc:title>PubMed Central Link</dc:title>
+        <z:linkMode>3</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="http://ieeexplore.ieee.org/document/4353415/">
+        <z:itemType>conferencePaper</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:identifier>ISBN 978-1-4244-0787-3 978-1-4244-0788-0</dc:identifier>
+                <dc:identifier>DOI 10.1109/IEMBS.2007.4353415</dc:identifier>
+                <dc:title>2007 29th Annual International Conference of the IEEE Engineering in Medicine and Biology Society</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Lyon, France</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>IEEE</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Shi</foaf:surname>
+                        <foaf:givenname>Jun</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Zheng</foaf:surname>
+                        <foaf:givenname>Yongping</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Yan</foaf:surname>
+                        <foaf:givenname>Zhuangzhi</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://ieeexplore.ieee.org/document/4353415/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>4806-4809</bib:pages>
+        <dc:date>08/2007</dc:date>
+        <dcterms:dateSubmitted>2018-10-21 17:29:07</dcterms:dateSubmitted>
+        <z:libraryCatalog>Crossref</z:libraryCatalog>
+        <bib:presentedAt>
+            <bib:Conference>
+                <dc:title>2007 29th Annual International Conference of the IEEE Engineering in Medicine and Biology Society</dc:title>
+            </bib:Conference>
+        </bib:presentedAt>
+        <dc:title>SVM for Estimation of Wrist Angle from Sonomyography And SEMG Signals</dc:title>
+    </rdf:Description>
+    <rdf:Description rdf:about="#item_64">
+        <z:itemType>conferencePaper</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:identifier>ISBN 978-1-4244-0787-3 978-1-4244-0788-0</dc:identifier>
+                <dc:identifier>DOI 10.1109/IEMBS.2007.4353415</dc:identifier>
+                <dc:title>2007 29th Annual International Conference of the IEEE Engineering in Medicine and Biology Society</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Lyon, France</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>IEEE</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Shi</foaf:surname>
+                        <foaf:givenname>Jun</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Zheng</foaf:surname>
+                        <foaf:givenname>Yongping</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Yan</foaf:surname>
+                        <foaf:givenname>Zhuangzhi</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://ieeexplore.ieee.org/document/4353415/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>4806-4809</bib:pages>
+        <dc:date>08/2007</dc:date>
+        <dcterms:dateSubmitted>2018-10-21 17:29:07</dcterms:dateSubmitted>
+        <z:libraryCatalog>Crossref</z:libraryCatalog>
+        <bib:presentedAt>
+            <bib:Conference>
+                <dc:title>2007 29th Annual International Conference of the IEEE Engineering in Medicine and Biology Society</dc:title>
+            </bib:Conference>
+        </bib:presentedAt>
+        <dc:title>SVM for Estimation of Wrist Angle from Sonomyography And SEMG Signals</dc:title>
+    </rdf:Description>
+    <rdf:Description rdf:about="#item_65">
+        <z:itemType>conferencePaper</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:identifier>ISBN 978-1-4244-0787-3 978-1-4244-0788-0</dc:identifier>
+                <dc:identifier>DOI 10.1109/IEMBS.2007.4353415</dc:identifier>
+                <dc:title>2007 29th Annual International Conference of the IEEE Engineering in Medicine and Biology Society</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Lyon, France</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>IEEE</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Shi</foaf:surname>
+                        <foaf:givenname>Jun</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Zheng</foaf:surname>
+                        <foaf:givenname>Yongping</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Yan</foaf:surname>
+                        <foaf:givenname>Zhuangzhi</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:subject>wrist</dc:subject>
+        <dc:subject>SVM</dc:subject>
+        <dc:subject>Sono</dc:subject>
+        <dc:subject>RMS</dc:subject>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://ieeexplore.ieee.org/document/4353415/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>4806-4809</bib:pages>
+        <dc:date>08/2007</dc:date>
+        <dcterms:dateSubmitted>2018-10-21 17:29:07</dcterms:dateSubmitted>
+        <z:libraryCatalog>Crossref</z:libraryCatalog>
+        <bib:presentedAt>
+            <bib:Conference>
+                <dc:title>2007 29th Annual International Conference of the IEEE Engineering in Medicine and Biology Society</dc:title>
+            </bib:Conference>
+        </bib:presentedAt>
+        <dc:title>SVM for Estimation of Wrist Angle from Sonomyography And SEMG Signals</dc:title>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:isbn:978-1-4577-1426-9">
+        <z:itemType>conferencePaper</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:identifier>ISBN 978-1-4577-1426-9</dc:identifier>
+                <dc:identifier>DOI 10.1109/IDAACS.2011.6072755</dc:identifier>
+                <dc:title>Proceedings of the 6th IEEE International Conference on Intelligent Data Acquisition and Advanced Computing Systems</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Prague, Czech Republic</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>IEEE</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Sawaguchi</foaf:surname>
+                        <foaf:givenname>Eita</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Sadahiro</foaf:surname>
+                        <foaf:givenname>Teruyoshi</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Iwase</foaf:surname>
+                        <foaf:givenname>Masami</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:subject>wrist</dc:subject>
+        <dc:subject>musculoskeletal model</dc:subject>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://ieeexplore.ieee.org/document/6072755/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>269-276</bib:pages>
+        <dc:date>09/2011</dc:date>
+        <dcterms:dateSubmitted>2018-10-21 17:29:50</dcterms:dateSubmitted>
+        <z:libraryCatalog>Crossref</z:libraryCatalog>
+        <bib:presentedAt>
+            <bib:Conference>
+                <dc:title>2011 IEEE 6th International Conference on Intelligent Data Acquisition and Advanced Computing Systems: Technology and Applications (IDAACS)</dc:title>
+            </bib:Conference>
+        </bib:presentedAt>
+        <dc:title>Wrist angle estimation based on musculoskeletal systems with EMG</dc:title>
+    </rdf:Description>
+    <bib:Article rdf:about="https://doi.org/10.1186/1743-0003-9-42">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <prism:volume>9</prism:volume>
+                <prism:number>1</prism:number>
+                <dc:title>Journal of NeuroEngineering and Rehabilitation</dc:title>
+                <dc:identifier>ISSN 1743-0003</dc:identifier>
+                <dcterms:alternative>Journal of NeuroEngineering and Rehabilitation</dcterms:alternative>
+                <dc:identifier>DOI 10.1186/1743-0003-9-42</dc:identifier>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Jiang</foaf:surname>
+                        <foaf:givenname>Ning</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Vest-Nielsen</foaf:surname>
+                        <foaf:givenname>Johnny LG</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Muceli</foaf:surname>
+                        <foaf:givenname>Silvia</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Farina</foaf:surname>
+                        <foaf:givenname>Dario</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_68"/>
+        <link:link rdf:resource="#item_69"/>
+        <dc:subject>wrist</dc:subject>
+        <dc:subject>TDAR</dc:subject>
+        <dc:subject>MAV</dc:subject>
+        <dc:subject>ZC</dc:subject>
+        <dc:subject>wave length</dc:subject>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://doi.org/10.1186/1743-0003-9-42</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>42</bib:pages>
+        <dc:date>June 28, 2012</dc:date>
+        <dcterms:dateSubmitted>2018-10-21 17:29:54</dcterms:dateSubmitted>
+        <z:libraryCatalog>BioMed Central</z:libraryCatalog>
+        <dcterms:abstract>We propose a method for estimating wrist kinematics during dynamic wrist contractions from multi-channel surface electromyography (EMG). The algorithm extracts features from the surface EMG and uses dedicated multi-layer perceptron networks to estimate individual joint angles of the 3 degrees of freedom (DoFs) of the wrist. The method was designed with the aim of proportional and simultaneous control of multiple DoFs of active prostheses by unilateral amputees. Therefore, the proposed approach was tested in both unilateral transradial amputees and in intact-limbed control subjects. It was shown that the joint angles at the 3 DoFs of amputees can be estimated from surface EMG recordings , during mirrored bi-lateral contractions that simultaneously and proportionally articulated the 3 DoFs. The estimation accuracies of amputee subjects with long stumps were 62.5% ± 8.50% across all 3 DoFs, while accuracies of the intact-limbed control subjects were 72.0% ± 8.29%. The estimation results from intact-limbed subjects were consistent with earlier studies. The results from the current study demonstrated the feasibility of the proposed myoelectric control approach to provide a more intuitive myoelectric control strategy for unilateral transradial amputees.</dcterms:abstract>
+        <dc:title>EMG-based simultaneous and proportional estimation of wrist/hand kinematics in uni-lateral trans-radial amputees</dc:title>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_68">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://jneuroengrehab.biomedcentral.com/track/pdf/10.1186/1743-0003-9-42</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 17:29:56</dcterms:dateSubmitted>
+        <dc:title>Full Text PDF</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_69">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://jneuroengrehab.biomedcentral.com/articles/10.1186/1743-0003-9-42</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 17:29:58</dcterms:dateSubmitted>
+        <dc:title>Snapshot</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="urn:isbn:978-1-4244-4123-5%20978-1-4244-4124-2">
+        <z:itemType>conferencePaper</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:identifier>ISBN 978-1-4244-4123-5 978-1-4244-4124-2</dc:identifier>
+                <dc:identifier>DOI 10.1109/IEMBS.2010.5627622</dc:identifier>
+                <dc:title>2010 Annual International Conference of the IEEE Engineering in Medicine and Biology</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Buenos Aires</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>IEEE</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Muceli</foaf:surname>
+                        <foaf:givenname>S</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>Ning Jiang</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Farina</foaf:surname>
+                        <foaf:givenname>D</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:subject>wrist</dc:subject>
+        <dc:subject>ABS-LPF</dc:subject>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://ieeexplore.ieee.org/document/5627622/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>6066-6069</bib:pages>
+        <dc:date>08/2010</dc:date>
+        <dcterms:dateSubmitted>2018-10-21 17:30:06</dcterms:dateSubmitted>
+        <z:libraryCatalog>Crossref</z:libraryCatalog>
+        <bib:presentedAt>
+            <bib:Conference>
+                <dc:title>2010 32nd Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC 2010)</dc:title>
+            </bib:Conference>
+        </bib:presentedAt>
+        <dc:title>Multichannel surface EMG based estimation of bilateral hand kinematics during movements at multiple degrees of freedom</dc:title>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:isbn:978-1-4673-1026-0%20978-1-4673-1024-6%20978-1-4673-1025-3">
+        <z:itemType>conferencePaper</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:identifier>ISBN 978-1-4673-1026-0 978-1-4673-1024-6 978-1-4673-1025-3</dc:identifier>
+                <dc:identifier>DOI 10.1109/MLSP.2012.6349712</dc:identifier>
+                <dc:title>2012 IEEE International Workshop on Machine Learning for Signal Processing</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Santander, Spain</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>IEEE</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hahne</foaf:surname>
+                        <foaf:givenname>J. M.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Rehbaum</foaf:surname>
+                        <foaf:givenname>H.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Biessmann</foaf:surname>
+                        <foaf:givenname>F.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Meinecke</foaf:surname>
+                        <foaf:givenname>F. C.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Muller</foaf:surname>
+                        <foaf:givenname>K.-R.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Jiang</foaf:surname>
+                        <foaf:givenname>N.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Farina</foaf:surname>
+                        <foaf:givenname>D.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Parra</foaf:surname>
+                        <foaf:givenname>L. C.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:subject>wrist</dc:subject>
+        <dc:subject>MLP</dc:subject>
+        <dc:subject>RMS</dc:subject>
+        <dc:subject>log-power</dc:subject>
+        <dc:subject>linear regression</dc:subject>
+        <dc:subject>power</dc:subject>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://ieeexplore.ieee.org/document/6349712/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>1-6</bib:pages>
+        <dc:date>09/2012</dc:date>
+        <dcterms:dateSubmitted>2018-10-21 17:30:13</dcterms:dateSubmitted>
+        <z:libraryCatalog>Crossref</z:libraryCatalog>
+        <bib:presentedAt>
+            <bib:Conference>
+                <dc:title>2012 IEEE International Workshop on Machine Learning for Signal Processing (MLSP)</dc:title>
+            </bib:Conference>
+        </bib:presentedAt>
+        <dc:title>Simultaneous and proportional control of 2D wrist movements with myoelectric signals</dc:title>
+    </rdf:Description>
+    <bib:Article rdf:about="http://ieeexplore.ieee.org/document/7332757/">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:1534-4320,%201558-0210"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hofmann</foaf:surname>
+                        <foaf:givenname>David</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Jiang</foaf:surname>
+                        <foaf:givenname>Ning</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Vujaklija</foaf:surname>
+                        <foaf:givenname>Ivan</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Farina</foaf:surname>
+                        <foaf:givenname>Dario</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_77"/>
+        <dc:subject>wrist</dc:subject>
+        <dc:subject>MAV</dc:subject>
+        <dc:subject>Bayesian filter</dc:subject>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://ieeexplore.ieee.org/document/7332757/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>1333-1341</bib:pages>
+        <dc:date>12/2016</dc:date>
+        <dcterms:dateSubmitted>2018-10-21 17:30:19</dcterms:dateSubmitted>
+        <z:libraryCatalog>Crossref</z:libraryCatalog>
+        <dc:title>Bayesian Filtering of Surface EMG for Accurate Simultaneous and Proportional Prosthetic Control</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:1534-4320,%201558-0210">
+        <prism:volume>24</prism:volume>
+        <prism:number>12</prism:number>
+        <dc:title>IEEE Transactions on Neural Systems and Rehabilitation Engineering</dc:title>
+        <dc:identifier>ISSN 1534-4320, 1558-0210</dc:identifier>
+        <dc:identifier>DOI 10.1109/TNSRE.2015.2501979</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_77">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://spiral.imperial.ac.uk/bitstream/10044/1/49340/6/07332757.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 17:30:33</dcterms:dateSubmitted>
+        <dc:title>Submitted Version</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4188712/">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:1932-6203"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Gazzoni</foaf:surname>
+                        <foaf:givenname>Marco</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Celadon</foaf:surname>
+                        <foaf:givenname>Nicolò</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Mastrapasqua</foaf:surname>
+                        <foaf:givenname>Davide</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Paleari</foaf:surname>
+                        <foaf:givenname>Marco</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Margaria</foaf:surname>
+                        <foaf:givenname>Valentina</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Ariano</foaf:surname>
+                        <foaf:givenname>Paolo</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_75"/>
+        <link:link rdf:resource="#item_74"/>
+        <dc:subject>NNMF</dc:subject>
+        <dc:subject>ABS-LPF</dc:subject>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4188712/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>2014-10-7</dc:date>
+        <dc:description>PMID: 25289669
+PMCID: PMC4188712</dc:description>
+        <dcterms:dateSubmitted>2018-10-21 17:30:26</dcterms:dateSubmitted>
+        <z:libraryCatalog>PubMed Central</z:libraryCatalog>
+        <dcterms:abstract>The study of hand and finger movement is an important topic with applications in prosthetics, rehabilitation, and ergonomics. Surface electromyography (sEMG) is the gold standard for the analysis of muscle activation. Previous studies investigated the optimal electrode number and positioning on the forearm to obtain information representative of muscle activation and robust to movements. However, the sEMG spatial distribution on the forearm during hand and finger movements and its changes due to different hand positions has never been quantified. The aim of this work is to quantify 1) the spatial localization of surface EMG activity of distinct forearm muscles during dynamic free movements of wrist and single fingers and 2) the effect of hand position on sEMG activity distribution. The subjects performed cyclic dynamic tasks involving the wrist and the fingers. The wrist tasks and the hand opening/closing task were performed with the hand in prone and neutral positions. A sensorized glove was used for kinematics recording. sEMG signals were acquired from the forearm muscles using a grid of 112 electrodes integrated into a stretchable textile sleeve. The areas of sEMG activity have been identified by a segmentation technique after a data dimensionality reduction step based on Non Negative Matrix Factorization applied to the EMG envelopes. The results show that 1) it is possible to identify distinct areas of sEMG activity on the forearm for different fingers; 2) hand position influences sEMG activity level and spatial distribution. This work gives new quantitative information about sEMG activity distribution on the forearm in healthy subjects and provides a basis for future works on the identification of optimal electrode configuration for sEMG based control of prostheses, exoskeletons, or orthoses. An example of use of this information for the optimization of the detection system for the estimation of joint kinematics from sEMG is reported.</dcterms:abstract>
+        <dc:title>Quantifying Forearm Muscle Activity during Wrist and Finger Movements by Means of Multi-Channel Electromyography</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:1932-6203">
+        <prism:volume>9</prism:volume>
+        <prism:number>10</prism:number>
+        <dc:title>PLoS ONE</dc:title>
+        <dc:identifier>ISSN 1932-6203</dc:identifier>
+        <dcterms:alternative>PLoS One</dcterms:alternative>
+        <dc:identifier>DOI 10.1371/journal.pone.0109943</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_75">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4188712/pdf/pone.0109943.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 17:30:29</dcterms:dateSubmitted>
+        <dc:title>PubMed Central Full Text PDF</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_74">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4188712/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 17:30:26</dcterms:dateSubmitted>
+        <dc:title>PubMed Central Link</dc:title>
+        <z:linkMode>3</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Document rdf:about="https://www.researchgate.net/publication/283713267_EMG-based_learning_approach_for_estimating_wrist_motion">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+           <z:Website><dc:title>ResearchGate</dc:title></z:Website>
+        </dcterms:isPartOf>
+        <link:link rdf:resource="#item_78"/>
+        <link:link rdf:resource="#item_79"/>
+        <dc:subject>wrist</dc:subject>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.researchgate.net/publication/283713267_EMG-based_learning_approach_for_estimating_wrist_motion</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:description>DOI: http://dx.doi.org/10.1109/EMBC.2015.7319938</dc:description>
+        <dcterms:dateSubmitted>2018-10-21 17:30:30</dcterms:dateSubmitted>
+        <z:language>en</z:language>
+        <dcterms:abstract>PDF | This paper proposes an EMG based learning approach for estimating the displacement along the 2-axes (abduction/adduction and flexion/extension) of the human wrist in real-time. The algorithm extracts features from the EMG electrodes on the upper and forearm and uses Support...</dcterms:abstract>
+        <dc:title>(PDF) EMG-based learning approach for estimating wrist motion</dc:title>
+    </bib:Document>
+    <z:Attachment rdf:about="#item_78">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.researchgate.net/publication/283713267_EMG-based_learning_approach_for_estimating_wrist_motion</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 17:30:33</dcterms:dateSubmitted>
+        <dc:title>Snapshot</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_79">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://infoscience.epfl.ch/record/209120/files/EMBC_234.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 17:30:37</dcterms:dateSubmitted>
+        <dc:title>Submitted Version</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5575159/">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:1662-4548"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Liu</foaf:surname>
+                        <foaf:givenname>Jie</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Kang</foaf:surname>
+                        <foaf:givenname>Sang Hoon</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Xu</foaf:surname>
+                        <foaf:givenname>Dali</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Ren</foaf:surname>
+                        <foaf:givenname>Yupeng</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Lee</foaf:surname>
+                        <foaf:givenname>Song Joo</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Zhang</foaf:surname>
+                        <foaf:givenname>Li-Qun</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_82"/>
+        <link:link rdf:resource="#item_81"/>
+        <dc:subject>ABS-LPF</dc:subject>
+        <dc:subject>NARX</dc:subject>
+        <dc:subject>arm</dc:subject>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5575159/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>2017-8-25</dc:date>
+        <dc:description>PMID: 28890685
+PMCID: PMC5575159</dc:description>
+        <dcterms:dateSubmitted>2018-10-21 17:30:50</dcterms:dateSubmitted>
+        <z:libraryCatalog>PubMed Central</z:libraryCatalog>
+        <dcterms:abstract>Among the potential biological signals for human-machine interactions (brain, nerve, and muscle signals), electromyography (EMG) widely used in clinical setting can be obtained non-invasively as motor commands to control movements. The aim of this study was to develop a model for continuous and simultaneous decoding of multi-joint dynamic arm movements based on multi-channel surface EMG signals crossing the joints, leading to application of myoelectrically controlled exoskeleton robots for upper-limb rehabilitation. Twenty subjects were recruited for this study including 10 stroke subjects and 10 able-bodied subjects. The subjects performed free arm reaching movements in the horizontal plane with an exoskeleton robot. The shoulder, elbow and wrist movements and surface EMG signals from six muscles crossing the three joints were recorded. A non-linear autoregressive exogenous (NARX) model was developed to continuously decode the shoulder, elbow and wrist movements based solely on the EMG signals. The shoulder, elbow and wrist movements were decoded accurately based only on the EMG inputs in all the subjects, with the variance accounted for (VAF) &gt; 98% for all three joints. The proposed approach is capable of simultaneously and continuously decoding multi-joint movements of the human arm by taking into account the non-linear mappings between the muscle EMGs and joint movements, which may provide less effortful control of robotic exoskeletons for rehabilitation training of individuals with neurological disorders and arm impairment.</dcterms:abstract>
+        <dc:title>EMG-Based Continuous and Simultaneous Estimation of Arm Kinematics in Able-Bodied Individuals and Stroke Survivors</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:1662-4548">
+        <prism:volume>11</prism:volume>
+        <dc:title>Frontiers in Neuroscience</dc:title>
+        <dc:identifier>ISSN 1662-4548</dc:identifier>
+        <dcterms:alternative>Front Neurosci</dcterms:alternative>
+        <dc:identifier>DOI 10.3389/fnins.2017.00480</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_82">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5575159/pdf/fnins-11-00480.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 17:30:53</dcterms:dateSubmitted>
+        <dc:title>PubMed Central Full Text PDF</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_81">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5575159/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 17:30:51</dcterms:dateSubmitted>
+        <dc:title>PubMed Central Link</dc:title>
+        <z:linkMode>3</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="urn:isbn:978-1-4503-4765-5">
+        <z:itemType>conferencePaper</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dcterms:isPartOf>
+                   <bib:Series><dc:title>REHAB '16</dc:title></bib:Series>
+                </dcterms:isPartOf>
+                <dc:identifier>ISBN 978-1-4503-4765-5</dc:identifier>
+                <dc:identifier>DOI 10.1145/3051488.3051498</dc:identifier>
+                <dc:title>Proceedings of the 4th Workshop on ICTs for Improving Patients Rehabilitation Research Techniques</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>New York, NY, USA</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>ACM</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Alazrai</foaf:surname>
+                        <foaf:givenname>Rami</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Alabed</foaf:surname>
+                        <foaf:givenname>Deena</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Alnuman</foaf:surname>
+                        <foaf:givenname>Nasim</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Khalifeh</foaf:surname>
+                        <foaf:givenname>Ala</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Mowafi</foaf:surname>
+                        <foaf:givenname>Yaser</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:subject>wrist</dc:subject>
+        <dc:subject>SVR</dc:subject>
+        <dc:subject>DWT</dc:subject>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://doi.acm.org/10.1145/3051488.3051498</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>65–68</bib:pages>
+        <dc:date>2016</dc:date>
+        <dcterms:dateSubmitted>2018-10-21 17:30:56</dcterms:dateSubmitted>
+        <z:libraryCatalog>ACM Digital Library</z:libraryCatalog>
+        <dcterms:abstract>Developing robust hand kinematic estimation mechanisms is considered an essential requirement to enhance the quality of life for amputees. These robust control mechanisms enable to control robotic hands in a way that can mimic the human hand functions. In this paper, we propose a surface electromyography (sEMG)-based approach for continuous estimation of wrist and fingers' joint angles. The proposed approach utilizes the discrete wavelet transform (DWT) to construct a time-frequency representation of the sEMG signals. Then, using the time-frequency representation, a set of time-frequency features are extracted. In order to estimate the wrist and fingers' joint angles, we utilize the extracted time-frequency features to train a set of support vector regression (SVR) models. Evaluation results of the proposed approach, using the NinaPro database, demonstrate the efficiency of the approach in providing a feasible method towards accurately estimating wrist and fingers' joint angles from the sEMG signals.</dcterms:abstract>
+        <dc:title>Continuous Estimation of Hand's Joint Angles from sEMG Using Wavelet-based Features and SVR</dc:title>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:isbn:978-1-4244-7929-0">
+        <z:itemType>conferencePaper</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:identifier>ISBN 978-1-4244-7929-0</dc:identifier>
+                <dc:identifier>DOI 10.1109/EMBC.2014.6944764</dc:identifier>
+                <dc:title>2014 36th Annual International Conference of the IEEE Engineering in Medicine and Biology Society</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Chicago, IL</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>IEEE</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>Qin Zhang</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>Caihua Xiong</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>Wenbin Chen</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:subject>wrist</dc:subject>
+        <dc:subject>MAV</dc:subject>
+        <dc:subject>PCA</dc:subject>
+        <dc:subject>ICA</dc:subject>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://ieeexplore.ieee.org/document/6944764/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>5068-5071</bib:pages>
+        <dc:date>8/2014</dc:date>
+        <dcterms:dateSubmitted>2018-10-21 17:31:39</dcterms:dateSubmitted>
+        <z:libraryCatalog>Crossref</z:libraryCatalog>
+        <bib:presentedAt>
+            <bib:Conference>
+                <dc:title>2014 36th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC)</dc:title>
+            </bib:Conference>
+        </bib:presentedAt>
+        <dc:title>Continuous motion decoding from EMG using independent component analysis and adaptive model training</dc:title>
+    </rdf:Description>
+    <bib:Article rdf:about="http://boletintecnico.com/index.php/bt/article/view/240">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:0376-723X"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Only</foaf:surname>
+                        <foaf:givenname>Subscribers</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_86"/>
+        <link:link rdf:resource="#item_87"/>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>http://boletintecnico.com/index.php/bt/article/view/240</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:rights>Copyright (c)</dc:rights>
+        <dc:date>2017/04/21</dc:date>
+        <dcterms:dateSubmitted>2018-10-21 17:31:58</dcterms:dateSubmitted>
+        <z:libraryCatalog>boletintecnico.com</z:libraryCatalog>
+        <z:language>en</z:language>
+        <dc:title>Continuous Estimation of Wrist Angles for Proportional Control Based on Surface Electromyography</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:0376-723X">
+        <prism:volume>55</prism:volume>
+        <prism:number>1</prism:number>
+        <dc:title>Boletín Técnico, ISSN:0376-723X</dc:title>
+        <dc:identifier>ISSN 0376-723X</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_86">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>http://boletintecnico.com/index.php/bt/article/download/240/9</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 17:32:00</dcterms:dateSubmitted>
+        <dc:title>Full Text PDF</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_87">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>http://boletintecnico.com/index.php/bt/article/view/240</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 17:32:02</dcterms:dateSubmitted>
+        <dc:title>Snapshot</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_88">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:title>Boletín Técnico, ISSN:0376-723X; Vol 55 No 1 (2017): Volume 55, Issue 1</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Only</foaf:surname>
+                        <foaf:givenname>Subscribers</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>http://boletintecnico.com/index.php/bt/article/view/240</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>4 月 21, 2017</dc:date>
+        <dcterms:abstract>Subscribers Only</dcterms:abstract>
+        <dc:title>Continuous Estimation of Wrist Angles for Proportional Control Based on Surface Electromyography</dc:title>
+    </bib:Article>
+    <bib:Article rdf:about="#item_89">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:title>Boletín Técnico, ISSN:0376-723X; Vol 55 No 1 (2017): Volume 55, Issue 1</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>Weixing Wang</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>Shouqian Sun</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:subject>wrist</dc:subject>
+        <dc:subject>RMS</dc:subject>
+        <dc:subject>BPNN</dc:subject>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>http://boletintecnico.com/index.php/bt/article/view/240</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>4 月 21, 2017</dc:date>
+        <dc:title>Continuous Estimation of Wrist Angles for Proportional Control Based on Surface Electromyography</dc:title>
+    </bib:Article>
+    <rdf:Description rdf:about="urn:isbn:978-1-4244-9271-8">
+        <z:itemType>conferencePaper</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:identifier>ISBN 978-1-4244-9271-8</dc:identifier>
+                <dc:identifier>DOI 10.1109/EMBC.2015.7319938</dc:identifier>
+                <dc:title>2015 37th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC)</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Milan</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>IEEE</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>El-Khoury</foaf:surname>
+                        <foaf:givenname>S.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Batzianoulis</foaf:surname>
+                        <foaf:givenname>I.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Antuvan</foaf:surname>
+                        <foaf:givenname>C. W.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Contu</foaf:surname>
+                        <foaf:givenname>S.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Masia</foaf:surname>
+                        <foaf:givenname>L.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Micera</foaf:surname>
+                        <foaf:givenname>S.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Billard</foaf:surname>
+                        <foaf:givenname>A.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_91"/>
+        <dc:subject>ABS-LPF</dc:subject>
+        <dc:subject>SVR</dc:subject>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://ieeexplore.ieee.org/document/7319938/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>6732-6735</bib:pages>
+        <dc:date>8/2015</dc:date>
+        <dcterms:dateSubmitted>2018-10-21 17:39:00</dcterms:dateSubmitted>
+        <z:libraryCatalog>Crossref</z:libraryCatalog>
+        <bib:presentedAt>
+            <bib:Conference>
+                <dc:title>2015 37th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC)</dc:title>
+            </bib:Conference>
+        </bib:presentedAt>
+        <dc:title>EMG-based learning approach for estimating wrist motion</dc:title>
+    </rdf:Description>
+    <z:Attachment rdf:about="#item_91">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://infoscience.epfl.ch/record/209120/files/EMBC_234.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 17:39:02</dcterms:dateSubmitted>
+        <dc:title>Submitted Version</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
     <z:Collection rdf:about="#collection_2">
-        <dc:title>sage_arxa10</dc:title>
+        <dc:title>sEMG</dc:title>
+        <dcterms:hasPart rdf:resource="#collection_4"/>
         <dcterms:hasPart rdf:resource="https://doi.org/10.5772/56717"/>
         <dcterms:hasPart rdf:resource="http://www.wiley.com/WileyCDA/WileyTitle/productCd-0471675806,miniSiteCd-IEEE2.html"/>
         <dcterms:hasPart rdf:resource="https://journals.lww.com/jbjsjournal/Citation/1944/26010/OBSERVATIONS_ON_THE_FUNCTION_OF_THE_SHOULDER_JOINT.1.aspx"/>
@@ -1088,5 +2643,42 @@ The results of this study showed that classification of EMG signals by separatin
         <dcterms:hasPart rdf:resource="#item_36"/>
         <dcterms:hasPart rdf:resource="http://arxiv.org/abs/physics/0611120"/>
         <dcterms:hasPart rdf:resource="urn:isbn:978-90-75452-09-9"/>
+    </z:Collection>
+    <z:Collection rdf:about="#collection_4">
+        <dc:title>Wrist angle</dc:title>
+        <dcterms:hasPart rdf:resource="#item_36"/>
+        <dcterms:hasPart rdf:resource="http://ieeexplore.ieee.org/document/5551179/"/>
+        <dcterms:hasPart rdf:resource="http://ieeexplore.ieee.org/document/204774/"/>
+        <dcterms:hasPart rdf:resource="#item_60"/>
+        <dcterms:hasPart rdf:resource="#item_65"/>
+        <dcterms:hasPart rdf:resource="urn:isbn:978-1-4577-1426-9"/>
+        <dcterms:hasPart rdf:resource="https://doi.org/10.1186/1743-0003-9-42"/>
+        <dcterms:hasPart rdf:resource="urn:isbn:978-1-4244-4123-5%20978-1-4244-4124-2"/>
+        <dcterms:hasPart rdf:resource="urn:isbn:978-1-4673-1026-0%20978-1-4673-1024-6%20978-1-4673-1025-3"/>
+        <dcterms:hasPart rdf:resource="http://ieeexplore.ieee.org/document/7332757/"/>
+        <dcterms:hasPart rdf:resource="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4188712/"/>
+        <dcterms:hasPart rdf:resource="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5575159/"/>
+        <dcterms:hasPart rdf:resource="urn:isbn:978-1-4503-4765-5"/>
+        <dcterms:hasPart rdf:resource="urn:isbn:978-1-4244-7929-0"/>
+        <dcterms:hasPart rdf:resource="#item_89"/>
+        <dcterms:hasPart rdf:resource="urn:isbn:978-1-4244-9271-8"/>
+        <rdf:type rdf:resource="http://www.zotero.org/namespaces/export#Collection"/>
+        <dc:title>Wrist angle</dc:title>
+        <dcterms:hasPart rdf:resource="#item_36"/>
+        <dcterms:hasPart rdf:resource="http://ieeexplore.ieee.org/document/5551179/"/>
+        <dcterms:hasPart rdf:resource="http://ieeexplore.ieee.org/document/204774/"/>
+        <dcterms:hasPart rdf:resource="#item_60"/>
+        <dcterms:hasPart rdf:resource="#item_65"/>
+        <dcterms:hasPart rdf:resource="urn:isbn:978-1-4577-1426-9"/>
+        <dcterms:hasPart rdf:resource="https://doi.org/10.1186/1743-0003-9-42"/>
+        <dcterms:hasPart rdf:resource="urn:isbn:978-1-4244-4123-5%20978-1-4244-4124-2"/>
+        <dcterms:hasPart rdf:resource="urn:isbn:978-1-4673-1026-0%20978-1-4673-1024-6%20978-1-4673-1025-3"/>
+        <dcterms:hasPart rdf:resource="http://ieeexplore.ieee.org/document/7332757/"/>
+        <dcterms:hasPart rdf:resource="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4188712/"/>
+        <dcterms:hasPart rdf:resource="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5575159/"/>
+        <dcterms:hasPart rdf:resource="urn:isbn:978-1-4503-4765-5"/>
+        <dcterms:hasPart rdf:resource="urn:isbn:978-1-4244-7929-0"/>
+        <dcterms:hasPart rdf:resource="#item_89"/>
+        <dcterms:hasPart rdf:resource="urn:isbn:978-1-4244-9271-8"/>
     </z:Collection>
 </rdf:RDF>
