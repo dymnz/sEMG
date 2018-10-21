@@ -21,8 +21,7 @@ filename_prepend = 'raw_S2WA_33_';
 
 record_filename = './data/S2WA_33_PRO_SUP_processed';
 file_to_splice = { 
-    'PRO_1', 'PRO_2', 'PRO_3', ...
-    'SUP_1', 'SUP_2', 'SUP_3'
+    'PRO_1'
 };
 mpu_segment_index = 1; % 1-Roll/2-Pitch/3-Yaw
 
@@ -138,25 +137,28 @@ for f = 1 : length(file_label_list)
     end   
     
     processed_segments_list = [processed_segments_list; {processed_segments  file_to_splice{f}}]; 
-    
+    %%
     fprintf('# of sample: %d\n', num_of_sample);
-%     for i = 2 : length(mid_segment_indices)
-%         cutoff_range = mid_segment_indices(i - 1) : mid_segment_indices(i);
-% 
-%         cutoff_semg = semg(cutoff_range, :);
-%         cutoff_mpu = mpu(cutoff_range, mpu_segment_index);
-%         
-%         figure;
-%         subplot_helper(1:length(cutoff_semg), cutoff_semg, ...
-%                         [2 1 1], {'sample' 'amplitude' 'Interpolated sEMG'}, '-');                       
-%         ylim([semg_min_value semg_max_value]);     
+    for i = 2 : 2%length(mid_segment_indices)
+        cutoff_range = mid_segment_indices(i - 1) : mid_segment_indices(i);
+
+        cutoff_semg = semg(cutoff_range, :);
+        cutoff_mpu = mpu(cutoff_range, mpu_segment_index);
+        
+        figure;
+        
+        for r = 1 :semg_channel_count
+        subplot_helper(1:length(cutoff_semg), cutoff_semg(:, r), ...
+                        [semg_channel_count 1 r], {'sample' 'amplitude' strcat('sEMG ch:', num2str(r))}, '-');                       
+        ylim([semg_min_value semg_max_value]);    
+        end
 %         subplot_helper(1:length(cutoff_mpu), cutoff_mpu, ...
-%                         [2 1 2], {'sample' 'amplitude' 'Interpolated Angle'}, '-');                                       
+%                         [semg_channel_count+1 1 semg_channel_count+1], {'sample' 'amplitude' 'Interpolated Angle'}, '-');                                       
 %         ylim([mpu_min_value mpu_max_value]);
-%     end
+    end
     
 end
-
-save(record_filename, 'processed_segments_list');
+return;
+% save(record_filename, 'processed_segments_list');
 
 set(0,'DefaultFigureVisible','on');

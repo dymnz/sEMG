@@ -1,0 +1,1092 @@
+<rdf:RDF
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:z="http://www.zotero.org/namespaces/export#"
+ xmlns:dcterms="http://purl.org/dc/terms/"
+ xmlns:bib="http://purl.org/net/biblio#"
+ xmlns:foaf="http://xmlns.com/foaf/0.1/"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:prism="http://prismstandard.org/namespaces/1.2/basic/"
+ xmlns:link="http://purl.org/rss/1.0/modules/link/"
+ xmlns:vcard="http://nwalsh.com/rdf/vCard#">
+    <bib:Article rdf:about="https://doi.org/10.5772/56717">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:1729-8814"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Aung</foaf:surname>
+                        <foaf:givenname>Yee Mon</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Al-Jumaily</foaf:surname>
+                        <foaf:givenname>Adel</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dcterms:isReferencedBy rdf:resource="#item_3"/>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://doi.org/10.5772/56717</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>369</bib:pages>
+        <dc:date>1 月 1, 2013</dc:date>
+        <dcterms:dateSubmitted>2018-10-20</dcterms:dateSubmitted>
+        <dcterms:abstract>In the development of robot-assisted rehabilitation systems for upper limb rehabilitation therapy, human electromyogram (EMG) is widely used due to its ability to detect the user intended motion. EMG is one kind of biological signal that can be recorded to evaluate the performance of skeletal muscles by means of a sensor electrode. Based on recorded EMG signals, user intended motion could be extracted via estimation of joint torque, force or angle. Therefore, this estimation becomes one of the most important factors to achieve accurate user intended motion. In this paper, an upper limb joint angle estimation methodology is proposed. A back propagation neural network (BPNN) is developed to estimate the shoulder and elbow joint angles from the recorded EMG signals. A Virtual Human Model (VHM) is also developed and integrated with BPNN to perform the simulation of the estimated angle. The relationships between sEMG signals and upper limb movements are observed in this paper. The effectiveness of our developments is evaluated with four healthy subjects and a VHM simulation. The results show that the methodology can be used in the estimation of joint angles based on EMG.</dcterms:abstract>
+        <dc:title>Estimation of Upper Limb Joint Angle Using Surface EMG Signal</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:1729-8814">
+        <prism:volume>10</prism:volume>
+        <prism:number>10</prism:number>
+        <dc:title>International Journal of Advanced Robotic Systems</dc:title>
+        <dc:identifier>ISSN 1729-8814</dc:identifier>
+        <dcterms:alternative>International Journal of Advanced Robotic Systems</dcterms:alternative>
+        <dc:identifier>DOI 10.5772/56717</dc:identifier>
+    </bib:Journal>
+    <bib:Memo rdf:about="#item_3">
+       <rdf:value>&lt;p&gt;doi: 10.5772/56717&lt;/p&gt;</rdf:value>
+    </bib:Memo>
+    <bib:Document rdf:about="http://www.wiley.com/WileyCDA/WileyTitle/productCd-0471675806,miniSiteCd-IEEE2.html">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+           <z:Website></z:Website>
+        </dcterms:isPartOf>
+        <link:link rdf:resource="#item_5"/>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>http://www.wiley.com/WileyCDA/WileyTitle/productCd-0471675806,miniSiteCd-IEEE2.html</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 16:48:52</dcterms:dateSubmitted>
+        <dc:title>Wiley-IEEE Press: Electromyography: Physiology, Engineering, and Non-Invasive Applications - Roberto Merletti, Philip J. Parker</dc:title>
+        <z:shortTitle>Wiley-IEEE Press</z:shortTitle>
+    </bib:Document>
+    <z:Attachment rdf:about="#item_5">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.wiley.com/WileyCDA/WileyTitle/productCd-0471675806,miniSiteCd-IEEE2.html</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 16:48:54</dcterms:dateSubmitted>
+        <dc:title>Snapshot</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://journals.lww.com/jbjsjournal/Citation/1944/26010/OBSERVATIONS_ON_THE_FUNCTION_OF_THE_SHOULDER_JOINT.1.aspx">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:0021-9355"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Inman</foaf:surname>
+                        <foaf:givenname>Verne T.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>deC. M. Saunders</foaf:surname>
+                        <foaf:givenname>J. B.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Abbott</foaf:surname>
+                        <foaf:givenname>LeRoy C.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_7"/>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://journals.lww.com/jbjsjournal/Citation/1944/26010/OBSERVATIONS_ON_THE_FUNCTION_OF_THE_SHOULDER_JOINT.1.aspx</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>1</bib:pages>
+        <dc:date>January 1944</dc:date>
+        <dcterms:dateSubmitted>2018-10-21 16:51:58</dcterms:dateSubmitted>
+        <z:libraryCatalog>journals.lww.com</z:libraryCatalog>
+        <z:language>en-US</z:language>
+        <dcterms:abstract>An abstract is unavailable. This article is available as a PDF only.</dcterms:abstract>
+        <dc:title>OBSERVATIONS ON THE FUNCTION OF THE SHOULDER JOINT</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:0021-9355">
+        <prism:volume>26</prism:volume>
+        <prism:number>1</prism:number>
+        <dc:title>JBJS</dc:title>
+        <dc:identifier>ISSN 0021-9355</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_7">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://journals.lww.com/jbjsjournal/Citation/1944/26010/OBSERVATIONS_ON_THE_FUNCTION_OF_THE_SHOULDER_JOINT.1.aspx</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 16:52:08</dcterms:dateSubmitted>
+        <dc:title>Snapshot</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_12">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:1350-4533"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Chen</foaf:surname>
+                        <foaf:givenname>J. J.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Sun</foaf:surname>
+                        <foaf:givenname>T. Y.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Lin</foaf:surname>
+                        <foaf:givenname>T. H.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Lin</foaf:surname>
+                        <foaf:givenname>T. S.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_13"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Cerebrovascular Disorders</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Data Display</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Electromyography</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Humans</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Isometric Contraction</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Linear Models</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Models, Biological</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Muscles</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Parkinson Disease</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Pattern Recognition, Automated</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Reaction Time</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <bib:pages>420-430</bib:pages>
+        <dc:date>Jul 1997</dc:date>
+        <dc:description>PMID: 9338882</dc:description>
+        <z:libraryCatalog>PubMed</z:libraryCatalog>
+        <z:language>eng</z:language>
+        <dcterms:abstract>Analyzing motor unit (MU) activity is essential for studying the neurological dysfunction of upper motor neuron disorders (UMND). This study employs multichannel surface electromyographic (EMG) signals, as recorded from the upper arm during elbow flexion and extension, to analyze the temporal changes and spatial distribution of the dominant firing rate. To estimate the dominant firing rate, the autoregressive (AR) spectrum analysis method is utilized to detect the peaks and poles of the AR model, of the surface EMG spectrum below 40 Hz. The temporal changes in firing rates are also observed by using the spectrogram representation of low-frequency EMG spectra. The EMG spectrogram facilitates examination of the time-varying characteristics of firing rates and recruitment of MUs from surface EMG signal. The low-frequency spectra of multichannel EMG are then represented in a polar form to visualize the spatial distribution of firing patterns across muscles. Via spatio-temporal representation techniques, this study provides a viable approach of observing both the spatial and temporal patterns of MU activities in normal subjects and patients with UMND, including cerebrovascular disease and Parkinson's disease.</dcterms:abstract>
+        <dc:title>Spatio-temporal representation of multichannel EMG firing patterns and its clinical applications</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:1350-4533">
+        <prism:volume>19</prism:volume>
+        <prism:number>5</prism:number>
+        <dc:title>Medical Engineering &amp; Physics</dc:title>
+        <dc:identifier>ISSN 1350-4533</dc:identifier>
+        <dcterms:alternative>Med Eng Phys</dcterms:alternative>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_13">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://www.ncbi.nlm.nih.gov/pubmed/9338882</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 16:53:33</dcterms:dateSubmitted>
+        <dc:title>PubMed entry</dc:title>
+        <z:linkMode>3</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_14">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:1432-0770"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Castellini</foaf:surname>
+                        <foaf:givenname>Claudio</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>van der Smagt</foaf:surname>
+                        <foaf:givenname>Patrick</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_15"/>
+        <link:link rdf:resource="#item_16"/>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Algorithms</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Artificial Intelligence</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Artificial Limbs</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Biomechanical Phenomena</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Electromyography</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Hand</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Hand Strength</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Humans</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Neural Networks (Computer)</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Prosthesis Design</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Robotics</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <bib:pages>35-47</bib:pages>
+        <dc:date>Jan 2009</dc:date>
+        <dc:description>PMID: 19015872</dc:description>
+        <z:libraryCatalog>PubMed</z:libraryCatalog>
+        <z:language>eng</z:language>
+        <dcterms:abstract>One of the major problems when dealing with highly dexterous, active hand prostheses is their control by the patient wearing them. With the advances in mechatronics, building prosthetic hands with multiple active degrees of freedom is realisable, but actively controlling the position and especially the exerted force of each finger cannot yet be done naturally. This paper deals with advanced robotic hand control via surface electromyography. Building upon recent results, we show that machine learning, together with a simple downsampling algorithm, can be effectively used to control on-line, in real time, finger position as well as finger force of a highly dexterous robotic hand. The system determines the type of grasp a human subject is willing to use, and the required amount of force involved, with a high degree of accuracy. This represents a remarkable improvement with respect to the state-of-the-art of feed-forward control of dexterous mechanical hands, and opens up a scenario in which amputees will be able to control hand prostheses in a much finer way than it has so far been possible.</dcterms:abstract>
+        <dc:title>Surface EMG in advanced hand prosthetics</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:1432-0770">
+        <prism:volume>100</prism:volume>
+        <prism:number>1</prism:number>
+        <dc:title>Biological Cybernetics</dc:title>
+        <dc:identifier>ISSN 1432-0770</dc:identifier>
+        <dcterms:alternative>Biol Cybern</dcterms:alternative>
+        <dc:identifier>DOI 10.1007/s00422-008-0278-1</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_15">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://www.ncbi.nlm.nih.gov/pubmed/19015872</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 16:53:46</dcterms:dateSubmitted>
+        <dc:title>PubMed entry</dc:title>
+        <z:linkMode>3</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_16">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://mediatum.ub.tum.de/doc/1289128/document.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 16:53:50</dcterms:dateSubmitted>
+        <dc:title>Submitted Version</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1392416/">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:0022-3751"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Lippold</foaf:surname>
+                        <foaf:givenname>O. C. J.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_21"/>
+        <link:link rdf:resource="#item_20"/>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1392416/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>492-499</bib:pages>
+        <dc:date>1952-08-28</dc:date>
+        <dc:description>PMID: 12991236
+PMCID: PMC1392416</dc:description>
+        <dcterms:dateSubmitted>2018-10-21 16:54:24</dcterms:dateSubmitted>
+        <z:libraryCatalog>PubMed Central</z:libraryCatalog>
+        <dc:title>The relation between integrated action potentials in a human muscle and its isometric tension</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:0022-3751">
+        <prism:volume>117</prism:volume>
+        <prism:number>4</prism:number>
+        <dc:title>The Journal of Physiology</dc:title>
+        <dc:identifier>ISSN 0022-3751</dc:identifier>
+        <dcterms:alternative>J Physiol</dcterms:alternative>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_21">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1392416/pdf/jphysiol01442-0098.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 16:54:27</dcterms:dateSubmitted>
+        <dc:title>PubMed Central Full Text PDF</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_20">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1392416/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 16:54:24</dcterms:dateSubmitted>
+        <dc:title>PubMed Central Link</dc:title>
+        <z:linkMode>3</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_22">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:1879-1271"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Cifrek</foaf:surname>
+                        <foaf:givenname>Mario</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Medved</foaf:surname>
+                        <foaf:givenname>Vladimir</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Tonković</foaf:surname>
+                        <foaf:givenname>Stanko</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Ostojić</foaf:surname>
+                        <foaf:givenname>Sasa</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_23"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Biomechanical Phenomena</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Electromyography</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Fourier Analysis</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Fractals</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Models, Statistical</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Models, Theoretical</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Muscle Contraction</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Muscle Fatigue</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Muscle, Skeletal</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Reproducibility of Results</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Signal Processing, Computer-Assisted</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Time Factors</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <bib:pages>327-340</bib:pages>
+        <dc:date>May 2009</dc:date>
+        <dc:description>PMID: 19285766</dc:description>
+        <z:libraryCatalog>PubMed</z:libraryCatalog>
+        <z:language>eng</z:language>
+        <dcterms:abstract>In the last three decades it has become quite common to evaluate local muscle fatigue by means of surface electromyographic (sEMG) signal processing. A large number of studies have been performed yielding signal-based quantitative criteria of fatigue in primarily static but also in dynamic tasks. The non-invasive nature of this approach has been particularly appealing in areas like ergonomics and occupational biomechanics, to name just the most prominent ones. However, a correct appreciation of the findings concerned can only be obtained by judging both the scientific value and practical utility of methods while appreciating the corresponding advantages and limitations. The aim of this paper is to serve as a state of the art summary of this issue. The paper gives an overview of classical and modern signal processing methods and techniques from the standpoint of applicability to sEMG signals in fatigue-inducing situations relevant to the broad field of biomechanics. Time domain, frequency domain, time-frequency and time-scale representations, and other methods such as fractal analysis and recurrence quantification analysis are described succinctly and are illustrated with their biomechanical applications, research or clinical alike. Examples from the authors' own work are incorporated where appropriate. The future of this methodology is projected by estimating those methods that have the greatest chance to be routinely used as reliable muscle fatigue measures.</dcterms:abstract>
+        <dc:title>Surface EMG based muscle fatigue evaluation in biomechanics</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:1879-1271">
+        <prism:volume>24</prism:volume>
+        <prism:number>4</prism:number>
+        <dc:title>Clinical Biomechanics (Bristol, Avon)</dc:title>
+        <dc:identifier>ISSN 1879-1271</dc:identifier>
+        <dcterms:alternative>Clin Biomech (Bristol, Avon)</dcterms:alternative>
+        <dc:identifier>DOI 10.1016/j.clinbiomech.2009.01.010</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_23">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://www.ncbi.nlm.nih.gov/pubmed/19285766</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 16:55:21</dcterms:dateSubmitted>
+        <dc:title>PubMed entry</dc:title>
+        <z:linkMode>3</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="http://www.sciencedirect.com/science/article/pii/S0966636203000997">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:0966-6362"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Stefano</foaf:surname>
+                        <foaf:givenname>A. De</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Burridge</foaf:surname>
+                        <foaf:givenname>J. H</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Yule</foaf:surname>
+                        <foaf:givenname>V. T</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Allen</foaf:surname>
+                        <foaf:givenname>R</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_25"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Electromyography (EMG)</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Footswitches</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Gait cycle</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>http://www.sciencedirect.com/science/article/pii/S0966636203000997</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>92-101</bib:pages>
+        <dc:date>August 1, 2004</dc:date>
+        <dcterms:dateSubmitted>2018-10-21 16:56:10</dcterms:dateSubmitted>
+        <z:libraryCatalog>ScienceDirect</z:libraryCatalog>
+        <dcterms:abstract>This paper presents the results of a project to evaluate different methods of gait cycle selection on the analysis of electromyography recorded during gait. Electromyography (EMG) describes the electrical activity associated with the muscle and is often interpreted in gait analysis using a simultaneously obtained signal to identify phases of the gait cycle. Phase transitions are often selected manually from reference signals derived from additional instrumentation, such as pressure platforms, footswitches and video cameras. We propose two methods (automatic and semi-automatic) as an alternative to the more traditional manual selection, and analyse how the gait cycle selection affects the EMG analysis. To quantify the differences between the gait cycles obtained using each method and to classify each cycle, three indices have been introduced. The effect of the gait cycle selection has been evaluated with respect to the EMG step profiles and temporal gait descriptors. An asymptomatic adult, an asymptomatic child and two children with cerebral palsy were examined using telemetric EMG devices and pressure footswitches. The results obtained showed that the method of gait cycle selection did not have a major influence for the adult, but it altered considerably the analysis in the case of the children with cerebral palsy.</dcterms:abstract>
+        <dc:title>Effect of gait cycle selection on EMG analysis during walking in adults and children with gait pathology</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:0966-6362">
+        <prism:volume>20</prism:volume>
+        <prism:number>1</prism:number>
+        <dc:title>Gait &amp; Posture</dc:title>
+        <dc:identifier>ISSN 0966-6362</dc:identifier>
+        <dcterms:alternative>Gait &amp; Posture</dcterms:alternative>
+        <dc:identifier>DOI 10.1016/S0966-6362(03)00099-7</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_25">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.sciencedirect.com/science/article/pii/S0966636203000997</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 16:56:12</dcterms:dateSubmitted>
+        <dc:title>ScienceDirect Snapshot</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_26">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:0148-639X"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Daube</foaf:surname>
+                        <foaf:givenname>Jasper R.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Rubin</foaf:surname>
+                        <foaf:givenname>Devon I.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_27"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Action Potentials</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Electric Stimulation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Electromyography</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Humans</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Muscle, Skeletal</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Needles</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Neural Conduction</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <bib:pages>244-270</bib:pages>
+        <dc:date>Feb 2009</dc:date>
+        <dc:description>PMID: 19145648</dc:description>
+        <z:libraryCatalog>PubMed</z:libraryCatalog>
+        <z:language>eng</z:language>
+        <dcterms:abstract>Physiologic assessment of diseases of the motor unit from the anterior horn cells to the muscles relies on a combination of needle electromyography (EMG) and nerve conduction studies (NCS). Both require a unique combination of knowledge of peripheral nervous system anatomy, physiology, pathophysiology, diseases, techniques, and electricity is necessary. Successful, high-quality, reproducible EMG depends on the skills of a clinician in patient interaction during the physical insertion and movement of the needle while recording the electrical signals. These must be combined with the skill of analyzing electric signals recorded from muscle by auditory pattern recognition and semiquantitation.1052 This monograph reviews the techniques of needle EMG and waveform analysis and describes the types of EMG waveforms recorded during needle EMG.</dcterms:abstract>
+        <dc:title>Needle electromyography</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:0148-639X">
+        <prism:volume>39</prism:volume>
+        <prism:number>2</prism:number>
+        <dc:title>Muscle &amp; Nerve</dc:title>
+        <dc:identifier>ISSN 0148-639X</dc:identifier>
+        <dcterms:alternative>Muscle Nerve</dcterms:alternative>
+        <dc:identifier>DOI 10.1002/mus.21180</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_27">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://www.ncbi.nlm.nih.gov/pubmed/19145648</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 16:56:47</dcterms:dateSubmitted>
+        <dc:title>PubMed entry</dc:title>
+        <z:linkMode>3</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_28">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:1050-6411"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Winter</foaf:surname>
+                        <foaf:givenname>D. A.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Fuglevand</foaf:surname>
+                        <foaf:givenname>A. J.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Archer</foaf:surname>
+                        <foaf:givenname>S. E.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_29"/>
+        <bib:pages>15-26</bib:pages>
+        <dc:date>1994</dc:date>
+        <dc:description>PMID: 20870543</dc:description>
+        <z:libraryCatalog>PubMed</z:libraryCatalog>
+        <z:language>eng</z:language>
+        <dcterms:abstract>The purpose of this paper is to address four aspects of surface electromyography associated with crosstalk between adjacent recording sites. The first issue that is addressed in the potential crosstalk between electrodes located on muscles with different functions: antagonist pairs, or muscles with one common and one different function (i.e. soleus/peroneus longus or soleus/ gastrocnemius). Practical functional tests are utilized to demonstrate the crosstalk between muscle pairs to be negligible. The second goal is to estimate the depth of pick-up and the crosstalk between myoelectric signals from agonist muscles using a theoretical model. The depth of pick-up was estimated to be 1.8 cm (including a 2 mm layer of skin and fat) using electrodes of 49 mm(2) with bipolar spacing of 2.0 cm. A cross-correlation technique is demonstrated which predicts the common signal (crosstalk) between surface electrodes with electrode-pair spacing of 1 cm around a hypothetical muscle. The predicted crosstalk using cross-correlation measures was 49% at 1 cm electrode-pair spacing dropping to 13% at 2 cm spacing and 4% at 3 cm. The third part compares these predictions with crosstalk measures from experimental recordings taken from electrode pairs spaced 2.5 cm apart around the quadriceps. At 2.5 cm spacing there was 22-24% common signal dropping to between 4-7% at 5 cm and to between 1 and 2% at 7.5 cm. The fourth and last component of this report assesses three methods to decrease the range of pick-up and thereby potential crosstalk: electrodes of smaller surface area, reduced bipolar spacing and mathematical differentiation. All three techniques reduce the common signal by varying amounts; all three techniques combined reduce the predicted crosstalk for the 1.0 cm electrode-pair spacing from 49-10.5%.</dcterms:abstract>
+        <dc:title>Crosstalk in surface electromyography: Theoretical and practical estimates</dc:title>
+        <z:shortTitle>Crosstalk in surface electromyography</z:shortTitle>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:1050-6411">
+        <prism:volume>4</prism:volume>
+        <prism:number>1</prism:number>
+        <dc:title>Journal of Electromyography and Kinesiology: Official Journal of the International Society of Electrophysiological Kinesiology</dc:title>
+        <dc:identifier>ISSN 1050-6411</dc:identifier>
+        <dcterms:alternative>J Electromyogr Kinesiol</dcterms:alternative>
+        <dc:identifier>DOI 10.1016/1050-6411(94)90023-X</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_29">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://www.ncbi.nlm.nih.gov/pubmed/20870543</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 16:57:10</dcterms:dateSubmitted>
+        <dc:title>PubMed entry</dc:title>
+        <z:linkMode>3</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_32">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>citation-17222635.txt</dc:title>
+        <link:type>text/plain</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://doi.org/10.1007/BF02476154">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:1741-0444"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Dorcas</foaf:surname>
+                        <foaf:givenname>D. S.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Scott</foaf:surname>
+                        <foaf:givenname>R. N.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Circuit Development</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Control Site</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>High Voltage Power Line</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Initial Clinical Trial</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Simplify Block Diagram</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://doi.org/10.1007/BF02476154</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>367-370</bib:pages>
+        <dc:date>1966-07-01</dc:date>
+        <dcterms:dateSubmitted>2018-10-21 16:59:18</dcterms:dateSubmitted>
+        <z:libraryCatalog>Springer Link</z:libraryCatalog>
+        <z:language>en</z:language>
+        <dcterms:abstract>A myo-electric system which permits on-off control of two functions from a single control site is described. Designed for control of externally-powered prosthetic and orthotic appliances, the system may be used with a wide variety of control sites due to its high sensitivity. The electro-mechanical relays used at the output are capable of controlling load currents up to 1A. The initial clinical trial, with a young AE amputee, has been successful. Circuit development and further clinical evaluation are now being carried out concurrently.</dcterms:abstract>
+        <dc:title>A three-state myo-electric control</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:1741-0444">
+        <prism:volume>4</prism:volume>
+        <prism:number>4</prism:number>
+        <dc:title>Medical and biological engineering</dc:title>
+        <dc:identifier>ISSN 1741-0444</dc:identifier>
+        <dcterms:alternative>Med. &amp; biol. Engng.</dcterms:alternative>
+        <dc:identifier>DOI 10.1007/BF02476154</dc:identifier>
+    </bib:Journal>
+    <bib:Article rdf:about="#item_34">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <prism:volume>4</prism:volume>
+                <prism:number>4</prism:number>
+                <dc:title>Medical and biological engineering</dc:title>
+                <dc:identifier>ISSN 1741-0444</dc:identifier>
+                <dcterms:alternative>Med. &amp; biol. Engng.</dcterms:alternative>
+                <dc:identifier>DOI 10.1007/BF02476154</dc:identifier>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Dorcas</foaf:surname>
+                        <foaf:givenname>D. S.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Scott</foaf:surname>
+                        <foaf:givenname>R. N.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Circuit Development</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Control Site</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>High Voltage Power Line</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Initial Clinical Trial</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Simplify Block Diagram</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://doi.org/10.1007/BF02476154</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>367-370</bib:pages>
+        <dc:date>1966-07-01</dc:date>
+        <dcterms:dateSubmitted>2018-10-21 16:59:30</dcterms:dateSubmitted>
+        <z:libraryCatalog>Springer Link</z:libraryCatalog>
+        <z:language>en</z:language>
+        <dcterms:abstract>A myo-electric system which permits on-off control of two functions from a single control site is described. Designed for control of externally-powered prosthetic and orthotic appliances, the system may be used with a wide variety of control sites due to its high sensitivity. The electro-mechanical relays used at the output are capable of controlling load currents up to 1A. The initial clinical trial, with a young AE amputee, has been successful. Circuit development and further clinical evaluation are now being carried out concurrently.</dcterms:abstract>
+        <dc:title>A three-state myo-electric control</dc:title>
+    </bib:Article>
+    <bib:Article rdf:about="#item_35">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <prism:volume>4</prism:volume>
+                <prism:number>4</prism:number>
+                <dc:title>Medical and biological engineering</dc:title>
+                <dc:identifier>ISSN 1741-0444</dc:identifier>
+                <dcterms:alternative>Medical and biological engineering</dcterms:alternative>
+                <dc:identifier>DOI 10.1007/BF02476154</dc:identifier>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Dorcas</foaf:surname>
+                        <foaf:givenname>D. S.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Scott</foaf:surname>
+                        <foaf:givenname>R. N.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://doi.org/10.1007/BF02476154</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>367-370</bib:pages>
+        <dc:date>7 月 1, 1966</dc:date>
+        <dcterms:abstract>A myo-electric system which permits on-off control of two functions from a single control site is described. Designed for control of externally-powered prosthetic and orthotic appliances, the system may be used with a wide variety of control sites due to its high sensitivity. The electro-mechanical relays used at the output are capable of controlling load currents up to 1A. The initial clinical trial, with a young AE amputee, has been successful. Circuit development and further clinical evaluation are now being carried out concurrently.</dcterms:abstract>
+        <dc:title>A three-state myo-electric control</dc:title>
+    </bib:Article>
+    <bib:Article rdf:about="#item_36">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <prism:volume>9</prism:volume>
+                <dc:title>Biomedical engineering online</dc:title>
+                <dc:identifier>DOI 10.1186/1475-925X-9-41</dc:identifier>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>O Khokhar</foaf:surname>
+                        <foaf:givenname>Zeeshan</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Xiao</foaf:surname>
+                        <foaf:givenname>Zhen</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Menon</foaf:surname>
+                        <foaf:givenname>Carlo</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_37"/>
+        <link:link rdf:resource="#item_38"/>
+        <bib:pages>41</bib:pages>
+        <dc:date>August 26, 2010</dc:date>
+        <z:libraryCatalog>ResearchGate</z:libraryCatalog>
+        <dcterms:abstract>Surface electromyography (sEMG) signals have been used in numerous studies for the classification of hand gestures and movements and successfully implemented in the position control of different prosthetic hands for amputees. sEMG could also potentially be used for controlling wearable devices which could assist persons with reduced muscle mass, such as those suffering from sarcopenia. While using sEMG for position control, estimation of the intended torque of the user could also provide sufficient information for an effective force control of the hand prosthesis or assistive device. This paper presents the use of pattern recognition to estimate the torque applied by a human wrist and its real-time implementation to control a novel two degree of freedom wrist exoskeleton prototype (WEP), which was specifically developed for this work.
+Both sEMG data from four muscles of the forearm and wrist torque were collected from eight volunteers by using a custom-made testing rig. The features that were extracted from the sEMG signals included root mean square (rms) EMG amplitude, autoregressive (AR) model coefficients and waveform length. Support Vector Machines (SVM) was employed to extract classes of different force intensity from the sEMG signals. After assessing the off-line performance of the used classification technique, the WEP was used to validate in real-time the proposed classification scheme.
+The data gathered from the volunteers were divided into two sets, one with nineteen classes and the second with thirteen classes. Each set of data was further divided into training and testing data. It was observed that the average testing accuracy in the case of nineteen classes was about 88% whereas the average accuracy in the case of thirteen classes reached about 96%. Classification and control algorithm implemented in the WEP was executed in less than 125 ms.
+The results of this study showed that classification of EMG signals by separating different levels of torque is possible for wrist motion and the use of only four EMG channels is suitable. The study also showed that SVM classification technique is suitable for real-time classification of sEMG signals and can be effectively implemented for controlling an exoskeleton device for assisting the wrist.</dcterms:abstract>
+        <dc:title>Surface EMG pattern recognition for real-time control of a wrist exoskeleton</dc:title>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_37">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.researchgate.net/profile/Zhen_Xiao3/publication/46008552_Surface_EMG_pattern_recognition_for_real-time_control_of_a_wrist_exoskeleton/links/553515880cf23947bc0ae3ec/Surface-EMG-pattern-recognition-for-real-time-control-of-a-wrist-exoskeleton.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 17:00:17</dcterms:dateSubmitted>
+        <dc:title>Full Text PDF</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_38">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.researchgate.net/publication/46008552_Surface_EMG_pattern_recognition_for_real-time_control_of_a_wrist_exoskeleton</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 17:00:17</dcterms:dateSubmitted>
+        <dc:title>ResearchGate Link</dc:title>
+        <z:linkMode>3</z:linkMode>
+    </z:Attachment>
+    <bib:Article rdf:about="http://arxiv.org/abs/physics/0611120">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+           <bib:Journal><dc:title>arXiv:physics/0611120</dc:title></bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Siemienski</foaf:surname>
+                        <foaf:givenname>Adam</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Kebel</foaf:surname>
+                        <foaf:givenname>Alicja</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Klajner</foaf:surname>
+                        <foaf:givenname>Piotr</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dcterms:isReferencedBy rdf:resource="#item_45"/>
+        <link:link rdf:resource="#item_41"/>
+        <link:link rdf:resource="#item_42"/>
+        <dc:subject>
+            <z:AutomaticTag>
+                <rdf:value>Physics - Data Analysis, Statistics and Probability</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://arxiv.org/abs/physics/0611120</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>2006-11-13</dc:date>
+        <dc:description>arXiv: physics/0611120</dc:description>
+        <dcterms:dateSubmitted>2018-10-21 17:00:59</dcterms:dateSubmitted>
+        <z:libraryCatalog>arXiv.org</z:libraryCatalog>
+        <dcterms:abstract>In order to assess fatigue independent amplitude-frequency correlations in EMG signals we asked nineteen male subjects to perform a series of isometric muscular contractions by extensors of the knee joint. Different amplitudes of the signal were due to randomly varying both the joint moment and the overall amplification factor of the EMG apparatus. Mean and median frequency, RMS and mean absolute value were calculated for every combination of joint moment and amplification at the original sampling rate of 5 kHz and at several simulated lower sampling rates. Negative Spearman and Kendall amplitude-frequency correlation coefficients were found, and they were more pronounced at high sampling rates.</dcterms:abstract>
+        <dc:title>Fatigue independent amplitude-frequency correlations in EMG signals</dc:title>
+    </bib:Article>
+    <bib:Memo rdf:about="#item_45">
+       <rdf:value>&lt;p&gt;RMS / MAV&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;</rdf:value>
+    </bib:Memo>
+    <z:Attachment rdf:about="#item_41">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://www.arxiv.org/pdf/physics/0611120.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 17:01:04</dcterms:dateSubmitted>
+        <dc:title>arXiv:physics/0611120 PDF</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_42">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://arxiv.org/abs/physics/0611120</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 17:01:08</dcterms:dateSubmitted>
+        <dc:title>arXiv.org Snapshot</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Book rdf:about="urn:isbn:978-90-75452-09-9">
+        <z:itemType>book</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Enschede</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>Roessingh Research and Development</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hermens</foaf:surname>
+                        <foaf:givenname>Hermie</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Freriks</foaf:surname>
+                        <foaf:givenname>Bart</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>ISBN 978-90-75452-09-9</dc:identifier>
+        <dc:date>1997</dc:date>
+        <dc:description>OCLC: 68027412</dc:description>
+        <z:libraryCatalog>Open WorldCat</z:libraryCatalog>
+        <z:language>en</z:language>
+        <dc:title>The state of the art on sensors and sensor placement procedures for surface electromyography: a proposal for sensor placement procedures</dc:title>
+        <z:shortTitle>The state of the art on sensors and sensor placement procedures for surface electromyography</z:shortTitle>
+    </bib:Book>
+    <z:Collection rdf:about="#collection_2">
+        <dc:title>sage_arxa10</dc:title>
+        <dcterms:hasPart rdf:resource="https://doi.org/10.5772/56717"/>
+        <dcterms:hasPart rdf:resource="http://www.wiley.com/WileyCDA/WileyTitle/productCd-0471675806,miniSiteCd-IEEE2.html"/>
+        <dcterms:hasPart rdf:resource="https://journals.lww.com/jbjsjournal/Citation/1944/26010/OBSERVATIONS_ON_THE_FUNCTION_OF_THE_SHOULDER_JOINT.1.aspx"/>
+        <dcterms:hasPart rdf:resource="#item_12"/>
+        <dcterms:hasPart rdf:resource="#item_14"/>
+        <dcterms:hasPart rdf:resource="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1392416/"/>
+        <dcterms:hasPart rdf:resource="#item_22"/>
+        <dcterms:hasPart rdf:resource="http://www.sciencedirect.com/science/article/pii/S0966636203000997"/>
+        <dcterms:hasPart rdf:resource="#item_26"/>
+        <dcterms:hasPart rdf:resource="#item_28"/>
+        <dcterms:hasPart rdf:resource="#item_35"/>
+        <dcterms:hasPart rdf:resource="#item_36"/>
+        <dcterms:hasPart rdf:resource="http://arxiv.org/abs/physics/0611120"/>
+        <dcterms:hasPart rdf:resource="urn:isbn:978-90-75452-09-9"/>
+    </z:Collection>
+</rdf:RDF>
