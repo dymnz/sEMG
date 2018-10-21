@@ -23,8 +23,7 @@ sEMG Signal Separation for Real-time Wrist Angle Estimation
 2.5 Decoder
     2.5.1 MLP
     2.5.2 BPNN
-    2.5.3 NARX (type of RNN)
-    2.5.4 LSTM (type of RNN)
+    2.5.3 LSTM (type of RNN)
 
 ### 3 - Processing Procedure & Analysis ###
 3.1 Difference in nICA/TDSEP
