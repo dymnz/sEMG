@@ -52,7 +52,7 @@ semg_max = max(max(semg));
 %                 [graph_count 1 graph_count], {'sample' 'amplitude' 'Interpolated angle'}, '-');         
 % ylim([mpu_min_value mpu_max_value]);
 % legend('Angle-1', 'Angle-2');
-
+% return;
 % figure;
 % subplot_helper(1:length(semg), semg, ...
 %                 [2 1 1], {'sample' 'amplitude' 'sEMG'}, '-');
@@ -65,12 +65,11 @@ semg_max = max(max(semg));
 semg = RMS_calc(semg, RMS_window_size);
 mpu = [(mpu(1, :) .* ones(RMS_window_size, size(mpu, 2))) ; mpu];
 
-% figure;
-% subplot_helper(1:length(semg), semg, ...
-%                 [2 1 1], {'sample' 'amplitude' 'sEMG'}, '-');
-% subplot_helper(1:length(mpu), mpu, ...
-%                 [2 1 2], {'sample' 'amplitude' 'Interpolated angle'}, '-');         
-% ylim([-90 90]);
+figure;
+subplot_helper(1:length(semg), semg, ...
+                [2 1 1], {'sample' 'amplitude' 'sEMG'}, '-');
+subplot_helper(1:length(mpu), mpu, ...
+                [2 1 2], {'sample' 'amplitude' 'Interpolated angle'}, '-');         
 
 
 %% Downsample

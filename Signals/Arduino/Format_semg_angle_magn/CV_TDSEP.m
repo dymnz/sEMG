@@ -112,7 +112,7 @@ semg = processed_segments_list{ica_file_idx, 1}{1};
 
 % RMS
 rms_semg = RMS_calc(semg, RMS_window_size);
-
+mav_semg = MAV_calc(semg, RMS_window_size);
 % TDSEP
 C = tdsep2(rms_semg, tdsep_tau);
 tdsep_semg = C \ rms_semg;
@@ -122,16 +122,26 @@ figure;
 for channel = 1 : semg_channel_count
 subplot_helper(1:length(rms_semg), rms_semg(channel, :), ...
                 [semg_channel_count 1 channel], ...
-                {'sample' 'amplitude' 'Before TDSEP'}, '-');             
+                {'sample' 'amplitude' ['RMS sEMG ch:'  num2str(channel)]}, '-');  
+ylim([min(min(rms_semg)) max(max(rms_semg))]);            
 end
 
-figure;
+% figure;
 for channel = 1 : semg_channel_count
-subplot_helper(1:length(tdsep_semg), tdsep_semg(channel, :), ...
+subplot_helper(1:length(mav_semg), mav_semg(channel, :), ...
                 [semg_channel_count 1 channel], ...
-                {'sample' 'amplitude' 'after TDSEP'}, '-');    
-ylim([0 max(max(tdsep_semg))]);
+                {'sample' 'amplitude' ['MAV v.s. RMS semg ch:' num2str(channel)] }, '-');    
+ylim([min(min(rms_semg)) max(max(rms_semg))]);
+legend('RMS', 'MAV');
 end
+
+% figure;
+% for channel = 1 : semg_channel_count
+% subplot_helper(1:length(tdsep_semg), tdsep_semg(channel, :), ...
+%                 [semg_channel_count 1 channel], ...
+%                 {'sample' 'amplitude' 'after TDSEP'}, '-');    
+% ylim([0 max(max(tdsep_semg))]);
+% end
 return;
      
 %% Verify TDSEP

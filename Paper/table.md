@@ -15,15 +15,15 @@ sEMG Signal Separation for Real-time Wrist Angle Estimation
     2.2.2 Wrist Angle
 2.3 sEMG Feature 
     2.3.1 MAV
-    2.3.2 RMS
-    2.3.3 Wavelet
+    2.3.2 ABS-LPF
+    2.3.3 RMS
+
 2.4 sEMG Signal Separation (BSS)
     2.4.1 nICA
     2.4.2 TDSEP (Used in Gesture Recognition)
 2.5 Decoder
-    2.5.1 MLP
-    2.5.2 BPNN
-    2.5.3 LSTM (type of RNN)
+    2.5.1 BPNN
+    2.5.2 LSTM (type of RNN)
 
 ### 3 - Processing Procedure & Analysis ###
 3.1 Difference in nICA/TDSEP
