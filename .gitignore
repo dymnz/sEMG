@@ -5,3 +5,5 @@ Signals/Arduino/Format_semg_force_angle/semg_to_force/data/output/*
 Signals/Arduino/Format_semg_force_angle/semg_to_force_angle/data/output/*
 Signals/Arduino/Format_semg_force_angle/semg_to_force_omit_angle/data/output/*
 Signals/Arduino/Format_semg_angle/output/*
+
+*.tmp
