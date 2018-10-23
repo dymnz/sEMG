@@ -4,9 +4,9 @@
  xmlns:dcterms="http://purl.org/dc/terms/"
  xmlns:bib="http://purl.org/net/biblio#"
  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+ xmlns:link="http://purl.org/rss/1.0/modules/link/"
  xmlns:dc="http://purl.org/dc/elements/1.1/"
  xmlns:prism="http://prismstandard.org/namespaces/1.2/basic/"
- xmlns:link="http://purl.org/rss/1.0/modules/link/"
  xmlns:vcard="http://nwalsh.com/rdf/vCard#">
     <bib:Article rdf:about="https://doi.org/10.5772/56717">
         <z:itemType>journalArticle</z:itemType>
@@ -28,6 +28,8 @@
             </rdf:Seq>
         </bib:authors>
         <dcterms:isReferencedBy rdf:resource="#item_3"/>
+        <link:link rdf:resource="#item_94"/>
+        <dc:subject>BPNN</dc:subject>
         <dc:identifier>
             <dcterms:URI>
                <rdf:value>https://doi.org/10.5772/56717</rdf:value>
@@ -50,6 +52,18 @@
     <bib:Memo rdf:about="#item_3">
        <rdf:value>&lt;p&gt;doi: 10.5772/56717&lt;/p&gt;</rdf:value>
     </bib:Memo>
+    <z:Attachment rdf:about="#item_94">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>http://journals.sagepub.com/doi/pdf/10.5772/56717</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 18:15:16</dcterms:dateSubmitted>
+        <dc:title>SAGE PDF Full Text</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
     <bib:Document rdf:about="http://www.wiley.com/WileyCDA/WileyTitle/productCd-0471675806,miniSiteCd-IEEE2.html">
         <z:itemType>webpage</z:itemType>
         <dcterms:isPartOf>
@@ -2050,8 +2064,1942 @@ PMCID: PMC5575159</dc:description>
         <z:linkMode>1</z:linkMode>
         <link:type>application/pdf</link:type>
     </z:Attachment>
+    <rdf:Description rdf:about="urn:isbn:978-1-4673-8345-5">
+        <z:itemType>conferencePaper</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:identifier>ISBN 978-1-4673-8345-5</dc:identifier>
+                <dc:identifier>DOI 10.1109/MED.2016.7535891</dc:identifier>
+                <dc:title>2016 24th Mediterranean Conference on Control and Automation (MED)</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Athens, Greece</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>IEEE</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Mamikoglu</foaf:surname>
+                        <foaf:givenname>U.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Nikolakopoulos</foaf:surname>
+                        <foaf:givenname>G.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Pauelsen</foaf:surname>
+                        <foaf:givenname>M.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Varagnolo</foaf:surname>
+                        <foaf:givenname>D.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Roijezon</foaf:surname>
+                        <foaf:givenname>U.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Gustafsson</foaf:surname>
+                        <foaf:givenname>T.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://ieeexplore.ieee.org/document/7535891/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>785-790</bib:pages>
+        <dc:date>6/2016</dc:date>
+        <dcterms:dateSubmitted>2018-10-21 18:15:29</dcterms:dateSubmitted>
+        <z:libraryCatalog>Crossref</z:libraryCatalog>
+        <bib:presentedAt>
+            <bib:Conference>
+                <dc:title>2016 24th Mediterranean Conference on Control and Automation (MED)</dc:title>
+            </bib:Conference>
+        </bib:presentedAt>
+        <dc:title>Elbow joint angle estimation by using integrated surface electromyography</dc:title>
+    </rdf:Description>
+    <bib:Article rdf:about="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4280697/">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:1475-925X"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Castro</foaf:surname>
+                        <foaf:givenname>Maria Claudia F</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Colombini</foaf:surname>
+                        <foaf:givenname>Esther L</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Junior</foaf:surname>
+                        <foaf:givenname>Plinio T Aquino</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Arjunan</foaf:surname>
+                        <foaf:givenname>Sridhar P</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Kumar</foaf:surname>
+                        <foaf:givenname>Dinesh K</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_100"/>
+        <link:link rdf:resource="#item_99"/>
+        <dc:subject>ABS-LPF</dc:subject>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4280697/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>2014-11-25</dc:date>
+        <dc:description>PMID: 25422006
+PMCID: PMC4280697</dc:description>
+        <dcterms:dateSubmitted>2018-10-21 18:15:37</dcterms:dateSubmitted>
+        <z:libraryCatalog>PubMed Central</z:libraryCatalog>
+        <dcterms:abstract>Automatic and accurate identification of elbow angle from surface electromyogram (sEMG) is essential for myoelectric controlled upper limb exoskeleton systems. This requires appropriate selection of sEMG features, and identifying the limitations of such a system., This study has demonstrated that it is possible to identify three discrete positions of the elbow; full extension, right angle, and mid-way point, with window size of only 200 milliseconds. It was seen that while most features were suitable for this purpose, Power Spectral Density Averages (PSD-Av) performed best. The system correctly classified the sEMG against the elbow angle for 100% cases when only two discrete positions (full extension and elbow at right angle) were considered, while correct classification was 89% when there were three discrete positions. However, sEMG was unable to accurately determine the elbow position when five discrete angles were considered. It was also observed that there was no difference for extension or flexion phases.</dcterms:abstract>
+        <dc:title>sEMG feature evaluation for identification of elbow angle resolution in graded arm movement</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:1475-925X">
+        <prism:volume>13</prism:volume>
+        <dc:title>BioMedical Engineering OnLine</dc:title>
+        <dc:identifier>ISSN 1475-925X</dc:identifier>
+        <dcterms:alternative>Biomed Eng Online</dcterms:alternative>
+        <dc:identifier>DOI 10.1186/1475-925X-13-155</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_100">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4280697/pdf/12938_2014_Article_908.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 18:15:40</dcterms:dateSubmitted>
+        <dc:title>PubMed Central Full Text PDF</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_99">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4280697/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 18:15:37</dcterms:dateSubmitted>
+        <dc:title>PubMed Central Link</dc:title>
+        <z:linkMode>3</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4003946/">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:1424-8220"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Reza</foaf:surname>
+                        <foaf:givenname>Sharif Muhammad Taslim</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Ahmad</foaf:surname>
+                        <foaf:givenname>Norhafizan</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Choudhury</foaf:surname>
+                        <foaf:givenname>Imtiaz Ahmed</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Ghazilla</foaf:surname>
+                        <foaf:givenname>Raja Ariffin Raja</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_103"/>
+        <link:link rdf:resource="#item_102"/>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4003946/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>4342-4363</bib:pages>
+        <dc:date>2014-3-04</dc:date>
+        <dc:description>PMID: 24599193
+PMCID: PMC4003946</dc:description>
+        <dcterms:dateSubmitted>2018-10-21 18:16:15</dcterms:dateSubmitted>
+        <z:libraryCatalog>PubMed Central</z:libraryCatalog>
+        <dcterms:abstract>Human motion is a daily and rhythmic activity. The exoskeleton concept is a very positive scientific approach for human rehabilitation in case of lower limb impairment. Although the exoskeleton shows potential, it is not yet applied extensively in clinical rehabilitation. In this research, a fuzzy based control algorithm is proposed for lower limb exoskeletons during sit-to-stand and stand-to-sit movements. Surface electromyograms (EMGs) are acquired from the vastus lateralis muscle using a wearable EMG sensor. The resultant acceleration angle along the z-axis is determined from a kinematics sensor. Twenty volunteers were chosen to perform the experiments. The whole experiment was accomplished in two phases. In the first phase, acceleration angles and EMG data were acquired from the volunteers during both sit-to-stand and stand-to-sit motions. During sit-to-stand movements, the average acceleration angle at activation was 11° – 48° and the EMG varied from −0.19 mV to +0.19 mV. On the other hand, during stand-to-sit movements, the average acceleration angle was found to be 57.5°–108° at the activation point and the EMG varied from −0.32 mV to +0.32 mV. In the second phase, a fuzzy controller was designed from the experimental data. The controller was tested and validated with both offline and real time data using LabVIEW.</dcterms:abstract>
+        <dc:title>A Fuzzy Controller for Lower Limb Exoskeletons during Sit-to-Stand and Stand-to-Sit Movement Using Wearable Sensors</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:1424-8220">
+        <prism:volume>14</prism:volume>
+        <prism:number>3</prism:number>
+        <dc:title>Sensors (Basel, Switzerland)</dc:title>
+        <dc:identifier>ISSN 1424-8220</dc:identifier>
+        <dcterms:alternative>Sensors (Basel)</dcterms:alternative>
+        <dc:identifier>DOI 10.3390/s140304342</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_103">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4003946/pdf/sensors-14-04342.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 18:16:17</dcterms:dateSubmitted>
+        <dc:title>PubMed Central Full Text PDF</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_102">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4003946/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 18:16:15</dcterms:dateSubmitted>
+        <dc:title>PubMed Central Link</dc:title>
+        <z:linkMode>3</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="http://ieeexplore.ieee.org/document/6655907/">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:2168-2194,%202168-2208"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>Zhijun Li</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>Baocheng Wang</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>Fuchun Sun</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>Chenguang Yang</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>Qing Xie</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>Weidong Zhang</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:subject>ABS-LPF</dc:subject>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://ieeexplore.ieee.org/document/6655907/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>1043-1050</bib:pages>
+        <dc:date>5/2014</dc:date>
+        <dcterms:dateSubmitted>2018-10-21 18:16:24</dcterms:dateSubmitted>
+        <z:libraryCatalog>Crossref</z:libraryCatalog>
+        <dc:title>sEMG-Based Joint Force Control for an Upper-Limb Power-Assist Exoskeleton Robot</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:2168-2194,%202168-2208">
+        <prism:volume>18</prism:volume>
+        <prism:number>3</prism:number>
+        <dc:title>IEEE Journal of Biomedical and Health Informatics</dc:title>
+        <dc:identifier>ISSN 2168-2194, 2168-2208</dc:identifier>
+        <dc:identifier>DOI 10.1109/JBHI.2013.2286455</dc:identifier>
+    </bib:Journal>
+    <rdf:Description rdf:about="urn:isbn:978-1-5386-2296-4">
+        <z:itemType>conferencePaper</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:identifier>ISBN 978-1-5386-2296-4</dc:identifier>
+                <dc:identifier>DOI 10.1109/ICORR.2017.8009334</dc:identifier>
+                <dc:title>2017 International Conference on Rehabilitation Robotics (ICORR)</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>London</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>IEEE</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Lambelet</foaf:surname>
+                        <foaf:givenname>Charles</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Lyu</foaf:surname>
+                        <foaf:givenname>Mingxing</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Woolley</foaf:surname>
+                        <foaf:givenname>Daniel</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Gassert</foaf:surname>
+                        <foaf:givenname>Roger</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Wenderoth</foaf:surname>
+                        <foaf:givenname>Nicole</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://ieeexplore.ieee.org/document/8009334/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>726-733</bib:pages>
+        <dc:date>7/2017</dc:date>
+        <dcterms:dateSubmitted>2018-10-21 18:16:41</dcterms:dateSubmitted>
+        <z:libraryCatalog>Crossref</z:libraryCatalog>
+        <bib:presentedAt>
+            <bib:Conference>
+                <dc:title>2017 International Conference on Rehabilitation Robotics (ICORR)</dc:title>
+            </bib:Conference>
+        </bib:presentedAt>
+        <dc:title>The eWrist — A wearable wrist exoskeleton with sEMG-based force control for stroke rehabilitation</dc:title>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:isbn:978-1-4673-7791-1">
+        <z:itemType>conferencePaper</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:identifier>ISBN 978-1-4673-7791-1</dc:identifier>
+                <dc:identifier>DOI 10.1109/IECBES.2016.7843465</dc:identifier>
+                <dc:title>2016 IEEE EMBS Conference on Biomedical Engineering and Sciences (IECBES)</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Malaysia</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>IEEE</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Roland</foaf:surname>
+                        <foaf:givenname>Theresa</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Baumgartner</foaf:surname>
+                        <foaf:givenname>Werner</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Amsuess</foaf:surname>
+                        <foaf:givenname>Sebastian</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Russold</foaf:surname>
+                        <foaf:givenname>Michael Friedrich</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://ieeexplore.ieee.org/document/7843465/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>317-320</bib:pages>
+        <dc:date>12/2016</dc:date>
+        <dcterms:dateSubmitted>2018-10-21 18:17:35</dcterms:dateSubmitted>
+        <z:libraryCatalog>Crossref</z:libraryCatalog>
+        <bib:presentedAt>
+            <bib:Conference>
+                <dc:title>2016 IEEE EMBS Conference on Biomedical Engineering and Sciences (IECBES)</dc:title>
+            </bib:Conference>
+        </bib:presentedAt>
+        <dc:title>Signal evaluation of capacitive EMG for upper limb prostheses control using an ultra-low-power microcontroller</dc:title>
+    </rdf:Description>
+    <bib:Article rdf:about="#item_107">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:8750-7587"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Blijham</foaf:surname>
+                        <foaf:givenname>P. J.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>ter Laak</foaf:surname>
+                        <foaf:givenname>H. J.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Schelhaas</foaf:surname>
+                        <foaf:givenname>H. J.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>van Engelen</foaf:surname>
+                        <foaf:givenname>B. G. M.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Stegeman</foaf:surname>
+                        <foaf:givenname>D. F.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Zwarts</foaf:surname>
+                        <foaf:givenname>M. J.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_109"/>
+        <link:link rdf:resource="#item_108"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Electromyography</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Humans</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Muscle, Skeletal</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Adult</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Aged</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Biopsy, Needle</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Evoked Potentials, Motor</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Female</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Male</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Middle Aged</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Motor Neurons</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Muscle Fibers, Skeletal</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Neuromuscular Diseases</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <bib:pages>1837-1841</bib:pages>
+        <dc:date>Jun 2006</dc:date>
+        <dc:description>PMID: 16424073</dc:description>
+        <z:libraryCatalog>PubMed</z:libraryCatalog>
+        <z:language>eng</z:language>
+        <dcterms:abstract>To determine the relation between muscle fiber conduction velocity (MFCV) and muscle fiber diameter (MFD) in pathological conditions, we correlated invasively measured MFCV values with MFD data obtained from muscle needle biopsies in 96 patients with various neuromuscular disorders. MFCV was significantly correlated with MFD and independent of the underlying disorder. Pathological diameter changes were fiber-type dependent, with corresponding MFCVs. A linear equation expresses the relation well: MFCV (m/s)=0.043.MFD (microm)+0.83. We conclude that fiber diameter determines MFCV largely independent of the underlying neuromuscular disorders studied.</dcterms:abstract>
+        <dc:title>Relation between muscle fiber conduction velocity and fiber size in neuromuscular disorders</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:8750-7587">
+        <prism:volume>100</prism:volume>
+        <prism:number>6</prism:number>
+        <dc:title>Journal of Applied Physiology (Bethesda, Md.: 1985)</dc:title>
+        <dc:identifier>ISSN 8750-7587</dc:identifier>
+        <dcterms:alternative>J. Appl. Physiol.</dcterms:alternative>
+        <dc:identifier>DOI 10.1152/japplphysiol.01009.2005</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_109">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://repository.ubn.ru.nl/bitstream/2066/50508/1/50508.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 18:51:07</dcterms:dateSubmitted>
+        <dc:title>Full Text</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_108">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://www.ncbi.nlm.nih.gov/pubmed/16424073</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-21 18:51:01</dcterms:dateSubmitted>
+        <dc:title>PubMed entry</dc:title>
+        <z:linkMode>3</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="urn:isbn:978-1-4577-1589-1%20978-1-4244-4121-1%20978-1-4244-4122-8">
+        <z:itemType>conferencePaper</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:identifier>ISBN 978-1-4577-1589-1 978-1-4244-4121-1 978-1-4244-4122-8</dc:identifier>
+                <dc:identifier>DOI 10.1109/IEMBS.2011.6090139</dc:identifier>
+                <dc:title>2011 Annual International Conference of the IEEE Engineering in Medicine and Biology Society</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Boston, MA</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>IEEE</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Lenzi</foaf:surname>
+                        <foaf:givenname>T.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>De Rossi</foaf:surname>
+                        <foaf:givenname>S. M. M.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Vitiello</foaf:surname>
+                        <foaf:givenname>N.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Carrozza</foaf:surname>
+                        <foaf:givenname>M. C.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://ieeexplore.ieee.org/document/6090139/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>628-631</bib:pages>
+        <dc:date>08/2011</dc:date>
+        <dcterms:dateSubmitted>2018-10-22 09:05:34</dcterms:dateSubmitted>
+        <z:libraryCatalog>Crossref</z:libraryCatalog>
+        <bib:presentedAt>
+            <bib:Conference>
+                <dc:title>2011 33rd Annual International Conference of the IEEE Engineering in Medicine and Biology Society</dc:title>
+            </bib:Conference>
+        </bib:presentedAt>
+        <dc:title>Proportional EMG control for upper-limb powered exoskeletons</dc:title>
+    </rdf:Description>
+    <bib:Article rdf:about="#item_116">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+           <bib:Journal></bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hermens</foaf:surname>
+                        <foaf:givenname>Hermie J</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Freriks</foaf:surname>
+                        <foaf:givenname>Bart</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Merletti</foaf:surname>
+                        <foaf:givenname>Roberto</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Stegeman</foaf:surname>
+                        <foaf:givenname>Dick</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Blok</foaf:surname>
+                        <foaf:givenname>Joleen</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Rau</foaf:surname>
+                        <foaf:givenname>Günter</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Disselhorst-Klug</foaf:surname>
+                        <foaf:givenname>Cathy</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hägg</foaf:surname>
+                        <foaf:givenname>Göran</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_115"/>
+        <bib:pages>4</bib:pages>
+        <z:libraryCatalog>Zotero</z:libraryCatalog>
+        <z:language>en</z:language>
+        <dc:title>European Recommendations for Surface ElectroMyoGraphy</dc:title>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_115">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://www.seniam.org/pdf/contents8.PDF</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-22 09:15:04</dcterms:dateSubmitted>
+        <dc:title>Hermens 等。 - European Recommendations for Surface ElectroMyoGra.pdf</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Book rdf:about="urn:isbn:978-90-75452-15-0">
+        <z:itemType>book</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Enschede, The Netherlands</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>Roessingh Research and Development</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hermens</foaf:surname>
+                        <foaf:givenname>Hermie J</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Merletti</foaf:surname>
+                        <foaf:givenname>Roberto</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Freriks</foaf:surname>
+                        <foaf:givenname>Bart</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>ISBN 978-90-75452-15-0</dc:identifier>
+        <dc:date>1999</dc:date>
+        <dc:description>OCLC: 494511524</dc:description>
+        <z:libraryCatalog>Open WorldCat</z:libraryCatalog>
+        <z:language>English</z:language>
+        <dc:title>SENIAM European recommendations for surface electromyography</dc:title>
+    </bib:Book>
+    <rdf:Description rdf:about="https://en.wikipedia.org/w/index.php?title=Forearm&amp;oldid=865062582">
+        <z:itemType>encyclopediaArticle</z:itemType>
+        <dcterms:isPartOf>
+           <bib:Book><dc:title>Wikipedia</dc:title></bib:Book>
+        </dcterms:isPartOf>
+        <link:link rdf:resource="#item_119"/>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://en.wikipedia.org/w/index.php?title=Forearm&amp;oldid=865062582</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:rights>Creative Commons Attribution-ShareAlike License</dc:rights>
+        <dc:date>2018-10-21T13:27:24Z</dc:date>
+        <dc:description>Page Version ID: 865062582</dc:description>
+        <dcterms:dateSubmitted>2018-10-22 09:47:05</dcterms:dateSubmitted>
+        <z:libraryCatalog>Wikipedia</z:libraryCatalog>
+        <z:language>en</z:language>
+        <dcterms:abstract>The forearm is the region of the upper limb between the elbow and the wrist. The term forearm is used in anatomy to distinguish it from the arm, a word which is most often used to describe the entire appendage of the upper limb, but which in anatomy, technically, means only the region of the upper arm, whereas the lower &quot;arm&quot; is called the forearm. It is homologous to the region of the leg that lies between the knee and the ankle joints, the crus.
+The forearm contains two long bones, the radius and the ulna, forming the radioulnar joint. The interosseous membrane connects these bones. Ultimately, the forearm is covered by skin, the anterior surface usually being less hairy than the posterior surface.
+The forearm contains many muscles, including the flexors and extensors of the digits, a flexor of the elbow (brachioradialis), and pronators and supinators that turn the hand to face down or upwards, respectively. In cross-section the forearm can be divided into two fascial compartments. The posterior compartment contains the extensors of the hands, which are supplied by the radial nerve. The anterior compartment contains the flexors, and is mainly supplied by the median nerve. The flexor muscles are more massive than the extensors, because they work against gravity and act as anti-gravity muscles. The ulnar nerve also runs the length of the forearm.
+The radial and ulnar arteries and their branches supply the blood to the forearm. These usually run on the anterior face of the radius and ulna down the whole forearm. The main superficial veins of the forearm are the cephalic, median antebrachial and the basilic vein. These veins can be used for cannularisation or venipuncture, although the cubital fossa is a preferred site for getting blood.</dcterms:abstract>
+        <dc:title>Forearm</dc:title>
+    </rdf:Description>
+    <z:Attachment rdf:about="#item_119">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://en.wikipedia.org/w/index.php?title=Forearm&amp;oldid=865062582</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-22 09:47:07</dcterms:dateSubmitted>
+        <dc:title>Snapshot</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Document rdf:about="https://www.ncbi.nlm.nih.gov/nlmcatalog/101667594">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+           <z:Website></z:Website>
+        </dcterms:isPartOf>
+        <link:link rdf:resource="#item_121"/>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.ncbi.nlm.nih.gov/nlmcatalog/101667594</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-22 10:39:08</dcterms:dateSubmitted>
+        <dc:title>Gray's anatomy : the anatomical basis of clinical practice - NLM Catalog - NCBI</dc:title>
+    </bib:Document>
+    <z:Attachment rdf:about="#item_121">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.ncbi.nlm.nih.gov/nlmcatalog/101667594</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-22 10:39:09</dcterms:dateSubmitted>
+        <dc:title>Gray's anatomy : the anatomical basis of clinical practice - NLM Catalog - NCBI</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Book rdf:about="urn:isbn:978-1-60406-745-3">
+        <z:itemType>book</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Stuttgart ; New York</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>Thieme</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Gilroy</foaf:surname>
+                        <foaf:givenname>Anne M.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>MacPherson</foaf:surname>
+                        <foaf:givenname>Brian R.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Ross</foaf:surname>
+                        <foaf:givenname>Lawrence M.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Schuenke</foaf:surname>
+                        <foaf:givenname>Michael</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Schulte</foaf:surname>
+                        <foaf:givenname>Erik</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Schumacher</foaf:surname>
+                        <foaf:givenname>Udo</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_123"/>
+        <prism:edition>2 edition</prism:edition>
+        <dc:identifier>ISBN 978-1-60406-745-3</dc:identifier>
+        <dc:date>April 9, 2012</dc:date>
+        <z:libraryCatalog>Amazon</z:libraryCatalog>
+        <z:language>English</z:language>
+        <dcterms:abstract>Highly rated by First Aid for the USMLE !The gold standard for learning anatomy... Atlas of Anatomy, Second Edition, is the essential resource for anyone studying gross anatomy. Packed with over 2,400 full-color illustrations, this atlas guides you step-by-step through each region of the body, helping you master the details of anatomy.Key Features:Exquisite full-color illustrations with clear, thorough labeling and descriptive captions Even more clinical correlations help students make the connection between anatomy and medicine Coverage of each region intuitively arranged to simplify learning: beginning with the skeletal framework, then adding muscles, organs, vasculature, and nerves, and concluding with &quot;topographic&quot; illustrations that put it all together Over 170 tables summarize key anatomic information for ease of study and review Innovative, user-friendly format in which each two-page spread is a self-contained guide to a topic Surface anatomy spreads now include regions and reference lines or planes in addition to landmarks and palpable structures to develop physical exam skills Muscle Fact spreads ideal for memorization, reference, and review organize the essentials about muscles, including origin, insertion, innervation, and action New sectional anatomy spreads at the end of units build familiarity with 2D views of anatomic regions Access to WinkingSkull.com PLUS, with over 500 images from the book for &quot;labels-on and labels-off&quot; review and timed self-tests for exam preparationAtlas of Anatomy is the student's choice:&quot;Thieme is the best anatomy atlas by far, hands down. Clearer pictures, more pictures, more realistic pictures, structures broken up in ways that make sense and shown from every angle...includes clinical correlations and summary charts of innervations and actions. That's about all there is to it. Just buy it. Thank you Thieme!!! Ok, now back to studying...&quot; &quot;In my opinion this book surpasses them all. It's the artwork. The artist has found the perfect balance of detail and clarity. Some of these illustrations have to be seen to be believed.... The pearls of clinical information are very good and these add significance to the information and make it easier to remember. Easier to remember is key.&quot;</dcterms:abstract>
+        <dc:title>Atlas of Anatomy</dc:title>
+        <z:numPages>694</z:numPages>
+    </bib:Book>
+    <z:Attachment rdf:about="#item_123">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.amazon.com/Atlas-Anatomy-Anne-M-Gilroy/dp/1604067454</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-22 10:43:07</dcterms:dateSubmitted>
+        <dc:title>Amazon.com Link</dc:title>
+        <z:linkMode>3</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="urn:isbn:978-1-4244-2357-6">
+        <z:itemType>conferencePaper</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:identifier>ISBN 978-1-4244-2357-6</dc:identifier>
+                <dc:identifier>DOI 10.1109/CIT.2008.4594760</dc:identifier>
+                <dc:title>2008 8th IEEE International Conference on Computer and Information Technology</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Sydney, Australia</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>IEEE</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Naik</foaf:surname>
+                        <foaf:givenname>Ganesh R.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Kumar</foaf:surname>
+                        <foaf:givenname>Dinesh K.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Palaniswami</foaf:surname>
+                        <foaf:givenname>Marimuthu</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://ieeexplore.ieee.org/document/4594760/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>700-705</bib:pages>
+        <dc:date>07/2008</dc:date>
+        <dcterms:dateSubmitted>2018-10-22 15:49:11</dcterms:dateSubmitted>
+        <z:libraryCatalog>Crossref</z:libraryCatalog>
+        <bib:presentedAt>
+            <bib:Conference>
+                <dc:title>2008 8th IEEE International Conference on Computer and Information Technology (CIT)</dc:title>
+            </bib:Conference>
+        </bib:presentedAt>
+        <dc:title>Multi run ICA and surface EMG based signal processing system for recognising hand gestures</dc:title>
+    </rdf:Description>
+    <bib:Article rdf:about="#item_125">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:1557-170X"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Zhang</foaf:surname>
+                        <foaf:givenname>Qin</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Xiong</foaf:surname>
+                        <foaf:givenname>Caihua</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Chen</foaf:surname>
+                        <foaf:givenname>Wenbin</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_126"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Electromyography</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Humans</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Pattern Recognition, Automated</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Muscle Contraction</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Signal Processing, Computer-Assisted</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Arm</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Artifacts</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Markov Chains</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Movement</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Principal Component Analysis</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Sensitivity and Specificity</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <bib:pages>5068-5071</bib:pages>
+        <dc:date>2014</dc:date>
+        <dc:description>PMID: 25571132</dc:description>
+        <z:libraryCatalog>PubMed</z:libraryCatalog>
+        <z:language>eng</z:language>
+        <dcterms:abstract>Surface Electromyography (EMG) is popularly used to decode human motion intention for robot movement control. Traditional motion decoding method uses pattern recognition to provide binary control command which can only move the robot as predefined limited patterns. In this work, we proposed a motion decoding method which can accurately estimate 3-dimensional (3-D) continuous upper limb motion only from multi-channel EMG signals. In order to prevent the muscle activities from motion artifacts and muscle crosstalk which especially obviously exist in upper limb motion, the independent component analysis (ICA) was applied to extract the independent source EMG signals. The motion data was also transferred from 4-manifold to 2-manifold by the principle component analysis (PCA). A hidden Markov model (HMM) was proposed to decode the motion from the EMG signals after the model trained by an adaptive model identification process. Experimental data were used to train the decoding model and validate the motion decoding performance. By comparing the decoded motion with the measured motion, it is found that the proposed motion decoding strategy was feasible to decode 3-D continuous motion from EMG signals.</dcterms:abstract>
+        <dc:title>Continuous motion decoding from EMG using independent component analysis and adaptive model training</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:1557-170X">
+        <prism:volume>2014</prism:volume>
+        <dc:title>Conference proceedings: ... Annual International Conference of the IEEE Engineering in Medicine and Biology Society. IEEE Engineering in Medicine and Biology Society. Annual Conference</dc:title>
+        <dc:identifier>ISSN 1557-170X</dc:identifier>
+        <dcterms:alternative>Conf Proc IEEE Eng Med Biol Soc</dcterms:alternative>
+        <dc:identifier>DOI 10.1109/EMBC.2014.6944764</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_126">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://www.ncbi.nlm.nih.gov/pubmed/25571132</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-22 15:53:18</dcterms:dateSubmitted>
+        <dc:title>PubMed entry</dc:title>
+        <z:linkMode>3</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Document rdf:about="https://www.researchgate.net/publication/264836411_A_comparison_of_ICA_algorithms_in_surface_EMG_signal_processing">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+           <z:Website><dc:title>ResearchGate</dc:title></z:Website>
+        </dcterms:isPartOf>
+        <link:link rdf:resource="#item_128"/>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.researchgate.net/publication/264836411_A_comparison_of_ICA_algorithms_in_surface_EMG_signal_processing</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:description>DOI: http://dx.doi.org/10.1504/IJBET.2011.041774</dc:description>
+        <dcterms:dateSubmitted>2018-10-22 15:57:47</dcterms:dateSubmitted>
+        <z:language>en</z:language>
+        <dcterms:abstract>Request PDF on ResearchGate | A comparison of ICA algorithms in surface EMG signal processing | Recent research has resulted in development of number of different Independent Component Analysis (ICA) technique. While there are some researchers who have compared their techniques with the existing methods for audio examples, there is no comparison of performance between...</dcterms:abstract>
+        <dc:title>A comparison of ICA algorithms in surface EMG signal processing | Request PDF</dc:title>
+    </bib:Document>
+    <z:Attachment rdf:about="#item_128">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.researchgate.net/publication/264836411_A_comparison_of_ICA_algorithms_in_surface_EMG_signal_processing</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-22 15:57:49</dcterms:dateSubmitted>
+        <dc:title>Snapshot</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="#item_129">
+        <z:itemType>conferencePaper</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:identifier>DOI 10.1109/ISSNIP.2007.4496913</dc:identifier>
+                <dc:title>Sensor Networks and Information 2007 3rd International Conference on Intelligent Sensors</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Naik</foaf:surname>
+                        <foaf:givenname>G. R.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Kumar</foaf:surname>
+                        <foaf:givenname>D. K.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Weghorn</foaf:surname>
+                        <foaf:givenname>H.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_130"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Electromyography</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Muscles</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>bioelectric phenomena</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>biomechanics</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Biomedical measurements</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>biomedical processing</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>biosignal decomposition</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Data analysis</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Electric variables measurement</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>electromyography</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>FastICA algorithm</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>gesture recognition</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>hand movements</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>ICA algorithm</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>independent component analysis</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Independent component analysis</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Infomax algorithm</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>isometric hand gesture identification</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>JADE algorithm</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>medical signal detection</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>medical signal processing</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+                <rdf:value>multivariate statistical data analysis technique</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>muscle contraction strength</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>muscle electrical activity</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>neurophysiology</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Robustness</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>second-order statistics</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>signal extraction</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Signal processing</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Signal processing algorithms</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>source separation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Source separation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+                <rdf:value>statistical based source separation technique</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>statistical signal processing</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>surface EMG</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>TDSEP algorithm</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>temporal decorrelation method</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <bib:pages>613-618</bib:pages>
+        <dc:date>December 2007</dc:date>
+        <z:libraryCatalog>IEEE Xplore</z:libraryCatalog>
+        <bib:presentedAt>
+            <bib:Conference>
+                <dc:title>Sensor Networks and Information 2007 3rd International Conference on Intelligent Sensors</dc:title>
+            </bib:Conference>
+        </bib:presentedAt>
+        <dcterms:abstract>There is an urgent need for developing a robust technique that can identify small and subtle hand and other body movements with applications in health, rehabilitation and defence. Surface electromyogram (sEMG) is a measure of the electrical activity of the muscles and a measure of the strength of muscle contraction. While this may be a good measure of the actions and gestures, this is unable to identify small variations in the muscle activity, especially when there are number of simultaneously active muscles. Independent component analysis (ICA) is a statistical based source separation technique that has been shown to be suitable for the decomposition of signals such as sEMG and been shown to improve the ability of sEMG to identify small variations in muscle activity. ICA algorithms using multivariate statistical data analysis technique have been successfully used for signal extraction and source separation in the field of biomedical and statistical signal processing. Recent research has resulted in the development of number of different ICA technique. While there are some researchers who have compared their techniques with the existing methods for audio examples, there is no comparison of performance between ICA algorithms for biosignal applications such as surface electromyography (sEMG) applications. With ICA being the feasible method for source separation and decomposition of biosignals, it is important to compare the different techniques and determine the most suitable method for the applications. This paper has studied the performance of four ICA algorithms (FastICA, JADE, Infomax and TDSEP) for decomposition of sEMG to identify subtle hand gestures. Comparing several ICA algorithms, it is observed that an algorithm based on temporal decorrelation method (TDSEP) which is based on the second order statistics gives the best performance.</dcterms:abstract>
+        <dc:title>Performance comparison of ICA algorithms for Isometric Hand gesture identification using Surface EMG</dc:title>
+    </rdf:Description>
+    <z:Attachment rdf:about="#item_130">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://ieeexplore.ieee.org/document/4496913</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-22 15:58:17</dcterms:dateSubmitted>
+        <dc:title>IEEE Xplore Abstract Record</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="http://ieeexplore.ieee.org/document/1199651/">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:1045-9227"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Plumbley</foaf:surname>
+                        <foaf:givenname>M.D.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_133"/>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://ieeexplore.ieee.org/document/1199651/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>534-543</bib:pages>
+        <dc:date>05/2003</dc:date>
+        <dcterms:dateSubmitted>2018-10-23 14:02:37</dcterms:dateSubmitted>
+        <z:libraryCatalog>Crossref</z:libraryCatalog>
+        <z:language>en</z:language>
+        <dc:title>Algorithms for nonnegative independent component analysis</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:1045-9227">
+        <prism:volume>14</prism:volume>
+        <prism:number>3</prism:number>
+        <dc:title>IEEE Transactions on Neural Networks</dc:title>
+        <dc:identifier>ISSN 1045-9227</dc:identifier>
+        <dc:identifier>DOI 10.1109/TNN.2003.810616</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_133">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=C19D7AC990C31FD4FED2119345FB0263?doi=10.1.1.217.3478&amp;rep=rep1&amp;type=pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-23 14:02:54</dcterms:dateSubmitted>
+        <dc:title>Submitted Version</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Document rdf:about="https://ieeexplore.ieee.org/document/1223327">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+           <z:Website></z:Website>
+        </dcterms:isPartOf>
+        <link:link rdf:resource="#item_135"/>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://ieeexplore.ieee.org/document/1223327</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-23 14:20:30</dcterms:dateSubmitted>
+        <dc:title>A Morlet wavelet classification technique for ICA filtered sEMG experimental data - IEEE Conference Publication</dc:title>
+    </bib:Document>
+    <z:Attachment rdf:about="#item_135">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://ieeexplore.ieee.org/document/1223327</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-23 14:20:32</dcterms:dateSubmitted>
+        <dc:title>A Morlet wavelet classification technique for ICA filtered sEMG experimental data - IEEE Conference Publication</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Document rdf:about="https://www.ncbi.nlm.nih.gov/pubmed/15165592">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+           <z:Website></z:Website>
+        </dcterms:isPartOf>
+        <link:link rdf:resource="#item_137"/>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://www.ncbi.nlm.nih.gov/pubmed/15165592</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-23 14:20:46</dcterms:dateSubmitted>
+        <dc:title>The application of independent component analysis to the multi-channel surface electromyographic signals for separation of motor unit action potent... - PubMed - NCBI</dc:title>
+    </bib:Document>
+    <z:Attachment rdf:about="#item_137">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://www.ncbi.nlm.nih.gov/pubmed/15165592</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-23 14:20:48</dcterms:dateSubmitted>
+        <dc:title>The application of independent component analysis to the multi-channel surface electromyographic signals for separation of motor unit action potent... - PubMed - NCBI</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="urn:isbn:978-0-7803-7898-8">
+        <z:itemType>conferencePaper</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <prism:volume>1</prism:volume>
+                <dc:identifier>ISBN 978-0-7803-7898-8</dc:identifier>
+                <dc:identifier>DOI 10.1109/IJCNN.2003.1223327</dc:identifier>
+                <dc:title>Proceedings of the International Joint Conference on Neural Networks, 2003.</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Portland, OR, USA</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>IEEE</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Greco</foaf:surname>
+                        <foaf:givenname>A.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Costantino</foaf:surname>
+                        <foaf:givenname>D.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Morabito</foaf:surname>
+                        <foaf:givenname>F.C.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Versaci</foaf:surname>
+                        <foaf:givenname>M.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://ieeexplore.ieee.org/document/1223327/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>166-171</bib:pages>
+        <dc:date>2003</dc:date>
+        <dcterms:dateSubmitted>2018-10-23 14:21:33</dcterms:dateSubmitted>
+        <z:libraryCatalog>Crossref</z:libraryCatalog>
+        <bib:presentedAt>
+            <bib:Conference>
+                <dc:title>2003 International Joint Conference on Neural Networks</dc:title>
+            </bib:Conference>
+        </bib:presentedAt>
+        <dc:title>A Morlet wavelet classification technique for ICA filtered sEMG experimental data</dc:title>
+    </rdf:Description>
+    <bib:Article rdf:about="#item_139">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <prism:volume>14</prism:volume>
+                <prism:number>4</prism:number>
+                <dc:title>Journal of Electromyography and Kinesiology: Official Journal of the International Society of Electrophysiological Kinesiology</dc:title>
+                <dc:identifier>ISSN 1050-6411</dc:identifier>
+                <dcterms:alternative>J Electromyogr Kinesiol</dcterms:alternative>
+                <dc:identifier>DOI 10.1016/j.jelekin.2004.01.004</dc:identifier>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Nakamura</foaf:surname>
+                        <foaf:givenname>Hideo</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Yoshida</foaf:surname>
+                        <foaf:givenname>Masaki</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Kotani</foaf:surname>
+                        <foaf:givenname>Manabu</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Akazawa</foaf:surname>
+                        <foaf:givenname>Kenzo</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Moritani</foaf:surname>
+                        <foaf:givenname>Toshio</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_140"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Action Potentials</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Adult</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Algorithms</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Electromyography</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Humans</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Isometric Contraction</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Male</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Motor Neurons</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Muscle Fibers, Skeletal</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Muscle, Skeletal</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Normal Distribution</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Signal Processing, Computer-Assisted</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Statistical Distributions</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Time Factors</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <bib:pages>423-432</bib:pages>
+        <dc:date>Aug 2004</dc:date>
+        <dc:description>PMID: 15165592</dc:description>
+        <z:libraryCatalog>PubMed</z:libraryCatalog>
+        <z:language>eng</z:language>
+        <dcterms:abstract>The purpose of this study is to examine whether or not the application of independent component analysis (ICA) is useful for separation of motor unit action potential trains (MUAPTs) from the multi-channel surface EMG (sEMG) signals. In this study, the eight-channel sEMG signals were recorded from tibialis anterior muscles during isometric dorsi-flexions at 5%, 10%, 15% and 20% maximal voluntary contraction. Recording MUAP waveforms with little time delay mounted between the channels were obtained by vertical sEMG channel arrangements to muscle fibers. The independent components estimated by FastICA were compared with the sEMG signals and the principal components calculated by principal component analysis (PCA). From our results, it was shown that FastICA could separate groups of similar MUAP waveforms of the sEMG signals separated into each independent component while PCA could not sufficiently separate the groups into the principal components. A greater reduction of interferences between different MUAP waveforms was demonstrated by the use of FastICA. Therefore, it is suggested that FastICA could provide much better discrimination of the properties of MUAPTs for sEMG signal decomposition, i.e. waveforms, discharge intervals, etc., than not only PCA but also the original sEMG signals.</dcterms:abstract>
+        <dc:title>The application of independent component analysis to the multi-channel surface electromyographic signals for separation of motor unit action potential trains: part I-measuring techniques</dc:title>
+        <z:shortTitle>The application of independent component analysis to the multi-channel surface electromyographic signals for separation of motor unit action potential trains</z:shortTitle>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_140">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://www.ncbi.nlm.nih.gov/pubmed/15165592</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-23 14:21:59</dcterms:dateSubmitted>
+        <dc:title>PubMed entry</dc:title>
+        <z:linkMode>3</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_141">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:0967-3334"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>James</foaf:surname>
+                        <foaf:givenname>Christopher J.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hesse</foaf:surname>
+                        <foaf:givenname>Christian W.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_142"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Biomedical Technology</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Brain</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Electroencephalography</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Electromagnetic Fields</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Electronics</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Equipment Design</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Humans</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Signal Processing, Computer-Assisted</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <bib:pages>R15-39</bib:pages>
+        <dc:date>Feb 2005</dc:date>
+        <dc:description>PMID: 15742873</dc:description>
+        <z:libraryCatalog>PubMed</z:libraryCatalog>
+        <z:language>eng</z:language>
+        <dcterms:abstract>Independent component analysis (ICA) is increasing in popularity in the field of biomedical signal processing. It is generally used when it is required to separate measured multi-channel biomedical signals into their constituent underlying components. The use of ICA has been facilitated in part by the free availability of toolboxes that implement popular flavours of the techniques. Fundamentally ICA in biomedicine involves the extraction and separation of statistically independent sources underlying multiple measurements of biomedical signals. Technical advances in algorithmic developments implementing ICA are reviewed along with new directions in the field. These advances are specifically summarized with applications to biomedical signals in mind. The basic assumptions that are made when applying ICA are discussed, along with their implications when applied particularly to biomedical signals. ICA as a specific embodiment of blind source separation (BSS) is also discussed, and as a consequence the criterion used for establishing independence between sources is reviewed and this leads to the introduction of ICA/BSS techniques based on time, frequency and joint time-frequency decomposition of the data. Finally, advanced implementations of ICA are illustrated as applied to neurophysiologic signals in the form of electro-magnetic brain signals data.</dcterms:abstract>
+        <dc:title>Independent component analysis for biomedical signals</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:0967-3334">
+        <prism:volume>26</prism:volume>
+        <prism:number>1</prism:number>
+        <dc:title>Physiological Measurement</dc:title>
+        <dc:identifier>ISSN 0967-3334</dc:identifier>
+        <dcterms:alternative>Physiol Meas</dcterms:alternative>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_142">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://www.ncbi.nlm.nih.gov/pubmed/15742873</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-23 14:22:55</dcterms:dateSubmitted>
+        <dc:title>PubMed entry</dc:title>
+        <z:linkMode>3</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_143">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <prism:volume>4</prism:volume>
+                <dc:title>Conference proceedings: ... Annual International Conference of the IEEE Engineering in Medicine and Biology Society. IEEE Engineering in Medicine and Biology Society. Annual Conference</dc:title>
+                <dc:identifier>ISSN 1557-170X</dc:identifier>
+                <dcterms:alternative>Conf Proc IEEE Eng Med Biol Soc</dcterms:alternative>
+                <dc:identifier>DOI 10.1109/IEMBS.2005.1617272</dc:identifier>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hu</foaf:surname>
+                        <foaf:givenname>Yong</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Li</foaf:surname>
+                        <foaf:givenname>X. H.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Xie</foaf:surname>
+                        <foaf:givenname>X. B.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Pang</foaf:surname>
+                        <foaf:givenname>L. Y.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Cao</foaf:surname>
+                        <foaf:givenname>Yuzhen</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Luk</foaf:surname>
+                        <foaf:givenname>Kdk</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_144"/>
+        <bib:pages>3647-3649</bib:pages>
+        <dc:date>2005</dc:date>
+        <dc:description>PMID: 17281017</dc:description>
+        <z:libraryCatalog>PubMed</z:libraryCatalog>
+        <z:language>eng</z:language>
+        <dcterms:abstract>Surface electromyography (sEMG) recorded from the trunk area may reflect underlying muscular function, and is the current standard for in vivo functional examination. However, sEMG of this area, including the low back musculature, usually encounters substantial interference from strong cardiac signals. It is therefore imperative to remove electrocardiogram (ECG) interference from sEMG data. This paper discusses a denoise method using independent component analysis (ICA) and a high-pass filter to effectively suppress the interference of ECG in sEMG recorded from trunk muscles. The performance of this technique was evaluated with simulation experiments. To compare the outcome of the ICA and filtering technique to the original sEMG signal, correlation coefficients in both time-domain waveform and frequency spectrum were computed. In addition, different filter bands were evaluated. The ICA ECG cancellation with a 30Hz high-pass filter showed higher mean correlation coefficients in the time domain (0.97&amp;#177;0.08) and in the frequency spectrum (0.99&amp;#177;0.06) than any other techniques. This suggests that the ICA ECG cancellation technique with a 30 Hz high-pass filter would be the most appropriate method to extract useful sEMG signals from trunk muscles.</dcterms:abstract>
+        <dc:title>Applying Independent Component Analysis on ECG Cancellation Technique for the Surface Recording of Trunk Electromyography</dc:title>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_144">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://www.ncbi.nlm.nih.gov/pubmed/17281017</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-23 14:23:09</dcterms:dateSubmitted>
+        <dc:title>PubMed entry</dc:title>
+        <z:linkMode>3</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=1273385.1273397">
+        <z:itemType>conferencePaper</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dcterms:isPartOf>
+                   <bib:Series><dc:title>VisHCI '06</dc:title></bib:Series>
+                </dcterms:isPartOf>
+                <dc:title>Proceedings of the HCSNet Workshop on Use of Vision in Human-computer Interaction - Volume 56</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                        <vcard:locality>Darlinghurst, Australia, Australia</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>Australian Computer Society, Inc.</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Naik</foaf:surname>
+                        <foaf:givenname>Ganesh R.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Kumar</foaf:surname>
+                        <foaf:givenname>Dinesh Kant</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Singh</foaf:surname>
+                        <foaf:givenname>Vijay Pal</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Palaniswami</foaf:surname>
+                        <foaf:givenname>Marimuthu</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>independent component analysis (ICA)</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>root mean square (RMS)</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>surface electromyography (SEMG)</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>http://dl.acm.org/citation.cfm?id=1273385.1273397</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>67–72</bib:pages>
+        <dc:date>2006</dc:date>
+        <dcterms:dateSubmitted>2018-10-23 14:23:25</dcterms:dateSubmitted>
+        <z:libraryCatalog>ACM Digital Library</z:libraryCatalog>
+        <dcterms:abstract>Aiming at the use of hand gestures for human-computer interaction, this paper presents an approach to identify hand gestures using muscle activity separated from electromyogram (EMG) using independent component analysis. While there are a number of previous reported works where EMG has been used to identify movement, the limitation of the earlier works is that the systems are suitable for gross actions, and when there is one prime-mover muscle involved. This paper reports overcoming the difficulty by using independent component analysis to separate muscle activity from different muscles and classified using backpropogation neural networks. The paper reports experimental results where the system was accurately able to identify the hand gesture using this technique for all the experiments (100%). The system has been shown not to be sensitive to electrode position as the experiments were repeated on different days. The advantage of such a system is that it is easy to train by a lay user, and can easily be implemented in real time after the initial training.</dcterms:abstract>
+        <dc:title>Hand Gestures for HCI Using ICA of EMG</dc:title>
+    </rdf:Description>
+    <bib:Article rdf:about="#item_146">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+           <bib:Journal><prism:volume>45</prism:volume></bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Massó</foaf:surname>
+                        <foaf:givenname>Núria</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Rey</foaf:surname>
+                        <foaf:givenname>Ferran</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Romero</foaf:surname>
+                        <foaf:givenname>Daniel</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Gual</foaf:surname>
+                        <foaf:givenname>Gabriel</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_147"/>
+        <link:link rdf:resource="#item_148"/>
+        <dc:date>January 1, 2010</dc:date>
+        <z:libraryCatalog>ResearchGate</z:libraryCatalog>
+        <dc:title>Surface electromyography applications in the sport</dc:title>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_147">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.researchgate.net/profile/Nuria_Masso/publication/291051010_Surface_electromyography_applications_in_the_sport/links/572c82bb08ae6dfb30327317/Surface-electromyography-applications-in-the-sport.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-23 14:37:42</dcterms:dateSubmitted>
+        <dc:title>Full Text PDF</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_148">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.researchgate.net/publication/291051010_Surface_electromyography_applications_in_the_sport</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-23 14:37:42</dcterms:dateSubmitted>
+        <dc:title>ResearchGate Link</dc:title>
+        <z:linkMode>3</z:linkMode>
+    </z:Attachment>
+    <bib:Document rdf:about="https://research.ics.aalto.fi/ica/book/">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+           <z:Website></z:Website>
+        </dcterms:isPartOf>
+        <link:link rdf:resource="#item_150"/>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://research.ics.aalto.fi/ica/book/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-23 15:07:10</dcterms:dateSubmitted>
+        <dc:title>Independent Component Analysis: The Book</dc:title>
+    </bib:Document>
+    <z:Attachment rdf:about="#item_150">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://research.ics.aalto.fi/ica/book/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-23 15:07:12</dcterms:dateSubmitted>
+        <dc:title>Independent Component Analysis: The Book</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="http://linkinghub.elsevier.com/retrieve/pii/S0893608000000265">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:08936080"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hyvärinen</foaf:surname>
+                        <foaf:givenname>A.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Oja</foaf:surname>
+                        <foaf:givenname>E.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_151"/>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>http://linkinghub.elsevier.com/retrieve/pii/S0893608000000265</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>411-430</bib:pages>
+        <dc:date>6/2000</dc:date>
+        <dcterms:dateSubmitted>2018-10-23 15:07:57</dcterms:dateSubmitted>
+        <z:libraryCatalog>Crossref</z:libraryCatalog>
+        <z:language>en</z:language>
+        <dcterms:abstract>A fundamental problem in neural network research, as well as in many other disciplines, is ﬁnding a suitable representation of multivariate data, i.e. random vectors. For reasons of computational and conceptual simplicity, the representation is often sought as a linear transformation of the original data. In other words, each component of the representation is a linear combination of the original variables. Well-known linear transformation methods include principal component analysis, factor analysis, and projection pursuit. Independent component analysis (ICA) is a recently developed method in which the goal is to ﬁnd a linear representation of nongaussian data so that the components are statistically independent, or as independent as possible. Such a representation seems to capture the essential structure of the data in many applications, including feature extraction and signal separation. In this paper, we present the basic theory and applications of ICA, and our recent work on the subject.</dcterms:abstract>
+        <dc:title>Independent component analysis: algorithms and applications</dc:title>
+        <z:shortTitle>Independent component analysis</z:shortTitle>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:08936080">
+        <prism:volume>13</prism:volume>
+        <prism:number>4-5</prism:number>
+        <dc:title>Neural Networks</dc:title>
+        <dc:identifier>ISSN 08936080</dc:identifier>
+        <dc:identifier>DOI 10.1016/S0893-6080(00)00026-5</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_151">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.cs.helsinki.fi/u/ahyvarin/papers/NN00new.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-23 15:07:54</dcterms:dateSubmitted>
+        <dc:title>Hyvärinen 與 Oja - 2000 - Independent component analysis algorithms and app.pdf</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
     <z:Collection rdf:about="#collection_2">
         <dc:title>sEMG</dc:title>
+        <dcterms:hasPart rdf:resource="#collection_5"/>
         <dcterms:hasPart rdf:resource="#collection_4"/>
         <dcterms:hasPart rdf:resource="https://doi.org/10.5772/56717"/>
         <dcterms:hasPart rdf:resource="http://www.wiley.com/WileyCDA/WileyTitle/productCd-0471675806,miniSiteCd-IEEE2.html"/>
@@ -2063,16 +4011,55 @@ PMCID: PMC5575159</dc:description>
         <dcterms:hasPart rdf:resource="http://www.sciencedirect.com/science/article/pii/S0966636203000997"/>
         <dcterms:hasPart rdf:resource="#item_26"/>
         <dcterms:hasPart rdf:resource="#item_28"/>
+        <dcterms:hasPart rdf:resource="https://doi.org/10.1007/BF02476154"/>
         <dcterms:hasPart rdf:resource="#item_36"/>
         <dcterms:hasPart rdf:resource="http://arxiv.org/abs/physics/0611120"/>
         <dcterms:hasPart rdf:resource="urn:isbn:978-90-75452-09-9"/>
-        <dcterms:hasPart rdf:resource="https://doi.org/10.1007/BF02476154"/>
+        <dcterms:hasPart rdf:resource="#item_107"/>
+        <dcterms:hasPart rdf:resource="#item_116"/>
+        <dcterms:hasPart rdf:resource="urn:isbn:978-90-75452-15-0"/>
+        <dcterms:hasPart rdf:resource="https://en.wikipedia.org/w/index.php?title=Forearm&amp;oldid=865062582"/>
+        <dcterms:hasPart rdf:resource="https://www.ncbi.nlm.nih.gov/nlmcatalog/101667594"/>
+        <dcterms:hasPart rdf:resource="urn:isbn:978-1-60406-745-3"/>
+        <dcterms:hasPart rdf:resource="#item_125"/>
+        <dcterms:hasPart rdf:resource="https://www.researchgate.net/publication/264836411_A_comparison_of_ICA_algorithms_in_surface_EMG_signal_processing"/>
+        <dcterms:hasPart rdf:resource="#item_129"/>
+        <dcterms:hasPart rdf:resource="http://ieeexplore.ieee.org/document/1199651/"/>
+        <dcterms:hasPart rdf:resource="urn:isbn:978-0-7803-7898-8"/>
+        <dcterms:hasPart rdf:resource="#item_139"/>
+        <dcterms:hasPart rdf:resource="#item_141"/>
+        <dcterms:hasPart rdf:resource="#item_143"/>
+        <dcterms:hasPart rdf:resource="http://dl.acm.org/citation.cfm?id=1273385.1273397"/>
+        <dcterms:hasPart rdf:resource="#item_146"/>
+        <dcterms:hasPart rdf:resource="https://research.ics.aalto.fi/ica/book/"/>
+        <dcterms:hasPart rdf:resource="http://linkinghub.elsevier.com/retrieve/pii/S0893608000000265"/>
+    </z:Collection>
+    <z:Collection rdf:about="#collection_5">
+        <dc:title>Limb</dc:title>
+        <dcterms:hasPart rdf:resource="https://doi.org/10.5772/56717"/>
+        <dcterms:hasPart rdf:resource="urn:isbn:978-1-4673-8345-5"/>
+        <dcterms:hasPart rdf:resource="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4280697/"/>
+        <dcterms:hasPart rdf:resource="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4003946/"/>
+        <dcterms:hasPart rdf:resource="http://ieeexplore.ieee.org/document/6655907/"/>
+        <dcterms:hasPart rdf:resource="urn:isbn:978-1-4673-7791-1"/>
+        <dcterms:hasPart rdf:resource="urn:isbn:978-1-4577-1589-1%20978-1-4244-4121-1%20978-1-4244-4122-8"/>
+        <rdf:type rdf:resource="http://www.zotero.org/namespaces/export#Collection"/>
+        <dc:title>Limb</dc:title>
+        <dcterms:hasPart rdf:resource="https://doi.org/10.5772/56717"/>
+        <dcterms:hasPart rdf:resource="urn:isbn:978-1-4673-8345-5"/>
+        <dcterms:hasPart rdf:resource="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4280697/"/>
+        <dcterms:hasPart rdf:resource="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4003946/"/>
+        <dcterms:hasPart rdf:resource="http://ieeexplore.ieee.org/document/6655907/"/>
+        <dcterms:hasPart rdf:resource="urn:isbn:978-1-4673-7791-1"/>
+        <dcterms:hasPart rdf:resource="urn:isbn:978-1-4577-1589-1%20978-1-4244-4121-1%20978-1-4244-4122-8"/>
     </z:Collection>
     <z:Collection rdf:about="#collection_4">
         <dc:title>Wrist angle</dc:title>
         <dcterms:hasPart rdf:resource="#item_36"/>
         <dcterms:hasPart rdf:resource="http://ieeexplore.ieee.org/document/5551179/"/>
+        <dcterms:hasPart rdf:resource="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3198911/"/>
         <dcterms:hasPart rdf:resource="http://ieeexplore.ieee.org/document/204774/"/>
+        <dcterms:hasPart rdf:resource="urn:isbn:978-1-4244-0787-3%20978-1-4244-0788-0"/>
         <dcterms:hasPart rdf:resource="urn:isbn:978-1-4577-1426-9"/>
         <dcterms:hasPart rdf:resource="https://doi.org/10.1186/1743-0003-9-42"/>
         <dcterms:hasPart rdf:resource="urn:isbn:978-1-4244-4123-5%20978-1-4244-4124-2"/>
@@ -2084,13 +4071,15 @@ PMCID: PMC5575159</dc:description>
         <dcterms:hasPart rdf:resource="urn:isbn:978-1-4244-7929-0"/>
         <dcterms:hasPart rdf:resource="http://boletintecnico.com/index.php/bt/article/view/240"/>
         <dcterms:hasPart rdf:resource="urn:isbn:978-1-4244-9271-8"/>
-        <dcterms:hasPart rdf:resource="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3198911/"/>
-        <dcterms:hasPart rdf:resource="urn:isbn:978-1-4244-0787-3%20978-1-4244-0788-0"/>
+        <dcterms:hasPart rdf:resource="urn:isbn:978-1-5386-2296-4"/>
+        <dcterms:hasPart rdf:resource="urn:isbn:978-1-4244-2357-6"/>
         <rdf:type rdf:resource="http://www.zotero.org/namespaces/export#Collection"/>
         <dc:title>Wrist angle</dc:title>
         <dcterms:hasPart rdf:resource="#item_36"/>
         <dcterms:hasPart rdf:resource="http://ieeexplore.ieee.org/document/5551179/"/>
+        <dcterms:hasPart rdf:resource="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3198911/"/>
         <dcterms:hasPart rdf:resource="http://ieeexplore.ieee.org/document/204774/"/>
+        <dcterms:hasPart rdf:resource="urn:isbn:978-1-4244-0787-3%20978-1-4244-0788-0"/>
         <dcterms:hasPart rdf:resource="urn:isbn:978-1-4577-1426-9"/>
         <dcterms:hasPart rdf:resource="https://doi.org/10.1186/1743-0003-9-42"/>
         <dcterms:hasPart rdf:resource="urn:isbn:978-1-4244-4123-5%20978-1-4244-4124-2"/>
@@ -2102,7 +4091,7 @@ PMCID: PMC5575159</dc:description>
         <dcterms:hasPart rdf:resource="urn:isbn:978-1-4244-7929-0"/>
         <dcterms:hasPart rdf:resource="http://boletintecnico.com/index.php/bt/article/view/240"/>
         <dcterms:hasPart rdf:resource="urn:isbn:978-1-4244-9271-8"/>
-        <dcterms:hasPart rdf:resource="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3198911/"/>
-        <dcterms:hasPart rdf:resource="urn:isbn:978-1-4244-0787-3%20978-1-4244-0788-0"/>
+        <dcterms:hasPart rdf:resource="urn:isbn:978-1-5386-2296-4"/>
+        <dcterms:hasPart rdf:resource="urn:isbn:978-1-4244-2357-6"/>
     </z:Collection>
 </rdf:RDF>
