@@ -21,12 +21,13 @@ sEMG Signal Separation for Real-time Wrist Angle Estimation
 2.4 sEMG Signal Separation (BSS)
     2.4.1 nICA
     2.4.2 TDSEP (Used in Gesture Recognition)
-    2.4.3 Difference in nICA/TDSEP
+    
 2.5 Decoder
     2.5.1 BPNN
     2.5.2 LSTM (type of RNN)
 
 ### 3 - Processing Procedure & Analysis ###
+3.1 Difference in nICA/TDSEP
 3.2 Electrode configuration & Their Effect on Exp.
     3.2.1 # of Electrodes
     3.2.2 Placement (Muscle Location & Randomness)
@@ -43,7 +44,7 @@ sEMG Signal Separation for Real-time Wrist Angle Estimation
 ### 4 - Result & Discussion ###
 4.1 Data Collection & Processing
     4.1.1 Hardware (IMU angle / Active eletrode / Amp / ADC)
-    4.1.2 Software (Processing 3 / Matlab / C)  
+    4.1.2 Software (Processing 3 / Matlab / C) 
 4.2 Performance Metric
     4.2.1 Ground Truth
     4.2.2 RMSE
