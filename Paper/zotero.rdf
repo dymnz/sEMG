@@ -28,7 +28,7 @@
             </rdf:Seq>
         </bib:authors>
         <dcterms:isReferencedBy rdf:resource="#item_3"/>
-        <link:link rdf:resource="#item_94"/>
+        <link:link rdf:resource="#item_4"/>
         <dc:subject>BPNN</dc:subject>
         <dc:identifier>
             <dcterms:URI>
@@ -52,7 +52,7 @@
     <bib:Memo rdf:about="#item_3">
        <rdf:value>&lt;p&gt;doi: 10.5772/56717&lt;/p&gt;</rdf:value>
     </bib:Memo>
-    <z:Attachment rdf:about="#item_94">
+    <z:Attachment rdf:about="#item_4">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -61,7 +61,7 @@
         </dc:identifier>
         <dcterms:dateSubmitted>2018-10-21 18:15:16</dcterms:dateSubmitted>
         <dc:title>SAGE PDF Full Text</dc:title>
-        <z:linkMode>1</z:linkMode>
+        <z:linkMode>3</z:linkMode>
         <link:type>application/pdf</link:type>
     </z:Attachment>
     <bib:Document rdf:about="http://www.wiley.com/WileyCDA/WileyTitle/productCd-0471675806,miniSiteCd-IEEE2.html">
@@ -69,17 +69,18 @@
         <dcterms:isPartOf>
            <z:Website></z:Website>
         </dcterms:isPartOf>
-        <link:link rdf:resource="#item_5"/>
+        <link:link rdf:resource="#item_6"/>
         <dc:identifier>
             <dcterms:URI>
                 <rdf:value>http://www.wiley.com/WileyCDA/WileyTitle/productCd-0471675806,miniSiteCd-IEEE2.html</rdf:value>
             </dcterms:URI>
         </dc:identifier>
+        <dc:date>2018-10-21 16:48:52</dc:date>
         <dcterms:dateSubmitted>2018-10-21 16:48:52</dcterms:dateSubmitted>
         <dc:title>Wiley-IEEE Press: Electromyography: Physiology, Engineering, and Non-Invasive Applications - Roberto Merletti, Philip J. Parker</dc:title>
         <z:shortTitle>Wiley-IEEE Press</z:shortTitle>
     </bib:Document>
-    <z:Attachment rdf:about="#item_5">
+    <z:Attachment rdf:about="#item_6">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -88,7 +89,7 @@
         </dc:identifier>
         <dcterms:dateSubmitted>2018-10-21 16:48:54</dcterms:dateSubmitted>
         <dc:title>Snapshot</dc:title>
-        <z:linkMode>1</z:linkMode>
+        <z:linkMode>3</z:linkMode>
         <link:type>text/html</link:type>
     </z:Attachment>
     <bib:Article rdf:about="https://journals.lww.com/jbjsjournal/Citation/1944/26010/OBSERVATIONS_ON_THE_FUNCTION_OF_THE_SHOULDER_JOINT.1.aspx">
@@ -116,7 +117,7 @@
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
-        <link:link rdf:resource="#item_7"/>
+        <link:link rdf:resource="#item_8"/>
         <dc:identifier>
             <dcterms:URI>
                 <rdf:value>https://journals.lww.com/jbjsjournal/Citation/1944/26010/OBSERVATIONS_ON_THE_FUNCTION_OF_THE_SHOULDER_JOINT.1.aspx</rdf:value>
@@ -136,7 +137,7 @@
         <dc:title>JBJS</dc:title>
         <dc:identifier>ISSN 0021-9355</dc:identifier>
     </bib:Journal>
-    <z:Attachment rdf:about="#item_7">
+    <z:Attachment rdf:about="#item_8">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -145,10 +146,10 @@
         </dc:identifier>
         <dcterms:dateSubmitted>2018-10-21 16:52:08</dcterms:dateSubmitted>
         <dc:title>Snapshot</dc:title>
-        <z:linkMode>1</z:linkMode>
+        <z:linkMode>3</z:linkMode>
         <link:type>text/html</link:type>
     </z:Attachment>
-    <bib:Article rdf:about="#item_12">
+    <bib:Article rdf:about="#item_9">
         <z:itemType>journalArticle</z:itemType>
         <dcterms:isPartOf rdf:resource="urn:issn:1350-4533"/>
         <bib:authors>
@@ -179,7 +180,7 @@
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
-        <link:link rdf:resource="#item_13"/>
+        <link:link rdf:resource="#item_10"/>
         <dc:subject>
             <z:AutomaticTag>
                <rdf:value>Cerebrovascular Disorders</rdf:value>
@@ -240,7 +241,7 @@
         <dc:identifier>ISSN 1350-4533</dc:identifier>
         <dcterms:alternative>Med Eng Phys</dcterms:alternative>
     </bib:Journal>
-    <z:Attachment rdf:about="#item_13">
+    <z:Attachment rdf:about="#item_10">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -252,7 +253,7 @@
         <z:linkMode>3</z:linkMode>
         <link:type>text/html</link:type>
     </z:Attachment>
-    <bib:Article rdf:about="#item_14">
+    <bib:Article rdf:about="#item_11">
         <z:itemType>journalArticle</z:itemType>
         <dcterms:isPartOf rdf:resource="urn:issn:1432-0770"/>
         <bib:authors>
@@ -271,8 +272,8 @@
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
-        <link:link rdf:resource="#item_15"/>
-        <link:link rdf:resource="#item_16"/>
+        <link:link rdf:resource="#item_12"/>
+        <link:link rdf:resource="#item_13"/>
         <dc:subject>
             <z:AutomaticTag>
                <rdf:value>Electromyography</rdf:value>
@@ -334,7 +335,7 @@
         <dcterms:alternative>Biol Cybern</dcterms:alternative>
         <dc:identifier>DOI 10.1007/s00422-008-0278-1</dc:identifier>
     </bib:Journal>
-    <z:Attachment rdf:about="#item_15">
+    <z:Attachment rdf:about="#item_12">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -346,7 +347,7 @@
         <z:linkMode>3</z:linkMode>
         <link:type>text/html</link:type>
     </z:Attachment>
-    <z:Attachment rdf:about="#item_16">
+    <z:Attachment rdf:about="#item_13">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -355,7 +356,7 @@
         </dc:identifier>
         <dcterms:dateSubmitted>2018-10-21 16:53:50</dcterms:dateSubmitted>
         <dc:title>Submitted Version</dc:title>
-        <z:linkMode>1</z:linkMode>
+        <z:linkMode>3</z:linkMode>
         <link:type>application/pdf</link:type>
     </z:Attachment>
     <bib:Article rdf:about="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1392416/">
@@ -371,8 +372,8 @@
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
-        <link:link rdf:resource="#item_21"/>
-        <link:link rdf:resource="#item_20"/>
+        <link:link rdf:resource="#item_15"/>
+        <link:link rdf:resource="#item_16"/>
         <dc:identifier>
             <dcterms:URI>
                 <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1392416/</rdf:value>
@@ -393,7 +394,7 @@ PMCID: PMC1392416</dc:description>
         <dc:identifier>ISSN 0022-3751</dc:identifier>
         <dcterms:alternative>J Physiol</dcterms:alternative>
     </bib:Journal>
-    <z:Attachment rdf:about="#item_21">
+    <z:Attachment rdf:about="#item_15">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -402,10 +403,10 @@ PMCID: PMC1392416</dc:description>
         </dc:identifier>
         <dcterms:dateSubmitted>2018-10-21 16:54:27</dcterms:dateSubmitted>
         <dc:title>PubMed Central Full Text PDF</dc:title>
-        <z:linkMode>1</z:linkMode>
+        <z:linkMode>3</z:linkMode>
         <link:type>application/pdf</link:type>
     </z:Attachment>
-    <z:Attachment rdf:about="#item_20">
+    <z:Attachment rdf:about="#item_16">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -417,7 +418,7 @@ PMCID: PMC1392416</dc:description>
         <z:linkMode>3</z:linkMode>
         <link:type>text/html</link:type>
     </z:Attachment>
-    <bib:Article rdf:about="#item_22">
+    <bib:Article rdf:about="#item_17">
         <z:itemType>journalArticle</z:itemType>
         <dcterms:isPartOf rdf:resource="urn:issn:1879-1271"/>
         <bib:authors>
@@ -448,7 +449,7 @@ PMCID: PMC1392416</dc:description>
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
-        <link:link rdf:resource="#item_23"/>
+        <link:link rdf:resource="#item_18"/>
         <dc:subject>
             <z:AutomaticTag>
                <rdf:value>Electromyography</rdf:value>
@@ -519,7 +520,7 @@ PMCID: PMC1392416</dc:description>
         <dcterms:alternative>Clin Biomech (Bristol, Avon)</dcterms:alternative>
         <dc:identifier>DOI 10.1016/j.clinbiomech.2009.01.010</dc:identifier>
     </bib:Journal>
-    <z:Attachment rdf:about="#item_23">
+    <z:Attachment rdf:about="#item_18">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -562,7 +563,7 @@ PMCID: PMC1392416</dc:description>
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
-        <link:link rdf:resource="#item_25"/>
+        <link:link rdf:resource="#item_20"/>
         <dc:subject>
             <z:AutomaticTag>
                <rdf:value>Electromyography (EMG)</rdf:value>
@@ -594,7 +595,7 @@ PMCID: PMC1392416</dc:description>
         <dcterms:alternative>Gait &amp; Posture</dcterms:alternative>
         <dc:identifier>DOI 10.1016/S0966-6362(03)00099-7</dc:identifier>
     </bib:Journal>
-    <z:Attachment rdf:about="#item_25">
+    <z:Attachment rdf:about="#item_20">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -603,10 +604,10 @@ PMCID: PMC1392416</dc:description>
         </dc:identifier>
         <dcterms:dateSubmitted>2018-10-21 16:56:12</dcterms:dateSubmitted>
         <dc:title>ScienceDirect Snapshot</dc:title>
-        <z:linkMode>1</z:linkMode>
+        <z:linkMode>3</z:linkMode>
         <link:type>text/html</link:type>
     </z:Attachment>
-    <bib:Article rdf:about="#item_26">
+    <bib:Article rdf:about="#item_21">
         <z:itemType>journalArticle</z:itemType>
         <dcterms:isPartOf rdf:resource="urn:issn:0148-639X"/>
         <bib:authors>
@@ -625,7 +626,7 @@ PMCID: PMC1392416</dc:description>
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
-        <link:link rdf:resource="#item_27"/>
+        <link:link rdf:resource="#item_22"/>
         <dc:subject>
             <z:AutomaticTag>
                <rdf:value>Electromyography</rdf:value>
@@ -673,7 +674,7 @@ PMCID: PMC1392416</dc:description>
         <dcterms:alternative>Muscle Nerve</dcterms:alternative>
         <dc:identifier>DOI 10.1002/mus.21180</dc:identifier>
     </bib:Journal>
-    <z:Attachment rdf:about="#item_27">
+    <z:Attachment rdf:about="#item_22">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -685,7 +686,7 @@ PMCID: PMC1392416</dc:description>
         <z:linkMode>3</z:linkMode>
         <link:type>text/html</link:type>
     </z:Attachment>
-    <bib:Article rdf:about="#item_28">
+    <bib:Article rdf:about="#item_23">
         <z:itemType>journalArticle</z:itemType>
         <dcterms:isPartOf rdf:resource="urn:issn:1050-6411"/>
         <bib:authors>
@@ -710,7 +711,7 @@ PMCID: PMC1392416</dc:description>
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
-        <link:link rdf:resource="#item_29"/>
+        <link:link rdf:resource="#item_24"/>
         <bib:pages>15-26</bib:pages>
         <dc:date>1994</dc:date>
         <dc:description>PMID: 20870543</dc:description>
@@ -728,7 +729,7 @@ PMCID: PMC1392416</dc:description>
         <dcterms:alternative>J Electromyogr Kinesiol</dcterms:alternative>
         <dc:identifier>DOI 10.1016/1050-6411(94)90023-X</dc:identifier>
     </bib:Journal>
-    <z:Attachment rdf:about="#item_29">
+    <z:Attachment rdf:about="#item_24">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -785,7 +786,7 @@ PMCID: PMC1392416</dc:description>
         <dcterms:alternative>Med. &amp; biol. Engng.</dcterms:alternative>
         <dc:identifier>DOI 10.1007/BF02476154</dc:identifier>
     </bib:Journal>
-    <bib:Article rdf:about="#item_36">
+    <bib:Article rdf:about="#item_26">
         <z:itemType>journalArticle</z:itemType>
         <dcterms:isPartOf>
             <bib:Journal>
@@ -816,13 +817,13 @@ PMCID: PMC1392416</dc:description>
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
-        <link:link rdf:resource="#item_37"/>
-        <link:link rdf:resource="#item_38"/>
-        <dc:subject>wrist</dc:subject>
-        <dc:subject>SVM</dc:subject>
+        <link:link rdf:resource="#item_27"/>
+        <link:link rdf:resource="#item_28"/>
         <dc:subject>AR</dc:subject>
         <dc:subject>RMS</dc:subject>
+        <dc:subject>SVM</dc:subject>
         <dc:subject>wave length</dc:subject>
+        <dc:subject>wrist</dc:subject>
         <bib:pages>41</bib:pages>
         <dc:date>August 26, 2010</dc:date>
         <z:libraryCatalog>ResearchGate</z:libraryCatalog>
@@ -832,7 +833,7 @@ The data gathered from the volunteers were divided into two sets, one with ninet
 The results of this study showed that classification of EMG signals by separating different levels of torque is possible for wrist motion and the use of only four EMG channels is suitable. The study also showed that SVM classification technique is suitable for real-time classification of sEMG signals and can be effectively implemented for controlling an exoskeleton device for assisting the wrist.</dcterms:abstract>
         <dc:title>Surface EMG pattern recognition for real-time control of a wrist exoskeleton</dc:title>
     </bib:Article>
-    <z:Attachment rdf:about="#item_37">
+    <z:Attachment rdf:about="#item_27">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -841,10 +842,10 @@ The results of this study showed that classification of EMG signals by separatin
         </dc:identifier>
         <dcterms:dateSubmitted>2018-10-21 17:00:17</dcterms:dateSubmitted>
         <dc:title>Full Text PDF</dc:title>
-        <z:linkMode>1</z:linkMode>
+        <z:linkMode>3</z:linkMode>
         <link:type>application/pdf</link:type>
     </z:Attachment>
-    <z:Attachment rdf:about="#item_38">
+    <z:Attachment rdf:about="#item_28">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -882,9 +883,9 @@ The results of this study showed that classification of EMG signals by separatin
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
-        <dcterms:isReferencedBy rdf:resource="#item_45"/>
-        <link:link rdf:resource="#item_41"/>
-        <link:link rdf:resource="#item_42"/>
+        <dcterms:isReferencedBy rdf:resource="#item_30"/>
+        <link:link rdf:resource="#item_31"/>
+        <link:link rdf:resource="#item_32"/>
         <dc:subject>
             <z:AutomaticTag>
                 <rdf:value>Physics - Data Analysis, Statistics and Probability</rdf:value>
@@ -902,11 +903,11 @@ The results of this study showed that classification of EMG signals by separatin
         <dcterms:abstract>In order to assess fatigue independent amplitude-frequency correlations in EMG signals we asked nineteen male subjects to perform a series of isometric muscular contractions by extensors of the knee joint. Different amplitudes of the signal were due to randomly varying both the joint moment and the overall amplification factor of the EMG apparatus. Mean and median frequency, RMS and mean absolute value were calculated for every combination of joint moment and amplification at the original sampling rate of 5 kHz and at several simulated lower sampling rates. Negative Spearman and Kendall amplitude-frequency correlation coefficients were found, and they were more pronounced at high sampling rates.</dcterms:abstract>
         <dc:title>Fatigue independent amplitude-frequency correlations in EMG signals</dc:title>
     </bib:Article>
-    <bib:Memo rdf:about="#item_45">
+    <bib:Memo rdf:about="#item_30">
        <rdf:value>&lt;p&gt;RMS / MAV&lt;/p&gt;
 &lt;p&gt; &lt;/p&gt;</rdf:value>
     </bib:Memo>
-    <z:Attachment rdf:about="#item_41">
+    <z:Attachment rdf:about="#item_31">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -915,10 +916,10 @@ The results of this study showed that classification of EMG signals by separatin
         </dc:identifier>
         <dcterms:dateSubmitted>2018-10-21 17:01:04</dcterms:dateSubmitted>
         <dc:title>arXiv:physics/0611120 PDF</dc:title>
-        <z:linkMode>1</z:linkMode>
+        <z:linkMode>3</z:linkMode>
         <link:type>application/pdf</link:type>
     </z:Attachment>
-    <z:Attachment rdf:about="#item_42">
+    <z:Attachment rdf:about="#item_32">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -927,7 +928,7 @@ The results of this study showed that classification of EMG signals by separatin
         </dc:identifier>
         <dcterms:dateSubmitted>2018-10-21 17:01:08</dcterms:dateSubmitted>
         <dc:title>arXiv.org Snapshot</dc:title>
-        <z:linkMode>1</z:linkMode>
+        <z:linkMode>3</z:linkMode>
         <link:type>text/html</link:type>
     </z:Attachment>
     <bib:Book rdf:about="urn:isbn:978-90-75452-09-9">
@@ -1010,8 +1011,8 @@ The results of this study showed that classification of EMG signals by separatin
         </bib:authors>
         <dc:subject>wrist</dc:subject>
         <dc:subject>MLP</dc:subject>
-        <dc:subject>wavelet</dc:subject>
         <dc:subject>TDAR</dc:subject>
+        <dc:subject>wavelet</dc:subject>
         <dc:identifier>
             <dcterms:URI>
                <rdf:value>http://ieeexplore.ieee.org/document/5551179/</rdf:value>
@@ -1049,12 +1050,12 @@ The results of this study showed that classification of EMG signals by separatin
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
-        <link:link rdf:resource="#item_54"/>
-        <link:link rdf:resource="#item_58"/>
-        <link:link rdf:resource="#item_62"/>
-        <link:link rdf:resource="#item_53"/>
-        <link:link rdf:resource="#item_57"/>
-        <link:link rdf:resource="#item_61"/>
+        <link:link rdf:resource="#item_36"/>
+        <link:link rdf:resource="#item_37"/>
+        <link:link rdf:resource="#item_38"/>
+        <link:link rdf:resource="#item_39"/>
+        <link:link rdf:resource="#item_40"/>
+        <link:link rdf:resource="#item_41"/>
         <dc:subject>wrist</dc:subject>
         <dc:identifier>
             <dcterms:URI>
@@ -1087,7 +1088,7 @@ Model estimation accuracy drops significantly with passage of time, electrode di
         <dcterms:alternative>J Neuroeng Rehabil</dcterms:alternative>
         <dc:identifier>DOI 10.1186/1743-0003-8-56</dc:identifier>
     </bib:Journal>
-    <z:Attachment rdf:about="#item_54">
+    <z:Attachment rdf:about="#item_36">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -1096,10 +1097,10 @@ Model estimation accuracy drops significantly with passage of time, electrode di
         </dc:identifier>
         <dcterms:dateSubmitted>2018-10-21 17:27:29</dcterms:dateSubmitted>
         <dc:title>PubMed Central Full Text PDF</dc:title>
-        <z:linkMode>1</z:linkMode>
+        <z:linkMode>3</z:linkMode>
         <link:type>application/pdf</link:type>
     </z:Attachment>
-    <z:Attachment rdf:about="#item_58">
+    <z:Attachment rdf:about="#item_37">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -1108,10 +1109,10 @@ Model estimation accuracy drops significantly with passage of time, electrode di
         </dc:identifier>
         <dcterms:dateSubmitted>2018-10-21 17:28:37</dcterms:dateSubmitted>
         <dc:title>PubMed Central Full Text PDF</dc:title>
-        <z:linkMode>1</z:linkMode>
+        <z:linkMode>3</z:linkMode>
         <link:type>application/pdf</link:type>
     </z:Attachment>
-    <z:Attachment rdf:about="#item_62">
+    <z:Attachment rdf:about="#item_38">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -1120,10 +1121,10 @@ Model estimation accuracy drops significantly with passage of time, electrode di
         </dc:identifier>
         <dcterms:dateSubmitted>2018-10-21 17:28:52</dcterms:dateSubmitted>
         <dc:title>PubMed Central Full Text PDF</dc:title>
-        <z:linkMode>1</z:linkMode>
+        <z:linkMode>3</z:linkMode>
         <link:type>application/pdf</link:type>
     </z:Attachment>
-    <z:Attachment rdf:about="#item_53">
+    <z:Attachment rdf:about="#item_39">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -1135,7 +1136,7 @@ Model estimation accuracy drops significantly with passage of time, electrode di
         <z:linkMode>3</z:linkMode>
         <link:type>text/html</link:type>
     </z:Attachment>
-    <z:Attachment rdf:about="#item_57">
+    <z:Attachment rdf:about="#item_40">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -1147,7 +1148,7 @@ Model estimation accuracy drops significantly with passage of time, electrode di
         <z:linkMode>3</z:linkMode>
         <link:type>text/html</link:type>
     </z:Attachment>
-    <z:Attachment rdf:about="#item_61">
+    <z:Attachment rdf:about="#item_41">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -1245,10 +1246,10 @@ Model estimation accuracy drops significantly with passage of time, electrode di
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
-        <dc:subject>wrist</dc:subject>
-        <dc:subject>SVM</dc:subject>
-        <dc:subject>Sono</dc:subject>
         <dc:subject>RMS</dc:subject>
+        <dc:subject>SVM</dc:subject>
+        <dc:subject>wrist</dc:subject>
+        <dc:subject>Sono</dc:subject>
         <dc:identifier>
             <dcterms:URI>
                <rdf:value>http://ieeexplore.ieee.org/document/4353415/</rdf:value>
@@ -1364,13 +1365,13 @@ Model estimation accuracy drops significantly with passage of time, electrode di
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
-        <link:link rdf:resource="#item_68"/>
-        <link:link rdf:resource="#item_69"/>
+        <link:link rdf:resource="#item_46"/>
+        <link:link rdf:resource="#item_47"/>
+        <dc:subject>wave length</dc:subject>
         <dc:subject>wrist</dc:subject>
         <dc:subject>TDAR</dc:subject>
         <dc:subject>MAV</dc:subject>
         <dc:subject>ZC</dc:subject>
-        <dc:subject>wave length</dc:subject>
         <dc:identifier>
             <dcterms:URI>
                <rdf:value>https://doi.org/10.1186/1743-0003-9-42</rdf:value>
@@ -1383,7 +1384,7 @@ Model estimation accuracy drops significantly with passage of time, electrode di
         <dcterms:abstract>We propose a method for estimating wrist kinematics during dynamic wrist contractions from multi-channel surface electromyography (EMG). The algorithm extracts features from the surface EMG and uses dedicated multi-layer perceptron networks to estimate individual joint angles of the 3 degrees of freedom (DoFs) of the wrist. The method was designed with the aim of proportional and simultaneous control of multiple DoFs of active prostheses by unilateral amputees. Therefore, the proposed approach was tested in both unilateral transradial amputees and in intact-limbed control subjects. It was shown that the joint angles at the 3 DoFs of amputees can be estimated from surface EMG recordings , during mirrored bi-lateral contractions that simultaneously and proportionally articulated the 3 DoFs. The estimation accuracies of amputee subjects with long stumps were 62.5% ± 8.50% across all 3 DoFs, while accuracies of the intact-limbed control subjects were 72.0% ± 8.29%. The estimation results from intact-limbed subjects were consistent with earlier studies. The results from the current study demonstrated the feasibility of the proposed myoelectric control approach to provide a more intuitive myoelectric control strategy for unilateral transradial amputees.</dcterms:abstract>
         <dc:title>EMG-based simultaneous and proportional estimation of wrist/hand kinematics in uni-lateral trans-radial amputees</dc:title>
     </bib:Article>
-    <z:Attachment rdf:about="#item_68">
+    <z:Attachment rdf:about="#item_46">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -1392,10 +1393,10 @@ Model estimation accuracy drops significantly with passage of time, electrode di
         </dc:identifier>
         <dcterms:dateSubmitted>2018-10-21 17:29:56</dcterms:dateSubmitted>
         <dc:title>Full Text PDF</dc:title>
-        <z:linkMode>1</z:linkMode>
+        <z:linkMode>3</z:linkMode>
         <link:type>application/pdf</link:type>
     </z:Attachment>
-    <z:Attachment rdf:about="#item_69">
+    <z:Attachment rdf:about="#item_47">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -1404,7 +1405,7 @@ Model estimation accuracy drops significantly with passage of time, electrode di
         </dc:identifier>
         <dcterms:dateSubmitted>2018-10-21 17:29:58</dcterms:dateSubmitted>
         <dc:title>Snapshot</dc:title>
-        <z:linkMode>1</z:linkMode>
+        <z:linkMode>3</z:linkMode>
         <link:type>text/html</link:type>
     </z:Attachment>
     <rdf:Description rdf:about="urn:isbn:978-1-4244-4123-5%20978-1-4244-4124-2">
@@ -1536,11 +1537,11 @@ Model estimation accuracy drops significantly with passage of time, electrode di
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
+        <dc:subject>RMS</dc:subject>
         <dc:subject>wrist</dc:subject>
         <dc:subject>MLP</dc:subject>
-        <dc:subject>RMS</dc:subject>
-        <dc:subject>log-power</dc:subject>
         <dc:subject>linear regression</dc:subject>
+        <dc:subject>log-power</dc:subject>
         <dc:subject>power</dc:subject>
         <dc:identifier>
             <dcterms:URI>
@@ -1589,7 +1590,7 @@ Model estimation accuracy drops significantly with passage of time, electrode di
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
-        <link:link rdf:resource="#item_77"/>
+        <link:link rdf:resource="#item_51"/>
         <dc:subject>wrist</dc:subject>
         <dc:subject>MAV</dc:subject>
         <dc:subject>Bayesian filter</dc:subject>
@@ -1611,7 +1612,7 @@ Model estimation accuracy drops significantly with passage of time, electrode di
         <dc:identifier>ISSN 1534-4320, 1558-0210</dc:identifier>
         <dc:identifier>DOI 10.1109/TNSRE.2015.2501979</dc:identifier>
     </bib:Journal>
-    <z:Attachment rdf:about="#item_77">
+    <z:Attachment rdf:about="#item_51">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -1620,7 +1621,7 @@ Model estimation accuracy drops significantly with passage of time, electrode di
         </dc:identifier>
         <dcterms:dateSubmitted>2018-10-21 17:30:33</dcterms:dateSubmitted>
         <dc:title>Submitted Version</dc:title>
-        <z:linkMode>1</z:linkMode>
+        <z:linkMode>3</z:linkMode>
         <link:type>application/pdf</link:type>
     </z:Attachment>
     <bib:Article rdf:about="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4188712/">
@@ -1666,10 +1667,10 @@ Model estimation accuracy drops significantly with passage of time, electrode di
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
-        <link:link rdf:resource="#item_75"/>
-        <link:link rdf:resource="#item_74"/>
-        <dc:subject>NNMF</dc:subject>
+        <link:link rdf:resource="#item_53"/>
+        <link:link rdf:resource="#item_54"/>
         <dc:subject>ABS-LPF</dc:subject>
+        <dc:subject>NNMF</dc:subject>
         <dc:identifier>
             <dcterms:URI>
                 <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4188712/</rdf:value>
@@ -1691,7 +1692,7 @@ PMCID: PMC4188712</dc:description>
         <dcterms:alternative>PLoS One</dcterms:alternative>
         <dc:identifier>DOI 10.1371/journal.pone.0109943</dc:identifier>
     </bib:Journal>
-    <z:Attachment rdf:about="#item_75">
+    <z:Attachment rdf:about="#item_53">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -1700,10 +1701,10 @@ PMCID: PMC4188712</dc:description>
         </dc:identifier>
         <dcterms:dateSubmitted>2018-10-21 17:30:29</dcterms:dateSubmitted>
         <dc:title>PubMed Central Full Text PDF</dc:title>
-        <z:linkMode>1</z:linkMode>
+        <z:linkMode>3</z:linkMode>
         <link:type>application/pdf</link:type>
     </z:Attachment>
-    <z:Attachment rdf:about="#item_74">
+    <z:Attachment rdf:about="#item_54">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -1758,11 +1759,11 @@ PMCID: PMC4188712</dc:description>
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
-        <link:link rdf:resource="#item_82"/>
-        <link:link rdf:resource="#item_81"/>
+        <link:link rdf:resource="#item_56"/>
+        <link:link rdf:resource="#item_57"/>
         <dc:subject>ABS-LPF</dc:subject>
-        <dc:subject>NARX</dc:subject>
         <dc:subject>arm</dc:subject>
+        <dc:subject>NARX</dc:subject>
         <dc:identifier>
             <dcterms:URI>
                 <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5575159/</rdf:value>
@@ -1783,7 +1784,7 @@ PMCID: PMC5575159</dc:description>
         <dcterms:alternative>Front Neurosci</dcterms:alternative>
         <dc:identifier>DOI 10.3389/fnins.2017.00480</dc:identifier>
     </bib:Journal>
-    <z:Attachment rdf:about="#item_82">
+    <z:Attachment rdf:about="#item_56">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -1792,10 +1793,10 @@ PMCID: PMC5575159</dc:description>
         </dc:identifier>
         <dcterms:dateSubmitted>2018-10-21 17:30:53</dcterms:dateSubmitted>
         <dc:title>PubMed Central Full Text PDF</dc:title>
-        <z:linkMode>1</z:linkMode>
+        <z:linkMode>3</z:linkMode>
         <link:type>application/pdf</link:type>
     </z:Attachment>
-    <z:Attachment rdf:about="#item_81">
+    <z:Attachment rdf:about="#item_57">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -1864,8 +1865,8 @@ PMCID: PMC5575159</dc:description>
             </rdf:Seq>
         </bib:authors>
         <dc:subject>wrist</dc:subject>
-        <dc:subject>SVR</dc:subject>
         <dc:subject>DWT</dc:subject>
+        <dc:subject>SVR</dc:subject>
         <dc:identifier>
             <dcterms:URI>
                <rdf:value>http://doi.acm.org/10.1145/3051488.3051498</rdf:value>
@@ -1918,8 +1919,8 @@ PMCID: PMC5575159</dc:description>
         </bib:authors>
         <dc:subject>wrist</dc:subject>
         <dc:subject>MAV</dc:subject>
-        <dc:subject>PCA</dc:subject>
         <dc:subject>ICA</dc:subject>
+        <dc:subject>PCA</dc:subject>
         <dc:identifier>
             <dcterms:URI>
                <rdf:value>http://ieeexplore.ieee.org/document/6944764/</rdf:value>
@@ -1957,9 +1958,9 @@ PMCID: PMC5575159</dc:description>
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
-        <dc:subject>wrist</dc:subject>
-        <dc:subject>RMS</dc:subject>
         <dc:subject>BPNN</dc:subject>
+        <dc:subject>RMS</dc:subject>
+        <dc:subject>wrist</dc:subject>
         <dc:identifier>
             <dcterms:URI>
                 <rdf:value>http://boletintecnico.com/index.php/bt/article/view/240</rdf:value>
@@ -2033,7 +2034,7 @@ PMCID: PMC5575159</dc:description>
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
-        <link:link rdf:resource="#item_91"/>
+        <link:link rdf:resource="#item_62"/>
         <dc:subject>ABS-LPF</dc:subject>
         <dc:subject>SVR</dc:subject>
         <dc:identifier>
@@ -2052,7 +2053,7 @@ PMCID: PMC5575159</dc:description>
         </bib:presentedAt>
         <dc:title>EMG-based learning approach for estimating wrist motion</dc:title>
     </rdf:Description>
-    <z:Attachment rdf:about="#item_91">
+    <z:Attachment rdf:about="#item_62">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -2061,7 +2062,7 @@ PMCID: PMC5575159</dc:description>
         </dc:identifier>
         <dcterms:dateSubmitted>2018-10-21 17:39:02</dcterms:dateSubmitted>
         <dc:title>Submitted Version</dc:title>
-        <z:linkMode>1</z:linkMode>
+        <z:linkMode>3</z:linkMode>
         <link:type>application/pdf</link:type>
     </z:Attachment>
     <rdf:Description rdf:about="urn:isbn:978-1-4673-8345-5">
@@ -2176,8 +2177,8 @@ PMCID: PMC5575159</dc:description>
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
-        <link:link rdf:resource="#item_100"/>
-        <link:link rdf:resource="#item_99"/>
+        <link:link rdf:resource="#item_65"/>
+        <link:link rdf:resource="#item_66"/>
         <dc:subject>ABS-LPF</dc:subject>
         <dc:identifier>
             <dcterms:URI>
@@ -2199,7 +2200,7 @@ PMCID: PMC4280697</dc:description>
         <dcterms:alternative>Biomed Eng Online</dcterms:alternative>
         <dc:identifier>DOI 10.1186/1475-925X-13-155</dc:identifier>
     </bib:Journal>
-    <z:Attachment rdf:about="#item_100">
+    <z:Attachment rdf:about="#item_65">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -2208,10 +2209,10 @@ PMCID: PMC4280697</dc:description>
         </dc:identifier>
         <dcterms:dateSubmitted>2018-10-21 18:15:40</dcterms:dateSubmitted>
         <dc:title>PubMed Central Full Text PDF</dc:title>
-        <z:linkMode>1</z:linkMode>
+        <z:linkMode>3</z:linkMode>
         <link:type>application/pdf</link:type>
     </z:Attachment>
-    <z:Attachment rdf:about="#item_99">
+    <z:Attachment rdf:about="#item_66">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -2254,8 +2255,8 @@ PMCID: PMC4280697</dc:description>
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
-        <link:link rdf:resource="#item_103"/>
-        <link:link rdf:resource="#item_102"/>
+        <link:link rdf:resource="#item_68"/>
+        <link:link rdf:resource="#item_69"/>
         <dc:identifier>
             <dcterms:URI>
                 <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4003946/</rdf:value>
@@ -2278,7 +2279,7 @@ PMCID: PMC4003946</dc:description>
         <dcterms:alternative>Sensors (Basel)</dcterms:alternative>
         <dc:identifier>DOI 10.3390/s140304342</dc:identifier>
     </bib:Journal>
-    <z:Attachment rdf:about="#item_103">
+    <z:Attachment rdf:about="#item_68">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -2287,10 +2288,10 @@ PMCID: PMC4003946</dc:description>
         </dc:identifier>
         <dcterms:dateSubmitted>2018-10-21 18:16:17</dcterms:dateSubmitted>
         <dc:title>PubMed Central Full Text PDF</dc:title>
-        <z:linkMode>1</z:linkMode>
+        <z:linkMode>3</z:linkMode>
         <link:type>application/pdf</link:type>
     </z:Attachment>
-    <z:Attachment rdf:about="#item_102">
+    <z:Attachment rdf:about="#item_69">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -2490,7 +2491,7 @@ PMCID: PMC4003946</dc:description>
         </bib:presentedAt>
         <dc:title>Signal evaluation of capacitive EMG for upper limb prostheses control using an ultra-low-power microcontroller</dc:title>
     </rdf:Description>
-    <bib:Article rdf:about="#item_107">
+    <bib:Article rdf:about="#item_73">
         <z:itemType>journalArticle</z:itemType>
         <dcterms:isPartOf rdf:resource="urn:issn:8750-7587"/>
         <bib:authors>
@@ -2533,8 +2534,8 @@ PMCID: PMC4003946</dc:description>
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
-        <link:link rdf:resource="#item_109"/>
-        <link:link rdf:resource="#item_108"/>
+        <link:link rdf:resource="#item_74"/>
+        <link:link rdf:resource="#item_75"/>
         <dc:subject>
             <z:AutomaticTag>
                <rdf:value>Electromyography</rdf:value>
@@ -2600,7 +2601,7 @@ PMCID: PMC4003946</dc:description>
         <dcterms:alternative>J. Appl. Physiol.</dcterms:alternative>
         <dc:identifier>DOI 10.1152/japplphysiol.01009.2005</dc:identifier>
     </bib:Journal>
-    <z:Attachment rdf:about="#item_109">
+    <z:Attachment rdf:about="#item_74">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -2609,10 +2610,10 @@ PMCID: PMC4003946</dc:description>
         </dc:identifier>
         <dcterms:dateSubmitted>2018-10-21 18:51:07</dcterms:dateSubmitted>
         <dc:title>Full Text</dc:title>
-        <z:linkMode>1</z:linkMode>
+        <z:linkMode>3</z:linkMode>
         <link:type>application/pdf</link:type>
     </z:Attachment>
-    <z:Attachment rdf:about="#item_108">
+    <z:Attachment rdf:about="#item_75">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -2687,7 +2688,7 @@ PMCID: PMC4003946</dc:description>
         </bib:presentedAt>
         <dc:title>Proportional EMG control for upper-limb powered exoskeletons</dc:title>
     </rdf:Description>
-    <bib:Article rdf:about="#item_116">
+    <bib:Article rdf:about="#item_77">
         <z:itemType>journalArticle</z:itemType>
         <dcterms:isPartOf>
            <bib:Journal></bib:Journal>
@@ -2744,13 +2745,13 @@ PMCID: PMC4003946</dc:description>
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
-        <link:link rdf:resource="#item_115"/>
+        <link:link rdf:resource="#item_78"/>
         <bib:pages>4</bib:pages>
         <z:libraryCatalog>Zotero</z:libraryCatalog>
         <z:language>en</z:language>
         <dc:title>European Recommendations for Surface ElectroMyoGraphy</dc:title>
     </bib:Article>
-    <z:Attachment rdf:about="#item_115">
+    <z:Attachment rdf:about="#item_78">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -2759,7 +2760,7 @@ PMCID: PMC4003946</dc:description>
         </dc:identifier>
         <dcterms:dateSubmitted>2018-10-22 09:15:04</dcterms:dateSubmitted>
         <dc:title>Hermens 等。 - European Recommendations for Surface ElectroMyoGra.pdf</dc:title>
-        <z:linkMode>1</z:linkMode>
+        <z:linkMode>3</z:linkMode>
         <link:type>application/pdf</link:type>
     </z:Attachment>
     <bib:Book rdf:about="urn:isbn:978-90-75452-15-0">
@@ -2808,7 +2809,7 @@ PMCID: PMC4003946</dc:description>
         <dcterms:isPartOf>
            <bib:Book><dc:title>Wikipedia</dc:title></bib:Book>
         </dcterms:isPartOf>
-        <link:link rdf:resource="#item_119"/>
+        <link:link rdf:resource="#item_81"/>
         <dc:identifier>
             <dcterms:URI>
                 <rdf:value>https://en.wikipedia.org/w/index.php?title=Forearm&amp;oldid=865062582</rdf:value>
@@ -2826,7 +2827,7 @@ The forearm contains many muscles, including the flexors and extensors of the di
 The radial and ulnar arteries and their branches supply the blood to the forearm. These usually run on the anterior face of the radius and ulna down the whole forearm. The main superficial veins of the forearm are the cephalic, median antebrachial and the basilic vein. These veins can be used for cannularisation or venipuncture, although the cubital fossa is a preferred site for getting blood.</dcterms:abstract>
         <dc:title>Forearm</dc:title>
     </rdf:Description>
-    <z:Attachment rdf:about="#item_119">
+    <z:Attachment rdf:about="#item_81">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -2835,7 +2836,7 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         </dc:identifier>
         <dcterms:dateSubmitted>2018-10-22 09:47:07</dcterms:dateSubmitted>
         <dc:title>Snapshot</dc:title>
-        <z:linkMode>1</z:linkMode>
+        <z:linkMode>3</z:linkMode>
         <link:type>text/html</link:type>
     </z:Attachment>
     <bib:Document rdf:about="https://www.ncbi.nlm.nih.gov/nlmcatalog/101667594">
@@ -2843,16 +2844,17 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         <dcterms:isPartOf>
            <z:Website></z:Website>
         </dcterms:isPartOf>
-        <link:link rdf:resource="#item_121"/>
+        <link:link rdf:resource="#item_83"/>
         <dc:identifier>
             <dcterms:URI>
                 <rdf:value>https://www.ncbi.nlm.nih.gov/nlmcatalog/101667594</rdf:value>
             </dcterms:URI>
         </dc:identifier>
+        <dc:date>2018-10-22 10:39:08</dc:date>
         <dcterms:dateSubmitted>2018-10-22 10:39:08</dcterms:dateSubmitted>
         <dc:title>Gray's anatomy : the anatomical basis of clinical practice - NLM Catalog - NCBI</dc:title>
     </bib:Document>
-    <z:Attachment rdf:about="#item_121">
+    <z:Attachment rdf:about="#item_83">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -2861,7 +2863,7 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         </dc:identifier>
         <dcterms:dateSubmitted>2018-10-22 10:39:09</dcterms:dateSubmitted>
         <dc:title>Gray's anatomy : the anatomical basis of clinical practice - NLM Catalog - NCBI</dc:title>
-        <z:linkMode>1</z:linkMode>
+        <z:linkMode>3</z:linkMode>
         <link:type>text/html</link:type>
     </z:Attachment>
     <bib:Book rdf:about="urn:isbn:978-1-60406-745-3">
@@ -2916,7 +2918,7 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
-        <link:link rdf:resource="#item_123"/>
+        <link:link rdf:resource="#item_85"/>
         <prism:edition>2 edition</prism:edition>
         <dc:identifier>ISBN 978-1-60406-745-3</dc:identifier>
         <dc:date>April 9, 2012</dc:date>
@@ -2926,7 +2928,7 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         <dc:title>Atlas of Anatomy</dc:title>
         <z:numPages>694</z:numPages>
     </bib:Book>
-    <z:Attachment rdf:about="#item_123">
+    <z:Attachment rdf:about="#item_85">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -2995,7 +2997,7 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         </bib:presentedAt>
         <dc:title>Multi run ICA and surface EMG based signal processing system for recognising hand gestures</dc:title>
     </rdf:Description>
-    <bib:Article rdf:about="#item_125">
+    <bib:Article rdf:about="#item_87">
         <z:itemType>journalArticle</z:itemType>
         <dcterms:isPartOf rdf:resource="urn:issn:1557-170X"/>
         <bib:authors>
@@ -3020,7 +3022,7 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
-        <link:link rdf:resource="#item_126"/>
+        <link:link rdf:resource="#item_88"/>
         <dc:subject>
             <z:AutomaticTag>
                <rdf:value>Electromyography</rdf:value>
@@ -3081,7 +3083,7 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         <dcterms:alternative>Conf Proc IEEE Eng Med Biol Soc</dcterms:alternative>
         <dc:identifier>DOI 10.1109/EMBC.2014.6944764</dc:identifier>
     </bib:Journal>
-    <z:Attachment rdf:about="#item_126">
+    <z:Attachment rdf:about="#item_88">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -3098,19 +3100,20 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         <dcterms:isPartOf>
            <z:Website><dc:title>ResearchGate</dc:title></z:Website>
         </dcterms:isPartOf>
-        <link:link rdf:resource="#item_128"/>
+        <link:link rdf:resource="#item_90"/>
         <dc:identifier>
             <dcterms:URI>
                 <rdf:value>https://www.researchgate.net/publication/264836411_A_comparison_of_ICA_algorithms_in_surface_EMG_signal_processing</rdf:value>
             </dcterms:URI>
         </dc:identifier>
+        <dc:date>2018-10-22 15:57:47</dc:date>
         <dc:description>DOI: http://dx.doi.org/10.1504/IJBET.2011.041774</dc:description>
         <dcterms:dateSubmitted>2018-10-22 15:57:47</dcterms:dateSubmitted>
         <z:language>en</z:language>
         <dcterms:abstract>Request PDF on ResearchGate | A comparison of ICA algorithms in surface EMG signal processing | Recent research has resulted in development of number of different Independent Component Analysis (ICA) technique. While there are some researchers who have compared their techniques with the existing methods for audio examples, there is no comparison of performance between...</dcterms:abstract>
         <dc:title>A comparison of ICA algorithms in surface EMG signal processing | Request PDF</dc:title>
     </bib:Document>
-    <z:Attachment rdf:about="#item_128">
+    <z:Attachment rdf:about="#item_90">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -3119,10 +3122,10 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         </dc:identifier>
         <dcterms:dateSubmitted>2018-10-22 15:57:49</dcterms:dateSubmitted>
         <dc:title>Snapshot</dc:title>
-        <z:linkMode>1</z:linkMode>
+        <z:linkMode>3</z:linkMode>
         <link:type>text/html</link:type>
     </z:Attachment>
-    <rdf:Description rdf:about="#item_129">
+    <rdf:Description rdf:about="#item_91">
         <z:itemType>conferencePaper</z:itemType>
         <dcterms:isPartOf>
             <bib:Journal>
@@ -3152,7 +3155,7 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
-        <link:link rdf:resource="#item_130"/>
+        <link:link rdf:resource="#item_92"/>
         <dc:subject>
             <z:AutomaticTag>
                <rdf:value>Electromyography</rdf:value>
@@ -3329,7 +3332,7 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         <dcterms:abstract>There is an urgent need for developing a robust technique that can identify small and subtle hand and other body movements with applications in health, rehabilitation and defence. Surface electromyogram (sEMG) is a measure of the electrical activity of the muscles and a measure of the strength of muscle contraction. While this may be a good measure of the actions and gestures, this is unable to identify small variations in the muscle activity, especially when there are number of simultaneously active muscles. Independent component analysis (ICA) is a statistical based source separation technique that has been shown to be suitable for the decomposition of signals such as sEMG and been shown to improve the ability of sEMG to identify small variations in muscle activity. ICA algorithms using multivariate statistical data analysis technique have been successfully used for signal extraction and source separation in the field of biomedical and statistical signal processing. Recent research has resulted in the development of number of different ICA technique. While there are some researchers who have compared their techniques with the existing methods for audio examples, there is no comparison of performance between ICA algorithms for biosignal applications such as surface electromyography (sEMG) applications. With ICA being the feasible method for source separation and decomposition of biosignals, it is important to compare the different techniques and determine the most suitable method for the applications. This paper has studied the performance of four ICA algorithms (FastICA, JADE, Infomax and TDSEP) for decomposition of sEMG to identify subtle hand gestures. Comparing several ICA algorithms, it is observed that an algorithm based on temporal decorrelation method (TDSEP) which is based on the second order statistics gives the best performance.</dcterms:abstract>
         <dc:title>Performance comparison of ICA algorithms for Isometric Hand gesture identification using Surface EMG</dc:title>
     </rdf:Description>
-    <z:Attachment rdf:about="#item_130">
+    <z:Attachment rdf:about="#item_92">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -3338,7 +3341,7 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         </dc:identifier>
         <dcterms:dateSubmitted>2018-10-22 15:58:17</dcterms:dateSubmitted>
         <dc:title>IEEE Xplore Abstract Record</dc:title>
-        <z:linkMode>1</z:linkMode>
+        <z:linkMode>3</z:linkMode>
         <link:type>text/html</link:type>
     </z:Attachment>
     <bib:Article rdf:about="http://ieeexplore.ieee.org/document/1199651/">
@@ -3354,7 +3357,7 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
-        <link:link rdf:resource="#item_133"/>
+        <link:link rdf:resource="#item_94"/>
         <dc:identifier>
             <dcterms:URI>
                <rdf:value>http://ieeexplore.ieee.org/document/1199651/</rdf:value>
@@ -3374,7 +3377,7 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         <dc:identifier>ISSN 1045-9227</dc:identifier>
         <dc:identifier>DOI 10.1109/TNN.2003.810616</dc:identifier>
     </bib:Journal>
-    <z:Attachment rdf:about="#item_133">
+    <z:Attachment rdf:about="#item_94">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -3383,7 +3386,7 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         </dc:identifier>
         <dcterms:dateSubmitted>2018-10-23 14:02:54</dcterms:dateSubmitted>
         <dc:title>Submitted Version</dc:title>
-        <z:linkMode>1</z:linkMode>
+        <z:linkMode>3</z:linkMode>
         <link:type>application/pdf</link:type>
     </z:Attachment>
     <bib:Document rdf:about="https://ieeexplore.ieee.org/document/1223327">
@@ -3391,16 +3394,17 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         <dcterms:isPartOf>
            <z:Website></z:Website>
         </dcterms:isPartOf>
-        <link:link rdf:resource="#item_135"/>
+        <link:link rdf:resource="#item_96"/>
         <dc:identifier>
             <dcterms:URI>
                <rdf:value>https://ieeexplore.ieee.org/document/1223327</rdf:value>
             </dcterms:URI>
         </dc:identifier>
+        <dc:date>2018-10-23 14:20:30</dc:date>
         <dcterms:dateSubmitted>2018-10-23 14:20:30</dcterms:dateSubmitted>
         <dc:title>A Morlet wavelet classification technique for ICA filtered sEMG experimental data - IEEE Conference Publication</dc:title>
     </bib:Document>
-    <z:Attachment rdf:about="#item_135">
+    <z:Attachment rdf:about="#item_96">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -3409,7 +3413,7 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         </dc:identifier>
         <dcterms:dateSubmitted>2018-10-23 14:20:32</dcterms:dateSubmitted>
         <dc:title>A Morlet wavelet classification technique for ICA filtered sEMG experimental data - IEEE Conference Publication</dc:title>
-        <z:linkMode>1</z:linkMode>
+        <z:linkMode>3</z:linkMode>
         <link:type>text/html</link:type>
     </z:Attachment>
     <bib:Document rdf:about="https://www.ncbi.nlm.nih.gov/pubmed/15165592">
@@ -3417,16 +3421,17 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         <dcterms:isPartOf>
            <z:Website></z:Website>
         </dcterms:isPartOf>
-        <link:link rdf:resource="#item_137"/>
+        <link:link rdf:resource="#item_98"/>
         <dc:identifier>
             <dcterms:URI>
                <rdf:value>https://www.ncbi.nlm.nih.gov/pubmed/15165592</rdf:value>
             </dcterms:URI>
         </dc:identifier>
+        <dc:date>2018-10-23 14:20:46</dc:date>
         <dcterms:dateSubmitted>2018-10-23 14:20:46</dcterms:dateSubmitted>
         <dc:title>The application of independent component analysis to the multi-channel surface electromyographic signals for separation of motor unit action potent... - PubMed - NCBI</dc:title>
     </bib:Document>
-    <z:Attachment rdf:about="#item_137">
+    <z:Attachment rdf:about="#item_98">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -3435,7 +3440,7 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         </dc:identifier>
         <dcterms:dateSubmitted>2018-10-23 14:20:48</dcterms:dateSubmitted>
         <dc:title>The application of independent component analysis to the multi-channel surface electromyographic signals for separation of motor unit action potent... - PubMed - NCBI</dc:title>
-        <z:linkMode>1</z:linkMode>
+        <z:linkMode>3</z:linkMode>
         <link:type>text/html</link:type>
     </z:Attachment>
     <rdf:Description rdf:about="urn:isbn:978-0-7803-7898-8">
@@ -3502,7 +3507,7 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         </bib:presentedAt>
         <dc:title>A Morlet wavelet classification technique for ICA filtered sEMG experimental data</dc:title>
     </rdf:Description>
-    <bib:Article rdf:about="#item_139">
+    <bib:Article rdf:about="#item_100">
         <z:itemType>journalArticle</z:itemType>
         <dcterms:isPartOf>
             <bib:Journal>
@@ -3548,18 +3553,7 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
-        <link:link rdf:resource="#item_140"/>
-        <dc:subject>
-            <z:AutomaticTag>
-               <rdf:value>Action Potentials</rdf:value>
-            </z:AutomaticTag>
-        </dc:subject>
-        <dc:subject>
-           <z:AutomaticTag><rdf:value>Adult</rdf:value></z:AutomaticTag>
-        </dc:subject>
-        <dc:subject>
-           <z:AutomaticTag><rdf:value>Algorithms</rdf:value></z:AutomaticTag>
-        </dc:subject>
+        <link:link rdf:resource="#item_101"/>
         <dc:subject>
             <z:AutomaticTag>
                <rdf:value>Electromyography</rdf:value>
@@ -3574,6 +3568,30 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
             </z:AutomaticTag>
         </dc:subject>
         <dc:subject>
+           <z:AutomaticTag><rdf:value>Algorithms</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Muscle, Skeletal</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Signal Processing, Computer-Assisted</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Time Factors</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Action Potentials</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Adult</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
            <z:AutomaticTag><rdf:value>Male</rdf:value></z:AutomaticTag>
         </dc:subject>
         <dc:subject>
@@ -3586,26 +3604,13 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         </dc:subject>
         <dc:subject>
             <z:AutomaticTag>
-               <rdf:value>Muscle, Skeletal</rdf:value>
-            </z:AutomaticTag>
-        </dc:subject>
-        <dc:subject>
-            <z:AutomaticTag>
                <rdf:value>Normal Distribution</rdf:value>
-            </z:AutomaticTag>
-        </dc:subject>
-        <dc:subject>
-            <z:AutomaticTag>
-               <rdf:value>Signal Processing, Computer-Assisted</rdf:value>
             </z:AutomaticTag>
         </dc:subject>
         <dc:subject>
             <z:AutomaticTag>
                <rdf:value>Statistical Distributions</rdf:value>
             </z:AutomaticTag>
-        </dc:subject>
-        <dc:subject>
-           <z:AutomaticTag><rdf:value>Time Factors</rdf:value></z:AutomaticTag>
         </dc:subject>
         <bib:pages>423-432</bib:pages>
         <dc:date>Aug 2004</dc:date>
@@ -3616,7 +3621,7 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         <dc:title>The application of independent component analysis to the multi-channel surface electromyographic signals for separation of motor unit action potential trains: part I-measuring techniques</dc:title>
         <z:shortTitle>The application of independent component analysis to the multi-channel surface electromyographic signals for separation of motor unit action potential trains</z:shortTitle>
     </bib:Article>
-    <z:Attachment rdf:about="#item_140">
+    <z:Attachment rdf:about="#item_101">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -3628,7 +3633,7 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         <z:linkMode>3</z:linkMode>
         <link:type>text/html</link:type>
     </z:Attachment>
-    <bib:Article rdf:about="#item_141">
+    <bib:Article rdf:about="#item_102">
         <z:itemType>journalArticle</z:itemType>
         <dcterms:isPartOf rdf:resource="urn:issn:0967-3334"/>
         <bib:authors>
@@ -3647,7 +3652,15 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
-        <link:link rdf:resource="#item_142"/>
+        <link:link rdf:resource="#item_103"/>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Humans</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Signal Processing, Computer-Assisted</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
         <dc:subject>
             <z:AutomaticTag>
                <rdf:value>Biomedical Technology</rdf:value>
@@ -3674,14 +3687,6 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
                <rdf:value>Equipment Design</rdf:value>
             </z:AutomaticTag>
         </dc:subject>
-        <dc:subject>
-           <z:AutomaticTag><rdf:value>Humans</rdf:value></z:AutomaticTag>
-        </dc:subject>
-        <dc:subject>
-            <z:AutomaticTag>
-               <rdf:value>Signal Processing, Computer-Assisted</rdf:value>
-            </z:AutomaticTag>
-        </dc:subject>
         <bib:pages>R15-39</bib:pages>
         <dc:date>Feb 2005</dc:date>
         <dc:description>PMID: 15742873</dc:description>
@@ -3697,7 +3702,7 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         <dc:identifier>ISSN 0967-3334</dc:identifier>
         <dcterms:alternative>Physiol Meas</dcterms:alternative>
     </bib:Journal>
-    <z:Attachment rdf:about="#item_142">
+    <z:Attachment rdf:about="#item_103">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -3709,7 +3714,7 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         <z:linkMode>3</z:linkMode>
         <link:type>text/html</link:type>
     </z:Attachment>
-    <bib:Article rdf:about="#item_143">
+    <bib:Article rdf:about="#item_104">
         <z:itemType>journalArticle</z:itemType>
         <dcterms:isPartOf>
             <bib:Journal>
@@ -3760,7 +3765,7 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
-        <link:link rdf:resource="#item_144"/>
+        <link:link rdf:resource="#item_105"/>
         <bib:pages>3647-3649</bib:pages>
         <dc:date>2005</dc:date>
         <dc:description>PMID: 17281017</dc:description>
@@ -3769,7 +3774,7 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         <dcterms:abstract>Surface electromyography (sEMG) recorded from the trunk area may reflect underlying muscular function, and is the current standard for in vivo functional examination. However, sEMG of this area, including the low back musculature, usually encounters substantial interference from strong cardiac signals. It is therefore imperative to remove electrocardiogram (ECG) interference from sEMG data. This paper discusses a denoise method using independent component analysis (ICA) and a high-pass filter to effectively suppress the interference of ECG in sEMG recorded from trunk muscles. The performance of this technique was evaluated with simulation experiments. To compare the outcome of the ICA and filtering technique to the original sEMG signal, correlation coefficients in both time-domain waveform and frequency spectrum were computed. In addition, different filter bands were evaluated. The ICA ECG cancellation with a 30Hz high-pass filter showed higher mean correlation coefficients in the time domain (0.97&amp;#177;0.08) and in the frequency spectrum (0.99&amp;#177;0.06) than any other techniques. This suggests that the ICA ECG cancellation technique with a 30 Hz high-pass filter would be the most appropriate method to extract useful sEMG signals from trunk muscles.</dcterms:abstract>
         <dc:title>Applying Independent Component Analysis on ECG Cancellation Technique for the Surface Recording of Trunk Electromyography</dc:title>
     </bib:Article>
-    <z:Attachment rdf:about="#item_144">
+    <z:Attachment rdf:about="#item_105">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -3856,7 +3861,7 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         <dcterms:abstract>Aiming at the use of hand gestures for human-computer interaction, this paper presents an approach to identify hand gestures using muscle activity separated from electromyogram (EMG) using independent component analysis. While there are a number of previous reported works where EMG has been used to identify movement, the limitation of the earlier works is that the systems are suitable for gross actions, and when there is one prime-mover muscle involved. This paper reports overcoming the difficulty by using independent component analysis to separate muscle activity from different muscles and classified using backpropogation neural networks. The paper reports experimental results where the system was accurately able to identify the hand gesture using this technique for all the experiments (100%). The system has been shown not to be sensitive to electrode position as the experiments were repeated on different days. The advantage of such a system is that it is easy to train by a lay user, and can easily be implemented in real time after the initial training.</dcterms:abstract>
         <dc:title>Hand Gestures for HCI Using ICA of EMG</dc:title>
     </rdf:Description>
-    <bib:Article rdf:about="#item_146">
+    <bib:Article rdf:about="#item_107">
         <z:itemType>journalArticle</z:itemType>
         <dcterms:isPartOf>
            <bib:Journal><prism:volume>45</prism:volume></bib:Journal>
@@ -3889,13 +3894,13 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
-        <link:link rdf:resource="#item_147"/>
-        <link:link rdf:resource="#item_148"/>
+        <link:link rdf:resource="#item_108"/>
+        <link:link rdf:resource="#item_109"/>
         <dc:date>January 1, 2010</dc:date>
         <z:libraryCatalog>ResearchGate</z:libraryCatalog>
         <dc:title>Surface electromyography applications in the sport</dc:title>
     </bib:Article>
-    <z:Attachment rdf:about="#item_147">
+    <z:Attachment rdf:about="#item_108">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -3904,10 +3909,10 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         </dc:identifier>
         <dcterms:dateSubmitted>2018-10-23 14:37:42</dcterms:dateSubmitted>
         <dc:title>Full Text PDF</dc:title>
-        <z:linkMode>1</z:linkMode>
+        <z:linkMode>3</z:linkMode>
         <link:type>application/pdf</link:type>
     </z:Attachment>
-    <z:Attachment rdf:about="#item_148">
+    <z:Attachment rdf:about="#item_109">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -3923,16 +3928,17 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         <dcterms:isPartOf>
            <z:Website></z:Website>
         </dcterms:isPartOf>
-        <link:link rdf:resource="#item_150"/>
+        <link:link rdf:resource="#item_111"/>
         <dc:identifier>
             <dcterms:URI>
                <rdf:value>https://research.ics.aalto.fi/ica/book/</rdf:value>
             </dcterms:URI>
         </dc:identifier>
+        <dc:date>2018-10-23 15:07:10</dc:date>
         <dcterms:dateSubmitted>2018-10-23 15:07:10</dcterms:dateSubmitted>
         <dc:title>Independent Component Analysis: The Book</dc:title>
     </bib:Document>
-    <z:Attachment rdf:about="#item_150">
+    <z:Attachment rdf:about="#item_111">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -3941,7 +3947,7 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         </dc:identifier>
         <dcterms:dateSubmitted>2018-10-23 15:07:12</dcterms:dateSubmitted>
         <dc:title>Independent Component Analysis: The Book</dc:title>
-        <z:linkMode>1</z:linkMode>
+        <z:linkMode>3</z:linkMode>
         <link:type>text/html</link:type>
     </z:Attachment>
     <bib:Article rdf:about="http://linkinghub.elsevier.com/retrieve/pii/S0893608000000265">
@@ -3963,7 +3969,7 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
-        <link:link rdf:resource="#item_151"/>
+        <link:link rdf:resource="#item_113"/>
         <dc:identifier>
             <dcterms:URI>
                 <rdf:value>http://linkinghub.elsevier.com/retrieve/pii/S0893608000000265</rdf:value>
@@ -3985,7 +3991,7 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         <dc:identifier>ISSN 08936080</dc:identifier>
         <dc:identifier>DOI 10.1016/S0893-6080(00)00026-5</dc:identifier>
     </bib:Journal>
-    <z:Attachment rdf:about="#item_151">
+    <z:Attachment rdf:about="#item_113">
         <z:itemType>attachment</z:itemType>
         <dc:identifier>
             <dcterms:URI>
@@ -3994,47 +4000,442 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         </dc:identifier>
         <dcterms:dateSubmitted>2018-10-23 15:07:54</dcterms:dateSubmitted>
         <dc:title>Hyvärinen 與 Oja - 2000 - Independent component analysis algorithms and app.pdf</dc:title>
+        <z:linkMode>3</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://doi.org/10.1186/1743-0003-10-50">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <prism:volume>10</prism:volume>
+                <prism:number>1</prism:number>
+                <dc:title>Journal of NeuroEngineering and Rehabilitation</dc:title>
+                <dc:identifier>ISSN 1743-0003</dc:identifier>
+                <dcterms:alternative>Journal of NeuroEngineering and Rehabilitation</dcterms:alternative>
+                <dc:identifier>DOI 10.1186/1743-0003-10-50</dc:identifier>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Kumar</foaf:surname>
+                        <foaf:givenname>Dinesh Kant</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Poosapadi Arjunan</foaf:surname>
+                        <foaf:givenname>Sridhar</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Singh</foaf:surname>
+                        <foaf:givenname>Vijay Pal</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_115"/>
+        <link:link rdf:resource="#item_116"/>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://doi.org/10.1186/1743-0003-10-50</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>50</bib:pages>
+        <dc:date>June 7, 2013</dc:date>
+        <dcterms:dateSubmitted>2018-10-24 11:52:11</dcterms:dateSubmitted>
+        <z:libraryCatalog>BioMed Central</z:libraryCatalog>
+        <dcterms:abstract>This research has established a method for using single channel surface electromyogram (sEMG) recorded from the forearm to identify individual finger flexion. The technique uses the volume conduction properties of the tissues and uses the magnitude and density of the singularities in the signal as a measure of strength of the muscle activity.</dcterms:abstract>
+        <dc:title>Towards identification of finger flexions using single channel surface electromyography – able bodied and amputee subjects</dc:title>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_115">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://jneuroengrehab.biomedcentral.com/track/pdf/10.1186/1743-0003-10-50</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-24 11:52:12</dcterms:dateSubmitted>
+        <dc:title>Full Text PDF</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_116">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://jneuroengrehab.biomedcentral.com/articles/10.1186/1743-0003-10-50</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-24 11:52:19</dcterms:dateSubmitted>
+        <dc:title>Snapshot</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Document rdf:about="https://www.pjrc.com/store/teensy32.html">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+           <z:Website></z:Website>
+        </dcterms:isPartOf>
+        <link:link rdf:resource="#item_118"/>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://www.pjrc.com/store/teensy32.html</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-24 12:26:53</dcterms:dateSubmitted>
+        <dc:title>PJRC Store</dc:title>
+    </bib:Document>
+    <z:Attachment rdf:about="#item_118">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://www.pjrc.com/store/teensy32.html</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-24 12:26:54</dcterms:dateSubmitted>
+        <dc:title>PJRC Store</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Document rdf:about="https://processing.org/">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+           <z:Website></z:Website>
+        </dcterms:isPartOf>
+        <link:link rdf:resource="#item_120"/>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://processing.org/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-24 12:32:29</dcterms:dateSubmitted>
+        <dc:title>Processing.org</dc:title>
+    </bib:Document>
+    <z:Attachment rdf:about="#item_120">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://processing.org/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-24 12:32:30</dcterms:dateSubmitted>
+        <dc:title>Processing.org</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Document rdf:about="https://www.mathworks.com/products/matlab.html">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+           <z:Website></z:Website>
+        </dcterms:isPartOf>
+        <link:link rdf:resource="#item_122"/>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.mathworks.com/products/matlab.html</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-24 13:10:32</dcterms:dateSubmitted>
+        <z:language>en</z:language>
+        <dcterms:abstract>The official home of MATLAB software. MATLAB is the easiest and most productive software environment for engineers and scientists. Try, buy, and learn MATLAB.</dcterms:abstract>
+        <dc:title>MATLAB - MathWorks</dc:title>
+    </bib:Document>
+    <z:Attachment rdf:about="#item_122">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.mathworks.com/products/matlab.html</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-24 13:10:36</dcterms:dateSubmitted>
+        <dc:title>Snapshot</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Data rdf:about="https://github.com/dymnz/RNN">
+        <z:itemType>computerProgram</z:itemType>
+        <z:programmers>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Wang</foaf:surname>
+                        <foaf:givenname>Jacky</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </z:programmers>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://github.com/dymnz/RNN</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>2018-04-15T14:08:28Z</dc:date>
+        <dc:description>original-date: 2017-12-11T01:19:33Z</dc:description>
+        <dcterms:dateSubmitted>2018-10-24 13:19:12</dcterms:dateSubmitted>
+        <z:libraryCatalog>GitHub</z:libraryCatalog>
+        <z:programmingLanguage>C</z:programmingLanguage>
+        <dc:title>Github dymnz/RNN</dc:title>
+    </bib:Data>
+    <bib:Article rdf:about="http://arxiv.org/abs/1503.04069">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:2162-237X,%202162-2388"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Greff</foaf:surname>
+                        <foaf:givenname>Klaus</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Srivastava</foaf:surname>
+                        <foaf:givenname>Rupesh Kumar</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Koutník</foaf:surname>
+                        <foaf:givenname>Jan</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Steunebrink</foaf:surname>
+                        <foaf:givenname>Bas R.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Schmidhuber</foaf:surname>
+                        <foaf:givenname>Jürgen</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dcterms:isReferencedBy rdf:resource="#item_125"/>
+        <link:link rdf:resource="#item_126"/>
+        <link:link rdf:resource="#item_127"/>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>68T10</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Computer Science - Machine Learning</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+                <rdf:value>Computer Science - Neural and Evolutionary Computing</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>H.5.5</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>I.2.6</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>I.2.7</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>I.5.1</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://arxiv.org/abs/1503.04069</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>2222-2232</bib:pages>
+        <dc:date>10/2017</dc:date>
+        <dc:description>arXiv: 1503.04069</dc:description>
+        <dcterms:dateSubmitted>2018-10-24 13:21:47</dcterms:dateSubmitted>
+        <z:libraryCatalog>arXiv.org</z:libraryCatalog>
+        <dcterms:abstract>Several variants of the Long Short-Term Memory (LSTM) architecture for recurrent neural networks have been proposed since its inception in 1995. In recent years, these networks have become the state-of-the-art models for a variety of machine learning problems. This has led to a renewed interest in understanding the role and utility of various computational components of typical LSTM variants. In this paper, we present the first large-scale analysis of eight LSTM variants on three representative tasks: speech recognition, handwriting recognition, and polyphonic music modeling. The hyperparameters of all LSTM variants for each task were optimized separately using random search, and their importance was assessed using the powerful fANOVA framework. In total, we summarize the results of 5400 experimental runs ($\approx 15$ years of CPU time), which makes our study the largest of its kind on LSTM networks. Our results show that none of the variants can improve upon the standard LSTM architecture significantly, and demonstrate the forget gate and the output activation function to be its most critical components. We further observe that the studied hyperparameters are virtually independent and derive guidelines for their efficient adjustment.</dcterms:abstract>
+        <dc:title>LSTM: A Search Space Odyssey</dc:title>
+        <z:shortTitle>LSTM</z:shortTitle>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:2162-237X,%202162-2388">
+        <prism:volume>28</prism:volume>
+        <prism:number>10</prism:number>
+        <dc:title>IEEE Transactions on Neural Networks and Learning Systems</dc:title>
+        <dc:identifier>ISSN 2162-237X, 2162-2388</dc:identifier>
+        <dc:identifier>DOI 10.1109/TNNLS.2016.2582924</dc:identifier>
+    </bib:Journal>
+    <bib:Memo rdf:about="#item_125">
+       <rdf:value>Comment: 12 pages, 6 figures</rdf:value>
+    </bib:Memo>
+    <z:Attachment rdf:about="#item_126">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://www.arxiv.org/pdf/1503.04069.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-24 13:22:00</dcterms:dateSubmitted>
+        <dc:title>arXiv:1503.04069 PDF</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_127">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://arxiv.org/abs/1503.04069</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-24 13:22:07</dcterms:dateSubmitted>
+        <dc:title>arXiv.org Snapshot</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="urn:isbn:978-1-4471-1599-1">
+        <z:itemType>conferencePaper</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dcterms:isPartOf>
+                    <bib:Series>
+                       <dc:title>Perspectives in Neural Computing</dc:title>
+                    </bib:Series>
+                </dcterms:isPartOf>
+                <dc:identifier>ISBN 978-1-4471-1599-1</dc:identifier>
+                <dc:title>ICANN 98</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <dc:publisher>
+            <foaf:Organization>
+               <foaf:name>Springer London</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Ziehe</foaf:surname>
+                        <foaf:givenname>Andreas</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Müller</foaf:surname>
+                        <foaf:givenname>Klaus-Robert</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <bib:editors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Niklasson</foaf:surname>
+                        <foaf:givenname>Lars</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Bodén</foaf:surname>
+                        <foaf:givenname>Mikael</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Ziemke</foaf:surname>
+                        <foaf:givenname>Tom</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:editors>
+        <link:link rdf:resource="#item_129"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Blind Source Separation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Correlation Matrice</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>High Order Moment</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Source Separation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Time Structure</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <bib:pages>675-680</bib:pages>
+        <dc:date>1998</dc:date>
+        <z:libraryCatalog>Springer Link</z:libraryCatalog>
+        <z:language>en</z:language>
+        <dcterms:abstract>An algorithm for blind source separation based on several time-delayed second order correlation matrices is proposed. The technique to construct the unmixing matrix employs first a whitening step and then an approximate simultaneous diagonalisation of several time-delayed second order correlation matrices. Its efficiency and stability are demonstrated for linear artificial mixtures with 17 sources.</dcterms:abstract>
+        <dc:title>TDSEP — an efficient algorithm for blind separation using time structure</dc:title>
+    </rdf:Description>
+    <z:Attachment rdf:about="#item_129">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://link.springer.com/content/pdf/10.1007%2F978-1-4471-1599-1_103.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-24 14:22:06</dcterms:dateSubmitted>
+        <dc:title>Springer Full Text PDF</dc:title>
         <z:linkMode>1</z:linkMode>
         <link:type>application/pdf</link:type>
     </z:Attachment>
     <z:Collection rdf:about="#collection_2">
         <dc:title>sEMG</dc:title>
-        <dcterms:hasPart rdf:resource="#collection_5"/>
+        <dcterms:hasPart rdf:resource="#collection_3"/>
         <dcterms:hasPart rdf:resource="#collection_4"/>
         <dcterms:hasPart rdf:resource="https://doi.org/10.5772/56717"/>
         <dcterms:hasPart rdf:resource="http://www.wiley.com/WileyCDA/WileyTitle/productCd-0471675806,miniSiteCd-IEEE2.html"/>
         <dcterms:hasPart rdf:resource="https://journals.lww.com/jbjsjournal/Citation/1944/26010/OBSERVATIONS_ON_THE_FUNCTION_OF_THE_SHOULDER_JOINT.1.aspx"/>
-        <dcterms:hasPart rdf:resource="#item_12"/>
-        <dcterms:hasPart rdf:resource="#item_14"/>
+        <dcterms:hasPart rdf:resource="#item_9"/>
+        <dcterms:hasPart rdf:resource="#item_11"/>
         <dcterms:hasPart rdf:resource="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1392416/"/>
-        <dcterms:hasPart rdf:resource="#item_22"/>
+        <dcterms:hasPart rdf:resource="#item_17"/>
         <dcterms:hasPart rdf:resource="http://www.sciencedirect.com/science/article/pii/S0966636203000997"/>
-        <dcterms:hasPart rdf:resource="#item_26"/>
-        <dcterms:hasPart rdf:resource="#item_28"/>
+        <dcterms:hasPart rdf:resource="#item_21"/>
+        <dcterms:hasPart rdf:resource="#item_23"/>
         <dcterms:hasPart rdf:resource="https://doi.org/10.1007/BF02476154"/>
-        <dcterms:hasPart rdf:resource="#item_36"/>
+        <dcterms:hasPart rdf:resource="#item_26"/>
         <dcterms:hasPart rdf:resource="http://arxiv.org/abs/physics/0611120"/>
         <dcterms:hasPart rdf:resource="urn:isbn:978-90-75452-09-9"/>
-        <dcterms:hasPart rdf:resource="#item_107"/>
-        <dcterms:hasPart rdf:resource="#item_116"/>
+        <dcterms:hasPart rdf:resource="#item_73"/>
+        <dcterms:hasPart rdf:resource="#item_77"/>
         <dcterms:hasPart rdf:resource="urn:isbn:978-90-75452-15-0"/>
         <dcterms:hasPart rdf:resource="https://en.wikipedia.org/w/index.php?title=Forearm&amp;oldid=865062582"/>
         <dcterms:hasPart rdf:resource="https://www.ncbi.nlm.nih.gov/nlmcatalog/101667594"/>
         <dcterms:hasPart rdf:resource="urn:isbn:978-1-60406-745-3"/>
-        <dcterms:hasPart rdf:resource="#item_125"/>
+        <dcterms:hasPart rdf:resource="#item_87"/>
         <dcterms:hasPart rdf:resource="https://www.researchgate.net/publication/264836411_A_comparison_of_ICA_algorithms_in_surface_EMG_signal_processing"/>
-        <dcterms:hasPart rdf:resource="#item_129"/>
+        <dcterms:hasPart rdf:resource="#item_91"/>
         <dcterms:hasPart rdf:resource="http://ieeexplore.ieee.org/document/1199651/"/>
         <dcterms:hasPart rdf:resource="urn:isbn:978-0-7803-7898-8"/>
-        <dcterms:hasPart rdf:resource="#item_139"/>
-        <dcterms:hasPart rdf:resource="#item_141"/>
-        <dcterms:hasPart rdf:resource="#item_143"/>
+        <dcterms:hasPart rdf:resource="#item_100"/>
+        <dcterms:hasPart rdf:resource="#item_102"/>
+        <dcterms:hasPart rdf:resource="#item_104"/>
         <dcterms:hasPart rdf:resource="http://dl.acm.org/citation.cfm?id=1273385.1273397"/>
-        <dcterms:hasPart rdf:resource="#item_146"/>
+        <dcterms:hasPart rdf:resource="#item_107"/>
         <dcterms:hasPart rdf:resource="https://research.ics.aalto.fi/ica/book/"/>
         <dcterms:hasPart rdf:resource="http://linkinghub.elsevier.com/retrieve/pii/S0893608000000265"/>
+        <dcterms:hasPart rdf:resource="https://doi.org/10.1186/1743-0003-10-50"/>
+        <dcterms:hasPart rdf:resource="https://www.pjrc.com/store/teensy32.html"/>
+        <dcterms:hasPart rdf:resource="https://processing.org/"/>
+        <dcterms:hasPart rdf:resource="https://www.mathworks.com/products/matlab.html"/>
+        <dcterms:hasPart rdf:resource="https://github.com/dymnz/RNN"/>
+        <dcterms:hasPart rdf:resource="http://arxiv.org/abs/1503.04069"/>
+        <dcterms:hasPart rdf:resource="urn:isbn:978-1-4471-1599-1"/>
     </z:Collection>
-    <z:Collection rdf:about="#collection_5">
+    <z:Collection rdf:about="#collection_3">
         <dc:title>Limb</dc:title>
         <dcterms:hasPart rdf:resource="https://doi.org/10.5772/56717"/>
         <dcterms:hasPart rdf:resource="urn:isbn:978-1-4673-8345-5"/>
@@ -4055,7 +4456,7 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
     </z:Collection>
     <z:Collection rdf:about="#collection_4">
         <dc:title>Wrist angle</dc:title>
-        <dcterms:hasPart rdf:resource="#item_36"/>
+        <dcterms:hasPart rdf:resource="#item_26"/>
         <dcterms:hasPart rdf:resource="http://ieeexplore.ieee.org/document/5551179/"/>
         <dcterms:hasPart rdf:resource="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3198911/"/>
         <dcterms:hasPart rdf:resource="http://ieeexplore.ieee.org/document/204774/"/>
@@ -4075,7 +4476,7 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         <dcterms:hasPart rdf:resource="urn:isbn:978-1-4244-2357-6"/>
         <rdf:type rdf:resource="http://www.zotero.org/namespaces/export#Collection"/>
         <dc:title>Wrist angle</dc:title>
-        <dcterms:hasPart rdf:resource="#item_36"/>
+        <dcterms:hasPart rdf:resource="#item_26"/>
         <dcterms:hasPart rdf:resource="http://ieeexplore.ieee.org/document/5551179/"/>
         <dcterms:hasPart rdf:resource="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3198911/"/>
         <dcterms:hasPart rdf:resource="http://ieeexplore.ieee.org/document/204774/"/>
