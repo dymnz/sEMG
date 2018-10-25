@@ -1369,6 +1369,7 @@ Model estimation accuracy drops significantly with passage of time, electrode di
         <link:link rdf:resource="#item_47"/>
         <dc:subject>wave length</dc:subject>
         <dc:subject>wrist</dc:subject>
+        <dc:subject>MLP</dc:subject>
         <dc:subject>TDAR</dc:subject>
         <dc:subject>MAV</dc:subject>
         <dc:subject>ZC</dc:subject>
@@ -1669,6 +1670,7 @@ Model estimation accuracy drops significantly with passage of time, electrode di
         </bib:authors>
         <link:link rdf:resource="#item_53"/>
         <link:link rdf:resource="#item_54"/>
+        <dc:subject>MLP</dc:subject>
         <dc:subject>ABS-LPF</dc:subject>
         <dc:subject>NNMF</dc:subject>
         <dc:identifier>
@@ -1921,6 +1923,7 @@ PMCID: PMC5575159</dc:description>
         <dc:subject>MAV</dc:subject>
         <dc:subject>ICA</dc:subject>
         <dc:subject>PCA</dc:subject>
+        <dc:subject>HMM</dc:subject>
         <dc:identifier>
             <dcterms:URI>
                <rdf:value>http://ieeexplore.ieee.org/document/6944764/</rdf:value>
@@ -4456,8 +4459,589 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         <z:linkMode>1</z:linkMode>
         <link:type>text/html</link:type>
     </z:Attachment>
+    <bib:Article rdf:about="https://doi.org/10.1023/A:1024706431807">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:1573-7675"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Bu</foaf:surname>
+                        <foaf:givenname>Nan</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Fukuda</foaf:surname>
+                        <foaf:givenname>Osamu</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Tsuji</foaf:surname>
+                        <foaf:givenname>Toshio</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_135"/>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>EMG</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>neural networks</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>pattern discrimination</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>recurrent neural network</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>RNN</dc:subject>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://doi.org/10.1023/A:1024706431807</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>113-126</bib:pages>
+        <dc:date>2003-09-01</dc:date>
+        <dcterms:dateSubmitted>2018-10-25 17:45:45</dcterms:dateSubmitted>
+        <z:libraryCatalog>Springer Link</z:libraryCatalog>
+        <z:language>en</z:language>
+        <dcterms:abstract>This paper presents a pattern discrimination method for electromyogram (EMG) signals for application in the field of prosthetic control. The method uses a novel recurrent neural network based on the hidden Markov model. This network includes recurrent connections, which enable modeling time series, such as EMG signals. Weight coefficients in the network can be learned using a well-known back-propagation through time algorithm. Pattern discrimination experiments were conducted to demonstrate the feasibility and performance of the proposed method. We were able to successfully discriminate forearm motions using the EMG signals, and achieved considerably high discrimination performance compared with other discrimination methods.</dcterms:abstract>
+        <dc:title>EMG-Based Motion Discrimination Using a Novel Recurrent Neural Network</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:1573-7675">
+        <prism:volume>21</prism:volume>
+        <prism:number>2</prism:number>
+        <dc:title>Journal of Intelligent Information Systems</dc:title>
+        <dc:identifier>ISSN 1573-7675</dc:identifier>
+        <dcterms:alternative>Journal of Intelligent Information Systems</dcterms:alternative>
+        <dc:identifier>DOI 10.1023/A:1024706431807</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_135">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://link.springer.com/content/pdf/10.1023%2FA%3A1024706431807.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-25 17:45:49</dcterms:dateSubmitted>
+        <dc:title>Springer Full Text PDF</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="#item_136">
+        <z:itemType>conferencePaper</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:identifier>DOI 10.1109/BHI.2018.8333395</dc:identifier>
+                <dc:title>2018 IEEE EMBS International Conference on Biomedical Health Informatics (BHI)</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Quivira</foaf:surname>
+                        <foaf:givenname>F.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Koike-Akino</foaf:surname>
+                        <foaf:givenname>T.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Wang</foaf:surname>
+                        <foaf:givenname>Y.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Erdogmus</foaf:surname>
+                        <foaf:givenname>D.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dcterms:isReferencedBy rdf:resource="#item_138"/>
+        <link:link rdf:resource="#item_137"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Electromyography</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Muscles</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>biomechanics</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>electromyography</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>gesture recognition</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>medical signal processing</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>neurophysiology</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>RNN</dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>accurate regression model</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Conferences</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>continuous hand poses</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>feature extraction</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Gaussian mixture model</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Gaussian processes</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>GMM</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>hand gestures</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>hand joint kinematics</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>hand pose kinematics</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>image motion analysis</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Kinematics</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Leap Motion sensor</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>long short-term memory cells</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>low cost surface electromyogram signals</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>LSTM cells</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Myo sensor</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>neural nets</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>pose estimation</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Probabilistic logic</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>probabilistic model</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>recurrent neural nets</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>recurrent neural networks</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Recurrent neural networks</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>regression analysis</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>sEMG features</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>sEMG signals</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>short-term memory cells</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>signal classification</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>simple finger movements</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>simple hand gestures</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Training</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>LSTM</dc:subject>
+        <bib:pages>166-169</bib:pages>
+        <dc:date>March 2018</dc:date>
+        <z:libraryCatalog>IEEE Xplore</z:libraryCatalog>
+        <bib:presentedAt>
+            <bib:Conference>
+                <dc:title>2018 IEEE EMBS International Conference on Biomedical Health Informatics (BHI)</dc:title>
+            </bib:Conference>
+        </bib:presentedAt>
+        <dcterms:abstract>In this paper, we propose a hand pose estimation approach from low cost surface electromyogram (sEMG) signals using recurrent neural networks (RNN). We use the Leap Motion sensor to capture the hand joint kinematics and the Myo sensor to collect sEMG while the user is performing simple finger movements. We aim at building an accurate regression model that predicts hand joint kinematics from sEMG features. We use RNN with long short-term memory (LSTM) cells to account for the non-linear relationship between the two domains (sEMG and hand pose). Additionally, we add a Gaussian mixture model (GMM) to build a probabilistic model of hand pose given EMG data. We performed experiments across 7 users to test the performance of our approach. Our results show that for simple hand gestures such as finger flexion, the model is able to capture hand pose kinematics precisely.</dcterms:abstract>
+        <dc:title>Translating sEMG signals to continuous hand poses using recurrent neural networks</dc:title>
+    </rdf:Description>
+    <bib:Memo rdf:about="#item_138">
+        <rdf:value>&lt;p&gt;5 layers LSTM, 50 LSTM cell per layer&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;</rdf:value>
+    </bib:Memo>
+    <z:Attachment rdf:about="#item_137">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://ieeexplore.ieee.org/document/8333395</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-25 17:47:39</dcterms:dateSubmitted>
+        <dc:title>IEEE Xplore Abstract Record</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_140">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+           <bib:Journal></bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Koch</foaf:surname>
+                        <foaf:givenname>Philipp</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Phan</foaf:surname>
+                        <foaf:givenname>Huy</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Maass</foaf:surname>
+                        <foaf:givenname>Marco</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Katzberg</foaf:surname>
+                        <foaf:givenname>Fabrice</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Mertins</foaf:surname>
+                        <foaf:givenname>Alfred</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dcterms:isReferencedBy rdf:resource="#item_142"/>
+        <link:link rdf:resource="#item_139"/>
+        <dc:subject>RNN</dc:subject>
+        <dc:subject>GRU</dc:subject>
+        <bib:pages>4</bib:pages>
+        <z:libraryCatalog>Zotero</z:libraryCatalog>
+        <z:language>en</z:language>
+        <dcterms:abstract>This work focuses on a system for hand prostheses that can overcome the delay problem introduced by classical approaches while being reliable. The proposed approach based on a recurrent neural network enables us to incorporate the sequential nature of the surface electromyogram data and the proposed system can be used either for classiﬁcation or early prediction of hand movements. Especially the latter is a key to a latency free steering of a prosthesis. The experiments conducted on the ﬁrst three Ninapro databases reveal that the prediction up to 200 ms ahead in the future is possible without a signiﬁcant drop in accuracy. Furthermore, for classiﬁcation, our proposed approach outperforms the state of the art classiﬁers even though we used signiﬁcantly shorter windows for feature extraction.</dcterms:abstract>
+        <dc:title>Recurrent Neural Network Based Early Prediction of Future Hand Movements</dc:title>
+    </bib:Article>
+    <bib:Memo rdf:about="#item_142">
+       <rdf:value>&lt;p&gt;single layer 256 cell GRU&lt;/p&gt;</rdf:value>
+    </bib:Memo>
+    <z:Attachment rdf:about="#item_139">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.isip.uni-luebeck.de/fileadmin/files/koch2018a.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-25 17:54:59</dcterms:dateSubmitted>
+        <dc:title>Koch 等。 - Recurrent Neural Network Based Early Prediction of.pdf</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="#item_141">
+        <z:itemType>conferencePaper</z:itemType>
+        <dcterms:isPartOf>
+           <bib:Journal><dc:title>Proc. EMBC</dc:title></bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Koch</foaf:surname>
+                        <foaf:givenname>Philipp</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Phan</foaf:surname>
+                        <foaf:givenname>Huy</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Maass</foaf:surname>
+                        <foaf:givenname>Marco</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Katzberg</foaf:surname>
+                        <foaf:givenname>Fabrice</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Mertins</foaf:surname>
+                        <foaf:givenname>Alfred</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:date>2018</dc:date>
+        <z:libraryCatalog>Google Scholar</z:libraryCatalog>
+        <dc:title>Recurrent neural network based early prediction of future hand movements</dc:title>
+    </rdf:Description>
+    <bib:Article rdf:about="https://www.mdpi.com/2078-2489/3/4/756">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <prism:volume>3</prism:volume>
+                <prism:number>4</prism:number>
+                <dc:title>Information</dc:title>
+                <dc:identifier>DOI 10.3390/info3040756</dc:identifier>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Isokawa</foaf:surname>
+                        <foaf:givenname>Teijiro</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Nishimura</foaf:surname>
+                        <foaf:givenname>Haruhiko</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Matsui</foaf:surname>
+                        <foaf:givenname>Nobuyuki</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Isokawa</foaf:surname>
+                        <foaf:givenname>Teijiro</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Nishimura</foaf:surname>
+                        <foaf:givenname>Haruhiko</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Matsui</foaf:surname>
+                        <foaf:givenname>Nobuyuki</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_144"/>
+        <link:link rdf:resource="#item_145"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>error back-propagation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>local analyticity</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>multilayer perceptron</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>quaternion</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Wirtinger calculus</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://www.mdpi.com/2078-2489/3/4/756</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:rights>http://creativecommons.org/licenses/by/3.0/</dc:rights>
+        <bib:pages>756-770</bib:pages>
+        <dc:date>2012-11-28</dc:date>
+        <dcterms:dateSubmitted>2018-10-25 18:05:12</dcterms:dateSubmitted>
+        <z:libraryCatalog>www.mdpi.com</z:libraryCatalog>
+        <z:language>en</z:language>
+        <dcterms:abstract>A multi-layered perceptron type neural network is presented and analyzed in this paper. All neuronal parameters such as input, output, action potential and connection weight are encoded by quaternions, which are a class of hypercomplex number system. Local analytic condition is imposed on the activation function in updating neurons’ states in order to construct learning algorithm for this network. An error back-propagation algorithm is introduced for modifying the connection weights of the network.</dcterms:abstract>
+        <dc:title>Quaternionic Multilayer Perceptron with Local Analyticity</dc:title>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_144">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://www.mdpi.com/2078-2489/3/4/756/pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-25 18:05:15</dcterms:dateSubmitted>
+        <dc:title>Full Text PDF</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_145">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://www.mdpi.com/2078-2489/3/4/756</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-25 18:05:25</dcterms:dateSubmitted>
+        <dc:title>Snapshot</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Thesis rdf:about="https://ir.nctu.edu.tw:443/handle/11536/80738">
+        <z:itemType>thesis</z:itemType>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                   <foaf:Person><foaf:surname>梁怡康</foaf:surname></foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Liang</foaf:surname>
+                        <foaf:givenname>Ti-Kang</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                   <foaf:Person><foaf:surname>楊谷洋</foaf:surname></foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Young</foaf:surname>
+                        <foaf:givenname>Kuu-Young</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_147"/>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://ir.nctu.edu.tw:443/handle/11536/80738</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:date>2006</dc:date>
+        <dcterms:dateSubmitted>2018-10-25 18:07:20</dcterms:dateSubmitted>
+        <z:libraryCatalog>ir.nctu.edu.tw</z:libraryCatalog>
+        <z:type>Thesis</z:type>
+        <z:language>zh_TW</z:language>
+        <dcterms:abstract>肌電圖（Electromyography，EMG)是一種在肌肉收縮過程所產生的生理訊號，經常被應用在義肢或是復健上。為了探討使用者移動的意圖，以肌電圖做為義肢或機器的控制命令，是非常直接且直覺的方式。由於肌電圖有不確定性、非線性以及時變的特性，因此我們使用類神經網路去分析肌電圖的訊號以找出肌電圖以及手臂角度的關係。我們利用二頭肌的肌電訊號並採用MAV(mean absolute values)的特徵值做為分析前臂運動的訊號。在本篇論文中，我們發展出了基於肌電圖定位肌械臂的系統，同時也利用Labview設計了一套人機介面來整合訊號擷取以及機械臂的控制。</dcterms:abstract>
+        <dc:title>基於肌電圖之機械臂定位控制</dc:title>
+    </bib:Thesis>
+    <z:Attachment rdf:about="#item_147">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://ir.nctu.edu.tw/handle/11536/80738?locale=zh_TW</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-25 18:07:27</dcterms:dateSubmitted>
+        <dc:title>Snapshot</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
     <z:Collection rdf:about="#collection_2">
         <dc:title>sEMG</dc:title>
+        <dcterms:hasPart rdf:resource="#collection_6"/>
         <dcterms:hasPart rdf:resource="#collection_3"/>
         <dcterms:hasPart rdf:resource="#collection_4"/>
         <dcterms:hasPart rdf:resource="https://doi.org/10.5772/56717"/>
@@ -4500,6 +5084,19 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         <dcterms:hasPart rdf:resource="http://arxiv.org/abs/1503.04069"/>
         <dcterms:hasPart rdf:resource="urn:isbn:978-1-4471-1599-1"/>
         <dcterms:hasPart rdf:resource="https://epubs.siam.org/doi/10.1137/S0895479893259546"/>
+        <dcterms:hasPart rdf:resource="https://www.mdpi.com/2078-2489/3/4/756"/>
+        <dcterms:hasPart rdf:resource="https://ir.nctu.edu.tw:443/handle/11536/80738"/>
+    </z:Collection>
+    <z:Collection rdf:about="#collection_6">
+        <dc:title>Gesture</dc:title>
+        <dcterms:hasPart rdf:resource="https://doi.org/10.1023/A:1024706431807"/>
+        <dcterms:hasPart rdf:resource="#item_136"/>
+        <dcterms:hasPart rdf:resource="#item_140"/>
+        <rdf:type rdf:resource="http://www.zotero.org/namespaces/export#Collection"/>
+        <dc:title>Gesture</dc:title>
+        <dcterms:hasPart rdf:resource="https://doi.org/10.1023/A:1024706431807"/>
+        <dcterms:hasPart rdf:resource="#item_136"/>
+        <dcterms:hasPart rdf:resource="#item_140"/>
     </z:Collection>
     <z:Collection rdf:about="#collection_3">
         <dc:title>Limb</dc:title>
