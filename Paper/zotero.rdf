@@ -4391,6 +4391,71 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         <z:linkMode>1</z:linkMode>
         <link:type>application/pdf</link:type>
     </z:Attachment>
+    <bib:Article rdf:about="https://epubs.siam.org/doi/10.1137/S0895479893259546">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:0895-4798"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Cardoso</foaf:surname>
+                        <foaf:givenname>J.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Souloumiac</foaf:surname>
+                        <foaf:givenname>A.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_132"/>
+        <link:link rdf:resource="#item_133"/>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://epubs.siam.org/doi/10.1137/S0895479893259546</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>161-164</bib:pages>
+        <dc:date>January 1, 1996</dc:date>
+        <dcterms:dateSubmitted>2018-10-25 15:09:05</dcterms:dateSubmitted>
+        <z:libraryCatalog>epubs.siam.org (Atypon)</z:libraryCatalog>
+        <dcterms:abstract>Simultaneous diagonalization of several matrices can be implemented by a Jacobi-like technique. This note gives the required Jacobi angles in close form.</dcterms:abstract>
+        <dc:title>Jacobi Angles for Simultaneous Diagonalization</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:0895-4798">
+        <prism:volume>17</prism:volume>
+        <prism:number>1</prism:number>
+        <dc:title>SIAM Journal on Matrix Analysis and Applications</dc:title>
+        <dc:identifier>ISSN 0895-4798</dc:identifier>
+        <dcterms:alternative>SIAM J. Matrix Anal. &amp; Appl.</dcterms:alternative>
+        <dc:identifier>DOI 10.1137/S0895479893259546</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_132">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://epubs.siam.org/doi/pdf/10.1137/S0895479893259546</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-25 15:09:10</dcterms:dateSubmitted>
+        <dc:title>Full Text PDF</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_133">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://epubs.siam.org/doi/10.1137/S0895479893259546</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-25 15:09:12</dcterms:dateSubmitted>
+        <dc:title>Snapshot</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
     <z:Collection rdf:about="#collection_2">
         <dc:title>sEMG</dc:title>
         <dcterms:hasPart rdf:resource="#collection_3"/>
@@ -4434,6 +4499,7 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         <dcterms:hasPart rdf:resource="https://github.com/dymnz/RNN"/>
         <dcterms:hasPart rdf:resource="http://arxiv.org/abs/1503.04069"/>
         <dcterms:hasPart rdf:resource="urn:isbn:978-1-4471-1599-1"/>
+        <dcterms:hasPart rdf:resource="https://epubs.siam.org/doi/10.1137/S0895479893259546"/>
     </z:Collection>
     <z:Collection rdf:about="#collection_3">
         <dc:title>Limb</dc:title>
