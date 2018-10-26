@@ -12,7 +12,7 @@ semg_channel_count = 4;
 mpu_channel_count = 1;
 hidden_node_count = '8';
 
-for exp_num = 22
+for exp_num = 23
 for target_sample_rate = [35]
 
 fprintf('============================= nICA S2WA%d %d_SPS =============================\n', exp_num, target_sample_rate);
@@ -117,6 +117,9 @@ rms_semg = RMS_calc(semg, RMS_window_size);
 
 %% Show nICA effect     
 
+ica_semg = normalize(ica_semg')';
+rms_semg = normalize(rms_semg')';
+
 figure;
 for channel = 1 : semg_channel_count
 subplot_helper(1:length(semg), semg(channel, :), ...
@@ -141,22 +144,23 @@ subplot_helper(1:length(ica_semg), ica_semg(channel, :), ...
 ylim([min(min(ica_semg)) max(max(ica_semg))]);
 end
 
-rms_xc_list = cell(semg_channel_count, semg_channel_count);
+rms_xc_list = zeros(semg_channel_count, semg_channel_count);
 for i = 1 : semg_channel_count
     for r = 1 : semg_channel_count
-        rms_xc_list{i, r} = cov(rms_semg(i, :), rms_semg(r, :));
+        rms_xc_list(i, r) = xcorr(rms_semg(i, :), rms_semg(r, :), 0);
     end
 end
 
 
-ica_xc_list = cell(semg_channel_count, semg_channel_count);
+ica_xc_list = zeros(semg_channel_count, semg_channel_count);
 for i = 1 : semg_channel_count
     for r = 1 : semg_channel_count
-        ica_xc_list{i, r} = cov(ica_semg(i, :), ica_semg(r, :));
+        ica_xc_list(i, r) = xcorr(ica_semg(i, :), ica_semg(r, :), 0);
     end
 end
-% rms_xc_list
-% ica_xc_list
+rms_xc_list
+ica_xc_list
+cov(ica_semg');
 
 figure;
 equal_plot(rms_semg, [-3 3], [-3 3]);

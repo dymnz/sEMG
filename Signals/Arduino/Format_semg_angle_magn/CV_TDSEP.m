@@ -16,7 +16,7 @@ hidden_node_count = '8';
 % TDSEP
 tdsep_tau = [0:2];
 
-for exp_num = 22
+for exp_num = 23
 for target_sample_rate = [35]
     
 fprintf('============================= TDSEP S2WA%d %d_SPS =============================\n', exp_num, target_sample_rate);
@@ -118,7 +118,8 @@ C = tdsep2(rms_semg, tdsep_tau);
 tdsep_semg = C \ rms_semg;
 
 %% Show TDSEP effect    
-
+tdsep_semg = normalize(tdsep_semg')';
+rms_semg = normalize(rms_semg')';
 
 
 figure;
@@ -137,7 +138,6 @@ subplot_helper(1:length(rms_semg), rms_semg(channel, :), ...
                 {'sample' 'amplitude' ['RMS sEMG ch:'  num2str(channel)]}, '-');  
 ylim([min(min(rms_semg)) max(max(rms_semg))]);            
 end
-
 
 figure;
 for channel = 1 : semg_channel_count
@@ -161,6 +161,10 @@ for i = 1 : semg_channel_count
         ica_xc_list(i, r) = xcorr(tdsep_semg(i, :), tdsep_semg(r, :), 0);
     end
 end
+
+rms_xc_list
+ica_xc_list
+cov(tdsep_semg');
 
 figure;
 equal_plot(rms_semg, [-3 3], [-3 3]);
