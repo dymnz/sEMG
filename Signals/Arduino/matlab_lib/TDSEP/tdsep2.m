@@ -24,12 +24,28 @@ if nargin<2,
 end  
 
 % whitening or sphering
-M0=cor2(x',sel(1));
+% M0=cor2(x',sel(1));
+% 
+% SPH=inv(sqrtm(M0));
+% spx=SPH*x;
+% [p,q]=size(M0);
+% 
+% 
 
-SPH=inv(sqrtm(M0));
-spx=SPH*x;
-[p,q]=size(M0);
 
+X = x; % N x K
+avg = mean(X, 2);     % Compute the mean pixel intensity value separately for each patch. 
+x_centered = X - repmat(avg, 1, size(X, 2));
+
+Cx = x_centered * x_centered' / size(x_centered, 1);
+[E, D, V] = svd(Cx);
+
+V =  E * diag(1./sqrt(diag(D))) * E';
+Z = V * X;
+
+SPH = V;
+[p,q] = size(Cx);
+spx = Z;
 
 N=length(sel);
 
@@ -42,7 +58,7 @@ if N==2,
 
 t=1;          % compute correlation matrices
 for tau=1:N,
-  M(:,t*p+1:((t+1)*p))=cor2(spx',sel(tau));
+  M(:,t*p+1:((t+1)*p))=cor2(spx',sel(tau), 0);
   t=t+1;
 end
 % joint diagonalization

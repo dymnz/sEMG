@@ -112,12 +112,24 @@ semg = processed_segments_list{ica_file_idx, 1}{1};
 
 % RMS
 rms_semg = RMS_calc(semg, RMS_window_size);
-mav_semg = MAV_calc(semg, RMS_window_size);
+
 % TDSEP
 C = tdsep2(rms_semg, tdsep_tau);
 tdsep_semg = C \ rms_semg;
 
-%% Show TDSEP effect     
+%% Show TDSEP effect    
+
+
+
+figure;
+for channel = 1 : semg_channel_count
+subplot_helper(1:length(semg), semg(channel, :), ...
+                [semg_channel_count 1 channel], ...
+                {'sample' 'amplitude' ['Raw sEMG ch:'  num2str(channel)]}, '-');    
+ylim([min(min(semg)) max(max(semg))]);
+end
+
+
 figure;
 for channel = 1 : semg_channel_count
 subplot_helper(1:length(rms_semg), rms_semg(channel, :), ...
@@ -126,23 +138,45 @@ subplot_helper(1:length(rms_semg), rms_semg(channel, :), ...
 ylim([min(min(rms_semg)) max(max(rms_semg))]);            
 end
 
-% figure;
+
+figure;
 for channel = 1 : semg_channel_count
-subplot_helper(1:length(mav_semg), mav_semg(channel, :), ...
+subplot_helper(1:length(tdsep_semg), tdsep_semg(channel, :), ...
                 [semg_channel_count 1 channel], ...
-                {'sample' 'amplitude' ['MAV v.s. RMS semg ch:' num2str(channel)] }, '-');    
-ylim([min(min(rms_semg)) max(max(rms_semg))]);
-legend('RMS', 'MAV');
+                {'sample' 'amplitude' ['TDSEP Demixed RMS sEMG ch:'  num2str(channel)]}, '-');    
+ylim([min(min(tdsep_semg)) max(max(tdsep_semg))]);
 end
 
-% figure;
-% for channel = 1 : semg_channel_count
-% subplot_helper(1:length(tdsep_semg), tdsep_semg(channel, :), ...
-%                 [semg_channel_count 1 channel], ...
-%                 {'sample' 'amplitude' 'after TDSEP'}, '-');    
-% ylim([0 max(max(tdsep_semg))]);
-% end
+rms_xc_list = zeros(semg_channel_count, semg_channel_count);
+for i = 1 : semg_channel_count
+    for r = 1 : semg_channel_count
+        rms_xc_list(i, r) = xcorr(rms_semg(i, :), rms_semg(r, :), 0);
+    end
+end
+
+
+ica_xc_list = zeros(semg_channel_count, semg_channel_count);
+for i = 1 : semg_channel_count
+    for r = 1 : semg_channel_count
+        ica_xc_list(i, r) = xcorr(tdsep_semg(i, :), tdsep_semg(r, :), 0);
+    end
+end
+
+figure;
+equal_plot(rms_semg, [-3 3], [-3 3]);
+title('RMS signal distribution', 'FontSize', 20);
+ylabel('Channel 1');
+xlabel('Channel 2');
+
+figure;
+equal_plot(tdsep_semg, [-3 3], [-3 3]);
+title('TDSEP signal distribution', 'FontSize', 20);
+ylabel('Channel 1');
+xlabel('Channel 2');
+
 return;
+
+
      
 %% Verify TDSEP
 % ica_m_semg = C \ rms_semg  ; 

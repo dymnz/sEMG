@@ -12,7 +12,7 @@ semg_channel_count = 4;
 mpu_channel_count = 1;
 hidden_node_count = '8';
 
-for exp_num = 23
+for exp_num = 22
 for target_sample_rate = [35]
 
 fprintf('============================= nICA S2WA%d %d_SPS =============================\n', exp_num, target_sample_rate);
@@ -116,20 +116,59 @@ rms_semg = RMS_calc(semg, RMS_window_size);
          global_max_step, step_per_log);
 
 %% Show nICA effect     
+
+figure;
+for channel = 1 : semg_channel_count
+subplot_helper(1:length(semg), semg(channel, :), ...
+                [semg_channel_count 1 channel], ...
+                {'sample' 'amplitude' ['Raw sEMG ch:' num2str(channel)]}, '-');  
+ylim([min(min(semg)) max(max(semg))]);    
+end
+
 figure;
 for channel = 1 : semg_channel_count
 subplot_helper(1:length(rms_semg), rms_semg(channel, :), ...
                 [semg_channel_count 1 channel], ...
-                {'sample' 'amplitude' 'Before nICA'}, '-');             
+                {'sample' 'amplitude' ['RMS sEMG ch:' num2str(channel)]}, '-');               
+ylim([min(min(rms_semg)) max(max(rms_semg))]);            
 end
 
 figure;
 for channel = 1 : semg_channel_count
 subplot_helper(1:length(ica_semg), ica_semg(channel, :), ...
                 [semg_channel_count 1 channel], ...
-                {'sample' 'amplitude' 'after nICA'}, '-');    
-ylim([0 max(max(ica_semg))]);
+                {'sample' 'amplitude' ['nICA Demixed RMS sEMG ch:'  num2str(channel)]}, '-');    
+ylim([min(min(ica_semg)) max(max(ica_semg))]);
 end
+
+rms_xc_list = cell(semg_channel_count, semg_channel_count);
+for i = 1 : semg_channel_count
+    for r = 1 : semg_channel_count
+        rms_xc_list{i, r} = cov(rms_semg(i, :), rms_semg(r, :));
+    end
+end
+
+
+ica_xc_list = cell(semg_channel_count, semg_channel_count);
+for i = 1 : semg_channel_count
+    for r = 1 : semg_channel_count
+        ica_xc_list{i, r} = cov(ica_semg(i, :), ica_semg(r, :));
+    end
+end
+% rms_xc_list
+% ica_xc_list
+
+figure;
+equal_plot(rms_semg, [-3 3], [-3 3]);
+title('RMS signal distribution', 'FontSize', 20);
+ylabel('Channel 1');
+xlabel('Channel 2');
+
+figure;
+equal_plot(ica_semg, [-3 5], [-3 5]);
+title('nICA signal distribution', 'FontSize', 20);
+ylabel('Channel 1');
+xlabel('Channel 2');
 
 return;     
      
