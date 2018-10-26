@@ -1185,6 +1185,7 @@ Model estimation accuracy drops significantly with passage of time, electrode di
                 </rdf:li>
             </rdf:Seq>
         </bib:authors>
+        <dcterms:isReferencedBy rdf:resource="#item_149"/>
         <dc:subject>wrist</dc:subject>
         <dc:subject>ANN</dc:subject>
         <dc:identifier>
@@ -1205,6 +1206,10 @@ Model estimation accuracy drops significantly with passage of time, electrode di
         <dc:identifier>ISSN 00189294</dc:identifier>
         <dc:identifier>DOI 10.1109/10.204774</dc:identifier>
     </bib:Journal>
+    <bib:Memo rdf:about="#item_149">
+       <rdf:value>&lt;p&gt;200pts input&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;</rdf:value>
+    </bib:Memo>
     <rdf:Description rdf:about="urn:isbn:978-1-4244-0787-3%20978-1-4244-0788-0">
         <z:itemType>conferencePaper</z:itemType>
         <dcterms:isPartOf>
@@ -5039,6 +5044,74 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         <z:linkMode>1</z:linkMode>
         <link:type>text/html</link:type>
     </z:Attachment>
+    <bib:Article rdf:about="http://www.sciencedirect.com/science/article/pii/S0893608005001206">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:0893-6080"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Graves</foaf:surname>
+                        <foaf:givenname>Alex</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Schmidhuber</foaf:surname>
+                        <foaf:givenname>Jürgen</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_152"/>
+        <link:link rdf:resource="#item_151"/>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>http://www.sciencedirect.com/science/article/pii/S0893608005001206</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>602-610</bib:pages>
+        <dc:date>July 1, 2005</dc:date>
+        <dcterms:dateSubmitted>2018-10-26 08:59:26</dcterms:dateSubmitted>
+        <z:libraryCatalog>ScienceDirect</z:libraryCatalog>
+        <dcterms:abstract>In this paper, we present bidirectional Long Short Term Memory (LSTM) networks, and a modified, full gradient version of the LSTM learning algorithm. We evaluate Bidirectional LSTM (BLSTM) and several other network architectures on the benchmark task of framewise phoneme classification, using the TIMIT database. Our main findings are that bidirectional networks outperform unidirectional ones, and Long Short Term Memory (LSTM) is much faster and also more accurate than both standard Recurrent Neural Nets (RNNs) and time-windowed Multilayer Perceptrons (MLPs). Our results support the view that contextual information is crucial to speech processing, and suggest that BLSTM is an effective architecture with which to exploit it.11An abbreviated version of some portions of this article appeared in (Graves and Schmidhuber, 2005), as part of the IJCNN 2005 conference proceedings, published under the IEEE copyright.</dcterms:abstract>
+        <dc:title>Framewise phoneme classification with bidirectional LSTM and other neural network architectures</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:0893-6080">
+        <dcterms:isPartOf>
+           <bib:Series><dc:title>IJCNN 2005</dc:title></bib:Series>
+        </dcterms:isPartOf>
+        <prism:volume>18</prism:volume>
+        <prism:number>5</prism:number>
+        <dc:title>Neural Networks</dc:title>
+        <dc:identifier>ISSN 0893-6080</dc:identifier>
+        <dcterms:alternative>Neural Networks</dcterms:alternative>
+        <dc:identifier>DOI 10.1016/j.neunet.2005.06.042</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_152">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://ac.els-cdn.com/S0893608005001206/1-s2.0-S0893608005001206-main.pdf?_tid=e4282860-0f49-4205-b6df-988a4f0b8ea0&amp;acdnat=1540544561_ce0e0f00410017258bd1819d2367da2a</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-26 08:59:31</dcterms:dateSubmitted>
+        <dc:title>ScienceDirect Full Text PDF</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_151">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.sciencedirect.com/science/article/pii/S0893608005001206</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-26 08:59:29</dcterms:dateSubmitted>
+        <dc:title>ScienceDirect Snapshot</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
     <z:Collection rdf:about="#collection_2">
         <dc:title>sEMG</dc:title>
         <dcterms:hasPart rdf:resource="#collection_6"/>
@@ -5086,6 +5159,7 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         <dcterms:hasPart rdf:resource="https://epubs.siam.org/doi/10.1137/S0895479893259546"/>
         <dcterms:hasPart rdf:resource="https://www.mdpi.com/2078-2489/3/4/756"/>
         <dcterms:hasPart rdf:resource="https://ir.nctu.edu.tw:443/handle/11536/80738"/>
+        <dcterms:hasPart rdf:resource="http://www.sciencedirect.com/science/article/pii/S0893608005001206"/>
     </z:Collection>
     <z:Collection rdf:about="#collection_6">
         <dc:title>Gesture</dc:title>
