@@ -5112,6 +5112,64 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         <z:linkMode>1</z:linkMode>
         <link:type>text/html</link:type>
     </z:Attachment>
+    <bib:Article rdf:about="#item_154">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+           <bib:Journal></bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>O H Madgwick</foaf:surname>
+                        <foaf:givenname>Sebastian</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_155"/>
+        <dc:date>October 27, 2018</dc:date>
+        <z:libraryCatalog>ResearchGate</z:libraryCatalog>
+        <dcterms:abstract>This report presents a novel orientation filter applicable to IMUs consisting of tri-axis gyroscopes and accelerometers, and MARG sensor arrays that also include tri-axis magnetometers. The MARG implementation incorporates magnetic distortion and gyroscope bias drift compensation. The filter uses a quaternion representation, allowing accelerometer and magnetometer data to be used in an analytically derived and optimised gradient-descent algorithm to compute the direction of the gyroscope measurement error as a quaternion derivative. The benefits of the filter include: (1) computationally inexpensive; requiring 109 (IMU) or 277 (MARG) scalar arithmetic operations each filter update, (2) effective at low sampling rates; e.g. 10 Hz, and (3) contains 1 (IMU) or 2 (MARG) adjustable parameters defined by observable system characteristics. Performance was evaluated empirically using a commercially available orientation sensor and reference measurements of orientation obtained using an optical measurement system. A simple calibration method is presented for the use of the optical measurement equipment in this application. Performance was also benchmarked against the propriety Kalman-based algorithm of orientation sensor. Results indicate the filter achieves levels of accuracy exceeding that of the Kalman-based algorithm; &lt; 0.6 • static RMS error, &lt; 0.8 • dynamic RMS error. The implications of the low computational load and ability to operate at low sampling rates open new opportunities for the use of IMU and MARG sensor arrays in real-time applications of limited power or processing resources or applications that demand extremely high sampling rates.</dcterms:abstract>
+        <dc:title>An efficient orientation filter for inertial and inertial/magnetic sensor arrays</dc:title>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_155">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.researchgate.net/publication/267197884_An_efficient_orientation_filter_for_inertial_and_inertialmagnetic_sensor_arrays</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-27 16:04:09</dcterms:dateSubmitted>
+        <dc:title>ResearchGate Link</dc:title>
+        <z:linkMode>3</z:linkMode>
+    </z:Attachment>
+    <bib:Document rdf:about="https://www.invensense.com/products/motion-tracking/9-axis/mpu-9250/">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+           <z:Website></z:Website>
+        </dcterms:isPartOf>
+        <link:link rdf:resource="#item_157"/>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.invensense.com/products/motion-tracking/9-axis/mpu-9250/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-27 16:06:14</dcterms:dateSubmitted>
+        <dc:title>MPU-9250 | TDK</dc:title>
+    </bib:Document>
+    <z:Attachment rdf:about="#item_157">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.invensense.com/products/motion-tracking/9-axis/mpu-9250/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-10-27 16:06:15</dcterms:dateSubmitted>
+        <dc:title>MPU-9250 | TDK</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
     <z:Collection rdf:about="#collection_2">
         <dc:title>sEMG</dc:title>
         <dcterms:hasPart rdf:resource="#collection_6"/>
@@ -5160,6 +5218,8 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         <dcterms:hasPart rdf:resource="https://www.mdpi.com/2078-2489/3/4/756"/>
         <dcterms:hasPart rdf:resource="https://ir.nctu.edu.tw:443/handle/11536/80738"/>
         <dcterms:hasPart rdf:resource="http://www.sciencedirect.com/science/article/pii/S0893608005001206"/>
+        <dcterms:hasPart rdf:resource="#item_154"/>
+        <dcterms:hasPart rdf:resource="https://www.invensense.com/products/motion-tracking/9-axis/mpu-9250/"/>
     </z:Collection>
     <z:Collection rdf:about="#collection_6">
         <dc:title>Gesture</dc:title>
