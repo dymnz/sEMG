@@ -123,8 +123,8 @@ ica_semg = RMS_calc(pica_semg, RMS_window_size);
 
 %% Show nICA effect     
 
-ica_semg = normalize(ica_semg')';
-rms_semg = normalize(rms_semg')';
+%ica_semg = normalize(ica_semg')';
+%rms_semg = normalize(rms_semg')';
 
 figure;
 for channel = 1 : semg_channel_count
@@ -220,7 +220,7 @@ ylim([min(min(ica_semg)) max(max(ica_semg))]);
 % cov(ica_semg');
 
 figure;
-equal_plot(rms_semg, [-3 3], [-3 3]);
+equal_plot(rms_semg, [-300 300], [-300 300]);
 title('RMS signal distribution', 'FontSize', 20);
 ylabel('Channel 1');
 xlabel('Channel 2');

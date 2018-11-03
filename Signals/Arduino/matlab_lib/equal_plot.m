@@ -1,5 +1,5 @@
 function equal_plot(source, p_xlim, p_ylim)
-scatter(source(2,:), source(3,:));
+scatter(source(1,:), source(2,:));
 xlim(p_xlim); ylim(p_ylim);
 daspect([1 1 1])
 % https://www.mathworks.com/matlabcentral/answers/97996-is-it-possible-to-add-x-and-y-axis-lines-to-a-plot-in-matlab
