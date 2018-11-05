@@ -42,27 +42,28 @@ for i = 1 : num_matrix
     test_mpu_data = test_mpu_data .* mpu_max_value;
     train_mpu_data = train_mpu_data .* mpu_max_value;
     
-    temp_RMSE = sqrt(mean((train_mpu_data - test_mpu_data).^2));
-        
-    figure('Name', file_name);
-    subplot_helper(1:DATA_LENGTH, test_semg_data, ...
-                    [graph_count 1 1], {'sample' 'amplitude' sprintf('segment: %3d RMSE: %.2f', i, temp_RMSE)}, ':x');
-    ylim([0 1]);
-    set(gca,'fontsize', 30);            
-    for ch = 1 : mpu_channel_count
-	subplot_helper(1:length(train_mpu_data), train_mpu_data(:, ch), ...
-                    [graph_count 1 ch+1], ...
-                    {'sample' 'amplitude (au)' 'angle'}, ...
-                    '-');                                                         
-    ylim([mpu_min_value mpu_max_value]);
-	subplot_helper(1:length(test_mpu_data), test_mpu_data(:, ch), ...
-                    [graph_count 1 ch+1], ...
-                    {'sample' 'angle (degree)' 'angle'}, ...
-                    '-');
-    ylim([mpu_min_value mpu_max_value]);
-    legend('real', 'predict');
-    set(gca,'fontsize', 30); 
-    end 
+    numer = sum((test_mpu_data - train_mpu_data).^2);
+    denom = sum((test_mpu_data - mean(train_mpu_data)).^2);
+    temp_RMSE = 1 - (numer / denom);
+%     figure('Name', file_name);
+%     subplot_helper(1:DATA_LENGTH, test_semg_data, ...
+%                     [graph_count 1 1], {'sample' 'amplitude' sprintf('segment: %3d RMSE: %.2f', i, temp_RMSE)}, ':x');
+%     ylim([0 1]);
+%     set(gca,'fontsize', 30);            
+%     for ch = 1 : mpu_channel_count
+% 	subplot_helper(1:length(train_mpu_data), train_mpu_data(:, ch), ...
+%                     [graph_count 1 ch+1], ...
+%                     {'sample' 'amplitude (au)' 'angle'}, ...
+%                     '-');                                                         
+%     ylim([mpu_min_value mpu_max_value]);
+% 	subplot_helper(1:length(test_mpu_data), test_mpu_data(:, ch), ...
+%                     [graph_count 1 ch+1], ...
+%                     {'sample' 'angle (degree)' 'angle'}, ...
+%                     '-');
+%     ylim([mpu_min_value mpu_max_value]);
+%     legend('real', 'predict');
+%     set(gca,'fontsize', 30); 
+%     end 
     
     
 % 	print(strcat('./pics/', test_file_name, num2str(i), '.png'),'-dpng')

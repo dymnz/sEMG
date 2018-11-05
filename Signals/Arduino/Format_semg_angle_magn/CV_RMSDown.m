@@ -13,7 +13,7 @@ semg_channel_count = 6;
 mpu_channel_count = 1;
 hidden_node_count = '8';
 
-for exp_num = 31:33
+for exp_num = 31
 for target_sample_rate = [35]
 
 fprintf('============================= RMSDown S2WA%d %d_SPS =============================\n', exp_num, target_sample_rate);
@@ -39,7 +39,7 @@ out_file_prepend_list = {'TR_RMSDown', 'CV_RMSDown', 'TS_RMSDown'};
 out_file_extension = '.txt';
                   
 record_filename = ['./result/S2WA_' num2str(exp_num) '_RMSDown_SPS' ...
-    num2str(target_sample_rate) '_h' num2str(hidden_node_count) '_10rd_data' ];
+    num2str(target_sample_rate) '_h' num2str(hidden_node_count) '_10rd_data_R2' ];
 
 % RNN param
 epoch = '1000';
@@ -235,15 +235,15 @@ end
 
 
 % Output dataset for LSTM
-train_out_name = [out_file_prepend_list{1}, out_filename];  
+train_out_name = [out_file_prepend_list{1}, num2str(exp_num), out_filename];  
 train_out_file = [out_file_loc_prepend, train_out_name out_file_extension];  
 generate_LSTM_data(train_out_file, processed_join_dataset{1});
 
-cv_out_name = [out_file_prepend_list{2}, out_filename];  
+cv_out_name = [out_file_prepend_list{2}, num2str(exp_num), out_filename];  
 cv_out_file = [out_file_loc_prepend, cv_out_name out_file_extension];  
 generate_LSTM_data(cv_out_file, processed_join_dataset{2});
 
-test_out_name = [out_file_prepend_list{3}, out_filename];  
+test_out_name = [out_file_prepend_list{3}, num2str(exp_num), out_filename];  
 test_out_file = [out_file_loc_prepend, test_out_name out_file_extension];    
 generate_LSTM_data(test_out_file, processed_join_dataset{3});
 

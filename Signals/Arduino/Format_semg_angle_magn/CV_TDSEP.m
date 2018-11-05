@@ -9,14 +9,14 @@ set(0,'DefaultFigureVisible','on');
 %% Setting
 semg_sample_rate = 2500; % Approximate
 % Data format
-semg_channel_count = 4;
+semg_channel_count = 6;
 mpu_channel_count = 1;
 hidden_node_count = '8';
 
 % TDSEP
 tdsep_tau = [0:2];
 
-for exp_num = 23
+for exp_num = 31
 for target_sample_rate = [35]
     
 fprintf('============================= TDSEP S2WA%d %d_SPS =============================\n', exp_num, target_sample_rate);
@@ -35,7 +35,7 @@ all_test_list = {...
     {'FLX', 'EXT'}, {'PRO', 'SUP'}
     };
 
-for ica_file_idx = 1
+for ica_file_idx = 2
     
 ica_filename = 'ICA_processed';
 
@@ -47,7 +47,7 @@ out_file_extension = '.txt';
  
 record_filename = ['./result/S2WA_' num2str(exp_num) '_TDSEP_' ...
     num2str(ica_file_idx) '_SPS' ...
-    num2str(target_sample_rate) '_h' num2str(hidden_node_count)  '_10rd_data'];
+    num2str(target_sample_rate) '_h' num2str(hidden_node_count)  '_10rd_data_R2'];
 
 % RNN param
 epoch = '1000';
@@ -118,67 +118,67 @@ C = tdsep2(rms_semg, tdsep_tau);
 tdsep_semg = C \ rms_semg;
 
 %% Show TDSEP effect    
-tdsep_semg = normalize(tdsep_semg')';
-rms_semg = normalize(rms_semg')';
-
-
-figure;
-for channel = 1 : semg_channel_count
-subplot_helper(1:length(semg), semg(channel, :), ...
-                [semg_channel_count 1 channel], ...
-                {'sample' 'amplitude' ['Raw sEMG ch:'  num2str(channel)]}, '-');    
-ylim([min(min(semg)) max(max(semg))]);
-end
-
-
-figure;
-for channel = 1 : semg_channel_count
-subplot_helper(1:length(rms_semg), rms_semg(channel, :), ...
-                [semg_channel_count 1 channel], ...
-                {'sample' 'amplitude' ['RMS sEMG ch:'  num2str(channel)]}, '-');  
-ylim([min(min(rms_semg)) max(max(rms_semg))]);            
-end
-
-figure;
-for channel = 1 : semg_channel_count
-subplot_helper(1:length(tdsep_semg), tdsep_semg(channel, :), ...
-                [semg_channel_count 1 channel], ...
-                {'sample' 'amplitude' ['TDSEP Demixed RMS sEMG ch:'  num2str(channel)]}, '-');    
-ylim([min(min(tdsep_semg)) max(max(tdsep_semg))]);
-end
-
-rms_xc_list = zeros(semg_channel_count, semg_channel_count);
-for i = 1 : semg_channel_count
-    for r = 1 : semg_channel_count
-        rms_xc_list(i, r) = xcorr(rms_semg(i, :), rms_semg(r, :), 0);
-    end
-end
-
-
-ica_xc_list = zeros(semg_channel_count, semg_channel_count);
-for i = 1 : semg_channel_count
-    for r = 1 : semg_channel_count
-        ica_xc_list(i, r) = xcorr(tdsep_semg(i, :), tdsep_semg(r, :), 0);
-    end
-end
-
-rms_xc_list
-ica_xc_list
-cov(tdsep_semg');
-
-figure;
-equal_plot(rms_semg, [-3 3], [-3 3]);
-title('RMS signal distribution', 'FontSize', 20);
-ylabel('Channel 1');
-xlabel('Channel 2');
-
-figure;
-equal_plot(tdsep_semg, [-3 3], [-3 3]);
-title('TDSEP signal distribution', 'FontSize', 20);
-ylabel('Channel 1');
-xlabel('Channel 2');
-
-return;
+% tdsep_semg = normalize(tdsep_semg')';
+% rms_semg = normalize(rms_semg')';
+% 
+% 
+% figure;
+% for channel = 1 : semg_channel_count
+% subplot_helper(1:length(semg), semg(channel, :), ...
+%                 [semg_channel_count 1 channel], ...
+%                 {'sample' 'amplitude' ['Raw sEMG ch:'  num2str(channel)]}, '-');    
+% ylim([min(min(semg)) max(max(semg))]);
+% end
+% 
+% 
+% figure;
+% for channel = 1 : semg_channel_count
+% subplot_helper(1:length(rms_semg), rms_semg(channel, :), ...
+%                 [semg_channel_count 1 channel], ...
+%                 {'sample' 'amplitude' ['RMS sEMG ch:'  num2str(channel)]}, '-');  
+% ylim([min(min(rms_semg)) max(max(rms_semg))]);            
+% end
+% 
+% figure;
+% for channel = 1 : semg_channel_count
+% subplot_helper(1:length(tdsep_semg), tdsep_semg(channel, :), ...
+%                 [semg_channel_count 1 channel], ...
+%                 {'sample' 'amplitude' ['TDSEP Demixed RMS sEMG ch:'  num2str(channel)]}, '-');    
+% ylim([min(min(tdsep_semg)) max(max(tdsep_semg))]);
+% end
+% 
+% rms_xc_list = zeros(semg_channel_count, semg_channel_count);
+% for i = 1 : semg_channel_count
+%     for r = 1 : semg_channel_count
+%         rms_xc_list(i, r) = xcorr(rms_semg(i, :), rms_semg(r, :), 0);
+%     end
+% end
+% 
+% 
+% ica_xc_list = zeros(semg_channel_count, semg_channel_count);
+% for i = 1 : semg_channel_count
+%     for r = 1 : semg_channel_count
+%         ica_xc_list(i, r) = xcorr(tdsep_semg(i, :), tdsep_semg(r, :), 0);
+%     end
+% end
+% 
+% rms_xc_list
+% ica_xc_list
+% cov(tdsep_semg');
+% 
+% figure;
+% equal_plot(rms_semg, [-3 3], [-3 3]);
+% title('RMS signal distribution', 'FontSize', 20);
+% ylabel('Channel 1');
+% xlabel('Channel 2');
+% 
+% figure;
+% equal_plot(tdsep_semg, [-3 3], [-3 3]);
+% title('TDSEP signal distribution', 'FontSize', 20);
+% ylabel('Channel 1');
+% xlabel('Channel 2');
+% 
+% return;
 
 
      
@@ -395,6 +395,7 @@ end
 % fprintf('===========\n');
 
 end
+
 all_RMS_list = [all_RMS_list RMS_list];
 end
 

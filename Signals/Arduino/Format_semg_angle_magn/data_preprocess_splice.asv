@@ -16,23 +16,15 @@ file_extension = '.txt';
 
 
 
-filename_prepend = 'raw_S2WA_31_';
+filename_prepend = 'raw_S2WA_33_';
 
 
-record_filename = './data/S2WA_31_PRO_SUP_processed_rm1s';
+record_filename = './data/S2WA_31_PRO_SUP_processed';
 file_to_splice = { 
-    'PRO_1', 'PRO_2', 'PRO_3', ...
-    'SUP_1', 'SUP_2', 'SUP_3'
+    'PRO_2', 'PRO_2', 'SP_2'
+    'SUP_2', 'SUP_2', 'SUP_2'
 };
 mpu_segment_index = 1; % 1-Roll/2-Pitch/3-Yaw
-
-record_filename = './data/S2WA_31_PRO_SUP_processed_rm1s';
-file_to_splice = { 
-    'PRO_1'
-};
-mpu_segment_index = 1; % 1-Roll/2-Pitch/3-Yaw
-
-
 
 % record_filename = './data/S2WA_33_FLX_EXT_processed';
 % % file_to_splice = { 

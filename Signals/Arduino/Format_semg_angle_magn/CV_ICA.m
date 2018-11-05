@@ -220,7 +220,7 @@ ylim([min(min(ica_semg)) max(max(ica_semg))]);
 % cov(ica_semg');
 
 figure;
-equal_plot(rms_semg, [-3 3], [-3 3]);
+equal_plot(rms_semg, [-3 5], [-3 5]);
 title('RMS signal distribution', 'FontSize', 20);
 ylabel('Channel 1');
 xlabel('Channel 2');
