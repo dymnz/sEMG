@@ -16,7 +16,7 @@ hidden_node_count = '8';
 % TDSEP
 tdsep_tau = [0:2];
 
-for exp_num = 31
+for exp_num = 25
 for target_sample_rate = [35]
     
 fprintf('============================= TDSEP S2WA%d %d_SPS =============================\n', exp_num, target_sample_rate);
@@ -35,8 +35,8 @@ all_test_list = {...
     {'FLX', 'EXT'}, {'PRO', 'SUP'}
     };
 
-for ica_file_idx = 2
-    
+for ica_file_idx = 3
+     
 ica_filename = 'ICA_processed';
 
 in_file_loc_prepend = ['./data/S2WA_' num2str(exp_num) '_'];
@@ -209,7 +209,7 @@ gesture_list = all_test_list{list_idx};
 
 
 in_filename = [strjoin(gesture_list, '_') '_processed'];
-out_filename = [strjoin(gesture_list, '_') '_nICA'];
+out_filename = [strjoin(gesture_list, '_') '_TDSEP'];
 
 RMS_list = zeros(num_of_segment_per_gesture, num_of_gesture);
 %% K-fold cross-validation

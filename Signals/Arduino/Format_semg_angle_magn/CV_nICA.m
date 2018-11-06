@@ -12,7 +12,7 @@ semg_channel_count = 6;
 mpu_channel_count = 1;
 hidden_node_count = '8';
 
-for exp_num = 31
+for exp_num = 25
 for target_sample_rate = [35]
 
 fprintf('============================= nICA S2WA%d %d_SPS =============================\n', exp_num, target_sample_rate);
@@ -31,7 +31,7 @@ all_test_list = {...
     {'FLX', 'EXT'}, {'PRO', 'SUP'}
     };
 
-for ica_file_idx = 2
+for ica_file_idx = 3
     
 ica_filename = 'ICA_processed';
 
