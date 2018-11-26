@@ -1,4 +1,4 @@
-function RMS_list = verify_multi_semg(file_name)
+function RMS_list = verify_multi_semg_R2(file_name)
 
 addpath('../matlab_lib');
 
@@ -36,14 +36,15 @@ for i = 1 : num_matrix
     
     DATA_LENGTH = length(test_output_matrix_list{i});
     
-    train_semg_data = train_input_matrix_list{i}(:, semg_channel_index);
+   % train_semg_data = train_input_matrix_list{i}(:, semg_channel_index);
     train_mpu_data = train_output_matrix_list{i}(:, mpu_channel_index);
   
     test_mpu_data = test_mpu_data .* mpu_max_value;
     train_mpu_data = train_mpu_data .* mpu_max_value;
     
-    temp_RMSE = sqrt(mean((train_mpu_data - test_mpu_data).^2));
-    
+    numer = sum((test_mpu_data - train_mpu_data).^2);
+    denom = sum((train_mpu_data - mean(train_mpu_data)).^2);
+    temp_RMSE = 1 - (numer / denom);
 %     figure('Name', file_name);
 %     subplot_helper(1:DATA_LENGTH, test_semg_data, ...
 %                     [graph_count 1 1], {'sample' 'amplitude' sprintf('segment: %3d RMSE: %.2f', i, temp_RMSE)}, ':x');
