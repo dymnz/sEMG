@@ -5170,6 +5170,1589 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         <z:linkMode>1</z:linkMode>
         <link:type>text/html</link:type>
     </z:Attachment>
+    <bib:Document rdf:about="https://rent.591.com.tw/rent-detail-6886870.html">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+           <z:Website><dc:title>591房屋交易</dc:title></z:Website>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>數字科技股份有限公司</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_160"/>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://rent.591.com.tw/rent-detail-6886870.html</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-11-01 09:37:01</dcterms:dateSubmitted>
+        <z:language>zh-tw</z:language>
+        <dcterms:abstract>591租房網,新竹東區租屋資訊:出租整層住家,世紀鑫城(鑫城),世紀鑫城純住宅區新成屋含管理費與平面車位,新成屋，全新家具，近清華大學，坐北朝南，採光佳。警衛室，智..</dcterms:abstract>
+        <dc:title>整層住家出租,四房二廳二衛一陽台,世紀鑫城純住宅區新成屋含管理費與平面車位-新竹東區房屋出租-591租屋網</dc:title>
+    </bib:Document>
+    <z:Attachment rdf:about="#item_160">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://rent.591.com.tw/rent-detail-6886870.html?fbclid=IwAR2yCUKcnq3t_W7EuUtCkq0F67MOtgWe5-uZJdQ-cjDbt2MN_LFqsDdyhKE</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-11-01 09:37:06</dcterms:dateSubmitted>
+        <dc:title>Snapshot</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Document rdf:about="https://rent.591.com.tw/rent-detail-6862198.html">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+           <z:Website><dc:title>591房屋交易</dc:title></z:Website>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>數字科技股份有限公司</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_163"/>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://rent.591.com.tw/rent-detail-6862198.html</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-11-01 13:15:50</dcterms:dateSubmitted>
+        <z:language>zh-tw</z:language>
+        <dcterms:abstract>591租房網,新竹東區租屋資訊:出租整層住家,近新莊站三房兩衛全新裝修</dcterms:abstract>
+        <dc:title>整層住家出租,三房二廳二衛四陽台,近新莊站三房兩衛全新裝修-新竹東區房屋出租-591租屋網</dc:title>
+    </bib:Document>
+    <z:Attachment rdf:about="#item_163">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://rent.591.com.tw/rent-detail-6862198.html?fbclid=IwAR1xilCwe2qZ5A54u8wyZtZ7d5SEUrfSddQKyu5A6neZpoEEQh7PctBSMsI</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-11-01 13:15:52</dcterms:dateSubmitted>
+        <dc:title>Snapshot</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="#item_164">
+        <z:itemType>conferencePaper</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:identifier>DOI 10.1109/ISSNIP.2007.4496913</dc:identifier>
+                <dc:title>Sensor Networks and Information 2007 3rd International Conference on Intelligent Sensors</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Naik</foaf:surname>
+                        <foaf:givenname>G. R.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Kumar</foaf:surname>
+                        <foaf:givenname>D. K.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Weghorn</foaf:surname>
+                        <foaf:givenname>H.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_166"/>
+        <link:link rdf:resource="#item_165"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Electromyography</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Muscles</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>bioelectric phenomena</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>biomechanics</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Biomedical measurements</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>biomedical processing</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>biosignal decomposition</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Data analysis</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Electric variables measurement</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>electromyography</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>FastICA algorithm</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>gesture recognition</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>hand movements</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>ICA algorithm</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>independent component analysis</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Independent component analysis</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Infomax algorithm</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>isometric hand gesture identification</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>JADE algorithm</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>medical signal detection</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>medical signal processing</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+                <rdf:value>multivariate statistical data analysis technique</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>muscle contraction strength</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>muscle electrical activity</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>neurophysiology</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Robustness</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>second-order statistics</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>signal extraction</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Signal processing</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Signal processing algorithms</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>source separation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Source separation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+                <rdf:value>statistical based source separation technique</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>statistical signal processing</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>surface EMG</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>TDSEP algorithm</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>temporal decorrelation method</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <bib:pages>613-618</bib:pages>
+        <dc:date>December 2007</dc:date>
+        <z:libraryCatalog>IEEE Xplore</z:libraryCatalog>
+        <bib:presentedAt>
+            <bib:Conference>
+                <dc:title>Sensor Networks and Information 2007 3rd International Conference on Intelligent Sensors</dc:title>
+            </bib:Conference>
+        </bib:presentedAt>
+        <dcterms:abstract>There is an urgent need for developing a robust technique that can identify small and subtle hand and other body movements with applications in health, rehabilitation and defence. Surface electromyogram (sEMG) is a measure of the electrical activity of the muscles and a measure of the strength of muscle contraction. While this may be a good measure of the actions and gestures, this is unable to identify small variations in the muscle activity, especially when there are number of simultaneously active muscles. Independent component analysis (ICA) is a statistical based source separation technique that has been shown to be suitable for the decomposition of signals such as sEMG and been shown to improve the ability of sEMG to identify small variations in muscle activity. ICA algorithms using multivariate statistical data analysis technique have been successfully used for signal extraction and source separation in the field of biomedical and statistical signal processing. Recent research has resulted in the development of number of different ICA technique. While there are some researchers who have compared their techniques with the existing methods for audio examples, there is no comparison of performance between ICA algorithms for biosignal applications such as surface electromyography (sEMG) applications. With ICA being the feasible method for source separation and decomposition of biosignals, it is important to compare the different techniques and determine the most suitable method for the applications. This paper has studied the performance of four ICA algorithms (FastICA, JADE, Infomax and TDSEP) for decomposition of sEMG to identify subtle hand gestures. Comparing several ICA algorithms, it is observed that an algorithm based on temporal decorrelation method (TDSEP) which is based on the second order statistics gives the best performance.</dcterms:abstract>
+        <dc:title>Performance comparison of ICA algorithms for Isometric Hand gesture identification using Surface EMG</dc:title>
+    </rdf:Description>
+    <z:Attachment rdf:about="#item_166">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://ieeexplore.ieee.org/document/4496913</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-11-01 18:39:55</dcterms:dateSubmitted>
+        <dc:title>IEEE Xplore Abstract Record</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_165">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://ieeexplore.ieee.org/ielx5/4489863/4496790/04496913.pdf?tp=&amp;arnumber=4496913&amp;isnumber=4496790</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-11-01 18:39:51</dcterms:dateSubmitted>
+        <dc:title>IEEE Xplore Full Text PDF</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="#item_167">
+        <z:itemType>conferencePaper</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:identifier>DOI 10.1109/DICTA.2007.4426772</dc:identifier>
+                <dc:title>9th Biennial Conference of the Australian Pattern Recognition Society on Digital Image Computing Techniques and Applications (DICTA 2007)</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Naik</foaf:surname>
+                        <foaf:givenname>G. R.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Kumar</foaf:surname>
+                        <foaf:givenname>D. K.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Weghorn</foaf:surname>
+                        <foaf:givenname>H.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Palaniswami</foaf:surname>
+                        <foaf:givenname>M.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_169"/>
+        <link:link rdf:resource="#item_168"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Electromyography</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Muscles</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Signal processing</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Source separation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Application software</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Blind source separation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Decorrelation</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Human computer interaction</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Neural networks</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Pattern classification</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <bib:pages>30-37</bib:pages>
+        <dc:date>December 2007</dc:date>
+        <z:libraryCatalog>IEEE Xplore</z:libraryCatalog>
+        <bib:presentedAt>
+            <bib:Conference>
+                <dc:title>9th Biennial Conference of the Australian Pattern Recognition Society on Digital Image Computing Techniques and Applications (DICTA 2007)</dc:title>
+            </bib:Conference>
+        </bib:presentedAt>
+        <dcterms:abstract>Hand gesture identification has various human computer interaction (HCI) applications. This paper presents a method for subtle hand gesture identification from sEMG of the forearm by decomposing the signal into components originating from different muscles. The processing requires the decomposition of the surface EMG by temporal decorrelation source separation (TDSEP) based blind source separation technique. Pattern classification of the separated signal is performed in the second step with a back propagation neural network. The focus of this work is to establish a simple, yet robust system that can be used to identify subtle complex hand actions and gestures for control of prosthesis and other HCI based devices. The proposed model based approach is able to overcome the ambiguity problems (order and magnitude problem) of BSS methods by selecting an a priori mixing matrix based on known hand muscle anatomy. The paper reports experimental results, where the system was able to reliably recognize different subtle hand gesture with an overall accuracy of 97%. The advantage of such a system is that it is easy to train by a lay user, and can easily be implemented in real time after the initial training. The paper also highlights the importance of mixing matrix analysis in BSS technique.</dcterms:abstract>
+        <dc:title>Subtle Hand Gesture Identification for HCI Using Temporal Decorrelation Source Separation BSS of Surface EMG</dc:title>
+    </rdf:Description>
+    <z:Attachment rdf:about="#item_169">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://ieeexplore.ieee.org/document/4426772</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-11-04 16:14:47</dcterms:dateSubmitted>
+        <dc:title>IEEE Xplore Abstract Record</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_168">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://ieeexplore.ieee.org/ielx5/4426759/4426760/04426772.pdf?tp=&amp;arnumber=4426772&amp;isnumber=4426760</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-11-04 16:14:43</dcterms:dateSubmitted>
+        <dc:title>IEEE Xplore Full Text PDF</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3878385/">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:0361-9230"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Nazarpour</foaf:surname>
+                        <foaf:givenname>Kianoush</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Al-Timemy</foaf:surname>
+                        <foaf:givenname>Ali H.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Bugmann</foaf:surname>
+                        <foaf:givenname>Guido</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Jackson</foaf:surname>
+                        <foaf:givenname>Andrew</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_172"/>
+        <link:link rdf:resource="#item_171"/>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3878385/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>88-91</bib:pages>
+        <dc:date>2013-1</dc:date>
+        <dc:description>PMID: 23047056
+PMCID: PMC3878385</dc:description>
+        <dcterms:dateSubmitted>2018-11-04 16:28:45</dcterms:dateSubmitted>
+        <z:libraryCatalog>PubMed Central</z:libraryCatalog>
+        <dcterms:abstract>► We recorded surface EMG signals with a biofeedback setup at 7 different contraction levels. ► We estimated the PDF, kurtosis and bicoherence index of the measured signals. ► We show that the EMG PDF at low contraction levels is super-Gaussian. ► At higher contraction forces, the EMG PDF tends to a Gaussian distribution., The probability density function (PDF) of the surface electromyogram (EMG) signals has been modelled with Gaussian and Laplacian distribution functions. However, a general consensus upon the PDF of the EMG signals is yet to be reached, because not only are there several biological factors that can influence this distribution function, but also different analysis techniques can lead to contradicting results. Here, we recorded the EMG signal at different isometric muscle contraction levels and characterised the probability distribution of the surface EMG signal with two statistical measures: bicoherence and kurtosis. Bicoherence analysis did not help to infer the PDF of measured EMG signals. In contrast, with kurtosis analysis we demonstrated that the EMG PDF at isometric, non-fatiguing, low contraction levels is super-Gaussian. Moreover, kurtosis analysis showed that as the contraction force increases the surface EMG PDF tends to a Gaussian distribution.</dcterms:abstract>
+        <dc:title>A note on the probability distribution function of the surface electromyogram signal</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:0361-9230">
+        <prism:volume>90</prism:volume>
+        <dc:title>Brain Research Bulletin</dc:title>
+        <dc:identifier>ISSN 0361-9230</dc:identifier>
+        <dcterms:alternative>Brain Res Bull</dcterms:alternative>
+        <dc:identifier>DOI 10.1016/j.brainresbull.2012.09.012</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_172">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3878385/pdf/main.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-11-04 16:28:50</dcterms:dateSubmitted>
+        <dc:title>PubMed Central Full Text PDF</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_171">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3878385/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-11-04 16:28:45</dcterms:dateSubmitted>
+        <dc:title>PubMed Central Link</dc:title>
+        <z:linkMode>3</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Document rdf:about="https://www.researchgate.net/publication/4309507_Subtle_Hand_Gesture_Identification_for_HCI_Using_Temporal_Decorrelation_Source_Separation_BSS_of_Surface_EMG">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+           <z:Website><dc:title>ResearchGate</dc:title></z:Website>
+        </dcterms:isPartOf>
+        <link:link rdf:resource="#item_174"/>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.researchgate.net/publication/4309507_Subtle_Hand_Gesture_Identification_for_HCI_Using_Temporal_Decorrelation_Source_Separation_BSS_of_Surface_EMG</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dc:description>DOI: http://dx.doi.org/10.1109/DICTA.2007.4426772</dc:description>
+        <dcterms:dateSubmitted>2018-11-04 16:36:45</dcterms:dateSubmitted>
+        <z:language>en</z:language>
+        <dcterms:abstract>PDF | Hand gesture identification has various human computer interaction (HCI) applications. This paper presents a method for subtle hand gesture identification from sEMG of the forearm by decomposing the signal into components originating from different muscles. The processing...</dcterms:abstract>
+        <dc:title>(PDF) Subtle Hand Gesture Identification for HCI Using Temporal Decorrelation Source Separation BSS of Surface EMG</dc:title>
+    </bib:Document>
+    <z:Attachment rdf:about="#item_174">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.researchgate.net/publication/4309507_Subtle_Hand_Gesture_Identification_for_HCI_Using_Temporal_Decorrelation_Source_Separation_BSS_of_Surface_EMG</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-11-04 16:36:48</dcterms:dateSubmitted>
+        <dc:title>Snapshot</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Document rdf:about="https://ieeexplore.ieee.org/document/4426772">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+           <z:Website></z:Website>
+        </dcterms:isPartOf>
+        <link:link rdf:resource="#item_176"/>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://ieeexplore.ieee.org/document/4426772</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-11-04 16:36:53</dcterms:dateSubmitted>
+        <dc:title>Subtle Hand Gesture Identification for HCI Using Temporal Decorrelation Source Separation BSS of Surface EMG - IEEE Conference Publication</dc:title>
+    </bib:Document>
+    <z:Attachment rdf:about="#item_176">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://ieeexplore.ieee.org/document/4426772</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-11-04 16:36:53</dcterms:dateSubmitted>
+        <dc:title>Subtle Hand Gesture Identification for HCI Using Temporal Decorrelation Source Separation BSS of Surface EMG - IEEE Conference Publication</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_177">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:1534-4320"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hofmann</foaf:surname>
+                        <foaf:givenname>D.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Jiang</foaf:surname>
+                        <foaf:givenname>N.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Vujaklija</foaf:surname>
+                        <foaf:givenname>I.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Farina</foaf:surname>
+                        <foaf:givenname>D.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_179"/>
+        <link:link rdf:resource="#item_178"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Electromyography</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Humans</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Pattern Recognition, Automated</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Algorithms</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Artificial Limbs</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Muscle Contraction</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Reproducibility of Results</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Signal Processing, Computer-Assisted</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Bayesian filter</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Sensitivity and Specificity</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>electromyography</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>medical signal processing</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>surface EMG</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>able-bodied subjects</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Amplitude estimation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Bayes methods</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Bayes Theorem</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Bayesian filtering</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>below-elbow limb deficient subjects</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>EMG amplitude estimation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>estimation accuracy</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Feedback, Physiological</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Filtering</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>low-pass linear filtering</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Mathematical model</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>myoelectric control applications</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Nonlinear Dynamics</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>powered prostheses</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>prosthetic control</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>prosthetics</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Prosthetics</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Signal to noise ratio</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>signal-to-noise ratio</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>simultaneous and proportional control</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>simultaneous-and-proportional-control task</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <bib:pages>1333-1341</bib:pages>
+        <dc:date>December 2016</dc:date>
+        <z:libraryCatalog>IEEE Xplore</z:libraryCatalog>
+        <dcterms:abstract>The amplitude of the surface EMG (sEMG) is commonly estimated by rectification or other nonlinear transformations, followed by smoothing (low-pass linear filtering). Although computationally efficient, this approach leads to an estimation accuracy with a limited theoretical signal-to-noise ratio (SNR). Since sEMG amplitude is one of the most relevant features for myoelectric control, its estimate has become one of the limiting factors for the performance of myoelectric control applications, such as powered prostheses. In this study, we present a recursive nonlinear estimator of sEMG amplitude based on Bayesian filtering. Furthermore, we validate the advantage of the proposed Bayesian filter over the conventional linear filters through an online simultaneous and proportional control (SPC) task, performed by eight able-bodied subjects and three below-elbow limb deficient subjects. The results demonstrated that the proposed Bayesian filter provides significantly more accurate SPC, particularly for the patients, when compared with conventional linear filters. This result presents a major step toward accurate prosthetic control for advanced multi-function prostheses.</dcterms:abstract>
+        <dc:title>Bayesian Filtering of Surface EMG for Accurate Simultaneous and Proportional Prosthetic Control</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:1534-4320">
+        <prism:volume>24</prism:volume>
+        <prism:number>12</prism:number>
+        <dc:title>IEEE Transactions on Neural Systems and Rehabilitation Engineering</dc:title>
+        <dc:identifier>ISSN 1534-4320</dc:identifier>
+        <dc:identifier>DOI 10.1109/TNSRE.2015.2501979</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_179">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://ieeexplore.ieee.org/document/7332757</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-11-04 18:22:14</dcterms:dateSubmitted>
+        <dc:title>IEEE Xplore Abstract Record</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_178">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://ieeexplore.ieee.org/ielx7/7333/7775119/07332757.pdf?tp=&amp;arnumber=7332757&amp;isnumber=7775119</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-11-04 18:22:08</dcterms:dateSubmitted>
+        <dc:title>IEEE Xplore Full Text PDF</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="http://ieeexplore.ieee.org/document/5627622/">
+        <z:itemType>conferencePaper</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:identifier>ISBN 978-1-4244-4123-5 978-1-4244-4124-2</dc:identifier>
+                <dc:identifier>DOI 10.1109/IEMBS.2010.5627622</dc:identifier>
+                <dc:title>2010 Annual International Conference of the IEEE Engineering in Medicine and Biology</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Buenos Aires</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>IEEE</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Muceli</foaf:surname>
+                        <foaf:givenname>S</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>Ning Jiang</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Farina</foaf:surname>
+                        <foaf:givenname>D</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://ieeexplore.ieee.org/document/5627622/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>6066-6069</bib:pages>
+        <dc:date>08/2010</dc:date>
+        <dcterms:dateSubmitted>2018-11-04 18:23:44</dcterms:dateSubmitted>
+        <z:libraryCatalog>Crossref</z:libraryCatalog>
+        <bib:presentedAt>
+            <bib:Conference>
+                <dc:title>2010 32nd Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC 2010)</dc:title>
+            </bib:Conference>
+        </bib:presentedAt>
+        <dc:title>Multichannel surface EMG based estimation of bilateral hand kinematics during movements at multiple degrees of freedom</dc:title>
+    </rdf:Description>
+    <bib:Article rdf:about="#item_181">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+               <dc:identifier>DOI 10.1109/iembs.2010.5627622</dc:identifier>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Muceli</foaf:surname>
+                        <foaf:givenname>S</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>Ning Jiang</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Farina</foaf:surname>
+                        <foaf:givenname>D</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://ieeexplore.ieee.org/document/5627622/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <bib:pages>6066-6069</bib:pages>
+        <dc:date>August 2010</dc:date>
+        <dcterms:dateSubmitted>2018-11-04 18:23:44</dcterms:dateSubmitted>
+        <z:libraryCatalog>DataCite</z:libraryCatalog>
+        <dc:title>Multichannel surface EMG based estimation of bilateral hand kinematics during movements at multiple degrees of freedom</dc:title>
+    </bib:Article>
+    <bib:Article rdf:about="#item_182">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:0018-9294"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Nielsen</foaf:surname>
+                        <foaf:givenname>J. L. G.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Holmgaard</foaf:surname>
+                        <foaf:givenname>S.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Jiang</foaf:surname>
+                        <foaf:givenname>N.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Englehart</foaf:surname>
+                        <foaf:givenname>K. B.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Farina</foaf:surname>
+                        <foaf:givenname>D.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Parker</foaf:surname>
+                        <foaf:givenname>P. A.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_184"/>
+        <link:link rdf:resource="#item_183"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Electromyography</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Humans</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Algorithms</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Artificial Limbs</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Neural Networks (Computer)</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Signal Processing, Computer-Assisted</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Electromyography (EMG)</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Adult</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Female</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Male</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>biomechanics</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>electromyography</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>EMG</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>neural nets</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Training</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>multilayer perceptron</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>artificial limbs</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>artificial neural network</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Biomechanics</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>biomedical measurement</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>contralateral limb</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Estimation</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Force</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>force control</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>force estimation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>force measurement</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>medical computing</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>medical control systems</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>mirrored bilateral training</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>multifunction myoelectric prostheses</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>myoelectric control</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>myoelectric prostheses</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Neurons</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>proportional force estimation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>short signal epoch</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>surface electromyogram</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>unilateral amputee</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>upper limb prosthesis</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Wrist</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <bib:pages>681-688</bib:pages>
+        <dc:date>March 2011</dc:date>
+        <z:libraryCatalog>IEEE Xplore</z:libraryCatalog>
+        <dcterms:abstract>This study presents a novel method for associating features of the surface electromyogram (EMG) recorded from one upper limb to the force produced by the contralateral limb. Bilateral-mirrored contractions from ten able-bodied subjects were recorded along with isometric forces in multiple degrees of freedom (DOF) from the right wrist. An artificial neural network was trained to provide force estimation. Combinations of processing parameters were evaluated and an estimation algorithm allowing high accuracy from relatively short signal epochs (100 ms) was proposed. The estimation performance when using surface EMG from the contralateral limb was 0.90 0.02 for the able-bodied subjects. In comparison, the estimation performance for one subject with congenital malformation of the left forearm was 0.72 which, albeit lower than for able-bodied subjects, is still comparable to or better than previously reported results. The proposed method requires only the measured forces from one limb, such as in the case of unilateral amputees and has thus the potential to be used in clinical settings for intuitive, simultaneous control of multiple DOFs in myoelectric prostheses.</dcterms:abstract>
+        <dc:title>Simultaneous and Proportional Force Estimation for Multifunction Myoelectric Prostheses Using Mirrored Bilateral Training</dc:title>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:0018-9294">
+        <prism:volume>58</prism:volume>
+        <prism:number>3</prism:number>
+        <dc:title>IEEE Transactions on Biomedical Engineering</dc:title>
+        <dc:identifier>ISSN 0018-9294</dc:identifier>
+        <dc:identifier>DOI 10.1109/TBME.2010.2068298</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_184">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://ieeexplore.ieee.org/document/5551179</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-11-05 03:20:06</dcterms:dateSubmitted>
+        <dc:title>IEEE Xplore Abstract Record</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_183">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://ieeexplore.ieee.org/ielx5/10/5719227/05551179.pdf?tp=&amp;arnumber=5551179&amp;isnumber=5719227</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-11-05 03:19:57</dcterms:dateSubmitted>
+        <dc:title>IEEE Xplore Full Text PDF</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Document rdf:about="https://ieeexplore.ieee.org/document/5627622">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+           <z:Website></z:Website>
+        </dcterms:isPartOf>
+        <link:link rdf:resource="#item_186"/>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://ieeexplore.ieee.org/document/5627622</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-11-05 03:22:57</dcterms:dateSubmitted>
+        <dc:title>Multichannel surface EMG based estimation of bilateral hand kinematics during movements at multiple degrees of freedom - IEEE Conference Publication</dc:title>
+    </bib:Document>
+    <z:Attachment rdf:about="#item_186">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://ieeexplore.ieee.org/document/5627622</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-11-05 03:23:00</dcterms:dateSubmitted>
+        <dc:title>Multichannel surface EMG based estimation of bilateral hand kinematics during movements at multiple degrees of freedom - IEEE Conference Publication</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="#item_187">
+        <z:itemType>conferencePaper</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:identifier>DOI 10.1109/IEMBS.2010.5627622</dc:identifier>
+                <dc:title>2010 Annual International Conference of the IEEE Engineering in Medicine and Biology</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Muceli</foaf:surname>
+                        <foaf:givenname>S.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Jiang</foaf:surname>
+                        <foaf:givenname>N.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Farina</foaf:surname>
+                        <foaf:givenname>D.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_191"/>
+        <link:link rdf:resource="#item_189"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Electromyography</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Humans</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Muscles</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Hand</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Adult</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Movement</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>biomechanics</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>electromyography</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>medical signal processing</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Kinematics</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>multilayer perceptron</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Prosthetics</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Biomechanics</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Estimation</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Wrist</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>angular displacements</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Artificial neural networks</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>bilateral hand kinematics</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>concurrent signal detection</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>estimation</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>estimation theory</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>forearm muscles</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>forearm pronation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>forearm supination</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>kinematics</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>mirrored bilateral movements</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>multichannel surface EMG</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>multilayer perceptrons</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>natural prosthetic control</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>neural network</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>radial deviation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Range of Motion, Articular</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Surface Properties</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>ulnar deviation</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>wrist extension</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>wrist flexion</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>wrist kinematics</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <bib:pages>6066-6069</bib:pages>
+        <dc:date>August 2010</dc:date>
+        <z:libraryCatalog>IEEE Xplore</z:libraryCatalog>
+        <bib:presentedAt>
+            <bib:Conference>
+                <dc:title>2010 Annual International Conference of the IEEE Engineering in Medicine and Biology</dc:title>
+            </bib:Conference>
+        </bib:presentedAt>
+        <dcterms:abstract>The paper proposes a method to estimate wrist kinematics from surface EMG signals for proportional and simultaneous control of multiple degrees of freedom (DOFs). The approach is based on the concurrent detection of surface EMG signals from forearm muscles and hand kinematics of both limbs during mirrored bilateral movements in free space which involve the simultaneous activation of wrist flexion/extension, radial/ulnar deviation and forearm pronation/supination. The estimation was based on one multilayer perceptron (MLP) neural network for each DOF. The three MLPs were trained to estimate angular displacements corresponding to the three DOFs. The average coefficient of determination between the true and the predicted angular displacement was 82.7 ± 2.9% (80.9 ± 3.4%) for flexion/extension, 75.0 ± 3.8% (72.6 ± 9.4%) for radial/ulnar deviation, 76.6 ± 11.8% (75.1 ± 11.7%) for pronation/supination for the ipsi-lateral (contra-lateral) hand. The scheme represents a step forward towards the simultaneous control of DOFs and thus a more natural prosthetic control.</dcterms:abstract>
+        <dc:title>Multichannel surface EMG based estimation of bilateral hand kinematics during movements at multiple degrees of freedom</dc:title>
+    </rdf:Description>
+    <z:Attachment rdf:about="#item_191">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://ieeexplore.ieee.org/document/5627622</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-11-05 03:23:07</dcterms:dateSubmitted>
+        <dc:title>IEEE Xplore Abstract Record</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_189">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://ieeexplore.ieee.org/ielx5/5608545/5625939/05627622.pdf?tp=&amp;arnumber=5627622&amp;isnumber=5625939</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-11-05 03:23:03</dcterms:dateSubmitted>
+        <dc:title>IEEE Xplore Full Text PDF</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="#item_188">
+        <z:itemType>conferencePaper</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:identifier>DOI 10.1109/IEMBS.2010.5627622</dc:identifier>
+                <dc:title>2010 Annual International Conference of the IEEE Engineering in Medicine and Biology</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Muceli</foaf:surname>
+                        <foaf:givenname>S.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Jiang</foaf:surname>
+                        <foaf:givenname>N.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Farina</foaf:surname>
+                        <foaf:givenname>D.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_192"/>
+        <link:link rdf:resource="#item_190"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Electromyography</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Humans</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Muscles</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Hand</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Adult</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Movement</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>biomechanics</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>electromyography</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>medical signal processing</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Kinematics</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>multilayer perceptron</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Prosthetics</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Biomechanics</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Estimation</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Wrist</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>angular displacements</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Artificial neural networks</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>bilateral hand kinematics</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>concurrent signal detection</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>estimation</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>estimation theory</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>forearm muscles</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>forearm pronation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>forearm supination</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>kinematics</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>mirrored bilateral movements</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>multichannel surface EMG</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>multilayer perceptrons</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>natural prosthetic control</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>neural network</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>radial deviation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Range of Motion, Articular</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Surface Properties</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>ulnar deviation</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>wrist extension</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>wrist flexion</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>wrist kinematics</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <bib:pages>6066-6069</bib:pages>
+        <dc:date>August 2010</dc:date>
+        <z:libraryCatalog>IEEE Xplore</z:libraryCatalog>
+        <bib:presentedAt>
+            <bib:Conference>
+                <dc:title>2010 Annual International Conference of the IEEE Engineering in Medicine and Biology</dc:title>
+            </bib:Conference>
+        </bib:presentedAt>
+        <dcterms:abstract>The paper proposes a method to estimate wrist kinematics from surface EMG signals for proportional and simultaneous control of multiple degrees of freedom (DOFs). The approach is based on the concurrent detection of surface EMG signals from forearm muscles and hand kinematics of both limbs during mirrored bilateral movements in free space which involve the simultaneous activation of wrist flexion/extension, radial/ulnar deviation and forearm pronation/supination. The estimation was based on one multilayer perceptron (MLP) neural network for each DOF. The three MLPs were trained to estimate angular displacements corresponding to the three DOFs. The average coefficient of determination between the true and the predicted angular displacement was 82.7 ± 2.9% (80.9 ± 3.4%) for flexion/extension, 75.0 ± 3.8% (72.6 ± 9.4%) for radial/ulnar deviation, 76.6 ± 11.8% (75.1 ± 11.7%) for pronation/supination for the ipsi-lateral (contra-lateral) hand. The scheme represents a step forward towards the simultaneous control of DOFs and thus a more natural prosthetic control.</dcterms:abstract>
+        <dc:title>Multichannel surface EMG based estimation of bilateral hand kinematics during movements at multiple degrees of freedom</dc:title>
+    </rdf:Description>
+    <z:Attachment rdf:about="#item_192">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://ieeexplore.ieee.org/document/5627622</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-11-05 03:23:09</dcterms:dateSubmitted>
+        <dc:title>IEEE Xplore Abstract Record</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_190">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://ieeexplore.ieee.org/ielx5/5608545/5625939/05627622.pdf?tp=&amp;arnumber=5627622&amp;isnumber=5625939</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-11-05 03:23:05</dcterms:dateSubmitted>
+        <dc:title>IEEE Xplore Full Text PDF</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
     <z:Collection rdf:about="#collection_2">
         <dc:title>sEMG</dc:title>
         <dcterms:hasPart rdf:resource="#collection_6"/>
@@ -5220,6 +6803,20 @@ The radial and ulnar arteries and their branches supply the blood to the forearm
         <dcterms:hasPart rdf:resource="http://www.sciencedirect.com/science/article/pii/S0893608005001206"/>
         <dcterms:hasPart rdf:resource="#item_154"/>
         <dcterms:hasPart rdf:resource="https://www.invensense.com/products/motion-tracking/9-axis/mpu-9250/"/>
+        <dcterms:hasPart rdf:resource="https://rent.591.com.tw/rent-detail-6886870.html"/>
+        <dcterms:hasPart rdf:resource="https://rent.591.com.tw/rent-detail-6862198.html"/>
+        <dcterms:hasPart rdf:resource="#item_164"/>
+        <dcterms:hasPart rdf:resource="#item_167"/>
+        <dcterms:hasPart rdf:resource="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3878385/"/>
+        <dcterms:hasPart rdf:resource="https://www.researchgate.net/publication/4309507_Subtle_Hand_Gesture_Identification_for_HCI_Using_Temporal_Decorrelation_Source_Separation_BSS_of_Surface_EMG"/>
+        <dcterms:hasPart rdf:resource="https://ieeexplore.ieee.org/document/4426772"/>
+        <dcterms:hasPart rdf:resource="#item_177"/>
+        <dcterms:hasPart rdf:resource="http://ieeexplore.ieee.org/document/5627622/"/>
+        <dcterms:hasPart rdf:resource="#item_181"/>
+        <dcterms:hasPart rdf:resource="#item_182"/>
+        <dcterms:hasPart rdf:resource="https://ieeexplore.ieee.org/document/5627622"/>
+        <dcterms:hasPart rdf:resource="#item_187"/>
+        <dcterms:hasPart rdf:resource="#item_188"/>
     </z:Collection>
     <z:Collection rdf:about="#collection_6">
         <dc:title>Gesture</dc:title>
