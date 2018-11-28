@@ -19,7 +19,7 @@ mixed = A * source;
 
 % Plot source 
 figure; 
-equal_plot(source, [-1 10], [-1 10]);
+equal_plot(source, [-1 4], [-1 10]);
 title('Source signal', 'FontSize', 20);
 
 % Plot mixed 

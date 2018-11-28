@@ -9,3 +9,5 @@ linestyle = ':'; % dotted
 
 line(get(axh,'XLim'), [0 0], 'Color', color, 'LineStyle', linestyle);
 line([0 0], get(axh,'YLim'), 'Color', color, 'LineStyle', linestyle);
+h = xlabel('Dimension 1'); set(h, 'FontSize', 15)
+h = ylabel('Dimension 2'); set(h, 'FontSize', 15)

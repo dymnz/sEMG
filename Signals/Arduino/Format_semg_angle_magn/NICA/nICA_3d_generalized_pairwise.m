@@ -21,14 +21,12 @@ A = [ 0.5 1.3 -1.0;
 mixed = A * source;
 
 % Plot source 
-figure; 
-equal_plot3(source, [-1 10], [-1 10], [-1 10]);
-title('Source signal', 'FontSize', 20);
+equal_plot_split(source, [-1 10], [-1 10], 'Source data');
+
 
 % Plot mixed 
 figure; 
-equal_plot3(mixed, [-1 10], [-1 10], [-1 10]);
-title('Mixed signal', 'FontSize', 20);
+equal_plot_split(mixed, [-1 10], [-1 10], 'Mixed data');
 
 %% nICA - pre-whitening
 % http://ufldl.stanford.edu/wiki/index.php/Implementing_PCA/Whitening
@@ -45,8 +43,7 @@ Z = V * X;
 
 % Plot pre-whitened 
 figure; 
-equal_plot3(Z, [-0.3 0.5], [-0.3 0.5], [-0.3 0.5]);
-title('pre-whitened', 'FontSize', 20);
+equal_plot_split(Z, [-0.3 0.5], [-0.3 0.5], 'Whitened data');
 
 %% nICA - 2D torque minimization
 fsolve_max_step = 2000;
@@ -114,8 +111,8 @@ if mod(step, step_per_log) == 0
     torque = 1/2 * sum((Z - W'*Y_pos).^2, 2);
     fprintf('max torque at step %5d is %.5f\n', step, max_torque);
     figure; 
-    equal_plot3(Z_t, [-0.1 0.5], [-0.1 0.5], [-0.1 0.5]);
-    title(sprintf('Y = WZ @ step %d', step), 'FontSize', 20);
+    equal_plot_split(Z_t, [-0.1 0.5], [-0.1 0.5], sprintf('Y = WZ @ step %d', step));
+    saveas(gcf,'Barchart.png')
 end
 
 end
