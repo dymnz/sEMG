@@ -9,7 +9,7 @@ end
 
 num_matrix = fscanf(fileID, '%d', 1);
 
-%fprintf('reading %d samples\n', num_matrix);
+fprintf('reading %d samples\n', num_matrix);
 
 input_matrix_list = {};
 output_matrix_list = {};

@@ -13,17 +13,17 @@ addpath('../matlab_lib/FastICA_21');
 file_loc_prepend = './data/';
 file_extension = '.txt';
 
-filename_prepend = 'raw_S2WA_41_';
+filename_prepend = 'raw_S2WA_44_';
 
-% record_filename = './data/S2WA_41_ICA_processed';
-% file_to_splice = { 
-%     'ICA_1', 'ICA_2'
-% };
-
-record_filename = './data/S2WA_41_MIX_processed';
+record_filename = './data/S2WA_44_ICA_processed';
 file_to_splice = { 
-    'MIX_1', 'MIX_2'
+    'ICA_1'
 };
+
+% record_filename = './data/S2WA_43_MIX_processed';
+% file_to_splice = { 
+%     'MIX_1'
+% };
 
 semg_channel_count = 6;
 mpu_channel_count = 3;
@@ -32,7 +32,7 @@ semg_channel = 1:6;
 mpu_channel = 7:9;  % Roll/Pitch/Yaw
 
 % Signal param
-semg_sample_rate = 2500; % Approximate
+semg_sample_rate = 2700; % Approximate
 
 semg_max_value = 2048 / 2;
 semg_min_value = -semg_max_value;

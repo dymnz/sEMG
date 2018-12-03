@@ -8,31 +8,37 @@ set(0,'DefaultFigureVisible','on');
 % set(0,'DefaultFigureVisible','off');   
 
 %% Setting
-semg_sample_rate = 2500; % Approximate
+semg_sample_rate = 2700; % Approximate
 % Data format
 semg_channel_count = 6;
 mpu_channel_count = 2;
 hidden_node_count = '8';
 
+% Cross-validation param
+partition_ratio = [60 10 10]; % Train/CV/Test
+num_of_gesture = 1;
+num_of_iteration_per_gesture = 1;
+num_of_segment_per_iteration = 80; % e.g. num of segment in 'FLX_1'
+                                    % Anything more is removed
 % TDSEP
 tdsep_tau = [0:2];
 
-for exp_num = 41
+for exp_num = 44
 for target_sample_rate = [35]
     
 fprintf('============================= TDSEP S2WA%d %d_SPS =============================\n', exp_num, target_sample_rate);
 
 % File
 all_test_list = {...
-    {'FEPS'}
+    {'MIX'}
     };
 
-fixed_test_list = { ...
-    'MIX'
-    };
+% fixed_test_list = { ...
+%     'MIX'
+%     };
 
 
-for ica_file_idx = 2
+for ica_file_idx = 1
     
 ica_filename = 'ICA_processed';
 
@@ -74,13 +80,8 @@ downsample_ratio = floor(semg_sample_rate / target_sample_rate);
 
 
 % Cross-validation param
-partition_ratio = [3 1 1]; % Train/CV/Test
 total_partition = sum(partition_ratio);
 
-num_of_gesture = 4;
-num_of_iteration_per_gesture = 1;
-num_of_segment_per_iteration = 10; % e.g. num of segment in 'FLX_1'
-                                    % Anything more is removed
 num_of_segment_per_gesture = ...
     num_of_iteration_per_gesture * num_of_segment_per_iteration;
 
@@ -165,7 +166,7 @@ in_file = [in_file_loc_prepend in_filename in_file_extension];
 load(in_file); % Read 'processed_segments_list'
 
 num_of_session = num_of_gesture * num_of_iteration_per_gesture;
-if num_of_session ~= length(processed_segments_list)
+if num_of_session ~= size(processed_segments_list, 1)
     error('session count mis-match');
 end
 
@@ -319,14 +320,24 @@ test_out_file_P = [out_file_loc_prepend, test_out_name_P out_file_extension];
 generate_LSTM_data_mpuIdx(test_out_file_P, processed_join_dataset{3}, 2);
 
 %% Run LSTM
+% fprintf(['./rnn ', train_out_name_R, ' ', ...
+%     test_out_name_R, ' ', cv_out_name_R, ...
+%     ' ', hidden_node_count, ' ', epoch, ' ', cross_valid_patience, ...
+%     ' 10 100000 ', rand_seed{list_idx}, '\n']);
+% fprintf(['./rnn ', train_out_name_P, ' ', ...
+%     test_out_name_P, ' ', cv_out_name_P, ...
+%     ' ', hidden_node_count, ' ', epoch, ' ', cross_valid_patience, ...
+%     ' 10 100000 ', rand_seed{list_idx}, '\n']);
+
 fprintf(['./rnn ', train_out_name_R, ' ', ...
     test_out_name_R, ' ', cv_out_name_R, ...
-    ' ', hidden_node_count, ' ', epoch, ' ', cross_valid_patience, ...
+    ' ', '6', ' ', '4000', ' ', '200', ...
     ' 10 100000 ', rand_seed{list_idx}, '\n']);
 fprintf(['./rnn ', train_out_name_P, ' ', ...
     test_out_name_P, ' ', cv_out_name_P, ...
-    ' ', hidden_node_count, ' ', epoch, ' ', cross_valid_patience, ...
+    ' ', '4', ' ', '4000', ' ', '100', ...
     ' 10 100000 ', rand_seed{list_idx}, '\n']);
+
 
 fprintf(['final float [] semg_normalization_max = {', ...
         char(strjoin(string(num2str(semg_max_value)), ',')), '};', '\n']);

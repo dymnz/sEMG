@@ -14,11 +14,11 @@ addpath('../matlab_lib/FastICA_21');
 file_loc_prepend = './data/';
 file_extension = '.txt';
 
-filename_prepend = 'raw_S2WA_41_';
+filename_prepend = 'raw_S2WA_44_';
 
-record_filename = './data/S2WA_41_FEPS_processed';
+record_filename = './data/S2WA_44_MIX_processed';
 file_to_splice = { 
-    'FLX_1', 'EXT_1', 'PRO_1', 'SUP_1'
+    'MIX_1'
 };
 
 mpu_segment_index_list = [1 2]; % 1-Roll/2-Pitch/3-Yaw
@@ -44,7 +44,9 @@ semg_channel = 1:6;
 mpu_channel = 7:9;  % Roll/Pitch/Yaw
 
 % Signal param
-semg_sample_rate = 2500; % Approximate
+semg_sample_rate = 2700; % Approximate
+
+min_cutoff_range = semg_sample_rate * 10; % Seconds
 
 semg_max_value = 2048 / 2;
 semg_min_value = -semg_max_value;
@@ -71,7 +73,7 @@ for f = 1 : length(file_label_list)
     raw_data = csvread(input_filename);
     semg = raw_data(:, semg_channel);
     mpu = raw_data(:, mpu_channel);
-    
+
     semg = semg(10:end-10, :);
     semg = semg - mean(semg);
     
@@ -133,26 +135,59 @@ for f = 1 : length(file_label_list)
     num_of_sample = length(mid_segment_indices) - 1;
     
     processed_segments = cell(num_of_sample, 3);
-    for i = 2 : length(mid_segment_indices)
-        cutoff_range = mid_segment_indices(i - 1) : mid_segment_indices(i);
-
-        cutoff_semg = semg(cutoff_range, :);
-        cutoff_mpu = mpu(cutoff_range, mpu_segment_index_list);
-
-        processed_segments{i - 1, 1} = cutoff_semg';
-        processed_segments{i - 1, 2} = cutoff_mpu';
-        processed_segments{i - 1, 3} = length(cutoff_range);       
-    end   
     
-    processed_segments_list = [processed_segments_list; {processed_segments  file_to_splice{f}}]; 
-    
-    fprintf('# of sample: %d\n', num_of_sample);
-    for i = 2 : length(mid_segment_indices)
+    i = 2; pi = 1; ei = 0;
+    while i <= length(mid_segment_indices)
         cutoff_range = mid_segment_indices(i - 1) : mid_segment_indices(i);
+        
+        while i + ei < length(mid_segment_indices) && ...
+               mid_segment_indices(i + ei) - mid_segment_indices(i - 1) ...
+               < min_cutoff_range
+            ei = ei + 1;
+            if i + ei > length(mid_segment_indices)
+                break;
+            end
+            cutoff_range = ...
+                mid_segment_indices(i - 1) : mid_segment_indices(i + ei) ;
+        end
 
         cutoff_semg = semg(cutoff_range, :);
         cutoff_mpu = mpu(cutoff_range, mpu_segment_index_list);
         
+        processed_segments{pi, 1} = cutoff_semg';
+        processed_segments{pi, 2} = cutoff_mpu';
+        processed_segments{pi, 3} = length(cutoff_range);       
+        
+        pi = pi + 1;
+%         i = i + max(1, ei);
+        i = i + 1;
+    end   
+    
+    processed_segments_list = [processed_segments_list; {processed_segments  file_to_splice{f}}]; 
+    
+    fprintf('# of sample: %d\n', pi - 1);
+    
+%     i = 2;
+%     while i <= length(mid_segment_indices)
+%         
+%         cutoff_range = mid_segment_indices(i - 1) : mid_segment_indices(i);
+%         
+%         ei = 0;
+%         while mid_segment_indices(i + ei) - mid_segment_indices(i - 1) ...
+%                < min_cutoff_range
+%             ei = ei + 1;
+%             if i + ei > length(mid_segment_indices)
+%                 break;
+%             end
+%             cutoff_range = ...
+%                 mid_segment_indices(i - 1) : mid_segment_indices(i + ei) ;
+%         end
+% 
+%         cutoff_semg = semg(cutoff_range, :);
+%         cutoff_mpu = mpu(cutoff_range, mpu_segment_index_list);
+% 
+%         i = i + 1;
+%         
 %         figure;
 %         subplot_helper(1:length(cutoff_semg), cutoff_semg, ...
 %                         [2 1 1], {'sample' 'amplitude' 'Interpolated sEMG'}, '-');                       
@@ -160,8 +195,8 @@ for f = 1 : length(file_label_list)
 %         subplot_helper(1:length(cutoff_mpu), cutoff_mpu, ...
 %                         [2 1 2], {'sample' 'amplitude' 'Interpolated Angle'}, '-');                                       
 %         ylim([mpu_min_value mpu_max_value]);
-    end
-    
+%         
+%     end
 end
 
 save(record_filename, 'processed_segments_list');

@@ -2,7 +2,7 @@ function generate_LSTM_data_mpuIdx(filename, data, mpu_idx)
 
 % data: 3xN
 
-num_of_segments = length(data);
+num_of_segments = size(data, 2);
 
 fileID = fopen(filename, 'w');
 fprintf(fileID, '%d\n', num_of_segments);
