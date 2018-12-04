@@ -15,41 +15,36 @@ file_loc_prepend = './data/';
 file_extension = '.txt';
 
 
+semg_channel_count = 4;
+mpu_channel_count = 2;
 
-filename_prepend = 'raw_S2WA_31_';
+semg_channel = 1:semg_channel_count;
+mpu_channel = semg_channel_count+1:semg_channel_count+mpu_channel_count;  % Roll/Pitch/Yaw
 
 
-record_filename = './data/S2WA_31_PRO_SUP_processed_rm1s';
+filename_prepend = 'raw_S2WA_YAO_401_';
+
+% 
+% record_filename = './data/S2WA_YAO_401_PRO_SUP_processed';
+% file_to_splice = { 
+%     'PRO_1', 'PRO_2', 'PRO_3', ...
+%     'SUP_1', 'SUP_2', 'SUP_3'
+% };
+% mpu_segment_index = 1; % 1-Roll/2-Pitch/3-Yaw
+
+
+record_filename = './data/S2WA_YAO_401_FLX_EXT_processed';
 file_to_splice = { 
-    'PRO_1', 'PRO_2', 'PRO_3', ...
-    'SUP_1', 'SUP_2', 'SUP_3'
+    'FLX_1', 'FLX_2', 'FLX_3', ...
+    'EXT_1', 'EXT_2', 'EXT_3'
 };
-mpu_segment_index = 1; % 1-Roll/2-Pitch/3-Yaw
-
-record_filename = './data/S2WA_31_PRO_SUP_processed_rm1s';
-file_to_splice = { 
-    'PRO_1'
-};
-mpu_segment_index = 1; % 1-Roll/2-Pitch/3-Yaw
-
-
-
-% record_filename = './data/S2WA_33_FLX_EXT_processed';
-% % file_to_splice = { 
-% %     'FLX_1', 'FLX_2', 'FLX_3', ...
-% %     'EXT_1', 'EXT_2', 'EXT_3'
-% % };
-% mpu_segment_index = 2; % 1-Roll/2-Pitch/3-Yaw
+mpu_segment_index = 2; % 1-Roll/2-Pitch/3-Yaw
 
 
 
 mpu_segment_threshold = 20; % Degree
 
-semg_channel_count = 6;
-mpu_channel_count = 3;
 
-semg_channel = 1:6;
-mpu_channel = 7:9;  % Roll/Pitch/Yaw
 
 % Signal param
 semg_sample_rate = 2500; % Approximate
@@ -167,7 +162,7 @@ for f = 1 : length(file_label_list)
     end
     
 end
-return;
-% save(record_filename, 'processed_segments_list');
+
+save(record_filename, 'processed_segments_list');
 
 set(0,'DefaultFigureVisible','on');

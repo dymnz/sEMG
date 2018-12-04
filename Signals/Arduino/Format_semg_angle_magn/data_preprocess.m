@@ -4,7 +4,7 @@
 
 clear; close all;
 
-set(0,'DefaultFigureVisible','off');
+set(0,'DefaultFigureVisible','on');
 
 addpath('../matlab_lib');
 addpath('../matlab_lib/FastICA_21');
@@ -13,22 +13,21 @@ addpath('../matlab_lib/FastICA_21');
 file_loc_prepend = './data/';
 file_extension = '.txt';
 
-record_filename = './data/S2WA_33_ICA_processed';
+semg_channel_count = 4;
+mpu_channel_count = 2;
 
-filename_prepend = 'raw_S2WA_33_';
+semg_channel = 1:semg_channel_count;
+mpu_channel = semg_channel_count+1:semg_channel_count+mpu_channel_count;  % Roll/Pitch/Yaw
+
+record_filename = './data/S2WA_YAO_401_ICA_processed';
+
+filename_prepend = 'raw_S2WA_YAO_401_';
 file_to_splice = { 
     'ICA_1', 'ICA_2', 'ICA_3', 'ICA_4'
 };
 
 mpu_segment_threshold = 20; % Degree
 mpu_segment_index = 1; % 1-Roll/2-Pitch/3-Yaw
-
-
-semg_channel_count = 6;
-mpu_channel_count = 3;
-
-semg_channel = 1:6;
-mpu_channel = 7:9;  % Roll/Pitch/Yaw
 
 % Signal param
 semg_sample_rate = 2500; % Approximate
