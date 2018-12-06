@@ -22,10 +22,9 @@ semg_channel = 1:semg_channel_count;
 mpu_channel = semg_channel_count+1:semg_channel_count+mpu_channel_count;  % Roll/Pitch/Yaw
 
 
-filename_prepend = 'raw_S2WA_YAO_401_';
+filename_prepend = 'raw_S2WA_YAO_441_';
 
-% 
-% record_filename = './data/S2WA_YAO_401_PRO_SUP_processed';
+% record_filename = './data/S2WA_YAO_441_PRO_SUP_processed';
 % file_to_splice = { 
 %     'PRO_1', 'PRO_2', 'PRO_3', ...
 %     'SUP_1', 'SUP_2', 'SUP_3'
@@ -33,7 +32,7 @@ filename_prepend = 'raw_S2WA_YAO_401_';
 % mpu_segment_index = 1; % 1-Roll/2-Pitch/3-Yaw
 
 
-record_filename = './data/S2WA_YAO_401_FLX_EXT_processed';
+record_filename = './data/S2WA_YAO_441_FLX_EXT_processed';
 file_to_splice = { 
     'FLX_1', 'FLX_2', 'FLX_3', ...
     'EXT_1', 'EXT_2', 'EXT_3'

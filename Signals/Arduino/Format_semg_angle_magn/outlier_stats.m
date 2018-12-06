@@ -4,7 +4,7 @@
 close all; clear all;
 
 
-exp_num = 401;
+exp_num = 441;
 target_sample_rate = 35;
 
 subject_name = 'YAO';
@@ -14,7 +14,7 @@ mean_list = zeros(10, 4);
 formatted_Median_list = zeros(1 + nica_file_num, 4);
 formatted_Mean_list = zeros(1 + nica_file_num, 4);
 
-for nica_file_idx = 1:4
+for nica_file_idx = 1:3
     
 nica_record_filename = ['./result/S2WA_' subject_name '_' num2str(exp_num) '_nICA_' ...
     num2str(nica_file_idx) '_SPS' ...
