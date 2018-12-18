@@ -19,20 +19,16 @@ mpu_channel_count = 2;
 semg_channel = 1:semg_channel_count;
 mpu_channel = semg_channel_count+1:semg_channel_count+mpu_channel_count;  % Roll/Pitch/Yaw
 
-record_filename = './data/S2WA_YAO_441_ICA_processed';
+record_filename = './data/S2WA_YAO_442_ICA_processed';
 
-filename_prepend = 'raw_S2WA_YAO_441_';
-% file_to_splice = { 
-%     'ICA_1', 'ICA_2', 'ICA_3', 'ICA_4'
-% };
+filename_prepend = 'raw_S2WA_YAO_442_';
 file_to_splice = { 
-    'ICA_1', 'ICA_2', 'ICA_4'
+    'ICA_1', 'ICA_2', 'ICA_3', 'ICA_4'
 };
+
 mpu_segment_threshold = 20; % Degree
 mpu_segment_index = 1; % 1-Roll/2-Pitch/3-Yaw
 
-% Signal param
-semg_sample_rate = 2500; % Approximate
 
 semg_max_value = 2048 / 2;
 semg_min_value = -semg_max_value;

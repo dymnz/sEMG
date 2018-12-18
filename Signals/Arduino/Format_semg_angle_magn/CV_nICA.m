@@ -14,7 +14,7 @@ hidden_node_count = '8';
 
 subject_name = 'YAO';
 
-for exp_num = 441
+for exp_num = 442
 for target_sample_rate = [35]
 
 fprintf('============================= nICA S2WA%d %d_SPS =============================\n', exp_num, target_sample_rate);
@@ -33,7 +33,7 @@ all_test_list = {...
     {'FLX', 'EXT'}, {'PRO', 'SUP'}
     };
 
-for ica_file_idx = 1:3
+for ica_file_idx = 1:4
     
 ica_filename = 'ICA_processed';
 
