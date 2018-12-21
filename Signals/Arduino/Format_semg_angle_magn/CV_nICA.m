@@ -6,13 +6,15 @@ set(0,'DefaultFigureVisible','on');
 % set(0,'DefaultFigureVisible','off');   
 
 %% Setting
-semg_sample_rate = 2500; % Approximate
+semg_sample_rate = 3100; % Approximate
 % Data format
-semg_channel_count = 6;
+semg_channel_count = 4;
 mpu_channel_count = 1;
 hidden_node_count = '8';
 
-for exp_num = 25
+subject_name = 'YAO';
+
+for exp_num = 442
 for target_sample_rate = [35]
 
 fprintf('============================= nICA S2WA%d %d_SPS =============================\n', exp_num, target_sample_rate);
@@ -31,17 +33,17 @@ all_test_list = {...
     {'FLX', 'EXT'}, {'PRO', 'SUP'}
     };
 
-for ica_file_idx = 3
+for ica_file_idx = 1:4
     
 ica_filename = 'ICA_processed';
 
-in_file_loc_prepend = ['./data/S2WA_' num2str(exp_num) '_'];
+in_file_loc_prepend = ['./data/S2WA_' subject_name '_' num2str(exp_num) '_'];
 in_file_extension = '.mat';
 out_file_loc_prepend = '../../../../RNN/LSTM/data/input/exp_';
 out_file_prepend_list = {'TR_nICA', 'CV_nICA', 'TS_nICA'};
 out_file_extension = '.txt';
  
-record_filename = ['./result/S2WA_' num2str(exp_num) '_nICA_' ...
+record_filename = ['./result/S2WA_' subject_name '_' num2str(exp_num) '_nICA_' ...
     num2str(ica_file_idx) '_SPS' ...
     num2str(target_sample_rate) '_h' num2str(hidden_node_count)  '_10rd_data'];
 
@@ -75,7 +77,7 @@ mpu_max_value = 140;
 mpu_min_value = -mpu_max_value;
 
 % Downsample/RMS param
-RMS_window_size = 500;    % RMS window in pts
+RMS_window_size = 600;    % RMS window in pts
 downsample_filter_order = 6;
 downsample_ratio = floor(semg_sample_rate / target_sample_rate);
 

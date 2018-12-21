@@ -4,28 +4,29 @@
 close all; clear all;
 
 
-exp_num = 33;
+exp_num = 441;
 target_sample_rate = 35;
 
+subject_name = 'YAO';
 
 nica_file_num = 4;
 mean_list = zeros(10, 4);
 formatted_Median_list = zeros(1 + nica_file_num, 4);
 formatted_Mean_list = zeros(1 + nica_file_num, 4);
 
-for nica_file_idx = 3
+for nica_file_idx = 1:3
     
-nica_record_filename = ['./result/S2WA_' num2str(exp_num) '_nICA_' ...
+nica_record_filename = ['./result/S2WA_' subject_name '_' num2str(exp_num) '_nICA_' ...
     num2str(nica_file_idx) '_SPS' ...
-    num2str(target_sample_rate) '_h8' '_10rd_data_R2'];
+    num2str(target_sample_rate) '_h8' '_10rd_data'];
 
 % nica_record_filename = ['./result/S2WA_' num2str(exp_num) '_TDSEP_' ...
 %     num2str(nica_file_idx) '_SPS' ...
 %     num2str(target_sample_rate) '_h8' '_10rd_data_R2'];
 
 
-rmsdown_record_filename = ['./result/S2WA_' num2str(exp_num) '_RMSDown_' ...
-    'SPS' num2str(target_sample_rate) '_h8' '_10rd_data_R2'];
+rmsdown_record_filename = ['./result/S2WA_'  subject_name '_' num2str(exp_num) '_RMSDown_' ...
+    'SPS' num2str(target_sample_rate) '_h8' '_10rd_data'];
 
 nica_data = load(nica_record_filename);
 nica_data = nica_data.all_RMS_list;
