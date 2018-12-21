@@ -7,7 +7,7 @@ set(0,'DefaultFigureVisible','on');
 % set(0,'DefaultFigureVisible','off');   
 
 %% Setting
-subject_name = 'YAO';
+subject_name = 'JON';
 
 semg_sample_rate = 3100; % Approximate
 % Data format
@@ -18,7 +18,7 @@ hidden_node_count = '8';
 % TDSEP
 tdsep_tau = [0:2];
 
-for exp_num = 442
+for exp_num = 401
 for target_sample_rate = [35]
     
 fprintf('============================= TDSEP S2WA%d %d_SPS =============================\n', exp_num, target_sample_rate);
