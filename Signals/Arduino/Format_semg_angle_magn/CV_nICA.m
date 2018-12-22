@@ -12,9 +12,7 @@ semg_channel_count = 4;
 mpu_channel_count = 1;
 hidden_node_count = '8';
 
-subject_name = 'YAO';
-
-for exp_num = 442
+ 
 for target_sample_rate = [35]
 
 fprintf('============================= nICA S2WA%d %d_SPS =============================\n', exp_num, target_sample_rate);
