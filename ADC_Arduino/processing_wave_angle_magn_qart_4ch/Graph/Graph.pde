@@ -9,7 +9,7 @@ enum SerialState {
 SerialState serial_state = SerialState.HOLD;
 
 final String SERIAL_NAME = "/dev/ttyACM0";
-final String filename = "../../../Signals/Arduino/Format_semg_angle_magn/data/raw_S2WA_JON_401_" + "ICA" + "_1" + ".txt";
+final String filename = "../../../Signals/Arduino/Format_semg_angle_magn/data/raw_S2WA_YAO_601_" + "FLX" + "_1" + ".txt";
                                              
 
 final int width = 1280;
@@ -19,7 +19,7 @@ final float graph_x_step = 0.04;
 
 final float force_calibration_factor = -200000;
 final int value_buffer_size = 10000;
-
+ 
 final int semg_channel = 4;
 final int semg_packet_byte = 2;
 final int quat_channel = 4;
