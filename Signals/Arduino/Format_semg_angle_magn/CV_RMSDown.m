@@ -17,7 +17,7 @@ semg_channel_count = 6;
 mpu_channel_count = 1;
 hidden_node_count = '8';
 
-for exp_num = 611
+for exp_num = 631
 for target_sample_rate = [35]
 
 fprintf('============================= RMSDown S2WA%d %d_SPS =============================\n', exp_num, target_sample_rate);
