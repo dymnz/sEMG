@@ -5,7 +5,7 @@ close all; clear all;
 
 prepro_name = 'TDSEP';
 
-exp_num = 611;
+exp_num = 402;
 target_sample_rate = 35;
 
 subject_name = 'YAO';
@@ -56,12 +56,12 @@ rmsdown_mean_outlier_list = isoutlier(rmsdown_mean_list, 'quartiles');
 rmsdown_mean_outlier_list = ~rmsdown_mean_outlier_list;
 
 rmsdown_mean_mean_list = mean(mean_list);
-rmsdown_mean_mean_list = zeros(1, 4);
-for r = 1 : 4
-    clean_data = rmsdown_mean_list(rmsdown_mean_outlier_list(:, r), r);
-    
-    rmsdown_mean_mean_list(r) = mean(clean_data);
-end
+% rmsdown_mean_mean_list = zeros(1, 4);
+% for r = 1 : 4
+%     clean_data = rmsdown_mean_list(rmsdown_mean_outlier_list(:, r), r);
+%     
+%     rmsdown_mean_mean_list(r) = mean(clean_data);
+% end
 
 %%%
 for i = 1 : 10
@@ -83,11 +83,11 @@ nica_mean_outlier_list = ~nica_mean_outlier_list;
 
 
 nica_mean_mean_list = mean(mean_list);
-nica_mean_mean_list = zeros(1, 4);
-for r = 1 : 4
-    clean_data = nica_mean_list(nica_mean_outlier_list(:, r), r);
-    nica_mean_mean_list(r) = mean(clean_data);
-end
+% nica_mean_mean_list = zeros(1, 4);
+% for r = 1 : 4
+%     clean_data = nica_mean_list(nica_mean_outlier_list(:, r), r);
+%     nica_mean_mean_list(r) = mean(clean_data);
+% end
 
 
 %%

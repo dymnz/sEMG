@@ -9,15 +9,15 @@ set(0,'DefaultFigureVisible','off');
 %% Setting
 subject_name = 'YAO';
 
-% semg_sample_rate = 3100; % Approximate for 4-ch
-semg_sample_rate = 2900; % Approximate for 6-ch
+semg_sample_rate = 3100; % Approximate for 4-ch
+% semg_sample_rate = 2900; % Approximate for 6-ch
 
 % Data format
-semg_channel_count = 6;
+semg_channel_count = 4;
 mpu_channel_count = 1;
-hidden_node_count = '8';
+hidden_node_count = '4';
 
-for exp_num = 631
+for exp_num = [401 402 441 442]
 for target_sample_rate = [35]
 
 fprintf('============================= RMSDown S2WA%d %d_SPS =============================\n', exp_num, target_sample_rate);
