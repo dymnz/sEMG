@@ -3,8 +3,9 @@
 
 close all; clear all;
 
+prepro_name = 'TDSEP';
 
-exp_num = 441;
+exp_num = 611;
 target_sample_rate = 35;
 
 subject_name = 'YAO';
@@ -14,9 +15,9 @@ mean_list = zeros(10, 4);
 formatted_Median_list = zeros(1 + nica_file_num, 4);
 formatted_Mean_list = zeros(1 + nica_file_num, 4);
 
-for nica_file_idx = 1:3
+for nica_file_idx = 1:4
     
-nica_record_filename = ['./result/S2WA_' subject_name '_' num2str(exp_num) '_nICA_' ...
+nica_record_filename = ['./result/S2WA_' subject_name '_' num2str(exp_num) '_' prepro_name '_' ...
     num2str(nica_file_idx) '_SPS' ...
     num2str(target_sample_rate) '_h8' '_10rd_data'];
 
@@ -55,12 +56,12 @@ rmsdown_mean_outlier_list = isoutlier(rmsdown_mean_list, 'quartiles');
 rmsdown_mean_outlier_list = ~rmsdown_mean_outlier_list;
 
 rmsdown_mean_mean_list = mean(mean_list);
-% rmsdown_mean_mean_list = zeros(1, 4);
-% for r = 1 : 4
-%     clean_data = rmsdown_mean_list(rmsdown_mean_outlier_list(:, r), r);
-%     
-%     rmsdown_mean_mean_list(r) = mean(clean_data);
-% end
+rmsdown_mean_mean_list = zeros(1, 4);
+for r = 1 : 4
+    clean_data = rmsdown_mean_list(rmsdown_mean_outlier_list(:, r), r);
+    
+    rmsdown_mean_mean_list(r) = mean(clean_data);
+end
 
 %%%
 for i = 1 : 10
@@ -82,11 +83,11 @@ nica_mean_outlier_list = ~nica_mean_outlier_list;
 
 
 nica_mean_mean_list = mean(mean_list);
-% nica_mean_mean_list = zeros(1, 4);
-% for r = 1 : 4
-% %     clean_data = nica_mean_list(nica_mean_outlier_list(:, r), r);
-% % nica_mean_mean_list(r) = mean(clean_data);
-% end
+nica_mean_mean_list = zeros(1, 4);
+for r = 1 : 4
+    clean_data = nica_mean_list(nica_mean_outlier_list(:, r), r);
+    nica_mean_mean_list(r) = mean(clean_data);
+end
 
 
 %%
@@ -129,12 +130,12 @@ nICA_qt = quantile(nica_mean_list, [0.25 0.5 0.75]);
 
 fprintf('========== nICA_%d', nica_file_idx);
 
-fprintf('\nMedian:');
-fprintf('\nRMSDown: \t');
-fprintf('%.4f\t', rmsdown_qt(2, :));
-fprintf('\nnICA: \t\t');formatted_Median_list(1, :) = rmsdown_qt(2, :);
-fprintf('%.4f\t', nICA_qt(2, :));
-fprintf('\n\n');
+% fprintf('\nMedian:');
+% fprintf('\nRMSDown: \t');
+% fprintf('%.4f\t', rmsdown_qt(2, :));
+% fprintf('\nnICA: \t\t');formatted_Median_list(1, :) = rmsdown_qt(2, :);
+% fprintf('%.4f\t', nICA_qt(2, :));
+% fprintf('\n\n');
 
 formatted_Median_list(1, :) = rmsdown_qt(2, :);
 formatted_Median_list(1 + nica_file_idx, :) = nICA_qt(2, :);
@@ -144,7 +145,7 @@ fprintf('Mean:', nica_file_idx);
 fprintf('\nRMSDown: \t');
 fprintf('%.4f\t', rmsdown_mean_mean_list);
 
-fprintf('\nnICA: \t\t');
+fprintf(['\n' prepro_name ': \t\t']);
 fprintf('%.4f\t', nica_mean_mean_list);
 fprintf('\n');
 

@@ -10,7 +10,7 @@ graph_count = 1 + mpu_channel_count;
 semg_channel_index = 1:4;
 mpu_channel_index = 1;
 
-mpu_max_value = 140;
+mpu_max_value = 150;
 mpu_min_value = -mpu_max_value;
 
 
@@ -31,12 +31,12 @@ train_file_name = strcat('exp_', file_name, '.txt');
 RMS_list = zeros(num_matrix, length(mpu_channel_index));
 guess_RMS_list = zeros(num_matrix, length(mpu_channel_index));
 for i = 1 : num_matrix
-    test_semg_data = test_input_matrix_list{i}(:, semg_channel_index);
+%     test_semg_data = test_input_matrix_list{i}(:, semg_channel_index);
     test_mpu_data = test_output_matrix_list{i}(:, mpu_channel_index);       
     
     DATA_LENGTH = length(test_output_matrix_list{i});
     
-    train_semg_data = train_input_matrix_list{i}(:, semg_channel_index);
+%     train_semg_data = train_input_matrix_list{i}(:, semg_channel_index);
     train_mpu_data = train_output_matrix_list{i}(:, mpu_channel_index);
   
     test_mpu_data = test_mpu_data .* mpu_max_value;

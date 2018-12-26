@@ -6,13 +6,17 @@ set(0,'DefaultFigureVisible','on');
 % set(0,'DefaultFigureVisible','off');   
 
 %% Setting
-semg_sample_rate = 3100; % Approximate
+subject_name = 'YAO';
+
+% semg_sample_rate = 3100; % Approximate for 4-ch
+semg_sample_rate = 2900; % Approximate for 6-ch
+
 % Data format
-semg_channel_count = 4;
+semg_channel_count = 6;
 mpu_channel_count = 1;
 hidden_node_count = '8';
 
- 
+for exp_num = 631
 for target_sample_rate = [35]
 
 fprintf('============================= nICA S2WA%d %d_SPS =============================\n', exp_num, target_sample_rate);
@@ -71,7 +75,7 @@ step_per_log = 100;
 % Signal param
 semg_max_value = -100;
 semg_min_value = -semg_max_value;
-mpu_max_value = 140;
+mpu_max_value = 150;
 mpu_min_value = -mpu_max_value;
 
 % Downsample/RMS param
@@ -316,13 +320,9 @@ for f = 1 : 3
         
         % Remove length mis-match
         usable_data_range = ...
-            1 : min(length(semg), length(mpu));
+            2 : min(length(semg), length(mpu));
         semg = semg(:, usable_data_range);
         mpu = mpu(:, usable_data_range);
-    
-        % MPU normalization              
-        mpu = 2 .* (mpu - mpu_min_value)...
-                ./ (mpu_max_value - mpu_min_value) - 1;
 
         % Find max/min sEMG for normalization
         semg_max_value = max(semg_max_value, max(semg, [], 2));
@@ -338,14 +338,21 @@ end
 for f = 1 : 3
     for i = 1 : num_of_segment_list(f)
         semg = processed_join_dataset{f}{1, i};
+        mpu = processed_join_dataset{f}{2, i};
+        
         semg = semg ...
             ./ (semg_max_value - semg_min_value); 
         
+        % MPU normalization              
+        mpu = 2 .* (mpu - mpu_min_value)...
+                ./ (mpu_max_value - mpu_min_value) - 1;
+            
         if max(abs(mpu)) > 1
             error('Normalization error')
-        end      
+        end    
         
         processed_join_dataset{f}{1, i} = semg;
+        processed_join_dataset{f}{2, i} = mpu;
     end
 end
 
