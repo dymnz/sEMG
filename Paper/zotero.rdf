@@ -5250,6 +5250,184 @@ PMCID: PMC3878385</dc:description>
         <dc:date>2002</dc:date>
         <dc:title>Surface Electromyography : Detection and Recording</dc:title>
     </rdf:Description>
+    <bib:Book rdf:about="#item_1397">
+        <z:itemType>book</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+               <foaf:name>McGraw-Hill Medical Publishing</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>Sudhir Diwan</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>Peter S. Staats</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:date>2014</dc:date>
+        <dc:title>Atlas of Pain Medicine Procedures</dc:title>
+    </bib:Book>
+    <rdf:Description rdf:about="#item_1401">
+        <z:itemType>conferencePaper</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:identifier>DOI 10.1109/ICORR.2015.7281221</dc:identifier>
+                <dc:title>2015 IEEE International Conference on Rehabilitation Robotics (ICORR)</dc:title>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Bajaj</foaf:surname>
+                        <foaf:givenname>N. M.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Spiers</foaf:surname>
+                        <foaf:givenname>A. J.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Dollar</foaf:surname>
+                        <foaf:givenname>A. M.</foaf:givenname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_1403"/>
+        <link:link rdf:resource="#item_1402"/>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Actuators</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Arm</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Friction</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Hand</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>hand mobility</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>healthy individuals</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>High definition video</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>human wrist</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Joints</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>kinematic arrangement</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>manipulation capabilities</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>manipulator kinematics</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>mechanical design</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>medical robotics</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>parallel kinematic architecture</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Prosthesis</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>prosthetic wrists</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>prosthetics</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Prosthetics</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>radial/ulnar deviation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Sockets</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Wrist</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <bib:pages>331-338</bib:pages>
+        <dc:date>August 2015</dc:date>
+        <z:libraryCatalog>IEEE Xplore</z:libraryCatalog>
+        <bib:presentedAt>
+            <bib:Conference>
+                <dc:title>2015 IEEE International Conference on Rehabilitation Robotics (ICORR)</dc:title>
+            </bib:Conference>
+        </bib:presentedAt>
+        <dcterms:abstract>The human wrist contributes greatly to hand mobility and manipulation capabilities in healthy individuals, but both the commercial and research domains have often overlooked prosthetic wrists in favor of terminal device development. In this paper, we review the current state of the art of in a wide variety of passive, body powered and active wrists from both the prosthetics industry and research community. We primarily focus on the mechanical design and kinematic arrangement of these systems, giving details of articulation methods and specifications where possible. Among other take-aways, the review shows that very few powered wrists are available commercially, all of which are single-DOF, that multi-DOF wrist designs are most often serial chain systems, and that there seems to be opportunities for the development of body-powered wrist devices or wrists with a parallel kinematic architecture. Additionally, of the three DOF of the human wrist, radial/ulnar deviation is least commonly implemented in hardware.</dcterms:abstract>
+        <dc:title>State of the Art in Prosthetic Wrists: Commercial and Research Devices</dc:title>
+        <z:shortTitle>State of the art in prosthetic wrists</z:shortTitle>
+    </rdf:Description>
+    <z:Attachment rdf:about="#item_1403">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://ieeexplore.ieee.org/document/7281221</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-12-24 08:29:10</dcterms:dateSubmitted>
+        <dc:title>IEEE Xplore Abstract Record</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_1402">
+        <z:itemType>attachment</z:itemType>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://ieeexplore.ieee.org/ielx7/7256409/7281164/07281221.pdf?tp=&amp;arnumber=7281221&amp;isnumber=7281164</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2018-12-24 08:29:04</dcterms:dateSubmitted>
+        <dc:title>IEEE Xplore Full Text PDF</dc:title>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
     <z:Collection rdf:about="#collection_27">
         <dc:title>sEMG</dc:title>
         <dcterms:hasPart rdf:resource="#collection_28"/>
@@ -5327,6 +5505,8 @@ PMCID: PMC3878385</dc:description>
         <dcterms:hasPart rdf:resource="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3878385/"/>
         <dcterms:hasPart rdf:resource="#item_1390"/>
         <dcterms:hasPart rdf:resource="#item_1395"/>
+        <dcterms:hasPart rdf:resource="#item_1397"/>
+        <dcterms:hasPart rdf:resource="#item_1401"/>
     </z:Collection>
     <z:Collection rdf:about="#collection_28">
         <dc:title>Gesture</dc:title>
