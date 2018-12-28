@@ -3,12 +3,12 @@
 
 close all; clear all;
 
-prepro_name = 'TDSEP';
+prepro_name = 'nICA';
 
-exp_num = 402;
+exp_num = 401;
 target_sample_rate = 35;
 
-subject_name = 'YAO';
+subject_name = 'BEN';
 
 nica_file_num = 4;
 mean_list = zeros(10, 4);
@@ -93,15 +93,15 @@ nica_mean_mean_list = mean(mean_list);
 %%
 max_error = max(max(max(rmsdown_mean_list)), max(max(nica_mean_list)));
 
-figure; hold on;
-title(title_string);
-boxplot(rmsdown_mean_list, 'Labels',{'FLX', 'EXT', 'PRO','SUP'});
-set(findobj(gca, 'type', 'line'), 'linew', 3);
-
-boxplot(nica_mean_list, 'Labels',{'FLX', 'EXT', 'PRO','SUP'});
-set(gca,'fontsize', 30);
-xlabel('Gesture'); ylabel('RMSE (degree)');
-ylim([0 max_error]);
+% figure; hold on;
+% title(title_string);
+% boxplot(rmsdown_mean_list, 'Labels',{'FLX', 'EXT', 'PRO','SUP'});
+% set(findobj(gca, 'type', 'line'), 'linew', 3);
+% 
+% boxplot(nica_mean_list, 'Labels',{'FLX', 'EXT', 'PRO','SUP'});
+% set(gca,'fontsize', 30);
+% xlabel('Gesture'); ylabel('RMSE (degree)');
+% ylim([0 max_error]);
 
 
 rmsdown_qt = quantile(rmsdown_mean_list, [0.25 0.5 0.75]);
@@ -128,7 +128,7 @@ nICA_qt = quantile(nica_mean_list, [0.25 0.5 0.75]);
 % fprintf('\n');
 % 
 
-fprintf('========== nICA_%d', nica_file_idx);
+% fprintf('========== nICA_%d', nica_file_idx);
 
 % fprintf('\nMedian:');
 % fprintf('\nRMSDown: \t');
@@ -141,13 +141,17 @@ formatted_Median_list(1, :) = rmsdown_qt(2, :);
 formatted_Median_list(1 + nica_file_idx, :) = nICA_qt(2, :);
 
 % fprintf('Mean w/ round mean outlier removed:', nica_file_idx);
-fprintf('Mean:', nica_file_idx);
-fprintf('\nRMSDown: \t');
-fprintf('%.4f\t', rmsdown_mean_mean_list);
+% fprintf('Mean:', nica_file_idx);
 
-fprintf(['\n' prepro_name ': \t\t']);
-fprintf('%.4f\t', nica_mean_mean_list);
+if nica_file_idx == 1
+    fprintf('\n');
+% fprintf('\nRMSDown: \t');
+fprintf('%.4f\t', rmsdown_mean_mean_list);
+end
 fprintf('\n');
+% fprintf(['\n' prepro_name ': \t\t']);
+fprintf('%.4f\t', nica_mean_mean_list);
+% fprintf('\n');
 
 formatted_Mean_list(1, :) = rmsdown_mean_mean_list;
 formatted_Mean_list(1 + nica_file_idx, :) = nica_mean_mean_list;
