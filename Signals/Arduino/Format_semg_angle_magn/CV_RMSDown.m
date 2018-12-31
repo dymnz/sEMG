@@ -136,6 +136,15 @@ for i = 1 : num_of_gesture
              1})';
 end
 
+% Shuffle dataset
+rand_idx = randperm(num_of_segment_per_gesture);
+for i = 1 : num_of_gesture
+    
+gesture_segments_list{i, 1}(:, rand_idx) = ...
+    gesture_segments_list{i, 1}(:, :);
+end
+
+
 % Partition dataset
 partitioned_dataset = cell(num_of_gesture, 3);
 
@@ -168,11 +177,6 @@ end
 join_dataset{1} = horzcat(partitioned_dataset{:, 1});   % Train
 join_dataset{2} = horzcat(partitioned_dataset{:, 2});   % CV
 join_dataset{3} = horzcat(partitioned_dataset{:, 3});   % Test
-
-% Shuffle Train set
-train_rand_idx = randperm(train_size * num_of_gesture);
-join_dataset{1}(:, train_rand_idx) = ...
-    join_dataset{1}(:, :);
 
 processed_join_dataset = cell(size(join_dataset));
 % Processing - RMS-Downsample
