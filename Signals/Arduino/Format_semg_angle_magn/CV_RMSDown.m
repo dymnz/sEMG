@@ -138,12 +138,10 @@ end
 
 % Shuffle dataset
 rand_idx = randperm(num_of_segment_per_gesture);
-for i = 1 : num_of_gesture
-    
+for i = 1 : num_of_gesture 
 gesture_segments_list{i, 1}(:, rand_idx) = ...
     gesture_segments_list{i, 1}(:, :);
 end
-
 
 % Partition dataset
 partitioned_dataset = cell(num_of_gesture, 3);
@@ -239,7 +237,6 @@ for f = 1 : 3
             error('Normalization error')
         end    
        
-
         processed_join_dataset{f}{1, i} = semg;
         processed_join_dataset{f}{2, i} = mpu;
     end
