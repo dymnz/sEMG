@@ -125,10 +125,10 @@ void quat_convert() {
   radian_values = quat2radian(quat_values);
   
   // P' = P*cos(R) - Y*sin(R);
-  ///*
+  /*
   radian_values[1] = radian_values[1] * cos(radian_values[0]) - 
                      radian_values[2] * sin(radian_values[0]);
-  //*/
+  */
   
   angle_values = radian2degree(radian_values);
   
