@@ -19,9 +19,9 @@ mpu_channel_count = 2;
 semg_channel = 1:semg_channel_count;
 mpu_channel = semg_channel_count+1:semg_channel_count+mpu_channel_count;  % Roll/Pitch/Yaw
 
-record_filename = './data/S2WA_BEN_401_ICA_processed';
+record_filename = './data/S2WA_BEN_402_ICA_processed';
 
-filename_prepend = 'raw_S2WA_BEN_401_';
+filename_prepend = 'raw_S2WA_BEN_402_';
 file_to_splice = { 
     'ICA_1', 'ICA_2', 'ICA_3', 'ICA_4'
 };
