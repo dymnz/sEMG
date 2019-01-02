@@ -95,6 +95,7 @@ if length(all_test_list) ~= length(rand_seed)
 end
                 
 all_RMS_list = [];
+all_RMS_list_R2 = [];
 for list_idx = 1 : length(all_test_list)
 gesture_list = all_test_list{list_idx};
 
@@ -102,6 +103,8 @@ in_filename = [strjoin(gesture_list, '_') '_processed'];
 out_filename = [strjoin(gesture_list, '_') '_RMSDown'];
 
 RMS_list = zeros(num_of_segment_per_gesture, num_of_gesture);
+RMS_list_R2 = zeros(num_of_segment_per_gesture, num_of_gesture);
+
 %% K-fold cross-validation
 for round = 1 : total_partition   
 close all;  % TODO: Check if this can be removed   
@@ -175,6 +178,12 @@ end
 join_dataset{1} = horzcat(partitioned_dataset{:, 1});   % Train
 join_dataset{2} = horzcat(partitioned_dataset{:, 2});   % CV
 join_dataset{3} = horzcat(partitioned_dataset{:, 3});   % Test
+
+% Shuffle Train set
+train_rand_idx = randperm(train_size * num_of_gesture);
+join_dataset{1}(:, train_rand_idx) = ...
+    join_dataset{1}(:, :);
+
 
 processed_join_dataset = cell(size(join_dataset));
 % Processing - RMS-Downsample
@@ -286,12 +295,28 @@ for i = 1 : num_of_gesture
 end
 % fprintf('===========\n');
 
+temp_RMS_list = verify_multi_semg_R2(test_out_name);
+
+% fprintf('===========\n');
+for i = 1 : num_of_gesture    
+    for r = 1 : test_size        
+        RMS_idx = (i - 1) * num_of_gesture + r;
+        RMS_list_R2(test_idx(r), i) = temp_RMS_list(RMS_idx);
+        
+%         segment_name = [gesture_list{i} '_' num2str(test_idx(r))];
+%         fprintf('%s %2.10f\n', segment_name, temp_RMS_list(RMS_idx));                
+    end
+%     fprintf('---\n');
+end
+% fprintf('===========\n');
+
 end
 all_RMS_list = [all_RMS_list RMS_list];
+all_RMS_list_R2 = [all_RMS_list_R2 RMS_list_R2];
 end
 
 save(record_filename, 'all_RMS_list');
-
+save([record_filename '_R2'], 'all_RMS_list_R2');
 end
 
 end
