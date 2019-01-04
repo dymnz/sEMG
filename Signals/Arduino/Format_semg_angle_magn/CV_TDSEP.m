@@ -20,7 +20,7 @@ hidden_node_count = '8';
 % TDSEP
 tdsep_tau = [0:2];
 
-for exp_num = 401
+for exp_num = 402
 for target_sample_rate = [35]
     
 fprintf('============================= TDSEP S2WA%d %d_SPS =============================\n', exp_num, target_sample_rate);
