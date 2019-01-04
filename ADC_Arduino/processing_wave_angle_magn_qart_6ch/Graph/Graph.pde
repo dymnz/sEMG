@@ -9,7 +9,7 @@ enum SerialState {
 SerialState serial_state = SerialState.HOLD;
 
 final String SERIAL_NAME = "/dev/ttyACM0";
-final String filename = "../../../Signals/Arduino/Format_semg_angle_magn/data/raw_S2WA_YAO_631_" + "PRO" + "_1" + ".txt";
+final String filename = "../../../Signals/Arduino/Format_semg_angle_magn/data/raw_S2WA_BEN_631_" + "ICA" + "_4" + ".txt";
 
 
 final int width = 1280;
