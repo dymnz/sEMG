@@ -204,7 +204,7 @@
         <z:libraryCatalog>PubMed</z:libraryCatalog>
         <z:language>eng</z:language>
         <dcterms:abstract>Analyzing motor unit (MU) activity is essential for studying the neurological dysfunction of upper motor neuron disorders (UMND). This study employs multichannel surface electromyographic (EMG) signals, as recorded from the upper arm during elbow flexion and extension, to analyze the temporal changes and spatial distribution of the dominant firing rate. To estimate the dominant firing rate, the autoregressive (AR) spectrum analysis method is utilized to detect the peaks and poles of the AR model, of the surface EMG spectrum below 40 Hz. The temporal changes in firing rates are also observed by using the spectrogram representation of low-frequency EMG spectra. The EMG spectrogram facilitates examination of the time-varying characteristics of firing rates and recruitment of MUs from surface EMG signal. The low-frequency spectra of multichannel EMG are then represented in a polar form to visualize the spatial distribution of firing patterns across muscles. Via spatio-temporal representation techniques, this study provides a viable approach of observing both the spatial and temporal patterns of MU activities in normal subjects and patients with UMND, including cerebrovascular disease and Parkinson's disease.</dcterms:abstract>
-        <dc:title>Spatio-Temporal Representation of Multichannel Emg Firing Patterns and Its Clinical Applications</dc:title>
+        <dc:title>Spatio-Temporal Representation of Multichannel EMG Firing Patterns and Its Clinical Applications</dc:title>
     </bib:Article>
     <bib:Journal rdf:about="urn:issn:1350-4533">
         <prism:volume>19</prism:volume>
@@ -5307,16 +5307,25 @@ PMCID: PMC3878385</dc:description>
         <link:link rdf:resource="#item_1403"/>
         <link:link rdf:resource="#item_1402"/>
         <dc:subject>
-           <z:AutomaticTag><rdf:value>Actuators</rdf:value></z:AutomaticTag>
+           <z:AutomaticTag><rdf:value>Hand</rdf:value></z:AutomaticTag>
         </dc:subject>
         <dc:subject>
            <z:AutomaticTag><rdf:value>Arm</rdf:value></z:AutomaticTag>
         </dc:subject>
         <dc:subject>
-           <z:AutomaticTag><rdf:value>Friction</rdf:value></z:AutomaticTag>
+           <z:AutomaticTag><rdf:value>prosthetics</rdf:value></z:AutomaticTag>
         </dc:subject>
         <dc:subject>
-           <z:AutomaticTag><rdf:value>Hand</rdf:value></z:AutomaticTag>
+           <z:AutomaticTag><rdf:value>Prosthetics</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Wrist</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Actuators</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Friction</rdf:value></z:AutomaticTag>
         </dc:subject>
         <dc:subject>
            <z:AutomaticTag><rdf:value>hand mobility</rdf:value></z:AutomaticTag>
@@ -5376,21 +5385,12 @@ PMCID: PMC3878385</dc:description>
             </z:AutomaticTag>
         </dc:subject>
         <dc:subject>
-           <z:AutomaticTag><rdf:value>prosthetics</rdf:value></z:AutomaticTag>
-        </dc:subject>
-        <dc:subject>
-           <z:AutomaticTag><rdf:value>Prosthetics</rdf:value></z:AutomaticTag>
-        </dc:subject>
-        <dc:subject>
             <z:AutomaticTag>
                <rdf:value>radial/ulnar deviation</rdf:value>
             </z:AutomaticTag>
         </dc:subject>
         <dc:subject>
            <z:AutomaticTag><rdf:value>Sockets</rdf:value></z:AutomaticTag>
-        </dc:subject>
-        <dc:subject>
-           <z:AutomaticTag><rdf:value>Wrist</rdf:value></z:AutomaticTag>
         </dc:subject>
         <bib:pages>331-338</bib:pages>
         <dc:date>August 2015</dc:date>
